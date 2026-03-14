@@ -1,0 +1,38 @@
+<template>
+  <div id="app">
+    <!-- Header -->
+    <header class="pt-10 pb-6 px-6">
+      <div class="flex items-center justify-center gap-4 mb-2">
+        <div class="w-12 h-12 rounded-2xl bg-linear-to-br from-primary-start to-primary-end flex items-center justify-center shadow-lg shadow-purple-500/30">
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <circle cx="12" cy="12" r="3"></circle>
+            <line x1="12" y1="2" x2="12" y2="5"></line>
+            <line x1="12" y1="19" x2="12" y2="22"></line>
+            <line x1="2" y1="12" x2="5" y2="12"></line>
+            <line x1="19" y1="12" x2="22" y2="12"></line>
+          </svg>
+        </div>
+        <h1 class="text-3xl font-extrabold tracking-tight bg-linear-to-r from-primary-start via-accent to-primary-end bg-clip-text text-transparent">
+          Discogs Explorer
+        </h1>
+      </div>
+      <p class="text-white/40 text-sm font-medium tracking-wide">Browse your vinyl collection beautifully</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="px-6 pb-12">
+      <UserForm />
+    </main>
+  </div>
+</template>
+
+<script setup lang="ts">
+import UserForm from './components/UserForm.vue';
+</script>
+
+<style scoped>
+#app {
+  width: 100%;
+}
+</style>

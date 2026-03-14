@@ -1,0 +1,1 @@
+// Types file - can be used for future type definitions if needed
