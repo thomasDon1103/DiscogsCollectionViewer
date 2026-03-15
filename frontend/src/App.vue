@@ -22,13 +22,13 @@
 
     <!-- Main Content -->
     <main class="px-6 pb-12">
-      <UserForm />
+      <MainPage />
     </main>
   </div>
 </template>
 
 <script setup lang="ts">
-import UserForm from './components/UserForm.vue';
+import MainPage from './components/mainPage.vue';
 </script>
 
 <style scoped>
