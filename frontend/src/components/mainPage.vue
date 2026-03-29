@@ -141,9 +141,10 @@
         <!-- Random Albun Button -->
         <div class="flex items-center justify-center gap-4 mb-4 mt-4">
           <div
-            class="w-72 h-12 rounded-2xl bg-linear-to-br from-primary-start to-primary-end flex items-center justify-center shadow-lg shadow-purple-500/30 randomButton">
+            class="group w-72 h-12 rounded-2xl bg-linear-to-br from-primary-start to-primary-end flex items-center justify-center shadow-lg shadow-purple-500/30 randomButton">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="group-hover:animate-spin">
               <circle cx="12" cy="12" r="10"></circle>
               <circle cx="12" cy="12" r="3"></circle>
               <line x1="12" y1="2" x2="12" y2="5"></line>
@@ -160,7 +161,6 @@
       </div>
     </transition>
   </div>
-  <audio ref="backgroundAudioPlayer" :src="backroundMusicURL" loop></audio>
 </template>
 
 <script setup lang="ts">
@@ -170,6 +170,8 @@ import { discogsService } from '../services/api';
 import loginForm, { LoginFormData } from './loginForm.vue'
 import Select from 'primevue/select';
 import albumCarousel from "./albumCarousel.vue"
+
+const emit = defineEmits(["startBackgroundMusic", "stopBackgroundMusic"]);
 
 const formData = ref<LoginFormData>({
   username: '',
@@ -210,63 +212,6 @@ let abortController: AbortController | null = null;
 const swipeAudio = new Audio('sounds/swipe.wav');
 swipeAudio.volume = 0.3;
 const startAudio = new Audio('sounds/startup.mp3');
-const backgroundAudioPlayer = ref<HTMLAudioElement | null>(null);
-
-const backroundMusicURL = "sounds/background.mp3";
-
-const FADE_DURATION = 500; // milliseconds
-const FADE_INTERVAL = 20;  // milliseconds
-const MAX_VOLUME = 1.0;
-
-const backgroundFadeIn = () => {
-  if (!backgroundAudioPlayer.value) return;
-
-  // Start at silent volume before playing
-  backgroundAudioPlayer.value.volume = 0;
-  backgroundAudioPlayer.value.play();
-
-  const interval = setInterval(() => {
-    if (!backgroundAudioPlayer.value) return;
-
-    // Increase volume in small steps
-    if (backgroundAudioPlayer.value.volume < MAX_VOLUME) {
-      const newVol = backgroundAudioPlayer.value.volume + (MAX_VOLUME * FADE_INTERVAL) / FADE_DURATION;
-      if (newVol < MAX_VOLUME) {
-        backgroundAudioPlayer.value.volume = newVol;
-      }
-      else {
-        backgroundAudioPlayer.value.volume = MAX_VOLUME;
-        clearInterval(interval);
-      }
-    } else {
-      clearInterval(interval);
-    }
-  }, FADE_INTERVAL);
-};
-
-const backgroundFadeOut = () => {
-  if (!backgroundAudioPlayer.value) return;
-
-  const interval = setInterval(() => {
-    if (!backgroundAudioPlayer.value) return;
-
-    // Decrease volume in small steps
-    if (backgroundAudioPlayer.value.volume > 0) {
-      const newVol = backgroundAudioPlayer.value.volume - (MAX_VOLUME * FADE_INTERVAL) / FADE_DURATION;
-      if (newVol > 0.0) {
-        backgroundAudioPlayer.value.volume = newVol;
-      }
-      else {
-        backgroundAudioPlayer.value.volume = 0;
-        clearInterval(interval);
-        backgroundAudioPlayer.value.pause();
-      }
-    } else {
-      clearInterval(interval);
-      backgroundAudioPlayer.value.pause();
-    }
-  }, FADE_INTERVAL);
-};
 
 // Keyboard navigation
 const handleKeydown = (e: KeyboardEvent) => {
@@ -302,7 +247,7 @@ const resetForm = () => {
     error.value = null;
     currentIndex.value = 0;
   }, 500);
-  backgroundFadeOut();
+  emit("stopBackgroundMusic");
 };
 
 const handleFormGone = () => {
@@ -355,7 +300,7 @@ const handleSubmit = async () => {
       setTimeout(() => {
         // Code to run after 50ms
       }, 50);
-      backgroundFadeIn();
+      emit("startBackgroundMusic");
     };
 
   }
@@ -440,20 +385,6 @@ const handleFilter = () => {
 </script>
 
 <style scoped>
-.card-glass {
-  background: rgba(30, 30, 46, 0.8);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow:
-    0 25px 50px -12px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
-  transition: all 0.3s ease;
-}
-
-.card-glass:hover {
-  border-color: rgba(255, 255, 255, 0.12);
-}
-
 .randomButton {
   background-size: 350% 100%;
   transition: all .4s ease-in-out;
