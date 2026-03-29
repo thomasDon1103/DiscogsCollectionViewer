@@ -1,13 +1,13 @@
 <template>
   <div class="relative">
-    <!-- Change User Button -->
+    <!-- Header Selections -->
     <transition enter-active-class="transition-all duration-500 ease-out delay-500"
       enter-from-class="opacity-0 -translate-y-4" enter-to-class="opacity-100 translate-y-0"
       leave-active-class="transition-all duration-500 ease-in" leave-from-class="opacity-100 translate-y-0"
       leave-to-class="opacity-0 -translate-y-4">
       <div v-if="showCollection" class="flex items-center justify-center gap-4 mb-10">
         <button @click="resetForm"
-          class="flex items-center gap-2.5 px-5 py-2.5 bg-white/10 backdrop-blur-sm text-white/80 rounded-full text-sm font-medium border border-white/10 hover:bg-white/20 hover:text-white hover:border-white/20 active:scale-95 transition-all duration-500">
+          class="flex items-center gap-2.5 px-5 py-2.5 bg-white/10 backdrop-blur-sm text-white rounded-full text-sm font-medium border border-white/10 hover:bg-white/20 hover:text-white hover:border-white/20 active:scale-95 transition-all duration-500">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="15 18 9 12 15 6"></polyline>
@@ -15,9 +15,23 @@
           Change User
         </button>
         <div class="px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full border border-white/10">
-          <span class="text-white/50 text-sm">Viewing</span>
-          <span class="text-white font-semibold text-sm ml-1.5">{{ formData.username }}'s</span>
-          <span class="text-white/50 text-sm ml-1">collection</span>
+          <span class="text-white text-sm">Viewing</span>
+          <span class="text-accent font-semibold text-sm ml-1.5">{{ formData.username }}'s</span>
+          <span class="text-white text-sm ml-1">collection</span>
+        </div>
+
+        <div class="w-sm">
+          <Select v-model="selectedGenre" :options="collectionGenres" placeholder="What are you in the mood for?"
+            @change="handleFilter" :virtualScrollerOptions="{ itemSize: 38, showLoader: false }" :pt="{
+              root: { class: 'bg-white/10 !border border-white/10 flex justify-center' },
+              label: { class: 'text-white text-base font-medium' },
+              panel: { class: 'bg-transparent' }, // Dropdown overlay panel
+              overlay: { class: 'flex justify-center ' },
+              option: { class: 'flex items-center justify-center gap-2.5 px-5 py-2.5 w-full hover:bg-white/20 rounded-full text-center active:scale-95 transition-all duration-500 my-1' },
+              list: { class: 'text-center' },
+              listContainer: { class: 'bg-white/10 rounded-lg gap-5 px-5 py-2.5 w-3/4 m-1' }
+            }"
+            class="w-full flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-white/10 hover:bg-white/20 hover:border-white/20 active:scale-95 transition-all duration-500 bg-white/10 "></Select>
         </div>
       </div>
     </transition>
@@ -109,7 +123,7 @@
                         class="w-full aspect-square object-cover" draggable="false" />
                       <!-- Subtle gradient overlay at bottom of image -->
                       <div v-if="index === currentIndex"
-                        class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/30 to-transparent">
+                        class="absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-black/30 to-transparent">
                       </div>
                       <!-- Format badge -->
                       <div v-if="index === currentIndex && release.basic_information.formats.length > 0"
@@ -201,10 +215,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
-import type { DiscogsCollectionResponse } from '../types/Discogs';
+import { ref, onMounted, onUnmounted, computed } from 'vue';
+import type { DiscogsCollectionResponse, DiscogsRelease } from '../types/Discogs';
 import { discogsService } from '../services/api';
 import loginForm, { LoginFormData } from './loginForm.vue'
+import Select from 'primevue/select';
 
 const formData = ref<LoginFormData>({
   username: '',
@@ -216,6 +231,22 @@ const loadingMore = ref(false);
 const totalItems = ref(0);
 const error = ref<string | null>(null);
 const collectionData = ref<DiscogsCollectionResponse | null>(null);
+const filteredCollectionData = computed(() => {
+  if (selectedGenre.value === '' || selectedGenre.value === anyGenreStr) {
+    return collectionData;
+  }
+  const filteredCollection: DiscogsCollectionResponse = {
+    pagination: collectionData.value?.pagination!,
+    releases: []
+  };
+  filteredCollection.releases = collectionData.value?.releases.filter(release => release.basic_information.genres.includes(selectedGenre.value)) as DiscogsRelease[];
+  return filteredCollection;
+})
+
+const anyGenreStr = "Anything's Fine";
+const collectionGenres = computed(() => { return [anyGenreStr, ... new Set(collectionData.value?.releases.map(release => release.basic_information.genres.flat()).flat())] });
+const selectedGenre = ref('')
+
 const currentIndex = ref(0);
 const showCollection = ref(false);
 const showForm = ref(true);
@@ -453,6 +484,10 @@ const randomAlbum = () => {
   }
   const randomNumber = Math.floor(Math.random() * (collectionData.value?.releases.length + 1));
   goToRelease(randomNumber);
+}
+
+const handleFilter = () => {
+  currentIndex.value = 0;
 }
 
 // Calculate card positioning and styling for carousel effect

@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "tailwindcss-primeui";
 
 @theme {
   --color-primary-start: #667eea;
@@ -44,7 +45,7 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
+  background:
     radial-gradient(ellipse at 20% 50%, rgba(102, 126, 234, 0.08) 0%, transparent 50%),
     radial-gradient(ellipse at 80% 20%, rgba(118, 75, 162, 0.08) 0%, transparent 50%),
     radial-gradient(ellipse at 50% 80%, rgba(240, 171, 252, 0.05) 0%, transparent 50%);
@@ -108,4 +109,26 @@ input:focus-visible {
 ::selection {
   background: rgba(102, 126, 234, 0.4);
   color: white;
+}
+
+.p-anchored-overlay-enter-active {
+    animation: demo-overlay-in 300ms ease-out;
+}
+
+.p-anchored-overlay-leave-active {
+    animation: demo-overlay-out 250ms ease-in;
+}
+
+@keyframes demo-overlay-in {
+    from {
+        opacity: 0;
+        transform: translateY(10%);
+    }
+}
+
+@keyframes demo-overlay-out {
+    to {
+        opacity: 0;
+        transform: translateY(10%);
+    }
 }
