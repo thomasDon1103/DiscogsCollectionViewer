@@ -98,74 +98,16 @@
           </p>
         </div>
 
+        <!-- Carousel -->
         <div class="px-4 py-6  min-h-170">
           <transition enter-active-class="transition-all duration-300 ease-out delay-300"
             enter-from-class="opacity-0 -translate-y-4" enter-to-class="opacity-100 translate-y-0"
             leave-active-class="transition-all duration-300 ease-in" leave-from-class="opacity-100 translate-y-0"
             leave-to-class="opacity-0 -translate-y-4" @after-leave="handleCarouselGone">
-            <!-- Carousel -->
-            <div class="flex items-center justify-center gap-6" v-if="showCarousel">
-              <button @click="previousRelease" :disabled="currentIndex === 0"
-                class="shrink-0 w-12 h-12 flex items-center justify-center bg-white/10 backdrop-blur-sm text-white rounded-full border border-white/10 hover:bg-white/20 hover:border-white/20 hover:scale-110 active:scale-95 transition-all duration-300 disabled:opacity-20 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:bg-white/10 z-10">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
-              </button>
-
-              <div class="relative flex-1 max-w-5xl overflow-visible cursor-grab active:cursor-grabbing select-none"
-                @mousedown="handleDragStart" @mousemove="handleDragMove" @mouseup="handleDragEnd"
-                @mouseleave="handleDragEnd" @touchstart="handleTouchStart" @touchmove="handleTouchMove"
-                @touchend="handleTouchEnd">
-                <div class="flex items-center justify-center relative" style="height: 580px;">
-                  <div id="albumCard" v-for="(release, index) in filteredCollectionData!.releases" :key="release.id"
-                    class="absolute transition-all duration-500 ease-in-out" :style="getCardStyle(index)">
-                    <div class="rounded-2xl overflow-hidden card-glass" :class="{
-                      'cursor-pointer hover:scale-[1.02]': index !== currentIndex,
-                      'ring-2 ring-white/20': index === currentIndex
-                    }" @click="index !== currentIndex && goToRelease(index)">
-                      <div class="relative">
-                        <img :src="release.basic_information.cover_image" :alt="release.basic_information.title"
-                          class="w-full aspect-square object-cover" draggable="false" />
-                        <!-- Subtle gradient overlay at bottom of image -->
-                        <div v-if="index === currentIndex"
-                          class="absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-black/30 to-transparent">
-                        </div>
-                        <!-- Format badge -->
-                        <div v-if="index === currentIndex && release.basic_information.formats.length > 0"
-                          class="absolute top-3 right-3 px-3 py-1 bg-black/50 backdrop-blur-md rounded-full text-white text-xs font-medium border border-white/10">
-                          {{ release.basic_information.formats[0].name }}
-                        </div>
-                      </div>
-                      <div v-if="index === currentIndex" class="p-6 bg-surface-light/95 backdrop-blur-sm">
-                        <p class="font-bold text-xl text-white mb-1.5 leading-tight truncate">{{
-                          release.basic_information.title }}</p>
-                        <p class="text-white/60 text-base mb-4 truncate">{{release.basic_information.artists.map(a =>
-                          a.name).join(', ')}}</p>
-                        <div class="flex items-center justify-center gap-2 flex-wrap">
-                          <span v-for="genre in release.basic_information.genres" :key="genre"
-                            class="px-3 py-1 bg-white/10 rounded-full text-white/70 text-xs font-medium border border-white/5">
-                            {{ genre }}
-                          </span>
-                          <span v-if="release.basic_information.year"
-                            class="px-3 py-1 bg-primary-start/20 rounded-full text-primary-start text-xs font-semibold border border-primary-start/10">
-                            {{ release.basic_information.year }}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <button @click="nextRelease" :disabled="currentIndex === filteredCollectionData!.releases.length - 1"
-                class="shrink-0 w-12 h-12 flex items-center justify-center bg-white/10 backdrop-blur-sm text-white rounded-full border border-white/10 hover:bg-white/20 hover:border-white/20 hover:scale-110 active:scale-95 transition-all duration-300 disabled:opacity-20 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:bg-white/10 z-10">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </button>
-            </div>
+            <albumCarousel :collection-data="filteredCollectionData" :show-carousel="showCarousel"
+              :current-index="currentIndex" @next-release="nextRelease" @prev-release="previousRelease"
+              @go-to-release="goToRelease">
+            </albumCarousel>
           </transition>
         </div>
 
@@ -227,6 +169,7 @@ import type { DiscogsCollectionResponse, DiscogsRelease } from '../types/Discogs
 import { discogsService } from '../services/api';
 import loginForm, { LoginFormData } from './loginForm.vue'
 import Select from 'primevue/select';
+import albumCarousel from "./albumCarousel.vue"
 
 const formData = ref<LoginFormData>({
   username: '',
@@ -263,12 +206,6 @@ const showCarousel = ref(true);
 
 // Used to cancel background fetching when the user resets
 let abortController: AbortController | null = null;
-
-// Drag/swipe state
-const isDragging = ref(false);
-const startX = ref(0);
-const currentX = ref(0);
-const dragThreshold = 50; // pixels to trigger slide change
 
 const swipeAudio = new Audio('sounds/swipe.wav');
 swipeAudio.volume = 0.3;
@@ -383,11 +320,6 @@ const handleCarouselGone = () => {
   }
 }
 
-const playSwipe = () => {
-  swipeAudio.currentTime = 0; // Rewind if played quickly
-  swipeAudio.play();
-}
-
 const handleSubmit = async () => {
   loading.value = true;
   error.value = null;
@@ -478,20 +410,17 @@ const fetchRemainingPages = async (totalPages: number) => {
 const nextRelease = () => {
   if (filteredCollectionData.value && currentIndex.value < filteredCollectionData.value.releases.length - 1) {
     currentIndex.value++;
-    playSwipe();
   }
 };
 
 const previousRelease = () => {
   if (currentIndex.value > 0) {
     currentIndex.value--;
-    playSwipe();
   }
 };
 
 const goToRelease = (index: number) => {
   currentIndex.value = index;
-  playSwipe();
 };
 
 const randomAlbum = () => {
@@ -508,98 +437,6 @@ const handleFilter = () => {
   showCarousel.value = false;
   currentIndex.value = 0;
 }
-
-// Calculate card positioning and styling for carousel effect
-const getCardStyle = (index: number) => {
-  const diff = index - currentIndex.value;
-  const absDiff = Math.abs(diff);
-
-  // Only show cards within 2 positions of current
-  if (absDiff > 2) {
-    return {
-      opacity: '0',
-      transform: 'translateX(0) scale(0.5)',
-      pointerEvents: undefined,
-      zIndex: '0',
-    };
-  }
-
-  // Center card (current)
-  if (diff === 0) {
-    return {
-      opacity: '1',
-      transform: 'translateX(0) scale(1)',
-      zIndex: '5',
-      width: '380px',
-      filter: 'brightness(1)',
-    };
-  }
-
-  // Side cards
-  const offset = diff * 260; // Horizontal spacing
-  const scale = 0.72 - (absDiff - 1) * 0.1; // Scale down further cards
-  const opacity = 0.5 - (absDiff - 1) * 0.2; // Fade out further cards
-  const zIndex = 5 - absDiff;
-
-  return {
-    opacity: opacity.toString(),
-    transform: `translateX(${offset}px) scale(${scale})`,
-    zIndex: zIndex.toString(),
-    width: '380px',
-    filter: `brightness(0.6)`,
-  };
-};
-
-// Mouse drag handlers
-const handleDragStart = (e: MouseEvent) => {
-  isDragging.value = true;
-  startX.value = e.clientX;
-  currentX.value = e.clientX;
-};
-
-const handleDragMove = (e: MouseEvent) => {
-  if (!isDragging.value) return;
-  currentX.value = e.clientX;
-};
-
-const handleDragEnd = () => {
-  if (!isDragging.value) return;
-
-  const diff = startX.value - currentX.value;
-
-  if (Math.abs(diff) > dragThreshold) {
-    if (diff > 0) {
-      nextRelease();
-    } else {
-      previousRelease();
-    }
-  }
-
-  isDragging.value = false;
-};
-
-// Touch handlers
-const handleTouchStart = (e: TouchEvent) => {
-  startX.value = e.touches[0].clientX;
-  currentX.value = e.touches[0].clientX;
-};
-
-const handleTouchMove = (e: TouchEvent) => {
-  currentX.value = e.touches[0].clientX;
-};
-
-const handleTouchEnd = () => {
-  const diff = startX.value - currentX.value;
-
-  if (Math.abs(diff) > dragThreshold) {
-    if (diff > 0) {
-      nextRelease();
-    } else {
-      previousRelease();
-    }
-  }
-};
-
 </script>
 
 <style scoped>
