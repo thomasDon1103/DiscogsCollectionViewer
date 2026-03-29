@@ -7,15 +7,6 @@ import Aura from '@primeuix/themes/aura';
 const app = createApp(App);
 
 app.use(PrimeVue, {
-    // theme: {
-    //     preset: Aura,
-    //     options: {
-    //         cssLayer: {
-    //             name: 'primevue',
-    //             order: 'tailwind-base, primevue, tailwind-utilities'
-    //         }
-    //     }
-    // }
     unstyled: true
 });
 

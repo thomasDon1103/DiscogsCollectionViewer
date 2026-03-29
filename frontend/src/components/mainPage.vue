@@ -1,37 +1,39 @@
 <template>
   <div class="relative">
-    <!-- Header Selections -->
+    <!-- Header -->
     <transition enter-active-class="transition-all duration-500 ease-out delay-500"
       enter-from-class="opacity-0 -translate-y-4" enter-to-class="opacity-100 translate-y-0"
       leave-active-class="transition-all duration-500 ease-in" leave-from-class="opacity-100 translate-y-0"
       leave-to-class="opacity-0 -translate-y-4">
-      <div v-if="showCollection" class="flex items-center justify-center gap-4 mb-10">
-        <button @click="resetForm"
-          class="flex items-center gap-2.5 px-5 py-2.5 bg-white/10 backdrop-blur-sm text-white rounded-full text-sm font-medium border border-white/10 hover:bg-white/20 hover:text-white hover:border-white/20 active:scale-95 transition-all duration-500">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-          Change User
-        </button>
+      <div v-if="showCollection" class="flex flex-col items-center justify-center gap-4 mb-10">
         <div class="px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full border border-white/10">
           <span class="text-white text-sm">Viewing</span>
           <span class="text-accent font-semibold text-sm ml-1.5">{{ formData.username }}'s</span>
           <span class="text-white text-sm ml-1">collection</span>
         </div>
-
-        <div class="w-sm">
-          <Select v-model="selectedGenre" :options="collectionGenres" placeholder="What are you in the mood for?"
-            @change="handleFilter" :virtualScrollerOptions="{ itemSize: 38, showLoader: false }" :pt="{
-              root: { class: 'bg-white/10 !border border-white/10 flex justify-center' },
-              label: { class: 'text-white text-base font-medium' },
-              panel: { class: 'bg-transparent' }, // Dropdown overlay panel
-              overlay: { class: 'flex justify-center ' },
-              option: { class: 'flex items-center justify-center gap-2.5 px-5 py-2.5 w-full hover:bg-white/20 rounded-full text-center active:scale-95 transition-all duration-500 my-1' },
-              list: { class: 'text-center' },
-              listContainer: { class: 'bg-white/10 rounded-lg gap-5 px-5 py-2.5 w-3/4 m-1' }
-            }"
-            class="w-full flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-white/10 hover:bg-white/20 hover:border-white/20 active:scale-95 transition-all duration-500 bg-white/10 "></Select>
+        <!-- Header Buttons -->
+        <div v-if="showCollection" class="flex items-center justify-center gap-4 ">
+          <button @click="resetForm"
+            class="flex items-center gap-2.5 px-5 py-2.5 bg-white/10 backdrop-blur-sm text-white rounded-full text-sm font-medium border border-white/10 hover:bg-white/20 hover:text-white hover:border-white/20 active:scale-95 transition-all duration-500">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            Change User
+          </button>
+          <div class="w-sm">
+            <Select v-model="selectedGenre" :options="collectionGenres" placeholder="What are you in the mood for?"
+              @change="handleFilter" :virtualScrollerOptions="{ itemSize: 38, showLoader: false }" :pt="{
+                root: { class: 'bg-white/10 !border border-white/10 flex justify-center ' },
+                label: { class: 'text-white text-base font-medium' },
+                panel: { class: 'bg-transparent' },
+                overlay: { class: 'flex justify-center ' },
+                option: { class: 'hover:cursor-pointer flex items-center justify-center gap-2.5 px-5 py-2.5 w-full hover:bg-white/20 rounded-full text-center active:scale-95 transition-all duration-500 my-1' },
+                list: { class: 'text-center' },
+                listContainer: { class: 'bg-linear-to-br from-primary-start to-primary-end rounded-lg gap-5 px-5 py-2.5 w-3/4 m-3 border border-white/10 shadow shadow-purple-500/30 shadow-xl' }
+              }"
+              class="  hover:cursor-pointer w-full flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-white/10 hover:bg-white/20 hover:border-white/20 active:scale-95 transition-all duration-500 bg-white/10 "></Select>
+          </div>
         </div>
       </div>
     </transition>
@@ -77,7 +79,7 @@
       leave-to-class="opacity-0 scale-95" @after-leave="handleCollectionGone">
       <div v-if="showCollection" class="max-w-7xl mx-auto">
         <!-- Collection Header -->
-        <div class="mb-10">
+        <div>
           <h3 class="text-center text-3xl font-bold text-white mb-2">
             {{ totalItems }} Records
           </h3>
@@ -90,76 +92,81 @@
                   d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
                 </path>
               </svg>
-              Loading {{ collectionData!.releases.length }} of {{ totalItems }} records...
+              Loading {{ collectionData?.releases.length }} of {{ totalItems }} records...
             </span>
             <span v-else>Swipe or use arrows to browse</span>
           </p>
         </div>
 
-        <!-- Carousel -->
-        <div class="px-4 py-6">
-          <div class="flex items-center justify-center gap-6">
-            <button @click="previousRelease" :disabled="currentIndex === 0"
-              class="shrink-0 w-12 h-12 flex items-center justify-center bg-white/10 backdrop-blur-sm text-white rounded-full border border-white/10 hover:bg-white/20 hover:border-white/20 hover:scale-110 active:scale-95 transition-all duration-300 disabled:opacity-20 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:bg-white/10 z-10">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="15 18 9 12 15 6"></polyline>
-              </svg>
-            </button>
+        <div class="px-4 py-6  min-h-170">
+          <transition enter-active-class="transition-all duration-300 ease-out delay-300"
+            enter-from-class="opacity-0 -translate-y-4" enter-to-class="opacity-100 translate-y-0"
+            leave-active-class="transition-all duration-300 ease-in" leave-from-class="opacity-100 translate-y-0"
+            leave-to-class="opacity-0 -translate-y-4" @after-leave="handleCarouselGone">
+            <!-- Carousel -->
+            <div class="flex items-center justify-center gap-6" v-if="showCarousel">
+              <button @click="previousRelease" :disabled="currentIndex === 0"
+                class="shrink-0 w-12 h-12 flex items-center justify-center bg-white/10 backdrop-blur-sm text-white rounded-full border border-white/10 hover:bg-white/20 hover:border-white/20 hover:scale-110 active:scale-95 transition-all duration-300 disabled:opacity-20 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:bg-white/10 z-10">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
 
-            <div class="relative flex-1 max-w-5xl overflow-visible cursor-grab active:cursor-grabbing select-none"
-              @mousedown="handleDragStart" @mousemove="handleDragMove" @mouseup="handleDragEnd"
-              @mouseleave="handleDragEnd" @touchstart="handleTouchStart" @touchmove="handleTouchMove"
-              @touchend="handleTouchEnd">
-              <div class="flex items-center justify-center relative" style="height: 580px;">
-                <div id="albumCard" v-for="(release, index) in collectionData!.releases" :key="release.id"
-                  class="absolute transition-all duration-500 ease-in-out" :style="getCardStyle(index)">
-                  <div class="rounded-2xl overflow-hidden card-glass" :class="{
-                    'cursor-pointer hover:scale-[1.02]': index !== currentIndex,
-                    'ring-2 ring-white/20': index === currentIndex
-                  }" @click="index !== currentIndex && goToRelease(index)">
-                    <div class="relative">
-                      <img :src="release.basic_information.cover_image" :alt="release.basic_information.title"
-                        class="w-full aspect-square object-cover" draggable="false" />
-                      <!-- Subtle gradient overlay at bottom of image -->
-                      <div v-if="index === currentIndex"
-                        class="absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-black/30 to-transparent">
+              <div class="relative flex-1 max-w-5xl overflow-visible cursor-grab active:cursor-grabbing select-none"
+                @mousedown="handleDragStart" @mousemove="handleDragMove" @mouseup="handleDragEnd"
+                @mouseleave="handleDragEnd" @touchstart="handleTouchStart" @touchmove="handleTouchMove"
+                @touchend="handleTouchEnd">
+                <div class="flex items-center justify-center relative" style="height: 580px;">
+                  <div id="albumCard" v-for="(release, index) in filteredCollectionData!.releases" :key="release.id"
+                    class="absolute transition-all duration-500 ease-in-out" :style="getCardStyle(index)">
+                    <div class="rounded-2xl overflow-hidden card-glass" :class="{
+                      'cursor-pointer hover:scale-[1.02]': index !== currentIndex,
+                      'ring-2 ring-white/20': index === currentIndex
+                    }" @click="index !== currentIndex && goToRelease(index)">
+                      <div class="relative">
+                        <img :src="release.basic_information.cover_image" :alt="release.basic_information.title"
+                          class="w-full aspect-square object-cover" draggable="false" />
+                        <!-- Subtle gradient overlay at bottom of image -->
+                        <div v-if="index === currentIndex"
+                          class="absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-black/30 to-transparent">
+                        </div>
+                        <!-- Format badge -->
+                        <div v-if="index === currentIndex && release.basic_information.formats.length > 0"
+                          class="absolute top-3 right-3 px-3 py-1 bg-black/50 backdrop-blur-md rounded-full text-white text-xs font-medium border border-white/10">
+                          {{ release.basic_information.formats[0].name }}
+                        </div>
                       </div>
-                      <!-- Format badge -->
-                      <div v-if="index === currentIndex && release.basic_information.formats.length > 0"
-                        class="absolute top-3 right-3 px-3 py-1 bg-black/50 backdrop-blur-md rounded-full text-white text-xs font-medium border border-white/10">
-                        {{ release.basic_information.formats[0].name }}
-                      </div>
-                    </div>
-                    <div v-if="index === currentIndex" class="p-6 bg-surface-light/95 backdrop-blur-sm">
-                      <p class="font-bold text-xl text-white mb-1.5 leading-tight truncate">{{
-                        release.basic_information.title }}</p>
-                      <p class="text-white/60 text-base mb-4 truncate">{{release.basic_information.artists.map(a =>
-                        a.name).join(', ')}}</p>
-                      <div class="flex items-center justify-center gap-2 flex-wrap">
-                        <span v-for="genre in release.basic_information.genres" :key="genre"
-                          class="px-3 py-1 bg-white/10 rounded-full text-white/70 text-xs font-medium border border-white/5">
-                          {{ genre }}
-                        </span>
-                        <span v-if="release.basic_information.year"
-                          class="px-3 py-1 bg-primary-start/20 rounded-full text-primary-start text-xs font-semibold border border-primary-start/10">
-                          {{ release.basic_information.year }}
-                        </span>
+                      <div v-if="index === currentIndex" class="p-6 bg-surface-light/95 backdrop-blur-sm">
+                        <p class="font-bold text-xl text-white mb-1.5 leading-tight truncate">{{
+                          release.basic_information.title }}</p>
+                        <p class="text-white/60 text-base mb-4 truncate">{{release.basic_information.artists.map(a =>
+                          a.name).join(', ')}}</p>
+                        <div class="flex items-center justify-center gap-2 flex-wrap">
+                          <span v-for="genre in release.basic_information.genres" :key="genre"
+                            class="px-3 py-1 bg-white/10 rounded-full text-white/70 text-xs font-medium border border-white/5">
+                            {{ genre }}
+                          </span>
+                          <span v-if="release.basic_information.year"
+                            class="px-3 py-1 bg-primary-start/20 rounded-full text-primary-start text-xs font-semibold border border-primary-start/10">
+                            {{ release.basic_information.year }}
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <button @click="nextRelease" :disabled="currentIndex === collectionData!.releases.length - 1"
-              class="shrink-0 w-12 h-12 flex items-center justify-center bg-white/10 backdrop-blur-sm text-white rounded-full border border-white/10 hover:bg-white/20 hover:border-white/20 hover:scale-110 active:scale-95 transition-all duration-300 disabled:opacity-20 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:bg-white/10 z-10">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-            </button>
-          </div>
+              <button @click="nextRelease" :disabled="currentIndex === filteredCollectionData!.releases.length - 1"
+                class="shrink-0 w-12 h-12 flex items-center justify-center bg-white/10 backdrop-blur-sm text-white rounded-full border border-white/10 hover:bg-white/20 hover:border-white/20 hover:scale-110 active:scale-95 transition-all duration-300 disabled:opacity-20 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:bg-white/10 z-10">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+          </transition>
         </div>
 
         <!-- Progress indicator -->
@@ -169,7 +176,7 @@
             <!-- Loaded portion background (shows how much of the collection is fetched) -->
             <div v-if="loadingMore"
               class="absolute inset-y-0 left-0 bg-white/5 rounded-full transition-all duration-500 ease-out"
-              :style="{ width: `${(collectionData!.releases.length / totalItems) * 100}%` }"></div>
+              :style="{ width: `${(filteredCollectionData!.releases.length / totalItems) * 100}%` }"></div>
             <!-- Current position indicator -->
             <div
               class="h-full bg-linear-to-r from-primary-start to-primary-end rounded-full transition-all duration-500 ease-out relative"
@@ -228,12 +235,14 @@ const formData = ref<LoginFormData>({
 
 const loading = ref(false);
 const loadingMore = ref(false);
-const totalItems = ref(0);
+const totalItems = computed(() => {
+  return filteredCollectionData.value?.releases.length ?? 0;
+});
 const error = ref<string | null>(null);
 const collectionData = ref<DiscogsCollectionResponse | null>(null);
 const filteredCollectionData = computed(() => {
   if (selectedGenre.value === '' || selectedGenre.value === anyGenreStr) {
-    return collectionData;
+    return collectionData.value;
   }
   const filteredCollection: DiscogsCollectionResponse = {
     pagination: collectionData.value?.pagination!,
@@ -241,7 +250,7 @@ const filteredCollectionData = computed(() => {
   };
   filteredCollection.releases = collectionData.value?.releases.filter(release => release.basic_information.genres.includes(selectedGenre.value)) as DiscogsRelease[];
   return filteredCollection;
-})
+});
 
 const anyGenreStr = "Anything's Fine";
 const collectionGenres = computed(() => { return [anyGenreStr, ... new Set(collectionData.value?.releases.map(release => release.basic_information.genres.flat()).flat())] });
@@ -250,6 +259,7 @@ const selectedGenre = ref('')
 const currentIndex = ref(0);
 const showCollection = ref(false);
 const showForm = ref(true);
+const showCarousel = ref(true);
 
 // Used to cancel background fetching when the user resets
 let abortController: AbortController | null = null;
@@ -323,7 +333,7 @@ const backgroundFadeOut = () => {
 
 // Keyboard navigation
 const handleKeydown = (e: KeyboardEvent) => {
-  if (!showCollection.value || !collectionData.value) return;
+  if (!showCollection.value || !filteredCollectionData.value) return;
   if (e.key === 'ArrowLeft') {
     e.preventDefault();
     previousRelease();
@@ -352,7 +362,6 @@ const resetForm = () => {
   // Wait for collection to fully fade out (500ms) before clearing data and showing form
   setTimeout(() => {
     collectionData.value = null;
-    totalItems.value = 0;
     error.value = null;
     currentIndex.value = 0;
   }, 500);
@@ -361,10 +370,17 @@ const resetForm = () => {
 
 const handleFormGone = () => {
   showCollection.value = true;
+  showCarousel.value = true;
 }
 
 const handleCollectionGone = () => {
   showForm.value = true;
+}
+
+const handleCarouselGone = () => {
+  if (showCollection.value) {
+    showCarousel.value = true;
+  }
 }
 
 const playSwipe = () => {
@@ -376,6 +392,7 @@ const handleSubmit = async () => {
   loading.value = true;
   error.value = null;
   currentIndex.value = 0;;
+  selectedGenre.value = '';
 
   try {
     // Fetch the first page
@@ -386,7 +403,6 @@ const handleSubmit = async () => {
     );
 
     collectionData.value = data;
-    totalItems.value = data.pagination.items;
 
     // Wait for form to fully fade out (500ms) before showing collection
     setTimeout(() => {
@@ -460,7 +476,7 @@ const fetchRemainingPages = async (totalPages: number) => {
 
 // Carousel navigation
 const nextRelease = () => {
-  if (collectionData.value && currentIndex.value < collectionData.value.releases.length - 1) {
+  if (filteredCollectionData.value && currentIndex.value < filteredCollectionData.value.releases.length - 1) {
     currentIndex.value++;
     playSwipe();
   }
@@ -479,14 +495,17 @@ const goToRelease = (index: number) => {
 };
 
 const randomAlbum = () => {
-  if (!collectionData.value) {
+  if (!filteredCollectionData.value) {
     return;
   }
-  const randomNumber = Math.floor(Math.random() * (collectionData.value?.releases.length + 1));
+  const randomNumber = Math.floor(Math.random() * (filteredCollectionData.value?.releases.length));
+  showCarousel.value = false;
   goToRelease(randomNumber);
+  // showCarousel.value = true;
 }
 
 const handleFilter = () => {
+  showCarousel.value = false;
   currentIndex.value = 0;
 }
 
