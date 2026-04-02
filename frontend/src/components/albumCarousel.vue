@@ -64,7 +64,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 import type { DiscogsCollectionResponse } from '../types/Discogs';
 
 const props = defineProps<{
@@ -133,6 +133,27 @@ const handleTouchEnd = () => {
         }
     }
 };
+
+onMounted(() => {
+    window.addEventListener('keydown', handleKeydown);
+});
+
+onUnmounted(() => {
+    window.removeEventListener('keydown', handleKeydown);
+});
+
+// Keyboard navigation
+const handleKeydown = (e: KeyboardEvent) => {
+    if (!props.showCarousel || !props.collectionData) return;
+    if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        previousRelease();
+    } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        nextRelease();
+    }
+};
+
 
 // Carousel navigation
 const nextRelease = () => {

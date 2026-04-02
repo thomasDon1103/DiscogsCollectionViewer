@@ -94,7 +94,6 @@
               </svg>
               Loading {{ collectionData?.releases.length }} of {{ totalItems }} records...
             </span>
-            <span v-else>Swipe or use arrows to browse</span>
           </p>
         </div>
 
@@ -132,10 +131,8 @@
           <div class="flex items-center gap-1.5">
             <kbd class="px-2 py-0.5 bg-white/5 border border-white/10 rounded text-[10px] font-mono">&larr;</kbd>
             <kbd class="px-2 py-0.5 bg-white/5 border border-white/10 rounded text-[10px] font-mono">&rarr;</kbd>
-            <span>Arrow keys</span>
+            <span>Swipe or use arrow keys to browse</span>
           </div>
-          <span class="text-white/10">|</span>
-          <span>Drag to browse</span>
         </div>
 
         <!-- Random Albun Button -->
@@ -154,7 +151,7 @@
             </svg>
             <button @click="randomAlbum"
               class="text-3xl font-extrabold tracking-tight bg-white bg-clip-text text-transparent">
-              Find Something For Me...
+              Find Me An Album...
             </button>
           </div>
         </div>
@@ -164,7 +161,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, computed } from 'vue';
+import { ref, computed } from 'vue';
 import type { DiscogsCollectionResponse, DiscogsRelease } from '../types/Discogs';
 import { discogsService } from '../services/api';
 import loginForm, { LoginFormData } from './loginForm.vue'
@@ -213,25 +210,6 @@ const swipeAudio = new Audio('sounds/swipe.wav');
 swipeAudio.volume = 0.3;
 const startAudio = new Audio('sounds/startup.mp3');
 
-// Keyboard navigation
-const handleKeydown = (e: KeyboardEvent) => {
-  if (!showCollection.value || !filteredCollectionData.value) return;
-  if (e.key === 'ArrowLeft') {
-    e.preventDefault();
-    previousRelease();
-  } else if (e.key === 'ArrowRight') {
-    e.preventDefault();
-    nextRelease();
-  }
-};
-
-onMounted(() => {
-  window.addEventListener('keydown', handleKeydown);
-});
-
-onUnmounted(() => {
-  window.removeEventListener('keydown', handleKeydown);
-});
 
 const resetForm = () => {
   // Cancel any in-progress background page fetches
