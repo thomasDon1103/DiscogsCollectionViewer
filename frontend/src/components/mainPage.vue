@@ -270,6 +270,7 @@ const handleSubmit = async () => {
   error.value = null;
   currentIndex.value = 0;;
   selectedGenre.value = '';
+  let playAudio = true;
 
   try {
     // Fetch the first page
@@ -292,17 +293,19 @@ const handleSubmit = async () => {
     }
   } catch (err) {
     error.value = (err as Error).message;
+    playAudio = false;
   } finally {
     loading.value = false;
-    startAudio.currentTime = 0; // Rewind if played quickly
-    startAudio.play();
-    startAudio.onended = () => {
-      setTimeout(() => {
-        // Code to run after 50ms
-      }, 50);
-      emit("startBackgroundMusic");
-    };
-
+    if (playAudio) {
+      startAudio.currentTime = 0; // Rewind if played quickly
+      startAudio.play();
+      startAudio.onended = () => {
+        setTimeout(() => {
+          // Code to run after 50ms
+        }, 50);
+        emit("startBackgroundMusic");
+      };
+    }
   }
 };
 
