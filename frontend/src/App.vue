@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="h-screen flex flex-col overflow-hidden">
     <!-- Header -->
     <header class="pt-10 pb-6 px-6">
       <div class="flex items-center justify-center gap-4 mb-2">

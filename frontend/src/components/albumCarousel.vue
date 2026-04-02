@@ -15,7 +15,7 @@
             <div class="flex items-center justify-center relative" style="height: 580px;">
                 <div id="albumCard" v-for="(release, index) in props.collectionData!.releases" :key="release.id"
                     class="absolute transition-all duration-500 ease-in-out" :style="getCardStyle(index)">
-                    <div class="rounded-2xl overflow-hidden card-glass" :class="{
+                    <div class="rounded-2xl overflow-hidden" :class="{
                         'cursor-pointer hover:scale-[1.02]': index !== currentIndex,
                         'ring-2 ring-white/20': index === currentIndex
                     }" @click="index !== currentIndex && goToRelease(index)">
