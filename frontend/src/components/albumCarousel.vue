@@ -15,7 +15,7 @@
             <div class="flex flex-col items-center justify-center relative h-90 sm:h-125">
                 <div id="albumCard" v-for="(release, index) in props.collectionData!.releases" :key="release.id"
                     class="absolute transition-all duration-500 ease-in-out flex flex-col items-center justify-center" :style="getCardStyle(index)">
-                    <div class="rounded-2xl overflow-hidden w-3/5 sm:w-full" :class="{
+                    <div class="rounded-2xl overflow-hidden w-3/5 sm:w-full h-80 sm:h-full" :class="{
                         'cursor-pointer hover:scale-[1.02]': index !== currentIndex,
                         'ring-2 ring-white/20': index === currentIndex
                     }" @click="index !== currentIndex && goToRelease(index)">
@@ -32,10 +32,10 @@
                                 {{ release.basic_information.formats[0].name }}
                             </div>
                         </div>
-                        <div v-if="index === currentIndex" class="p-6 bg-surface-light/95 backdrop-blur-sm">
-                            <p class="font-bold text-xl text-white mb-1.5 leading-tight truncate">{{
+                        <div v-if="index === currentIndex" class="p-2 sm:p-6 bg-surface-light/95 backdrop-blur-sm">
+                            <p class="font-bold text-md sm:text-xl text-white mb-1 leading-tight truncate">{{
                                 release.basic_information.title }}</p>
-                            <p class="text-white/60 text-base mb-4 truncate">
+                            <p class="text-white/60 text-base mb-1 sm:mb-4 truncate">
                                 {{release.basic_information.artists.map(a => a.name).join(', ')}}</p>
                             <div class="flex items-center justify-center gap-2 flex-wrap">
                                 <span v-for="genre in release.basic_information.genres" :key="genre"
@@ -187,7 +187,7 @@ const getCardStyle = (index: number) => {
     const absDiff = Math.abs(diff);
 
     // Only show cards within 2 positions of current
-    if (absDiff > 2) {
+    if (absDiff > 3) {
         return {
             opacity: '0',
             transform: 'translateX(0) scale(0.5)',
@@ -208,7 +208,7 @@ const getCardStyle = (index: number) => {
     }
 
     // Side cards
-    const offset = diff * 260; // Horizontal spacing
+    const offset = diff * 200; // Horizontal spacing
     const scale = 0.72 - (absDiff - 1) * 0.1; // Scale down further cards
     const opacity = 0.5 - (absDiff - 1) * 0.2; // Fade out further cards
     const zIndex = 5 - absDiff;

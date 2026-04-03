@@ -12,9 +12,9 @@
           <span class="text-white text-sm ml-1">collection</span>
         </div>
         <!-- Header Buttons -->
-        <div v-if="showCollection" class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div v-if="showCollection" class="flex flex-row items-center justify-center gap-4">
           <button @click="resetForm"
-            class="flex items-center gap-2.5 px-5 py-2.5 bg-white/10 backdrop-blur-sm text-white rounded-full text-sm font-medium border border-white/10 hover:bg-white/20 hover:text-white hover:border-white/20 active:scale-95 transition-all duration-500">
+            class="flex items-center gap-2.5 px-5 py-2.5 bg-white/10 backdrop-blur-sm text-white rounded-full text-sm sm:text-md border border-white/10 hover:bg-white/20 hover:text-white hover:border-white/20 active:scale-95 transition-all duration-500">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="15 18 9 12 15 6"></polyline>
@@ -25,14 +25,14 @@
             <Select v-model="selectedGenre" :options="collectionGenres" placeholder="What are you in the mood for?"
               @change="handleFilter" :virtualScrollerOptions="{ itemSize: 38, showLoader: false }" :pt="{
                 root: { class: 'bg-white/10 !border border-white/10 flex justify-center ' },
-                label: { class: 'text-white text-base font-medium' },
+                label: { class: 'text-white text-sm sm:text-md' },
                 panel: { class: 'bg-transparent' },
                 overlay: { class: 'flex justify-center ' },
-                option: { class: 'hover:cursor-pointer flex items-center justify-center gap-2.5 px-5 py-2.5 w-full hover:bg-white/20 rounded-full text-center active:scale-95 transition-all duration-500 my-1' },
+                option: { class: 'text-xs sm:text-base hover:cursor-pointer flex items-center justify-center gap-2.5 px-5 py-2.5 w-full hover:bg-white/20 rounded-full text-center active:scale-95 transition-all duration-500 my-1' },
                 list: { class: 'text-center' },
                 listContainer: { class: 'bg-linear-to-br from-primary-start to-primary-end rounded-lg gap-5 px-5 py-2.5 w-3/4 m-3 border border-white/10 shadow shadow-purple-500/30 shadow-xl' }
               }"
-              class="hover:cursor-pointer w-80 flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-white/10 hover:bg-white/20 hover:border-white/20 active:scale-95 transition-all duration-500 bg-white/10 "></Select>
+              class="hover:cursor-pointer sm:w-80 flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-white/10 hover:bg-white/20 hover:border-white/20 active:scale-95 transition-all duration-500 bg-white/10 "></Select>
           </div>
         </div>
       </div>
@@ -98,7 +98,7 @@
         </div>
 
         <!-- Carousel -->
-        <div class="px-4 py-6  min-h-100">
+        <div class="px-4 py-1 sm:py-6  sm:min-h-100">
           <transition enter-active-class="transition-all duration-300 ease-out delay-300"
             enter-from-class="opacity-0 -translate-y-4" enter-to-class="opacity-100 translate-y-0"
             leave-active-class="transition-all duration-300 ease-in" leave-from-class="opacity-100 translate-y-0"
@@ -111,7 +111,7 @@
         </div>
 
         <!-- Progress indicator -->
-        <div class="flex items-center justify-center gap-3 mt-4">
+        <div class="flex items-center justify-center gap-3 sm:mt-4">
           <span class="text-white/30 text-sm font-medium tabular-nums">{{ currentIndex + 1 }}</span>
           <div class="w-48 h-1 bg-white/10 rounded-full overflow-hidden relative">
             <!-- Loaded portion background (shows how much of the collection is fetched) -->
@@ -127,7 +127,7 @@
         </div>
 
         <!-- Keyboard hint -->
-        <div class="mt-6 flex items-center justify-center gap-4 text-white/20 text-xs">
+        <div class="hidden mt-6 sm:flex items-center justify-center gap-4 text-white/20 text-xs">
           <div class="flex items-center gap-1.5">
             <kbd class="px-2 py-0.5 bg-white/5 border border-white/10 rounded text-[10px] font-mono">&larr;</kbd>
             <kbd class="px-2 py-0.5 bg-white/5 border border-white/10 rounded text-[10px] font-mono">&rarr;</kbd>
@@ -138,7 +138,7 @@
         <!-- Random Albun Button -->
         <div class="flex items-center justify-center gap-4 mb-4 mt-4">
           <div
-            class="group w-72 h-12 rounded-2xl bg-linear-to-br from-primary-start to-primary-end flex items-center justify-center shadow-lg shadow-purple-500/30 randomButton">
+            class="group w-60 sm:w-72 sm:h-12 rounded-2xl bg-linear-to-br from-primary-start to-primary-end flex items-center justify-center shadow-lg shadow-purple-500/30 randomButton">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
               stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
               class="group-hover:animate-spin">
@@ -150,7 +150,7 @@
               <line x1="19" y1="12" x2="22" y2="12"></line>
             </svg>
             <button @click="randomAlbum"
-              class="text-3xl font-extrabold tracking-tight bg-white bg-clip-text text-transparent">
+              class="text-sm sm:text-xl font-extrabold tracking-tight bg-white bg-clip-text text-transparent">
               Find Me An Album...
             </button>
           </div>
