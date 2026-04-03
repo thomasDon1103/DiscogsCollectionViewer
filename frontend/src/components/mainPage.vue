@@ -14,7 +14,7 @@
         <!-- Header Buttons -->
         <div v-if="showCollection" class="flex flex-row items-center justify-center gap-4">
           <button @click="resetForm"
-            class="flex items-center gap-2.5 px-5 py-2.5 bg-white/10 backdrop-blur-sm text-white rounded-full text-sm sm:text-md border border-white/10 hover:bg-white/20 hover:text-white hover:border-white/20 active:scale-95 transition-all duration-500">
+            class="flex items-center gap-2.5 px-5 py-2.5 bg-white/10 backdrop-blur-sm text-white rounded-full font-extrabold text-sm sm:text-md border border-white/10 hover:bg-white/20 hover:text-white hover:border-white/20 active:scale-95 transition-all duration-500">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="15 18 9 12 15 6"></polyline>
@@ -25,7 +25,7 @@
             <Select v-model="selectedGenre" :options="collectionGenres" placeholder="What are you in the mood for?"
               @change="handleFilter" :virtualScrollerOptions="{ itemSize: 38, showLoader: false }" :pt="{
                 root: { class: 'bg-white/10 !border border-white/10 flex justify-center ' },
-                label: { class: 'text-white text-sm sm:text-md' },
+                label: { class: 'text-white text-sm sm:text-md font-extrabold' },
                 panel: { class: 'bg-transparent' },
                 overlay: { class: 'flex justify-center ' },
                 option: { class: 'text-xs sm:text-base hover:cursor-pointer flex items-center justify-center gap-2.5 px-5 py-2.5 w-full hover:bg-white/20 rounded-full text-center active:scale-95 transition-all duration-500 my-1' },
@@ -150,7 +150,7 @@
               <line x1="19" y1="12" x2="22" y2="12"></line>
             </svg>
             <button @click="randomAlbum"
-              class="text-sm sm:text-xl font-extrabold tracking-tight bg-white bg-clip-text text-transparent">
+              class="text-sm sm:text-lg font-extrabold tracking-tight bg-white bg-clip-text text-transparent">
               Find Me An Album...
             </button>
           </div>
