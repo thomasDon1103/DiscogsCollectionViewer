@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "tailwindcss-primeui";
 
 @theme {
   --color-primary-start: #667eea;
@@ -31,8 +30,6 @@
 
 body {
   margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
   background: linear-gradient(135deg, #0f0c29 0%, #1e1e2e 40%, #24243e 100%);
   background-attachment: fixed;
 }
@@ -56,7 +53,6 @@ body::before {
 #app {
   position: relative;
   z-index: 1;
-  max-width: 1400px;
   margin: 0 auto;
   padding: 0;
   text-align: center;
