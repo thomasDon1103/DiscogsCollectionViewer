@@ -12,10 +12,10 @@
             @mousedown="handleDragStart" @mousemove="handleDragMove" @mouseup="handleDragEnd"
             @mouseleave="handleDragEnd" @touchstart="handleTouchStart" @touchmove="handleTouchMove"
             @touchend="handleTouchEnd">
-            <div class="flex items-center justify-center relative" style="height: 580px;">
+            <div class="flex flex-col items-center justify-center relative h-90 sm:h-125">
                 <div id="albumCard" v-for="(release, index) in props.collectionData!.releases" :key="release.id"
-                    class="absolute transition-all duration-500 ease-in-out" :style="getCardStyle(index)">
-                    <div class="rounded-2xl overflow-hidden" :class="{
+                    class="absolute transition-all duration-500 ease-in-out flex flex-col items-center justify-center" :style="getCardStyle(index)">
+                    <div class="rounded-2xl overflow-hidden w-3/5 sm:w-full" :class="{
                         'cursor-pointer hover:scale-[1.02]': index !== currentIndex,
                         'ring-2 ring-white/20': index === currentIndex
                     }" @click="index !== currentIndex && goToRelease(index)">
