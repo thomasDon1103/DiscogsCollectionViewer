@@ -24,7 +24,7 @@
                         <div class="w-full flex flex-col">
                             <div class="w-full flex flex-row">
                                 <!-- Release Info -->
-                                <div class="bg-white/10 rounded-lg p-3 ml-3 w-2/3 sm:h-100">
+                                <div class="bg-white/10 rounded-lg p-3 ml-3 w-2/3 sm:h-100 overflow-scroll overflow-x-hidden">
                                     <h1 class="font-bold text-2xl -skew-x-6">Release Information</h1>
                                     <div class="bg-primary-end/70 rounded-lg shadow-lg w-full mt-1 mb-2 h-1"></div>
                                     <div class="flex flex-col items-start w-full">
