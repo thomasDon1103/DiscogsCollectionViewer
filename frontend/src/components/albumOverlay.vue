@@ -1,6 +1,6 @@
 <template>
     <!-- Transparent Dark Background -->
-    <div class="fixed inset-0 z-50 flex items-center justify-center bg-black/50" @click="closeOverlay">
+    <div class="w-full h-full fixed inset-0 z-50 flex items-center justify-center bg-black/50" @click="closeOverlay">
         <!-- Overlay Content -->
         <div href="#"
             class="w-10/12 h-10/12 animate-background block rounded-lg bg-linear-to-r from-primary-start via-primary-mid to-primary-end bg-size-[400%_400%] p-2 [animation-duration:6s]">
@@ -17,14 +17,15 @@
                     <!-- Album Image and Info -->
                     <div class="flex flex-row ">
                         <div class="bg-white/10 rounded-lg p-3 w-1/2">
-                            <img :src="props.albumInfo?.images[0]?.uri" :alt="albumInfo?.title"
+                            <img :src="displayedImage" :alt="albumInfo?.title"
                                 class="aspect-square object-cover rounded-lg w-full" draggable="false" />
                         </div>
 
                         <div class="w-full flex flex-col">
                             <div class="w-full flex flex-row">
                                 <!-- Release Info -->
-                                <div class="bg-white/10 rounded-lg p-3 ml-3 w-2/3 sm:h-100 overflow-scroll overflow-x-hidden">
+                                <div
+                                    class="bg-white/10 rounded-lg p-3 ml-3 w-2/3 sm:h-100 overflow-scroll overflow-x-hidden">
                                     <h1 class="font-bold text-2xl -skew-x-6">Release Information</h1>
                                     <div class="bg-primary-end/70 rounded-lg shadow-lg w-full mt-1 mb-2 h-1"></div>
                                     <div class="flex flex-col items-start w-full">
@@ -62,8 +63,10 @@
                                     <div class="bg-primary-end/70 rounded-lg shadow-lg w-full mt-1 mb-2 h-1"></div>
                                     <div class="w-full flex flex-col flex-wrap">
                                         <p class="text-left text-lg font-bold">Release Notes: &nbsp;</p>
-                                        <p v-if="props.albumInfo?.notes" class="text-left text-lg ">{{ props.albumInfo?.notes }}</p>
-                                        <p v-else class="text-left text-lg text-gray-500">No release notes available.</p>
+                                        <p v-if="props.albumInfo?.notes" class="text-left text-lg ">{{
+                                            props.albumInfo?.notes }}</p>
+                                        <p v-else class="text-left text-lg text-gray-500">No release notes available.
+                                        </p>
                                     </div>
                                 </div>
 
@@ -95,8 +98,10 @@
                     </div>
 
                     <!-- Images display -->
-                    <div class="bg-white/10 rounded-lg p-3 mt-3 h-full w-full">
-
+                    <div  v-drag-scroll class="bg-white/10 rounded-lg  mt-3 h-full w-full flex overflow-x-hidden select-none">
+                        <img v-for="image in props.albumInfo?.images" :src="image?.uri" title="Double Click To Change Image"
+                            class="aspect-square object-cover rounded-lg w-1/7 ml-3 m-3 hover:cursor-pointer select-none"
+                            draggable="false" @dblclick="changeImage(image.uri)" />
                     </div>
                 </div>
             </div>
@@ -105,6 +110,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 import type { DiscogsAlbumInfoResponse } from '../types/DiscogsAlbumInfo';
 const props = defineProps<{
     albumInfo: DiscogsAlbumInfoResponse | null
@@ -112,8 +118,14 @@ const props = defineProps<{
 
 const emit = defineEmits(['closeOverlay']);
 
+const displayedImage = ref<string>(props!.albumInfo!.images[0].uri);
+
 const closeOverlay = () => {
     emit('closeOverlay');
+}
+
+const changeImage = (uri: string) => {
+    displayedImage.value = uri;
 }
 
 </script>
