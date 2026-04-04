@@ -60,7 +60,7 @@
 
                                     <!-- Separated Release Notes Because I can -->
                                     <div class="bg-primary-end/70 rounded-lg shadow-lg w-full mt-1 mb-2 h-1"></div>
-                                    <div class="w-full flex flex-wrap">
+                                    <div class="w-full flex flex-col flex-wrap">
                                         <p class="text-left text-lg font-bold">Release Notes: &nbsp;</p>
                                         <p v-if="props.albumInfo?.notes" class="text-left text-lg ">{{ props.albumInfo?.notes }}</p>
                                         <p v-else class="text-left text-lg text-gray-500">No release notes available.</p>
