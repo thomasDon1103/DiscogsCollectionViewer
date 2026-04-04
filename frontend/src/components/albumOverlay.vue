@@ -71,7 +71,7 @@
                                 <div class="bg-white/10 rounded-lg p-3 ml-3 w-1/3 sm:h-100">
                                     <div class="flex flex-col w-full h-full">
                                         <h1 class="font-bold text-2xl -skew-x-6">Tracklist</h1>
-                                        <div class="bg-primary-end/70 rounded-lg shadow-lg  w-full mt-1 mb-2 h-2"></div>
+                                        <div class="bg-primary-end/70 rounded-lg shadow-lg  w-full mt-1 mb-2 h-1"></div>
                                         <div class="flex flex-col items-start overflow-scroll overflow-x-hidden">
                                             <div class="flex flex-wrap" v-for="song in albumInfo?.tracklist">
                                                 <p class="text-left mt-1 text-lg font-bold">{{ song.position }} -&nbsp;
