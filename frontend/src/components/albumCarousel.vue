@@ -20,9 +20,11 @@
                         'cursor-pointer hover:scale-[1.02]': index !== currentIndex,
                         'ring-2 ring-white/20': index === currentIndex
                     }" @click="index !== currentIndex && goToRelease(index)">
-                        <div class="relative" @dblclick="handleAlbumDoubleClick(props.collectionData!.releases[index].id)">
+                        <div class="relative">
                             <img :src="release.basic_information.cover_image" :alt="release.basic_information.title"
-                                class="w-full aspect-square object-cover" draggable="false" />
+                                class="w-full aspect-square object-cover"
+                                :class="{ ' pointer-events-none': transitioning }" draggable="false"
+                                @dblclick="handleAlbumDoubleClick(props.collectionData!.releases[index].id)" />
                             <!-- Subtle gradient overlay at bottom of image -->
                             <div v-if="index === currentIndex"
                                 class="absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-black/30 to-transparent">
@@ -81,6 +83,9 @@ const isDragging = ref(false);
 const startX = ref(0);
 const currentX = ref(0);
 const dragThreshold = 50; // pixels to trigger slide change
+
+// Needed so cant click during transition
+const transitioning = ref(false);
 
 // Audio
 const swipeAudio = new Audio('sounds/swipe.wav');
@@ -183,7 +188,11 @@ const goToRelease = (index: number) => {
 
 const playSwipe = () => {
     swipeAudio.currentTime = 0; // Rewind if played quickly
+    transitioning.value = true;
     swipeAudio.play();
+    swipeAudio.onended = () => {
+        transitioning.value = false;
+    }
 }
 
 // Calculate card positioning and styling for carousel effect

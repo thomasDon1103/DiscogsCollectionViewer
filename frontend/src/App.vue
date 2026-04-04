@@ -1,5 +1,7 @@
 <template>
   <div id="app" class="h-screen flex flex-col overflow-hidden bg-gradient-window-gradient">
+
+
     <!-- Header -->
     <header class="pt-5 sm:pt-10 pb-6 px-6">
       <div class="flex items-center justify-center gap-4 mb-2">
@@ -27,6 +29,7 @@
     <main class="px-6 pb-12">
       <MainPage @start-background-music="backgroundFadeIn" @stop-background-music="backgroundFadeOut" />
     </main>
+    <BallsBackground></BallsBackground>
   </div>
   <audio ref="backgroundAudioPlayer" :src="backroundMusicURL" loop></audio>
 </template>
@@ -34,6 +37,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import MainPage from './components/mainPage.vue';
+import BallsBackground from './components/floatingBallsBackground.vue';
+import WavesBackground from './components/wavesBackground.vue';
 
 const backroundMusicURL = "sounds/background.mp3";
 const backgroundAudioPlayer = ref<HTMLAudioElement | null>(null);

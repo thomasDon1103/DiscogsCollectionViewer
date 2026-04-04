@@ -45,7 +45,7 @@
                                             <div class="flex" v-for="(format, index) in props.albumInfo?.formats">
                                                 <p class="text-left text-lg">&nbsp;{{ format.name }}</p>
                                                 <p v-if="format.text" class="text-left text-lg">&nbsp;- {{ format.text
-                                                }}
+                                                    }}
                                                 </p>
                                                 <p v-if="index != props.albumInfo?.formats?.length as number - 1">,</p>
                                             </div>
@@ -98,9 +98,11 @@
                     </div>
 
                     <!-- Images display -->
-                    <div  v-drag-scroll class="bg-white/10 rounded-lg  mt-3 h-full w-full flex overflow-x-hidden select-none">
-                        <img v-for="image in props.albumInfo?.images" :src="image?.uri" title="Double Click To Change Image"
-                            class="aspect-square object-cover rounded-lg w-1/7 ml-3 m-3 hover:cursor-pointer select-none"
+                    <div v-drag-scroll
+                        class="bg-white/10 rounded-lg  mt-3 h-full w-full flex overflow-x-hidden select-none">
+                        <img v-for="image in props.albumInfo?.images" :src="image?.uri"
+                            title="Double Click To Change Image"
+                            class="aspect-square object-cover rounded-lg ml-3 m-3 hover:cursor-pointer select-none"
                             draggable="false" @dblclick="changeImage(image.uri)" />
                     </div>
                 </div>
@@ -118,7 +120,7 @@ const props = defineProps<{
 
 const emit = defineEmits(['closeOverlay']);
 
-const displayedImage = ref<string>(props!.albumInfo!.images[0].uri);
+const displayedImage = ref<string>(props!.albumInfo!.images[0]?.uri);
 
 const closeOverlay = () => {
     emit('closeOverlay');

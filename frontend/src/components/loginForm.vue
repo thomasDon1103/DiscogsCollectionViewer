@@ -67,7 +67,6 @@
                 </div>
             </form>
         </div>
-        <p class="text-white/20 text-xs mt-5">Your Discogs username can be found in your profile URL</p>
     </div>
 </template>
 
