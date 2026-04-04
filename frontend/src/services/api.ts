@@ -1,4 +1,5 @@
-import type { DiscogsCollectionResponse } from '../types/Discogs';
+import type { DiscogsCollectionResponse } from '../types/DiscogsCollectionInfo';
+import type { DiscogsAlbumInfoResponse } from '../types/DiscogsAlbumInfo';
 
 const DISCOGS_API_BASE = 'https://api.discogs.com';
 
@@ -16,7 +17,7 @@ export const discogsService = {
     }
 
     const url = new URL(
-      `${DISCOGS_API_BASE}/users/${encodeURIComponent(username)}/collection/folders/0/releases`,
+      `${DISCOGS_API_BASE}/users/${username}/collection/folders/0/releases`,
     );
     url.searchParams.set('page', String(page));
     url.searchParams.set('per_page', '100');
@@ -48,6 +49,38 @@ export const discogsService = {
     }
 
     return (await response.json()) as DiscogsCollectionResponse;
+  },
+
+  /**
+   * Fetch a single album's details from Discogs
+   */
+  async fetchAlbumInfo(
+    albumID: number = 1
+  ): Promise<DiscogsAlbumInfoResponse> {
+    const url = new URL(
+      `${DISCOGS_API_BASE}/releases/${encodeURIComponent(albumID)}`,
+    );
+    const headers: Record<string, string> = {
+      'User-Agent': 'DiscogsCollectionApp/1.0',
+    };
+
+    const response = await fetch(url.toString(), { headers });
+
+    if (!response.ok) {
+      const body = await response.text();
+      let detail = '';
+      try {
+        const json = JSON.parse(body);
+        detail = json.message || body;
+      } catch {
+        detail = body;
+      }
+      throw new Error(
+        `Failed to fetch collection (HTTP ${response.status}): ${detail}`,
+      );
+    }
+
+    return (await response.json()) as DiscogsAlbumInfoResponse;
   },
 };
 

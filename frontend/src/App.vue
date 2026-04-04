@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="h-screen flex flex-col overflow-hidden">
+  <div id="app" class="h-screen flex flex-col overflow-hidden bg-gradient-window-gradient">
     <!-- Header -->
     <header class="pt-5 sm:pt-10 pb-6 px-6">
       <div class="flex items-center justify-center gap-4 mb-2">

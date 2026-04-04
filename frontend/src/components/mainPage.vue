@@ -1,5 +1,10 @@
 <template>
   <div class="relative">
+    <transition enter-active-class="transition-all duration-500 ease-out" enter-from-class="opacity-0 -translate-y-4"
+      enter-to-class="opacity-100 translate-y-0" leave-active-class="transition-all duration-500 ease-in"
+      leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 -translate-y-4">
+      <albumOverlay v-if="showAlbumOverlay" :album-info="albumInfo" @close-overlay="closeOverlay"></albumOverlay>
+    </transition>
     <!-- Header -->
     <transition enter-active-class="transition-all duration-500 ease-out delay-500"
       enter-from-class="opacity-0 -translate-y-4" enter-to-class="opacity-100 translate-y-0"
@@ -32,7 +37,7 @@
                 list: { class: 'text-center' },
                 listContainer: { class: 'bg-linear-to-br from-primary-start to-primary-end rounded-lg gap-5 px-5 py-2.5 w-3/4 m-3 border border-white/10 shadow shadow-purple-500/30 shadow-xl' }
               }"
-              class="hover:cursor-pointer sm:w-80 flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-white/10 hover:bg-white/20 hover:border-white/20 active:scale-95 transition-all duration-500 bg-white/10 "></Select>
+              class="hover:cursor-pointer w-50 sm:w-80 flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-white/10 hover:bg-white/20 hover:border-white/20 active:scale-95 transition-all duration-500 bg-white/10 "></Select>
           </div>
         </div>
       </div>
@@ -105,7 +110,7 @@
             leave-to-class="opacity-0 -translate-y-4" @after-leave="handleCarouselGone">
             <albumCarousel :collection-data="filteredCollectionData" :show-carousel="showCarousel"
               :current-index="currentIndex" @next-release="nextRelease" @prev-release="previousRelease"
-              @go-to-release="goToRelease">
+              @album-selected="handleAlbumSelected" @go-to-release="goToRelease">
             </albumCarousel>
           </transition>
         </div>
@@ -150,7 +155,7 @@
               <line x1="19" y1="12" x2="22" y2="12"></line>
             </svg>
             <button @click="randomAlbum"
-              class="text-sm sm:text-lg font-extrabold tracking-tight bg-white bg-clip-text text-transparent">
+              class="text-sm sm:text-lg font-bold tracking-tight bg-white bg-clip-text text-transparent">
               Find Me An Album...
             </button>
           </div>
@@ -162,11 +167,13 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import type { DiscogsCollectionResponse, DiscogsRelease } from '../types/Discogs';
+import type { DiscogsCollectionResponse, DiscogsRelease } from '../types/DiscogsCollectionInfo';
 import { discogsService } from '../services/api';
 import loginForm, { LoginFormData } from './loginForm.vue'
 import Select from 'primevue/select';
 import albumCarousel from "./albumCarousel.vue"
+import albumOverlay from "./albumOverlay.vue"
+import { DiscogsAlbumInfoResponse } from '../types/DiscogsAlbumInfo';
 
 const emit = defineEmits(["startBackgroundMusic", "stopBackgroundMusic"]);
 
@@ -194,6 +201,8 @@ const filteredCollectionData = computed(() => {
   return filteredCollection;
 });
 
+const albumInfo = ref<DiscogsAlbumInfoResponse | null>(null);
+
 const anyGenreStr = "Anything's Fine";
 const collectionGenres = computed(() => { return [anyGenreStr, ... new Set(collectionData.value?.releases.map(release => release.basic_information.genres.flat()).flat())] });
 const selectedGenre = ref('')
@@ -202,6 +211,7 @@ const currentIndex = ref(0);
 const showCollection = ref(false);
 const showForm = ref(true);
 const showCarousel = ref(true);
+const showAlbumOverlay = ref(false);
 
 // Used to cancel background fetching when the user resets
 let abortController: AbortController | null = null;
@@ -331,6 +341,27 @@ const fetchRemainingPages = async (totalPages: number) => {
   loadingMore.value = false;
   abortController = null;
 };
+
+const handleAlbumSelected = async (
+  albumID: number
+) => {
+  try {
+    // Fetch album infor
+    const data = await discogsService.fetchAlbumInfo(
+      albumID
+    );
+
+    albumInfo.value = data;
+
+    showAlbumOverlay.value = true;
+  } catch (err) {
+    error.value = (err as Error).message;
+  }
+};
+
+const closeOverlay = () => {
+  showAlbumOverlay.value = false;
+}
 
 // Carousel navigation
 const nextRelease = () => {

@@ -8,6 +8,22 @@
   --color-surface-light: #2a2a3e;
   --color-surface-lighter: #363650;
   --color-accent: #f0abfc;
+
+  --background-image-gradient-window-gradient: linear-gradient(135deg, #0f0c29 0%, #1e1e2e 40%, #24243e 100%);
+
+  --animate-background: background-move ease infinite;
+
+  @keyframes background-move {
+
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+  }
 }
 
 :root {
@@ -30,7 +46,7 @@
 
 body {
   margin: 0;
-  background: linear-gradient(135deg, #0f0c29 0%, #1e1e2e 40%, #24243e 100%);
+  background: window-gradient;
   background-attachment: fixed;
 }
 
@@ -104,23 +120,23 @@ input:focus-visible {
 }
 
 .p-anchored-overlay-enter-active {
-    animation: demo-overlay-in 300ms ease-out;
+  animation: demo-overlay-in 300ms ease-out;
 }
 
 .p-anchored-overlay-leave-active {
-    animation: demo-overlay-out 250ms ease-in;
+  animation: demo-overlay-out 250ms ease-in;
 }
 
 @keyframes demo-overlay-in {
-    from {
-        opacity: 0;
-        transform: translateY(10%);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(10%);
+  }
 }
 
 @keyframes demo-overlay-out {
-    to {
-        opacity: 0;
-        transform: translateY(10%);
-    }
+  to {
+    opacity: 0;
+    transform: translateY(10%);
+  }
 }

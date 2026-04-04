@@ -13,13 +13,14 @@
             @mouseleave="handleDragEnd" @touchstart="handleTouchStart" @touchmove="handleTouchMove"
             @touchend="handleTouchEnd">
             <div class="flex flex-col items-center justify-center relative h-90 sm:h-125">
-                <div id="albumCard" v-for="(release, index) in props.collectionData!.releases" :key="release.id"
-                    class="absolute transition-all duration-500 ease-in-out flex flex-col items-center justify-center" :style="getCardStyle(index)">
+                <div id="albumCard" v-for="(release, index) in props.collectionData!.releases"
+                    class="absolute transition-all duration-500 ease-in-out flex flex-col items-center justify-center"
+                    :style="getCardStyle(index)">
                     <div class="rounded-2xl overflow-hidden w-3/5 sm:w-full h-80 sm:h-full" :class="{
                         'cursor-pointer hover:scale-[1.02]': index !== currentIndex,
                         'ring-2 ring-white/20': index === currentIndex
                     }" @click="index !== currentIndex && goToRelease(index)">
-                        <div class="relative">
+                        <div class="relative" @dblclick="handleAlbumDoubleClick(props.collectionData!.releases[index].id)">
                             <img :src="release.basic_information.cover_image" :alt="release.basic_information.title"
                                 class="w-full aspect-square object-cover" draggable="false" />
                             <!-- Subtle gradient overlay at bottom of image -->
@@ -65,7 +66,7 @@
 
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue';
-import type { DiscogsCollectionResponse } from '../types/Discogs';
+import type { DiscogsCollectionResponse } from '../types/DiscogsCollectionInfo';
 
 const props = defineProps<{
     collectionData: DiscogsCollectionResponse | null
@@ -73,7 +74,7 @@ const props = defineProps<{
     showCarousel: boolean
 }>()
 
-const emit = defineEmits(['nextRelease', "prevRelease", "goToRelease"]);
+const emit = defineEmits(['nextRelease', "prevRelease", "goToRelease", "albumSelected"]);
 
 // Drag/swipe state
 const isDragging = ref(false);
@@ -134,6 +135,11 @@ const handleTouchEnd = () => {
     }
 };
 
+const handleAlbumDoubleClick = (albumID: number) => {
+    console.log(albumID);
+    emit("albumSelected", albumID);
+}
+
 onMounted(() => {
     window.addEventListener('keydown', handleKeydown);
 });
@@ -153,7 +159,6 @@ const handleKeydown = (e: KeyboardEvent) => {
         nextRelease();
     }
 };
-
 
 // Carousel navigation
 const nextRelease = () => {
