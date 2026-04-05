@@ -38,7 +38,7 @@
 import { ref } from 'vue';
 import MainPage from './components/mainPage.vue';
 import BallsBackground from './components/floatingBallsBackground.vue';
-import WavesBackground from './components/wavesBackground.vue';
+// import WavesBackground from './components/wavesBackground.vue';
 
 const backroundMusicURL = "sounds/background.mp3";
 const backgroundAudioPlayer = ref<HTMLAudioElement | null>(null);
