@@ -187,11 +187,13 @@ const goToRelease = (index: number) => {
 };
 
 const playSwipe = () => {
-    swipeAudio.currentTime = 0; // Rewind if played quickly
     transitioning.value = true;
+    swipeAudio.currentTime = 0; // Rewind if played quickly
     swipeAudio.play();
     swipeAudio.onended = () => {
-        transitioning.value = false;
+        setTimeout(() => {
+            transitioning.value = false;
+        }, 150);
     }
 }
 

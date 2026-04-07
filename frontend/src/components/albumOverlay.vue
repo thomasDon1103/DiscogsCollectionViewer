@@ -102,7 +102,7 @@
                         class="bg-white/10 rounded-lg  mt-3 h-full w-full flex overflow-x-hidden select-none">
                         <img v-for="image in props.albumInfo?.images" :src="image?.uri"
                             title="Double Click To Change Image"
-                            class="aspect-square object-cover rounded-lg ml-3 m-3 hover:cursor-pointer select-none"
+                            class="aspect-square object-cover rounded-lg ml-3 m-3 hover:cursor-pointer select-none border-3 border-white/0 hover:border-primary-end transition-colors duration-300"
                             draggable="false" @dblclick="changeImage(image.uri)" />
                     </div>
                 </div>
