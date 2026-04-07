@@ -1,20 +1,72 @@
 <template>
+  <!-- Overlays -->
+  <!-- Album Info Overlay -->
   <div class="relative">
-    <transition enter-active-class="transition-all duration-500 ease-out" enter-from-class="opacity-0 -translate-y-4"
+    <Transition enter-active-class="transition-all duration-500 ease-out" enter-from-class="opacity-0 -translate-y-4"
       enter-to-class="opacity-100 translate-y-0" leave-active-class="transition-all duration-500 ease-in"
       leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 -translate-y-4">
       <albumOverlay v-if="showAlbumOverlay" :album-info="albumInfo" @close-overlay="closeOverlay"></albumOverlay>
-    </transition>
+    </Transition>
+
+    <!-- Vinyl Filter Transition Overlay -->
+    <Transition enter-active-class="transition-all duration-500 ease-out" enter-from-class="opacity-0 -translate-y-4"
+      enter-to-class="opacity-100 translate-y-0" leave-active-class="transition-all duration-500 ease-in"
+      leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 -translate-y-4">
+      <div v-if="playingVinylFilter" class="w-full h-full fixed inset-0 z-50 flex items-center justify-center bg-black">
+      </div>
+    </Transition>
+    <Transition type="animation" enter-active-class="transition-all animate-fly-up-flip-y-fly-down"
+      leave-active-class="hidden" @after-enter="playingVinylFilter = false">
+      <div v-if="playingVinylFilter"
+        class="w-full h-full fixed inset-0 z-50 flex items-center justify-center bottom-0 pointer-events-none 0.5s"
+        :class="{ 'hidden': !playingVinylFilter }">
+        <VinylSVG class="w-150 left-0 bottom-0" label="Loading..."></VinylSVG>
+      </div>
+    </Transition>
+
+    <!-- Cassette Filter Transition Overlay -->
+    <Transition enter-active-class="transition-all duration-500 ease-out" enter-from-class="opacity-0 -translate-y-4"
+      enter-to-class="opacity-100 translate-y-0" leave-active-class="transition-all duration-500 ease-in"
+      leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 -translate-y-4">
+      <div v-if="playingCassetteFilter"
+        class="w-full h-full fixed inset-0 z-50 flex items-center justify-center bg-black">
+      </div>
+    </Transition>
+    <Transition type="animation" enter-active-class="transition-all animate-fly-up-flip-y-fly-down"
+      leave-active-class="hidden" @after-enter="playingCassetteFilter = false">
+      <div v-if="playingCassetteFilter"
+        class="w-full h-full fixed inset-0 z-50 flex items-center justify-center bottom-0 pointer-events-none"
+        :class="{ 'hidden': !playingCassetteFilter }">
+        <CassetteSVG class="w-150 left-0 bottom-0" label="Loading..."></CassetteSVG>
+      </div>
+    </Transition>
+
+
     <!-- Header -->
-    <transition enter-active-class="transition-all duration-500 ease-out delay-500"
+    <Transition enter-active-class="transition-all duration-500 ease-out delay-500"
       enter-from-class="opacity-0 -translate-y-4" enter-to-class="opacity-100 translate-y-0"
       leave-active-class="transition-all duration-500 ease-in" leave-from-class="opacity-100 translate-y-0"
       leave-to-class="opacity-0 -translate-y-4">
       <div v-if="showCollection" class="flex flex-col items-center justify-center gap-4 mb-5 sm:mb-10">
-        <div class="px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full border border-white/10">
-          <span class="text-white text-sm">Viewing</span>
-          <span class="text-accent font-semibold text-sm ml-1.5">{{ formData.username }}'s</span>
-          <span class="text-white text-sm ml-1">collection</span>
+        <div class="flex h-10">
+          <button
+            class="px-2 py-2 bg-white/5 backdrop-blur-sm rounded-full border border-white/10 mr-3 w-18 flex items-center justify-center hover:bg-white/20 "
+            :class="{ 'gradientButton bg-linear-to-br from-primary-start to-primary-end': vinylFilterOn }"
+            @click="vinylFilterToggle">
+            <minimalistVinyl></minimalistVinyl>
+          </button>
+          <div class="px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full border border-white/10">
+            <span class="text-white text-sm">Viewing</span>
+            <span class="text-accent font-semibold text-sm ml-1.5">{{ formData.username }}'s</span>
+            <span class="text-white text-sm ml-1">collection</span>
+          </div>
+          <button
+            class="px-2 py-2 bg-white/5 backdrop-blur-sm rounded-full border border-white/10 ml-3 w-18 flex items-center justify-center hover:bg-white/20"
+            :class="{ 'gradientButton bg-linear-to-br from-primary-start to-primary-end': cassetteFilterOn }"
+            @click="cassetteFilterToggle">
+            <minimalistCassette></minimalistCassette>
+          </button>
+
         </div>
         <!-- Header Buttons -->
         <div v-if="showCollection" class="flex flex-row items-center justify-center gap-4">
@@ -41,20 +93,20 @@
           </div>
         </div>
       </div>
-    </transition>
+    </Transition>
 
     <!-- Form Container -->
-    <transition mode="out-in" enter-active-class="transition-all duration-600 ease-out delay-500"
+    <Transition mode="out-in" enter-active-class="transition-all duration-600 ease-out delay-500"
       enter-from-class="opacity-0 translate-y-8" enter-to-class="opacity-100 translate-y-0"
       leave-active-class="transition-all duration-400 ease-in" leave-from-class="opacity-100 translate-y-0 scale-100"
       leave-to-class="opacity-0 -translate-y-8 scale-95" @after-leave="handleFormGone">
       <div v-if="showForm" class="max-w-md mx-auto">
         <loginForm :loading="loading" :form-data="formData" @submit="handleSubmit"></loginForm>
       </div>
-    </transition>
+    </Transition>
 
     <!-- Error Message -->
-    <transition enter-active-class="transition-all duration-400 ease-out" enter-from-class="opacity-0 translate-y-4"
+    <Transition enter-active-class="transition-all duration-400 ease-out" enter-from-class="opacity-0 translate-y-4"
       enter-to-class="opacity-100 translate-y-0" leave-active-class="transition-all duration-300 ease-in"
       leave-from-class="opacity-100" leave-to-class="opacity-0">
       <div v-if="error" class="mt-6 max-w-md mx-auto">
@@ -75,10 +127,10 @@
           </div>
         </div>
       </div>
-    </transition>
+    </Transition>
 
     <!-- Collection Result -->
-    <transition mode="out-in" enter-active-class="transition-all duration-600 ease-out delay-500"
+    <Transition mode="out-in" enter-active-class="transition-all duration-600 ease-out delay-500"
       enter-from-class="opacity-0 scale-95" enter-to-class="opacity-100 scale-100"
       leave-active-class="transition-all duration-400 ease-in" leave-from-class="opacity-100 scale-100"
       leave-to-class="opacity-0 scale-95" @after-leave="handleCollectionGone">
@@ -104,7 +156,7 @@
 
         <!-- Carousel -->
         <div class="px-4 py-1 sm:py-6  sm:min-h-100">
-          <transition enter-active-class="transition-all duration-300 ease-out delay-300"
+          <Transition enter-active-class="transition-all duration-300 ease-out delay-300"
             enter-from-class="opacity-0 -translate-y-4" enter-to-class="opacity-100 translate-y-0"
             leave-active-class="transition-all duration-300 ease-in" leave-from-class="opacity-100 translate-y-0"
             leave-to-class="opacity-0 -translate-y-4" @after-leave="handleCarouselGone">
@@ -112,7 +164,7 @@
               :current-index="currentIndex" @next-release="nextRelease" @prev-release="previousRelease"
               @album-selected="handleAlbumSelected" @go-to-release="goToRelease">
             </albumCarousel>
-          </transition>
+          </Transition>
         </div>
 
         <!-- Progress indicator -->
@@ -143,7 +195,7 @@
         <!-- Random Albun Button -->
         <div class="flex items-center justify-center gap-4 mb-4 mt-4">
           <div
-            class="group w-60 sm:w-72 sm:h-12 rounded-2xl bg-linear-to-br from-primary-start to-primary-end flex items-center justify-center shadow-lg shadow-purple-500/30 randomButton">
+            class="group w-60 sm:w-72 sm:h-12 rounded-2xl bg-linear-to-br from-primary-start to-primary-end flex items-center justify-center shadow-lg shadow-purple-500/30 gradientButton">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
               stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
               class="group-hover:animate-spin">
@@ -161,7 +213,7 @@
           </div>
         </div>
       </div>
-    </transition>
+    </Transition>
   </div>
 </template>
 
@@ -173,6 +225,10 @@ import loginForm, { LoginFormData } from './loginForm.vue'
 import Select from 'primevue/select';
 import albumCarousel from "./albumCarousel.vue"
 import albumOverlay from "./albumOverlay.vue"
+import minimalistVinyl from './minimalistVinyl.vue';
+import minimalistCassette from './minimalistCassette.vue';
+import CassetteSVG from './cassetteSVG.vue';
+import VinylSVG from './vinylSVG.vue';
 import { DiscogsAlbumInfoResponse } from '../types/DiscogsAlbumInfo';
 
 const emit = defineEmits(["startBackgroundMusic", "stopBackgroundMusic"]);
@@ -206,6 +262,11 @@ const albumInfo = ref<DiscogsAlbumInfoResponse | null>(null);
 const anyGenreStr = "Anything's Fine";
 const collectionGenres = computed(() => { return [anyGenreStr, ... new Set(collectionData.value?.releases.map(release => release.basic_information.genres.flat()).flat())] });
 const selectedGenre = ref('')
+
+const cassetteFilterOn = ref(false);
+const vinylFilterOn = ref(false);
+const playingCassetteFilter = ref(false);
+const playingVinylFilter = ref(false);
 
 const currentIndex = ref(0);
 const showCollection = ref(false);
@@ -394,15 +455,31 @@ const handleFilter = () => {
   showCarousel.value = false;
   currentIndex.value = 0;
 }
+
+const vinylFilterToggle = () => {
+  if (vinylFilterOn.value) {
+    vinylFilterOn.value = false;
+  }
+  else {
+    vinylFilterOn.value = true;
+  }
+  playingVinylFilter.value = true;
+}
+
+const cassetteFilterToggle = () => {
+  cassetteFilterOn.value = !cassetteFilterOn.value;
+  playingCassetteFilter.value = true;
+}
+
 </script>
 
 <style scoped>
-.randomButton {
+.gradientButton {
   background-size: 350% 100%;
-  transition: all .4s ease-in-out;
+  Transition: all .4s ease-in-out;
 }
 
-.randomButton:hover {
+.gradientButton:hover {
   background-position: 100% 0;
 }
 
