@@ -457,12 +457,7 @@ const handleFilter = () => {
 }
 
 const vinylFilterToggle = () => {
-  if (vinylFilterOn.value) {
-    vinylFilterOn.value = false;
-  }
-  else {
-    vinylFilterOn.value = true;
-  }
+  vinylFilterOn.value = !vinylFilterOn.value;
   playingVinylFilter.value = true;
 }
 
