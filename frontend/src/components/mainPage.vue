@@ -9,8 +9,8 @@
     </Transition>
 
     <!-- Vinyl Filter Transition Overlay -->
-    <Transition enter-active-class="transition-all duration-500 ease-out" enter-from-class="opacity-0 -translate-y-4"
-      enter-to-class="opacity-100 translate-y-0" leave-active-class="transition-all duration-500 ease-in"
+    <Transition enter-active-class="transition-all duration-250 ease-out" enter-from-class="opacity-0 -translate-y-4"
+      enter-to-class="opacity-100 translate-y-0" leave-active-class="transition-all duration-250 ease-in"
       leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 -translate-y-4">
       <div v-if="playingVinylFilter" class="w-full h-full fixed inset-0 z-50 flex items-center justify-center bg-black">
       </div>
@@ -25,8 +25,8 @@
     </Transition>
 
     <!-- Cassette Filter Transition Overlay -->
-    <Transition enter-active-class="transition-all duration-500 ease-out" enter-from-class="opacity-0 -translate-y-4"
-      enter-to-class="opacity-100 translate-y-0" leave-active-class="transition-all duration-500 ease-in"
+    <Transition enter-active-class="transition-all duration-250 ease-out" enter-from-class="opacity-0 -translate-y-4"
+      enter-to-class="opacity-100 translate-y-0" leave-active-class="transition-all duration-250 ease-in"
       leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 -translate-y-4">
       <div v-if="playingCassetteFilter"
         class="w-full h-full fixed inset-0 z-50 flex items-center justify-center bg-black">
@@ -137,8 +137,8 @@
       <div v-if="showCollection" class="max-w-7xl mx-auto">
         <!-- Collection Header -->
         <div>
-          <h3 class="text-center text-xl sm:text-3xl font-bold text-white">
-            {{ totalItems }} Records
+          <h3 class="text-center text-xl sm:text-3xl font-bold text-white sm:mb-4">
+            {{ totalItems }} Albums
           </h3>
           <p class="text-white/40 text-sm">
             <span v-if="loadingMore" class="inline-flex items-center gap-2">
@@ -155,7 +155,7 @@
         </div>
 
         <!-- Carousel -->
-        <div class="px-4 py-1 sm:py-6  sm:min-h-100">
+        <div v-if="totalItems != 0" class="px-4 py-1 sm:py-6  sm:min-h-100">
           <Transition enter-active-class="transition-all duration-300 ease-out delay-300"
             enter-from-class="opacity-0 -translate-y-4" enter-to-class="opacity-100 translate-y-0"
             leave-active-class="transition-all duration-300 ease-in" leave-from-class="opacity-100 translate-y-0"
@@ -168,7 +168,7 @@
         </div>
 
         <!-- Progress indicator -->
-        <div class="flex items-center justify-center gap-3 sm:mt-4">
+        <div v-if="totalItems != 0" class="flex items-center justify-center gap-3 sm:mt-4">
           <span class="text-white/30 text-sm font-medium tabular-nums">{{ currentIndex + 1 }}</span>
           <div class="w-48 h-1 bg-white/10 rounded-full overflow-hidden relative">
             <!-- Loaded portion background (shows how much of the collection is fetched) -->
@@ -184,7 +184,7 @@
         </div>
 
         <!-- Keyboard hint -->
-        <div class="hidden mt-6 sm:flex items-center justify-center gap-4 text-white/20 text-xs">
+        <div v-if="totalItems != 0" class="hidden mt-6 sm:flex items-center justify-center gap-4 text-white/20 text-xs">
           <div class="flex items-center gap-1.5">
             <kbd class="px-2 py-0.5 bg-white/5 border border-white/10 rounded text-[10px] font-mono">&larr;</kbd>
             <kbd class="px-2 py-0.5 bg-white/5 border border-white/10 rounded text-[10px] font-mono">&rarr;</kbd>
@@ -193,7 +193,7 @@
         </div>
 
         <!-- Random Albun Button -->
-        <div class="flex items-center justify-center gap-4 mb-4 mt-4">
+        <div v-if="totalItems != 0" class="flex items-center justify-center gap-4 mb-4 mt-4">
           <div
             class="group w-60 sm:w-72 sm:h-12 rounded-2xl bg-linear-to-br from-primary-start to-primary-end flex items-center justify-center shadow-lg shadow-purple-500/30 gradientButton">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -246,14 +246,39 @@ const totalItems = computed(() => {
 const error = ref<string | null>(null);
 const collectionData = ref<DiscogsCollectionResponse | null>(null);
 const filteredCollectionData = computed(() => {
-  if (selectedGenre.value === '' || selectedGenre.value === anyGenreStr) {
-    return collectionData.value;
-  }
   const filteredCollection: DiscogsCollectionResponse = {
     pagination: collectionData.value?.pagination!,
     releases: []
   };
-  filteredCollection.releases = collectionData.value?.releases.filter(release => release.basic_information.genres.includes(selectedGenre.value)) as DiscogsRelease[];
+  if (selectedGenre.value === '' || selectedGenre.value === anyGenreStr) {
+    if (!vinylFilterOn.value && !cassetteFilterOn.value) {
+      return collectionData.value;
+    }
+    if (vinylFilterOn.value) {
+      filteredCollection.releases = [...filteredCollection.releases, ...collectionData.value!.releases.filter(release => release.basic_information.formats[0].name === 'Vinyl')];
+    }
+
+    if (cassetteFilterOn.value) {
+      filteredCollection.releases = [...filteredCollection.releases, ...collectionData.value!.releases.filter(release => release.basic_information.formats[0].name === 'Cassette')];
+    }
+
+    return filteredCollection;
+  }
+
+  const collectionGenreFilter = collectionData.value?.releases.filter(release => release.basic_information.genres.includes(selectedGenre.value)) as DiscogsRelease[];
+
+  if (!vinylFilterOn.value && !cassetteFilterOn.value) {
+    filteredCollection.releases = collectionGenreFilter;
+    return filteredCollection;
+  }
+
+  if (vinylFilterOn.value) {
+    filteredCollection.releases = [...filteredCollection.releases, ...collectionGenreFilter.filter(release => release.basic_information.formats[0].name === 'Vinyl')];
+  }
+
+  if (cassetteFilterOn.value) {
+    filteredCollection.releases = [...filteredCollection.releases, ...collectionGenreFilter.filter(release => release.basic_information.formats[0].name === 'Cassette')];
+  }
   return filteredCollection;
 });
 
@@ -457,13 +482,19 @@ const handleFilter = () => {
 }
 
 const vinylFilterToggle = () => {
-  vinylFilterOn.value = !vinylFilterOn.value;
   playingVinylFilter.value = true;
+  setTimeout(() => {
+    currentIndex.value = 0;
+    vinylFilterOn.value = !vinylFilterOn.value;
+  }, 200);
 }
 
 const cassetteFilterToggle = () => {
-  cassetteFilterOn.value = !cassetteFilterOn.value;
   playingCassetteFilter.value = true;
+  setTimeout(() => {
+    currentIndex.value = 0;
+    cassetteFilterOn.value = !cassetteFilterOn.value;
+  }, 200);
 }
 
 </script>
