@@ -504,18 +504,5 @@ const cassetteFilterToggle = () => {
 </script>
 
 <style scoped>
-.gradientButton {
-  background-size: 350% 100%;
-  Transition: all .4s ease-in-out;
-}
 
-.gradientButton:hover {
-  background-position: 100% 0;
-}
-
-.btn:hover {
-  animation-name: flow;
-  animation-duration: 500ms;
-  animation-timing-function: linear;
-}
 </style>

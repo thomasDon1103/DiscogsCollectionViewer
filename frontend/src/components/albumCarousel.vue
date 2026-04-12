@@ -192,8 +192,10 @@ const playSwipe = () => {
     swipeAudio.play();
     swipeAudio.onended = () => {
         setTimeout(() => {
-            transitioning.value = false;
-        }, 150);
+            if (swipeAudio.ended) {
+                transitioning.value = false;
+            }
+        }, 500);
     }
 }
 

@@ -1,0 +1,10 @@
+@reference "tailwindcss"; /* Imports definitions only; doesn't emit CSS */
+
+.gradientButton {
+  background-size: 350% 100%;
+  Transition: all .4s ease-in-out;
+}
+
+.gradientButton:hover {
+  background-position: 100% 0;
+}
