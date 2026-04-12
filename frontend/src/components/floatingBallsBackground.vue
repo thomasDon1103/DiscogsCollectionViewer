@@ -40,12 +40,12 @@
 }
 
 .ball:nth-child(odd) {
-    color: #764ba2;
+    color: var(--color-primary-start);
     opacity: 0.5;
 }
 
 .ball:nth-child(even) {
-    color: #6f5fcc;
+    color: var(--color-primary-end);
     opacity: 0.5;
 }
 

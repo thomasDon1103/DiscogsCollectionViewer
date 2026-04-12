@@ -1,16 +1,22 @@
 @import "tailwindcss";
-@import "./themes/darkMode.css";
 
 @theme {
-  --color-primary-start: #667eea;
-  --color-primary-end: #764ba2;
-  --color-primary-mid: #6f5fcc;
-  --color-surface: #1e1e2e;
-  --color-surface-light: #2a2a3e;
-  --color-surface-lighter: #363650;
-  --color-accent: #f0abfc;
+  --color-primary-start: var(--primary-start);
+  --color-primary-mid: var(--primary-mid);
+  --color-primary-end: var(--primary-end);
 
-  --background-image-gradient-window-gradient: linear-gradient(135deg, #0f0c29 0%, #1e1e2e 40%, #24243e 100%);
+  --color-main-bg-start: var(--main-bg-start);
+  --color-main-bg-mid: var(--main-bg-mid);
+  --color-main-bg-end: var(--main-bg-end);
+
+  --color-primary-text: var(--primary-text);
+
+  --color-surface: var(--surface);
+  --color-surface-light: var(--surface-light);
+  --color-surface-lighter: var(--surface-lighter);
+
+  --background-image-window-gradient: linear-gradient(135deg, var(--color-main-bg-start) 0%, var(--color-main-bg-mid) 40%, var(--color-main-bg-end) 100%);
+  --background-image-primary-gradient: linear-gradient(135deg, var(--color-primary-start) 0%, var(--color-primary-mid) 40%, var(--color-primary-end) 100%);
 
   --animate-background: background-move ease infinite;
   --animate-fly-up-flip-y-fly-down: fly-up-flip-y-fly-down 2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
@@ -95,33 +101,54 @@
 }
 
 /* Some defaults */
-:root {
-  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: dark;
-  color: rgba(255, 255, 255, 0.9);
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-#app {
-  position: relative;
-  z-index: 1;
-  margin: 0 auto;
-  padding: 0;
-  text-align: center;
-}
-
 @layer base {
+  :root {
+    font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color-scheme: dark;
+    color: rgba(255, 255, 255, 0.9);
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Set some default colors */
+    --primary-start: #667eea;
+    --primary-end: #764ba2;
+    --primary-mid: #8b339a;
+
+    --primary-text: #FFFFFF;
+
+    --main-bg-start: #0f0c29;
+    --main-bg-mid: #1e1e2e;
+    --main-bg-end: #24243e;
+
+    --surface: #1e1e2e;
+    --surface-light: #2a2a3e;
+    --surface-lighter: #363650;
+  }
+
+  [data-theme='emerald'] {
+    --primary-start: #10b981;
+    --primary-end: #f0fdf4;
+  }
+
+  * {
+    box-sizing: border-box;
+    @apply text-primary-text;
+  }
+
+  #app {
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+  }
+
   button {
     padding: 0.6em 1.2em;
     cursor: pointer;
@@ -148,8 +175,21 @@
     outline: 2px solid var(--color-accent);
     outline-offset: 2px;
   }
-}
 
+  .styleButton {
+    @apply text-white bg-white/5 backdrop-blur-sm rounded-full border border-white/10 enabled:hover:bg-white/20 disabled:opacity-50 disabled:cursor-not-allowed
+  }
+
+  .gradientButton {
+    @apply bg-primary-gradient shadow-lg shadow-purple-500/30;
+    background-size: 350% 100%;
+    Transition: all .4s ease-in-out;
+  }
+
+  .gradientButton:hover {
+    background-position: 100% 0;
+  }
+}
 
 /* Scrollbar styling */
 ::-webkit-scrollbar {

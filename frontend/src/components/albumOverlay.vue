@@ -4,8 +4,8 @@
         @mousedown="closeOverlay">
         <!-- Overlay Content -->
         <div href="#" @mousedown.stop.prevent=""
-            class="w-10/12 h-10/12 animate-background block rounded-lg bg-linear-to-r from-primary-start via-primary-mid to-primary-end bg-size-[400%_400%] p-2 [animation-duration:6s]">
-            <div class="bg-gradient-window-gradient rounded-lg shadow-lg w-full h-full sm:p-10" @click.stop>
+            class="w-10/12 h-10/12 animate-background block rounded-lg bg-primary-gradient bg-size-[400%_400%] p-2 [animation-duration:6s]">
+            <div class="bg-window-gradient rounded-lg shadow-lg w-full h-full sm:p-10" @click.stop>
                 <div class="flex flex-col h-full w-full">
                     <!-- Title Box -->
                     <div class="flex flex-col bg-white/10 rounded-lg p-3 mb-3">

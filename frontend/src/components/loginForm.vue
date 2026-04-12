@@ -2,15 +2,15 @@
     <div class="max-w-md mx-auto">
         <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-10 shadow-2xl shadow-black/20">
             <div class="mb-8">
-                <h2 class="text-white text-2xl font-bold mb-2">Enter your details</h2>
-                <p class="text-white/40 text-sm">Connect to Discogs to browse your vinyl collection</p>
+                <h2 class="text-2xl font-bold mb-2">Enter your details</h2>
+                <p class="text-primary-text/40 text-sm">Connect to Discogs to browse your vinyl collection</p>
             </div>
             <form @submit.prevent="handleSubmit" class="space-y-5">
                 <div class="space-y-1.5">
                     <label
-                        class="block text-left text-white/60 text-xs font-semibold uppercase tracking-wider pl-1">Username</label>
+                        class="block text-left text-primary-text/60 text-xs font-semibold uppercase tracking-wider pl-1">Username</label>
                     <div class="relative">
-                        <div class="absolute left-4 top-1/2 -translate-y-1/2 text-white/30">
+                        <div class="absolute left-4 top-1/2 -translate-y-1/2 text-primary-text/30">
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -19,15 +19,15 @@
                             </svg>
                         </div>
                         <input v-model="props.formData.username" type="text" placeholder="e.g. vinylcollector" required
-                            class="w-full pl-12 pr-5 py-4 text-base rounded-xl text-white placeholder-white/25 bg-white/5 border border-white/10 focus:bg-white/10 focus:border-primary-start/60 focus:shadow-[0_0_20px_rgba(102,126,234,0.15)] transition-all duration-300 outline-none" />
+                            class="w-full pl-12 pr-5 py-4 text-base rounded-xl placeholder-white/25 bg-white/5 border border-white/10 focus:bg-white/10 focus:border-primary-start/60 focus:shadow-[0_0_20px_rgba(102,126,234,0.15)] transition-all duration-300 outline-none" />
                     </div>
                 </div>
                 <div class="space-y-1.5">
-                    <label class="block text-left text-white/60 text-xs font-semibold uppercase tracking-wider pl-1">API
+                    <label class="block text-left text-primary-text/60 text-xs font-semibold uppercase tracking-wider pl-1">API
                         Key
-                        <span class="text-white/30 normal-case font-normal">(optional)</span></label>
+                        <span class="text-primary-text/30 normal-case font-normal">(optional)</span></label>
                     <div class="relative">
-                        <div class="absolute left-4 top-1/2 -translate-y-1/2 text-white/30">
+                        <div class="absolute left-4 top-1/2 -translate-y-1/2 text-primary-text/30">
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -37,12 +37,12 @@
                             </svg>
                         </div>
                         <input v-model="props.formData.apiKey" type="text" placeholder="Your Discogs API key"
-                            class="w-full pl-12 pr-5 py-4 text-base rounded-xl text-white placeholder-white/25 bg-white/5 border border-white/10 focus:bg-white/10 focus:border-primary-start/60 focus:shadow-[0_0_20px_rgba(102,126,234,0.15)] transition-all duration-300 outline-none" />
+                            class="w-full pl-12 pr-5 py-4 text-base rounded-xl placeholder-white/25 bg-white/5 border border-white/10 focus:bg-white/10 focus:border-primary-start/60 focus:shadow-[0_0_20px_rgba(102,126,234,0.15)] transition-all duration-300 outline-none" />
                     </div>
                 </div>
                 <div class="pt-3">
                     <button type="submit" :disabled="props.loading"
-                        class="w-full py-4 bg-linear-to-r from-primary-start to-primary-end text-white rounded-xl text-base font-semibold shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/40 hover:-translate-y-0.5 active:translate-y-0 active:shadow-md transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-lg">
+                        class="w-full py-4 bg-primary-gradient rounded-xl text-base font-semibold shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/40 hover:-translate-y-0.5 active:translate-y-0 active:shadow-md transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-lg">
                         <span v-if="props.loading" class="flex items-center justify-center gap-3">
                             <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none"
                                 viewBox="0 0 24 24">

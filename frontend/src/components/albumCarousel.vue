@@ -1,7 +1,7 @@
 <template>
     <div class="flex items-center justify-center gap-6">
         <button @click="previousRelease" :disabled="currentIndex === 0"
-            class="shrink-0 w-12 h-12 flex items-center justify-center bg-white/10 backdrop-blur-sm text-white rounded-full border border-white/10 hover:bg-white/20 hover:border-white/20 hover:scale-110 active:scale-95 transition-all duration-300 disabled:opacity-20 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:bg-white/10 z-10">
+            class="shrink-0 w-12 h-12 flex items-center justify-center bg-white/10 backdrop-blur-sm rounded-full border border-white/10 hover:bg-white/20 hover:border-white/20 hover:scale-110 active:scale-95 transition-all duration-300 disabled:opacity-20 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:bg-white/10 z-10">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="15 18 9 12 15 6"></polyline>
@@ -31,18 +31,18 @@
                             </div>
                             <!-- Format badge -->
                             <div v-if="index === currentIndex && release.basic_information.formats.length > 0"
-                                class="absolute top-3 right-3 px-3 py-1 bg-black/50 backdrop-blur-md rounded-full text-white text-xs font-medium border border-white/10">
+                                class="absolute top-3 right-3 px-3 py-1 bg-black/50 backdrop-blur-md rounded-full text-xs font-medium border border-white/10">
                                 {{ release.basic_information.formats[0].name }}
                             </div>
                         </div>
                         <div v-if="index === currentIndex" class="p-2 sm:p-6 bg-surface-light/95 backdrop-blur-sm">
-                            <p class="font-bold text-md sm:text-xl text-white mb-1 leading-tight truncate">{{
+                            <p class="font-bold text-md sm:text-xl mb-1 leading-tight truncate">{{
                                 release.basic_information.title }}</p>
-                            <p class="text-white/60 text-base mb-1 sm:mb-4 truncate">
+                            <p class="text-primary-text/60 text-base mb-1 sm:mb-4 truncate">
                                 {{release.basic_information.artists.map(a => a.name).join(', ')}}</p>
                             <div class="flex items-center justify-center gap-2 flex-wrap">
                                 <span v-for="genre in release.basic_information.genres" :key="genre"
-                                    class="px-3 py-1 bg-white/10 rounded-full text-white/70 text-xs font-medium border border-white/5">
+                                    class="px-3 py-1 bg-white/10 rounded-full text-primary-text/70 text-xs font-medium border border-white/5">
                                     {{ genre }}
                                 </span>
                                 <span v-if="release.basic_information.year"
@@ -57,7 +57,7 @@
         </div>
 
         <button @click="nextRelease" :disabled="currentIndex === props.collectionData!.releases.length - 1"
-            class="shrink-0 w-12 h-12 flex items-center justify-center bg-white/10 backdrop-blur-sm text-white rounded-full border border-white/10 hover:bg-white/20 hover:border-white/20 hover:scale-110 active:scale-95 transition-all duration-300 disabled:opacity-20 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:bg-white/10 z-10">
+            class="shrink-0 w-12 h-12 flex items-center justify-center bg-white/10 backdrop-blur-sm rounded-full border border-white/10 hover:bg-white/20 hover:border-white/20 hover:scale-110 active:scale-95 transition-all duration-300 disabled:opacity-20 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:bg-white/10 z-10">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="9 18 15 12 9 6"></polyline>

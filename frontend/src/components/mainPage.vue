@@ -9,11 +9,11 @@
         <div class="h-5/6 flex flex-col">
           <h3 class="text-xl font-bold pb-4">Format Filtering</h3>
           <div class="flex">
-            <button class="darkModeButton mr-3 w-18 h-10 flex items-center justify-center "
+            <button class="styleButton mr-3 w-18 h-10 flex items-center justify-center "
               :class="{ 'gradientButton': vinylFilterOn }" @click="vinylFilterToggle">
               <minimalistVinyl></minimalistVinyl>
             </button>
-            <button class="darkModeButton ml-3 w-18 h-10 flex items-center justify-center"
+            <button class="styleButton ml-3 w-18 h-10 flex items-center justify-center"
               :class="{ 'gradientButton': cassetteFilterOn }" @click="cassetteFilterToggle">
               <minimalistCassette></minimalistCassette>
             </button>
@@ -82,14 +82,11 @@
       leave-to-class="opacity-0 -translate-y-4">
       <div v-if="showCollection" class="flex flex-col items-center justify-center gap-4 mb-5 sm:mb-10">
         <div class="flex h-10">
-
           <div class="px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full border border-white/10">
-            <span class="text-white text-sm">Viewing</span>
-            <span class="text-accent font-semibold text-sm ml-1.5">{{ formData.username }}'s</span>
-            <span class="text-white text-sm ml-1">collection</span>
+            <span class="text-sm">Viewing</span>
+            <span class="text-primary-end font-semibold text-sm ml-1.5">{{ formData.username }}'s</span>
+            <span class="text-sm ml-1">collection</span>
           </div>
-
-
         </div>
         <!-- Header Buttons -->
         <div v-if="showCollection" class="flex flex-row items-center justify-center gap-4">
@@ -97,12 +94,12 @@
             <Select v-model="selectedGenre" :options="collectionGenres" placeholder="What are you in the mood for?"
               @change="handleFilter" :virtualScrollerOptions="{ itemSize: 38, showLoader: false }" :pt="{
                 root: { class: 'bg-white/10 !border border-white/10 flex justify-center ' },
-                label: { class: 'text-white text-sm sm:text-md font-bold' },
+                label: { class: 'text-sm sm:text-md font-bold' },
                 panel: { class: 'bg-transparent' },
                 overlay: { class: 'flex justify-center ' },
                 option: { class: 'text-xs sm:text-base hover:cursor-pointer flex items-center justify-center gap-2.5 px-5 py-2.5 w-full hover:bg-white/20 rounded-full text-center active:scale-95 transition-all duration-500 my-1' },
                 list: { class: 'text-center' },
-                listContainer: { class: 'bg-linear-to-br from-primary-start to-primary-end rounded-lg gap-5 px-5 py-2.5 w-3/4 m-3 border border-white/10 shadow shadow-purple-500/30 shadow-xl' }
+                listContainer: { class: 'bg-primary-gradient rounded-lg gap-5 px-5 py-2.5 w-3/4 m-3 border border-white/10 shadow shadow-purple-500/30 shadow-xl' }
               }"
               class="hover:cursor-pointer w-50 sm:w-80 flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-white/10 hover:bg-white/20 hover:border-white/20 active:scale-95 transition-all duration-500 bg-white/10 "></Select>
           </div>
@@ -152,12 +149,12 @@
       <div v-if="showCollection" class="max-w-7xl mx-auto">
         <!-- Collection Header -->
         <div>
-          <h3 class="text-center text-xl sm:text-3xl font-bold text-white sm:mb-4">
+          <h3 class="text-center text-xl sm:text-3xl font-bold sm:mb-4">
             {{ totalItems }} Albums
           </h3>
-          <p class="text-white/40 text-sm">
+          <p class="text-primary-text/40 text-sm">
             <span v-if="loadingMore" class="inline-flex items-center gap-2">
-              <svg class="animate-spin h-3.5 w-3.5 text-white/40" xmlns="http://www.w3.org/2000/svg" fill="none"
+              <svg class="animate-spin h-3.5 w-3.5 text-primary-text/40" xmlns="http://www.w3.org/2000/svg" fill="none"
                 viewBox="0 0 24 24">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                 <path class="opacity-75" fill="currentColor"
@@ -190,35 +187,34 @@
           <div v-if="totalItems != 0">
             <!-- Progress indicator -->
             <div class="flex items-center justify-center gap-3 sm:mt-4">
-              <span class="text-white/30 text-sm font-medium tabular-nums">{{ currentIndex + 1 }}</span>
+              <span class="text-primary-text/30 text-sm font-medium tabular-nums">{{ currentIndex + 1 }}</span>
               <div class="w-48 h-1 bg-white/10 rounded-full overflow-hidden relative">
                 <!-- Loaded portion background (shows how much of the collection is fetched) -->
                 <div v-if="loadingMore"
                   class="absolute inset-y-0 left-0 bg-white/5 rounded-full transition-all duration-500 ease-out"
                   :style="{ width: `${(filteredCollectionData!.releases.length / totalItems) * 100}%` }"></div>
                 <!-- Current position indicator -->
-                <div
-                  class="h-full bg-linear-to-r from-primary-start to-primary-end rounded-full transition-all duration-500 ease-out relative"
+                <div class="h-full bg-primary-gradient rounded-full transition-all duration-500 ease-out relative"
                   :style="{ width: `${((currentIndex + 1) / totalItems) * 100}%` }"></div>
               </div>
-              <span class="text-white/30 text-sm font-medium tabular-nums">{{ totalItems }}</span>
+              <span class="text-primary-text/30 text-sm font-medium tabular-nums">{{ totalItems }}</span>
             </div>
             <!-- Keyboard hint -->
-            <div class="hidden mt-6 sm:flex sm:flex-col items-center justify-center gap-4 text-white/20 text-xs">
+            <div class="hidden mt-6 sm:flex sm:flex-col items-center justify-center gap-4 text-xs">
               <div class="flex items-center gap-1.5">
                 <kbd class="px-2 py-0.5 bg-white/5 border border-white/10 rounded text-[10px] font-mono">&larr;</kbd>
                 <kbd class="px-2 py-0.5 bg-white/5 border border-white/10 rounded text-[10px] font-mono">&rarr;</kbd>
-                <span>Swipe or use arrow keys to browse</span>
+                <span class="text-primary-text/20">Swipe or use arrow keys to browse</span>
               </div>
               <div>
-                <span>Double click an album for more info</span>
+                <span class="text-primary-text/20">Double click an album for more info</span>
               </div>
             </div>
 
             <!-- Random Albun Button -->
             <div class="flex items-center justify-center gap-4 mb-4 mt-4">
               <div
-                class="group w-60 sm:w-72 sm:h-12 rounded-2xl bg-linear-to-br from-primary-start to-primary-end flex items-center justify-center shadow-lg shadow-purple-500/30 gradientButton">
+                class="group w-60 sm:w-72 sm:h-12 rounded-2xl flex items-center justify-center gradientButton">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                   stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                   class="group-hover:animate-spin">
