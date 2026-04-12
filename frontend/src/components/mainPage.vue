@@ -1,5 +1,38 @@
 <template>
-  <!-- Overlays -->
+  <!-- Overlays Start -->
+  <!-- Sidebar -->
+  <div class="max-w-1/8 w-1/4 absolute z-50 h-screen">
+    <HamburgerMenu>
+      <!-- All Sidebar Elements -->
+      <div class="flex flex-col h-screen">
+        <!-- Format Filter Buttons -->
+        <div class="h-5/6 flex flex-col">
+          <h3 class="text-xl font-bold pb-4">Format Filtering</h3>
+          <div class="flex">
+            <button class="darkModeButton mr-3 w-18 h-10 flex items-center justify-center "
+              :class="{ 'gradientButton': vinylFilterOn }" @click="vinylFilterToggle">
+              <minimalistVinyl></minimalistVinyl>
+            </button>
+            <button class="darkModeButton ml-3 w-18 h-10 flex items-center justify-center"
+              :class="{ 'gradientButton': cassetteFilterOn }" @click="cassetteFilterToggle">
+              <minimalistCassette></minimalistCassette>
+            </button>
+          </div>
+        </div>
+        <!-- Sign Out Button -->
+        <div class="h-1/6">
+          <button @click="resetForm" :disabled="!showCollection"
+            class="darkModeButton flex items-center gap-2.5 px-5 py-2.5 font-bold text-sm sm:text-md active:scale-95 transition-all duration-500">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            <span class="hidden sm:inline"> Change User </span>
+          </button>
+        </div>
+      </div>
+    </HamburgerMenu>
+  </div>
   <!-- Album Info Overlay -->
   <div class="relative">
     <Transition enter-active-class="transition-all duration-500 ease-out" enter-from-class="opacity-0 -translate-y-4"
@@ -40,7 +73,7 @@
         <CassetteSVG class="w-150 left-0 bottom-0" label="Loading..."></CassetteSVG>
       </div>
     </Transition>
-
+    <!-- Overlays Start -->
 
     <!-- Header -->
     <Transition enter-active-class="transition-all duration-500 ease-out delay-500"
@@ -49,35 +82,17 @@
       leave-to-class="opacity-0 -translate-y-4">
       <div v-if="showCollection" class="flex flex-col items-center justify-center gap-4 mb-5 sm:mb-10">
         <div class="flex h-10">
-          <button
-            class="px-2 py-2 bg-white/5 backdrop-blur-sm rounded-full border border-white/10 mr-3 w-18 flex items-center justify-center hover:bg-white/20 "
-            :class="{ 'gradientButton bg-linear-to-br from-primary-start to-primary-end': vinylFilterOn }"
-            @click="vinylFilterToggle">
-            <minimalistVinyl></minimalistVinyl>
-          </button>
+
           <div class="px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full border border-white/10">
             <span class="text-white text-sm">Viewing</span>
             <span class="text-accent font-semibold text-sm ml-1.5">{{ formData.username }}'s</span>
             <span class="text-white text-sm ml-1">collection</span>
           </div>
-          <button
-            class="px-2 py-2 bg-white/5 backdrop-blur-sm rounded-full border border-white/10 ml-3 w-18 flex items-center justify-center hover:bg-white/20"
-            :class="{ 'gradientButton bg-linear-to-br from-primary-start to-primary-end': cassetteFilterOn }"
-            @click="cassetteFilterToggle">
-            <minimalistCassette></minimalistCassette>
-          </button>
+
 
         </div>
         <!-- Header Buttons -->
         <div v-if="showCollection" class="flex flex-row items-center justify-center gap-4">
-          <button @click="resetForm"
-            class="flex items-center gap-2.5 px-5 py-2.5 bg-white/10 backdrop-blur-sm text-white rounded-full font-bold text-sm sm:text-md border border-white/10 hover:bg-white/20 hover:text-white hover:border-white/20 active:scale-95 transition-all duration-500">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-            <span class="hidden sm:inline"> Change User </span>
-          </button>
           <div class="">
             <Select v-model="selectedGenre" :options="collectionGenres" placeholder="What are you in the mood for?"
               @change="handleFilter" :virtualScrollerOptions="{ itemSize: 38, showLoader: false }" :pt="{
@@ -160,9 +175,9 @@
             enter-from-class="opacity-0 -translate-y-4" enter-to-class="opacity-100 translate-y-0"
             leave-active-class="transition-all duration-300 ease-in" leave-from-class="opacity-100 translate-y-0"
             leave-to-class="opacity-0 -translate-y-4" @after-leave="handleCarouselGone">
-            <albumCarousel :collection-data="filteredCollectionData" :show-carousel="showCarousel"
-              :current-index="currentIndex" @next-release="nextRelease" @prev-release="previousRelease"
-              @album-selected="handleAlbumSelected" @go-to-release="goToRelease">
+            <albumCarousel :collection-data="filteredCollectionData" v-if="showCarousel" :current-index="currentIndex"
+              @next-release="nextRelease" @prev-release="previousRelease" @album-selected="handleAlbumSelected"
+              @go-to-release="goToRelease">
             </albumCarousel>
           </Transition>
         </div>
@@ -233,6 +248,7 @@ import minimalistVinyl from './minimalistVinyl.vue';
 import minimalistCassette from './minimalistCassette.vue';
 import CassetteSVG from './cassetteSVG.vue';
 import VinylSVG from './vinylSVG.vue';
+import HamburgerMenu from './hamburgerMenu.vue';
 import { DiscogsAlbumInfoResponse } from '../types/DiscogsAlbumInfo';
 
 const emit = defineEmits(["startBackgroundMusic", "stopBackgroundMusic"]);
@@ -503,6 +519,4 @@ const cassetteFilterToggle = () => {
 
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

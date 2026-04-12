@@ -1,5 +1,5 @@
 <template>
-    <div class="flex items-center justify-center gap-6" v-if="showCarousel">
+    <div class="flex items-center justify-center gap-6">
         <button @click="previousRelease" :disabled="currentIndex === 0"
             class="shrink-0 w-12 h-12 flex items-center justify-center bg-white/10 backdrop-blur-sm text-white rounded-full border border-white/10 hover:bg-white/20 hover:border-white/20 hover:scale-110 active:scale-95 transition-all duration-300 disabled:opacity-20 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:bg-white/10 z-10">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
@@ -73,7 +73,6 @@ import type { DiscogsCollectionResponse } from '../types/DiscogsCollectionInfo';
 const props = defineProps<{
     collectionData: DiscogsCollectionResponse | null
     currentIndex: number
-    showCarousel: boolean
 }>()
 
 const emit = defineEmits(['nextRelease', "prevRelease", "goToRelease", "albumSelected"]);
@@ -155,7 +154,7 @@ onUnmounted(() => {
 
 // Keyboard navigation
 const handleKeydown = (e: KeyboardEvent) => {
-    if (!props.showCarousel || !props.collectionData) return;
+    if (!props.collectionData) return;
     if (e.key === 'ArrowLeft') {
         e.preventDefault();
         previousRelease();

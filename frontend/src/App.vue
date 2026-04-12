@@ -1,11 +1,5 @@
 <template>
   <div class="w-full h-full flex bg-gradient-window-gradient overflow-hidden">
-    <div class="max-w-1/8 w-1/4 absolute z-50">
-      <HamburgerMenu>
-        <text></text>
-      </HamburgerMenu>
-    </div>
-
     <div id="app" class="h-screen flex flex-col">
       <!-- Header -->
       <header class="pt-5 sm:pt-10 pb-6 px-6">
