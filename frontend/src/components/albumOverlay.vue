@@ -1,8 +1,9 @@
 <template>
     <!-- Transparent Dark Background -->
-    <div class="w-full h-full fixed inset-0 z-50 flex items-center justify-center bg-black/50" @click="closeOverlay">
+    <div class="w-full h-full fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+        @mousedown="closeOverlay">
         <!-- Overlay Content -->
-        <div href="#"
+        <div href="#" @mousedown.stop.prevent=""
             class="w-10/12 h-10/12 animate-background block rounded-lg bg-linear-to-r from-primary-start via-primary-mid to-primary-end bg-size-[400%_400%] p-2 [animation-duration:6s]">
             <div class="bg-gradient-window-gradient rounded-lg shadow-lg w-full h-full sm:p-10" @click.stop>
                 <div class="flex flex-col h-full w-full">
@@ -45,7 +46,7 @@
                                             <div class="flex" v-for="(format, index) in props.albumInfo?.formats">
                                                 <p class="text-left text-lg">&nbsp;{{ format.name }}</p>
                                                 <p v-if="format.text" class="text-left text-lg">&nbsp;- {{ format.text
-                                                    }}
+                                                }}
                                                 </p>
                                                 <p v-if="index != props.albumInfo?.formats?.length as number - 1">,</p>
                                             </div>
@@ -101,9 +102,8 @@
                     <div v-drag-scroll
                         class="bg-white/10 rounded-lg  mt-3 h-full w-full flex overflow-x-hidden select-none">
                         <img v-for="image in props.albumInfo?.images" :src="image?.uri"
-                            title="Double Click To Change Image"
                             class="aspect-square object-cover rounded-lg ml-3 m-3 hover:cursor-pointer select-none border-3 border-white/0 hover:border-primary-end transition-colors duration-300"
-                            draggable="false" @dblclick="changeImage(image.uri)" />
+                            draggable="false" @click="changeImage(image.uri)" />
                     </div>
                 </div>
             </div>

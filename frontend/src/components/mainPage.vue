@@ -170,7 +170,7 @@
         </div>
 
         <!-- Carousel -->
-        <div v-if="totalItems != 0" class="px-4 py-1 sm:py-6  sm:min-h-100">
+        <div class="px-4 py-1 sm:py-6  sm:min-h-100">
           <Transition enter-active-class="transition-all duration-300 ease-out delay-300"
             enter-from-class="opacity-0 -translate-y-4" enter-to-class="opacity-100 translate-y-0"
             leave-active-class="transition-all duration-300 ease-in" leave-from-class="opacity-100 translate-y-0"
@@ -182,55 +182,61 @@
           </Transition>
         </div>
 
-        <!-- Progress indicator -->
-        <div v-if="totalItems != 0" class="flex items-center justify-center gap-3 sm:mt-4">
-          <span class="text-white/30 text-sm font-medium tabular-nums">{{ currentIndex + 1 }}</span>
-          <div class="w-48 h-1 bg-white/10 rounded-full overflow-hidden relative">
-            <!-- Loaded portion background (shows how much of the collection is fetched) -->
-            <div v-if="loadingMore"
-              class="absolute inset-y-0 left-0 bg-white/5 rounded-full transition-all duration-500 ease-out"
-              :style="{ width: `${(filteredCollectionData!.releases.length / totalItems) * 100}%` }"></div>
-            <!-- Current position indicator -->
-            <div
-              class="h-full bg-linear-to-r from-primary-start to-primary-end rounded-full transition-all duration-500 ease-out relative"
-              :style="{ width: `${((currentIndex + 1) / totalItems) * 100}%` }"></div>
-          </div>
-          <span class="text-white/30 text-sm font-medium tabular-nums">{{ totalItems }}</span>
-        </div>
+        <!-- Bottom Bar Buttons -->
+        <Transition enter-active-class="transition-all duration-300 ease-out delay-300"
+          enter-from-class="opacity-0 -translate-y-4" enter-to-class="opacity-100 translate-y-0"
+          leave-active-class="transition-all duration-300 ease-in" leave-from-class="opacity-100 translate-y-0"
+          leave-to-class="opacity-0 -translate-y-4">
+          <div v-if="totalItems != 0">
+            <!-- Progress indicator -->
+            <div class="flex items-center justify-center gap-3 sm:mt-4">
+              <span class="text-white/30 text-sm font-medium tabular-nums">{{ currentIndex + 1 }}</span>
+              <div class="w-48 h-1 bg-white/10 rounded-full overflow-hidden relative">
+                <!-- Loaded portion background (shows how much of the collection is fetched) -->
+                <div v-if="loadingMore"
+                  class="absolute inset-y-0 left-0 bg-white/5 rounded-full transition-all duration-500 ease-out"
+                  :style="{ width: `${(filteredCollectionData!.releases.length / totalItems) * 100}%` }"></div>
+                <!-- Current position indicator -->
+                <div
+                  class="h-full bg-linear-to-r from-primary-start to-primary-end rounded-full transition-all duration-500 ease-out relative"
+                  :style="{ width: `${((currentIndex + 1) / totalItems) * 100}%` }"></div>
+              </div>
+              <span class="text-white/30 text-sm font-medium tabular-nums">{{ totalItems }}</span>
+            </div>
+            <!-- Keyboard hint -->
+            <div class="hidden mt-6 sm:flex sm:flex-col items-center justify-center gap-4 text-white/20 text-xs">
+              <div class="flex items-center gap-1.5">
+                <kbd class="px-2 py-0.5 bg-white/5 border border-white/10 rounded text-[10px] font-mono">&larr;</kbd>
+                <kbd class="px-2 py-0.5 bg-white/5 border border-white/10 rounded text-[10px] font-mono">&rarr;</kbd>
+                <span>Swipe or use arrow keys to browse</span>
+              </div>
+              <div>
+                <span>Double click an album for more info</span>
+              </div>
+            </div>
 
-        <!-- Keyboard hint -->
-        <div v-if="totalItems != 0"
-          class="hidden mt-6 sm:flex sm:flex-col items-center justify-center gap-4 text-white/20 text-xs">
-          <div class="flex items-center gap-1.5">
-            <kbd class="px-2 py-0.5 bg-white/5 border border-white/10 rounded text-[10px] font-mono">&larr;</kbd>
-            <kbd class="px-2 py-0.5 bg-white/5 border border-white/10 rounded text-[10px] font-mono">&rarr;</kbd>
-            <span>Swipe or use arrow keys to browse</span>
+            <!-- Random Albun Button -->
+            <div class="flex items-center justify-center gap-4 mb-4 mt-4">
+              <div
+                class="group w-60 sm:w-72 sm:h-12 rounded-2xl bg-linear-to-br from-primary-start to-primary-end flex items-center justify-center shadow-lg shadow-purple-500/30 gradientButton">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="group-hover:animate-spin">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <line x1="12" y1="2" x2="12" y2="5"></line>
+                  <line x1="12" y1="19" x2="12" y2="22"></line>
+                  <line x1="2" y1="12" x2="5" y2="12"></line>
+                  <line x1="19" y1="12" x2="22" y2="12"></line>
+                </svg>
+                <button @click="randomAlbum"
+                  class="text-sm sm:text-lg font-bold tracking-tight bg-white bg-clip-text text-transparent">
+                  Find Me An Album...
+                </button>
+              </div>
+            </div>
           </div>
-          <div>
-            <span>Double click an album for more info</span>
-          </div>
-        </div>
-
-        <!-- Random Albun Button -->
-        <div v-if="totalItems != 0" class="flex items-center justify-center gap-4 mb-4 mt-4">
-          <div
-            class="group w-60 sm:w-72 sm:h-12 rounded-2xl bg-linear-to-br from-primary-start to-primary-end flex items-center justify-center shadow-lg shadow-purple-500/30 gradientButton">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-              class="group-hover:animate-spin">
-              <circle cx="12" cy="12" r="10"></circle>
-              <circle cx="12" cy="12" r="3"></circle>
-              <line x1="12" y1="2" x2="12" y2="5"></line>
-              <line x1="12" y1="19" x2="12" y2="22"></line>
-              <line x1="2" y1="12" x2="5" y2="12"></line>
-              <line x1="19" y1="12" x2="22" y2="12"></line>
-            </svg>
-            <button @click="randomAlbum"
-              class="text-sm sm:text-lg font-bold tracking-tight bg-white bg-clip-text text-transparent">
-              Find Me An Album...
-            </button>
-          </div>
-        </div>
+        </Transition>
       </div>
     </Transition>
   </div>
@@ -497,7 +503,11 @@ const randomAlbum = () => {
 }
 
 const handleFilter = () => {
-  showCarousel.value = false;
+  if (showCarousel.value) {
+    showCarousel.value = false;
+  } else {
+    showCarousel.value = true;
+  }
   currentIndex.value = 0;
 }
 
