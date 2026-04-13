@@ -19,9 +19,9 @@
   --background-image-primary-gradient: linear-gradient(135deg, var(--color-primary-start) 0%, var(--color-primary-mid) 40%, var(--color-primary-end) 100%);
 
   --animate-background: background-move ease infinite;
-  --animate-fly-up-flip-y-fly-down: fly-up-flip-y-fly-down 2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
-  --animate-fly-up-rotate-fly-down: fly-up-rotate-fly-down 2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
-  --animate-fly-up-rotate-fly-down-delayed: fly-up-rotate-fly-down 2s cubic-bezier(0.45, 0, 0.55, 1) 2s infinite;
+  --animate-fly-up-flip-y-fly-down: fly-up-flip-y-fly-down 1.5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  --animate-fly-up-rotate-fly-down: fly-up-rotate-fly-down 1.5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  --animate-fly-up-rotate-fly-down-delayed: fly-up-rotate-fly-down 1.5s cubic-bezier(0.45, 0, 0.55, 1) 2s infinite;
 
   @keyframes fly-up-flip-y-fly-down {
     0% {

@@ -27,6 +27,9 @@
       <main class="px-6 pb-12">
         <MainPage @start-background-music="backgroundFadeIn" @stop-background-music="backgroundFadeOut" />
       </main>
+      <div class="fixed bottom-0 left-0 right-0">
+        <!-- <Jukebox></Jukebox> -->
+      </div>
       <BallsBackground></BallsBackground>
     </div>
     <audio ref="backgroundAudioPlayer" :src="backroundMusicURL" loop></audio>
@@ -36,6 +39,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import MainPage from './components/mainPage.vue';
+// import Jukebox from './components/jukebox.vue';
 import BallsBackground from './components/floatingBallsBackground.vue';
 // import WavesBackground from './components/wavesBackground.vue';
 

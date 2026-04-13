@@ -2,7 +2,7 @@
   <!-- Overlays Start -->
   <!-- Sidebar -->
   <div class="max-w-1/8 w-1/4 absolute z-50 h-screen">
-    <HamburgerMenu>
+    <SideBar>
       <!-- All Sidebar Elements -->
       <div class="flex flex-col h-screen">
         <!-- Format Filter Buttons -->
@@ -22,7 +22,7 @@
         <!-- Sign Out Button -->
         <div class="h-1/6">
           <button @click="resetForm" :disabled="!showCollection"
-            class="darkModeButton flex items-center gap-2.5 px-5 py-2.5 font-bold text-sm sm:text-md active:scale-95 transition-all duration-500">
+            class="styleButton flex items-center gap-2.5 px-5 py-2.5 font-bold text-sm sm:text-md active:scale-95 transition-all duration-500">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="15 18 9 12 15 6"></polyline>
@@ -31,12 +31,12 @@
           </button>
         </div>
       </div>
-    </HamburgerMenu>
+    </SideBar>
   </div>
   <!-- Album Info Overlay -->
   <div class="relative">
-    <Transition enter-active-class="transition-all duration-500 ease-out" enter-from-class="opacity-0 -translate-y-4"
-      enter-to-class="opacity-100 translate-y-0" leave-active-class="transition-all duration-500 ease-in"
+    <Transition enter-active-class="transition-all duration-300 ease-out" enter-from-class="opacity-0 -translate-y-4"
+      enter-to-class="opacity-100 translate-y-0" leave-active-class="transition-all duration-300 ease-in"
       leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 -translate-y-4">
       <albumOverlay v-if="showAlbumOverlay" :album-info="albumInfo" @close-overlay="closeOverlay"></albumOverlay>
     </Transition>
@@ -76,9 +76,9 @@
     <!-- Overlays Start -->
 
     <!-- Header -->
-    <Transition enter-active-class="transition-all duration-500 ease-out delay-500"
+    <Transition enter-active-class="transition-all duration-300 ease-out delay-500"
       enter-from-class="opacity-0 -translate-y-4" enter-to-class="opacity-100 translate-y-0"
-      leave-active-class="transition-all duration-500 ease-in" leave-from-class="opacity-100 translate-y-0"
+      leave-active-class="transition-all duration-300 ease-in" leave-from-class="opacity-100 translate-y-0"
       leave-to-class="opacity-0 -translate-y-4">
       <div v-if="showCollection" class="flex flex-col items-center justify-center gap-4 mb-5 sm:mb-10">
         <div class="flex h-10">
@@ -247,7 +247,7 @@ import minimalistVinyl from './minimalistVinyl.vue';
 import minimalistCassette from './minimalistCassette.vue';
 import CassetteSVG from './cassetteSVG.vue';
 import VinylSVG from './vinylSVG.vue';
-import HamburgerMenu from './hamburgerMenu.vue';
+import SideBar from './sideBar.vue';
 import { DiscogsAlbumInfoResponse } from '../types/DiscogsAlbumInfo';
 
 const emit = defineEmits(["startBackgroundMusic", "stopBackgroundMusic"]);
@@ -368,7 +368,7 @@ const handleSubmit = async () => {
   try {
     // Fetch the first page
     const data = await discogsService.fetchCollectionPage(
-      formData.value.username,
+      formData.value.username.trim(),
       1,
       formData.value.apiKey || undefined,
     );
@@ -419,7 +419,7 @@ const fetchRemainingPages = async (totalPages: number) => {
 
     try {
       const pageData = await discogsService.fetchCollectionPage(
-        formData.value.username,
+        formData.value.username.trim(),
         page,
         formData.value.apiKey || undefined,
       );
