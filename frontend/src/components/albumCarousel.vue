@@ -140,7 +140,6 @@ const handleTouchEnd = () => {
 };
 
 const handleAlbumDoubleClick = (albumID: number) => {
-    console.log(albumID);
     emit("albumSelected", albumID);
 }
 

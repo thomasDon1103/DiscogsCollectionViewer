@@ -213,8 +213,8 @@
 
             <!-- Random Albun Button -->
             <div class="flex items-center justify-center gap-4 mb-4 mt-4">
-              <div
-                class="group w-60 sm:w-72 sm:h-12 rounded-2xl flex items-center justify-center gradientButton">
+              <button @click="randomAlbum"
+                class="group w-60 sm:w-72 sm:h-12 rounded-2xl flex items-center justify-center gradientButton text-sm sm:text-lg font-bold ">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                   stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                   class="group-hover:animate-spin">
@@ -225,11 +225,8 @@
                   <line x1="2" y1="12" x2="5" y2="12"></line>
                   <line x1="19" y1="12" x2="22" y2="12"></line>
                 </svg>
-                <button @click="randomAlbum"
-                  class="text-sm sm:text-lg font-bold tracking-tight bg-white bg-clip-text text-transparent">
-                  Find Me An Album...
-                </button>
-              </div>
+                <text class="pl-4"> Find Me An Album... </text>
+              </button>
             </div>
           </div>
         </Transition>

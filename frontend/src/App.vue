@@ -16,8 +16,7 @@
               <line x1="19" y1="12" x2="22" y2="12"></line>
             </svg>
           </div>
-          <h1
-            class="text-3xl font-extrabold tracking-tight bg-primary-gradient bg-clip-text text-transparent">
+          <h1 class="text-3xl font-extrabold tracking-tight bg-primary-gradient bg-clip-text text-transparent">
             Discogs Explorer
           </h1>
         </div>
@@ -37,11 +36,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import MainPage from './components/mainPage.vue';
-import HamburgerMenu from './components/hamburgerMenu.vue';
 import BallsBackground from './components/floatingBallsBackground.vue';
 // import WavesBackground from './components/wavesBackground.vue';
 
-const backroundMusicURL = "sounds/background.mp3";
+const backroundMusicURL = "sounds/Florida Rains - Lowball Glass.mp3";
 const backgroundAudioPlayer = ref<HTMLAudioElement | null>(null);
 
 // Background Audio Constants

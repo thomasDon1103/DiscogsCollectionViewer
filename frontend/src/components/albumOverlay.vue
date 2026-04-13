@@ -46,7 +46,7 @@
                                             <div class="flex" v-for="(format, index) in props.albumInfo?.formats">
                                                 <p class="text-left text-lg">&nbsp;{{ format.name }}</p>
                                                 <p v-if="format.text" class="text-left text-lg">&nbsp;- {{ format.text
-                                                }}
+                                                    }}
                                                 </p>
                                                 <p v-if="index != props.albumInfo?.formats?.length as number - 1">,</p>
                                             </div>
@@ -120,9 +120,16 @@ const props = defineProps<{
 
 const emit = defineEmits(['closeOverlay']);
 
+const openAudio = new Audio('sounds/openOverlay.wav');
+openAudio.volume = 0.5;
+openAudio.play();
+const closeAudio = new Audio('sounds/closeOverlay.wav');
+closeAudio.volume = 0.5;
+
 const displayedImage = ref<string>(props!.albumInfo!.images[0]?.uri);
 
 const closeOverlay = () => {
+    closeAudio.play();
     emit('closeOverlay');
 }
 

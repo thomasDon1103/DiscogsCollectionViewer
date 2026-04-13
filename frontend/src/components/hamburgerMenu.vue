@@ -14,7 +14,7 @@
             <!-- Toggle Button (Moves with Sidebar) -->
             <div
                 class="absolute top-5 -right-20 flex items-center justify-center bg-primary-gradient shadow-lg shadow-purple-500/30 gradientButton rounded focus:outline-none">
-                <button @click="isOpen = !isOpen" class="">
+                <button @click="handleOpenToggle" class="">
                     <!-- Icon (Hamburger or Arrow) -->
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -30,9 +30,21 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+const openAudio = new Audio('sounds/openMenu.wav');
+const closeAudio = new Audio('sounds/closeMenu.wav');
+
 const isOpen = ref(false);
+
+const handleOpenToggle = () => {
+    if (!isOpen.value) {
+        openAudio.play();
+    } else {
+        closeAudio.play();
+    }
+    isOpen.value = !isOpen.value;
+}
+
+
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
