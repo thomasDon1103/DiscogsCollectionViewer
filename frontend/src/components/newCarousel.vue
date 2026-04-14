@@ -1,5 +1,5 @@
 <template>
-    <div class="w-120 h-120">
+    <div class="w-150 h-150 mt-5">
         <swiper :effect="'coverflow'" :grabCursor="true" :centeredSlides="true" :slidesPerView="'auto'" :keyboard="true"
             :navigation="true" :initial-slide="props.currentIndex" @swiper="onSwiper" @slideChange="onSlideChange"
             :virtual="{
@@ -20,10 +20,10 @@
                 modifier: 1,
                 slideShadows: true,
             }" :modules="modules" class="mySwiper w-full">
-            <swiper-slide v-for="(release, index) in props.collectionData!.releases" :key="index">
-                <div id="albumCard"
-                    class="transition-all duration-500 ease-in-out flex flex-col items-center justify-center mb-2">
-                    <div class="rounded-2xl overflow-hidden w-3/5 sm:w-full h-80 sm:h-full" :class="{
+            <swiper-slide v-for="(release, index) in props.collectionData!.releases" :key="index" class="w-full">
+                <div id="albumCard w-full"
+                    class="transition-all duration-500 ease-in-out flex flex-col items-center justify-center mb-2 w-full">
+                    <div class="rounded-2xl overflow-hidden w-3/5 sm:w-100 h-80 sm:h-full" :class="{
                         'cursor-pointer hover:scale-[1.02]': index !== currentIndex,
                         'ring-2 ring-white/20': index === currentIndex
                     }" @click="index !== currentIndex && goToRelease(index)">
@@ -33,7 +33,7 @@
                                 @dblclick="index === currentIndex && handleAlbumDoubleClick(props.collectionData!.releases[index].id)" />
                             <!-- Subtle gradient overlay at bottom of image -->
                             <div v-if="index === currentIndex"
-                                class="absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-black/30 to-transparent">
+                                class="absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-black/30 to-transparent w-full">
                             </div>
                             <!-- Format badge -->
                             <div v-if="index === currentIndex && release.basic_information.formats.length > 0"
@@ -122,8 +122,8 @@ const handleAlbumDoubleClick = (albumID: number) => {
 
 <style scoped>
 .swiper-slide {
-    width: 300px;
-    height: 300px;
+    width: 500px;
+    height: 500px;
     background-color: #eee;
     /* Smoothly transition opacity */
     transition: opacity 0.3s;
