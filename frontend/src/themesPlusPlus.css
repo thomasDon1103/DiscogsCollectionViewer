@@ -1,0 +1,970 @@
+/* ============================================================
+   themesPlusPlus.css — Experimental & avant-garde theme collection
+   Each data-theme defines all 11 standard CSS variables:
+     --primary-start, --primary-mid, --primary-end
+     --primary-text, --primary-shadow
+     --main-bg-start, --main-bg-mid, --main-bg-end
+     --surface, --surface-light, --surface-lighter
+   ============================================================ */
+
+/* ========== SYNESTHESIA — Colors inspired by sound ========== */
+
+/* The hum of a cello — deep amber resonance with violet overtones */
+[data-theme='cello'] {
+  --primary-start: #d4a24e;
+  --primary-mid: #7b4a8a;
+  --primary-end: #2c1654;
+
+  --primary-text: #f5e8d0;
+  --primary-shadow: #d4a24e;
+
+  --main-bg-start: #16100a;
+  --main-bg-mid: #201418;
+  --main-bg-end: #1a1028;
+
+  --surface: #1e1420;
+  --surface-light: #2c1e32;
+  --surface-lighter: #3c2844;
+}
+
+/* White noise — static grain, all frequencies at once */
+[data-theme='white-noise'] {
+  --primary-start: #e0e0e0;
+  --primary-mid: #9e9e9e;
+  --primary-end: #616161;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #bdbdbd;
+
+  --main-bg-start: #0e0e0e;
+  --main-bg-mid: #161616;
+  --main-bg-end: #1e1e1e;
+
+  --surface: #181818;
+  --surface-light: #242424;
+  --surface-lighter: #303030;
+}
+
+/* Bass drop — subsonic purple-black with neon impact */
+[data-theme='bass-drop'] {
+  --primary-start: #ea00ff;
+  --primary-mid: #1b0030;
+  --primary-end: #00ff9f;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ea00ff;
+
+  --main-bg-start: #06001a;
+  --main-bg-mid: #0e0028;
+  --main-bg-end: #040e18;
+
+  --surface: #0c0424;
+  --surface-light: #160838;
+  --surface-lighter: #220c4e;
+}
+
+/* ========== IMPOSSIBLE PHYSICS — Colors that shouldn't coexist ========== */
+
+/* Antimatter — inverted expectations, warm where cold should be */
+[data-theme='antimatter'] {
+  --primary-start: #ff6e40;
+  --primary-mid: #00e5ff;
+  --primary-end: #ff6e40;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #00e5ff;
+
+  --main-bg-start: #0a1418;
+  --main-bg-mid: #18100a;
+  --main-bg-end: #0a1418;
+
+  --surface: #121614;
+  --surface-light: #1c2220;
+  --surface-lighter: #282e2c;
+}
+
+/* Dark matter — nearly invisible, ultra-subtle shifts */
+[data-theme='dark-matter'] {
+  --primary-start: #2a2a3e;
+  --primary-mid: #1e1e30;
+  --primary-end: #141422;
+
+  --primary-text: #8888aa;
+  --primary-shadow: #2a2a3e;
+
+  --main-bg-start: #060608;
+  --main-bg-mid: #0a0a0e;
+  --main-bg-end: #0e0e14;
+
+  --surface: #0c0c12;
+  --surface-light: #14141c;
+  --surface-lighter: #1c1c28;
+}
+
+/* Quantum — superposition of complementary colors */
+[data-theme='quantum'] {
+  --primary-start: #ff0055;
+  --primary-mid: #00ffa5;
+  --primary-end: #5500ff;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #00ffa5;
+
+  --main-bg-start: #0c0410;
+  --main-bg-mid: #04100c;
+  --main-bg-end: #08041a;
+
+  --surface: #0a0812;
+  --surface-light: #141020;
+  --surface-lighter: #1e1830;
+}
+
+/* Event horizon — light bending at the edge of a black hole */
+[data-theme='event-horizon'] {
+  --primary-start: #fff3e0;
+  --primary-mid: #ff6d00;
+  --primary-end: #000000;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ff6d00;
+
+  --main-bg-start: #040200;
+  --main-bg-mid: #0c0804;
+  --main-bg-end: #060402;
+
+  --surface: #0a0804;
+  --surface-light: #161008;
+  --surface-lighter: #221a0e;
+}
+
+/* ========== EMOTIONAL STATES — Abstract feelings as color ========== */
+
+/* Euphoria — overwhelming joy, golden light flooding everything */
+[data-theme='euphoria'] {
+  --primary-start: #fff176;
+  --primary-mid: #ffb74d;
+  --primary-end: #ff8a65;
+
+  --primary-text: #1a1000;
+  --primary-shadow: #fff176;
+
+  --main-bg-start: #1a1408;
+  --main-bg-mid: #24200e;
+  --main-bg-end: #2e2614;
+
+  --surface: #262010;
+  --surface-light: #342c18;
+  --surface-lighter: #443a22;
+}
+
+/* Melancholy — blue-grey sadness with a warm memory underneath */
+[data-theme='melancholy'] {
+  --primary-start: #78909c;
+  --primary-mid: #546e7a;
+  --primary-end: #d4a373;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #78909c;
+
+  --main-bg-start: #0a0e10;
+  --main-bg-mid: #101618;
+  --main-bg-end: #161c1e;
+
+  --surface: #121a1c;
+  --surface-light: #1c2628;
+  --surface-lighter: #263236;
+}
+
+/* Vertigo — disorienting spiral of clashing tones */
+[data-theme='vertigo'] {
+  --primary-start: #76ff03;
+  --primary-mid: #d500f9;
+  --primary-end: #ff9100;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #d500f9;
+
+  --main-bg-start: #060a04;
+  --main-bg-mid: #100618;
+  --main-bg-end: #140e06;
+
+  --surface: #0e0a10;
+  --surface-light: #18121e;
+  --surface-lighter: #241a2e;
+}
+
+/* Nostalgia — sepia-tinted warmth fading at the edges */
+[data-theme='nostalgia'] {
+  --primary-start: #d7ccc8;
+  --primary-mid: #a1887f;
+  --primary-end: #6d4c41;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #d7ccc8;
+
+  --main-bg-start: #120e0c;
+  --main-bg-mid: #1c1614;
+  --main-bg-end: #261e1c;
+
+  --surface: #1e1816;
+  --surface-light: #2a2220;
+  --surface-lighter: #382e2c;
+}
+
+/* Insomnia — 3am screen glow, tired blue with anxious yellow */
+[data-theme='insomnia'] {
+  --primary-start: #b3e5fc;
+  --primary-mid: #4fc3f7;
+  --primary-end: #fff59d;
+
+  --primary-text: #0a1420;
+  --primary-shadow: #4fc3f7;
+
+  --main-bg-start: #04080e;
+  --main-bg-mid: #0a1018;
+  --main-bg-end: #101820;
+
+  --surface: #0c1218;
+  --surface-light: #141c26;
+  --surface-lighter: #1e2834;
+}
+
+/* ========== DECAY & TRANSFORMATION — Beauty in entropy ========== */
+
+/* Rust — iron oxide eating through steel */
+[data-theme='rust'] {
+  --primary-start: #bf360c;
+  --primary-mid: #8d4e2a;
+  --primary-end: #4e342e;
+
+  --primary-text: #ffccbc;
+  --primary-shadow: #bf360c;
+
+  --main-bg-start: #100804;
+  --main-bg-mid: #1a0e08;
+  --main-bg-end: #24140c;
+
+  --surface: #1e100a;
+  --surface-light: #2c1a12;
+  --surface-lighter: #3a241c;
+}
+
+/* Mold — alien greens growing on forgotten surfaces */
+[data-theme='mold'] {
+  --primary-start: #69f0ae;
+  --primary-mid: #2e7d32;
+  --primary-end: #1a237e;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #69f0ae;
+
+  --main-bg-start: #040c06;
+  --main-bg-mid: #081408;
+  --main-bg-end: #060c18;
+
+  --surface: #0a1410;
+  --surface-light: #121e18;
+  --surface-lighter: #1c2a22;
+}
+
+/* Ash — post-fire grey with ember remnants */
+[data-theme='ash'] {
+  --primary-start: #9e9e9e;
+  --primary-mid: #616161;
+  --primary-end: #ff5722;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ff5722;
+
+  --main-bg-start: #0c0c0c;
+  --main-bg-mid: #141210;
+  --main-bg-end: #1c1816;
+
+  --surface: #161412;
+  --surface-light: #201e1a;
+  --surface-lighter: #2c2a26;
+}
+
+/* Petrichor — the smell of rain on dry earth as color */
+[data-theme='petrichor'] {
+  --primary-start: #80cbc4;
+  --primary-mid: #a1887f;
+  --primary-end: #7986cb;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #80cbc4;
+
+  --main-bg-start: #0a100e;
+  --main-bg-mid: #141a16;
+  --main-bg-end: #10141e;
+
+  --surface: #121a18;
+  --surface-light: #1c2624;
+  --surface-lighter: #263230;
+}
+
+/* ========== FORBIDDEN PALETTES — Combinations designers avoid ========== */
+
+/* Red and green — Christmas or clash, leaning into the tension */
+[data-theme='forbidden-xmas'] {
+  --primary-start: #f44336;
+  --primary-mid: #7cb342;
+  --primary-end: #c62828;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #f44336;
+
+  --main-bg-start: #0c0604;
+  --main-bg-mid: #0a1008;
+  --main-bg-end: #140a08;
+
+  --surface: #100c08;
+  --surface-light: #1a1410;
+  --surface-lighter: #261e18;
+}
+
+/* Brown and pink — ugly-beautiful, deliberately uncool */
+[data-theme='ugly-beautiful'] {
+  --primary-start: #f48fb1;
+  --primary-mid: #8d6e63;
+  --primary-end: #f06292;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #f48fb1;
+
+  --main-bg-start: #120c0a;
+  --main-bg-mid: #1c1412;
+  --main-bg-end: #1e1218;
+
+  --surface: #1a1210;
+  --surface-light: #261c1a;
+  --surface-lighter: #342824;
+}
+
+/* Orange and purple — Halloween energy, year-round */
+[data-theme='pumpkin-witch'] {
+  --primary-start: #ff9800;
+  --primary-mid: #7b1fa2;
+  --primary-end: #ff6f00;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ff9800;
+
+  --main-bg-start: #100806;
+  --main-bg-mid: #140a18;
+  --main-bg-end: #1c0e10;
+
+  --surface: #160c14;
+  --surface-light: #221420;
+  --surface-lighter: #301c2e;
+}
+
+/* Mustard and navy — retro-ugly turned trendy */
+[data-theme='mustard-navy'] {
+  --primary-start: #f9a825;
+  --primary-mid: #f57f17;
+  --primary-end: #0d47a1;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #f9a825;
+
+  --main-bg-start: #0e0c06;
+  --main-bg-mid: #14100a;
+  --main-bg-end: #0a0e1c;
+
+  --surface: #12100c;
+  --surface-light: #1c1814;
+  --surface-lighter: #28221e;
+}
+
+/* ========== TEMPORAL — Times of day as extreme palettes ========== */
+
+/* 4:44 AM — the loneliest hour, deep indigo with first light */
+[data-theme='4am'] {
+  --primary-start: #1a237e;
+  --primary-mid: #283593;
+  --primary-end: #ffcc80;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ffcc80;
+
+  --main-bg-start: #04060e;
+  --main-bg-mid: #080a18;
+  --main-bg-end: #0c0e22;
+
+  --surface: #0a0c1a;
+  --surface-light: #121428;
+  --surface-lighter: #1a1c36;
+}
+
+/* Solar noon — blinding white-yellow, everything overexposed */
+[data-theme='solar-noon'] {
+  --primary-start: #ffffff;
+  --primary-mid: #fff9c4;
+  --primary-end: #f57f17;
+
+  --primary-text: #1a1400;
+  --primary-shadow: #fff9c4;
+
+  --main-bg-start: #1a1608;
+  --main-bg-mid: #28220e;
+  --main-bg-end: #362e16;
+
+  --surface: #2a2410;
+  --surface-light: #3a3218;
+  --surface-lighter: #4a4222;
+}
+
+/* Blue hour — the 20 minutes between sunset and darkness */
+[data-theme='blue-hour'] {
+  --primary-start: #5c6bc0;
+  --primary-mid: #3949ab;
+  --primary-end: #e8967a;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #5c6bc0;
+
+  --main-bg-start: #080a16;
+  --main-bg-mid: #0e1224;
+  --main-bg-end: #141832;
+
+  --surface: #101420;
+  --surface-light: #1a1e32;
+  --surface-lighter: #242844;
+}
+
+/* Witching hour — 3am supernatural, sickly green on black */
+[data-theme='witching-hour'] {
+  --primary-start: #b9f6ca;
+  --primary-mid: #1b5e20;
+  --primary-end: #311b92;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #b9f6ca;
+
+  --main-bg-start: #040804;
+  --main-bg-mid: #060e06;
+  --main-bg-end: #080a14;
+
+  --surface: #0a0e0a;
+  --surface-light: #121812;
+  --surface-lighter: #1c241c;
+}
+
+/* ========== TEXTURE AS COLOR — Materials translated to palette ========== */
+
+/* Wet concrete — urban grey with oil-slick rainbow */
+[data-theme='wet-concrete'] {
+  --primary-start: #90a4ae;
+  --primary-mid: #78909c;
+  --primary-end: #e040fb;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #e040fb;
+
+  --main-bg-start: #0c0e10;
+  --main-bg-mid: #141618;
+  --main-bg-end: #1a1c20;
+
+  --surface: #161a1c;
+  --surface-light: #202428;
+  --surface-lighter: #2c3034;
+}
+
+/* Silk — liquid smooth gradient, pearl to deep wine */
+[data-theme='silk'] {
+  --primary-start: #f8e8f0;
+  --primary-mid: #c77dba;
+  --primary-end: #6a1b4d;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #f8e8f0;
+
+  --main-bg-start: #140a10;
+  --main-bg-mid: #1e1018;
+  --main-bg-end: #281620;
+
+  --surface: #201214;
+  --surface-light: #2e1c22;
+  --surface-lighter: #3e2630;
+}
+
+/* Charcoal sketch — graphite grey with paper-white highlights */
+[data-theme='charcoal'] {
+  --primary-start: #fafafa;
+  --primary-mid: #757575;
+  --primary-end: #212121;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #fafafa;
+
+  --main-bg-start: #0a0a0a;
+  --main-bg-mid: #121212;
+  --main-bg-end: #1a1a1a;
+
+  --surface: #141414;
+  --surface-light: #1e1e1e;
+  --surface-lighter: #2a2a2a;
+}
+
+/* Mercury — liquid metal, shifting silver-blue */
+[data-theme='mercury'] {
+  --primary-start: #cfd8dc;
+  --primary-mid: #90a4ae;
+  --primary-end: #546e7a;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #cfd8dc;
+
+  --main-bg-start: #080a0c;
+  --main-bg-mid: #0e1214;
+  --main-bg-end: #141a1e;
+
+  --surface: #101618;
+  --surface-light: #1a2024;
+  --surface-lighter: #242c30;
+}
+
+/* Neon sign — buzzing tube light on brick, pink-orange glow */
+[data-theme='neon-sign'] {
+  --primary-start: #ff4081;
+  --primary-mid: #ff6e40;
+  --primary-end: #ffab40;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ff4081;
+
+  --main-bg-start: #100608;
+  --main-bg-mid: #1a0c0e;
+  --main-bg-end: #241214;
+
+  --surface: #1e0e10;
+  --surface-light: #2c161a;
+  --surface-lighter: #3c2024;
+}
+
+/* ========== BIOLOGICAL — Living systems as color ========== */
+
+/* Mycelium — fungal network, ghostly white on deep earth */
+[data-theme='mycelium'] {
+  --primary-start: #e8e0d8;
+  --primary-mid: #a8978a;
+  --primary-end: #5d4e37;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #e8e0d8;
+
+  --main-bg-start: #0c0a08;
+  --main-bg-mid: #141210;
+  --main-bg-end: #1c1a16;
+
+  --surface: #161412;
+  --surface-light: #201e1a;
+  --surface-lighter: #2c2a24;
+}
+
+/* Bioluminescent jellyfish — translucent blue-pink pulse */
+[data-theme='jellyfish'] {
+  --primary-start: #e1bee7;
+  --primary-mid: #4dd0e1;
+  --primary-end: #7c4dff;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #4dd0e1;
+
+  --main-bg-start: #06080e;
+  --main-bg-mid: #0c0e1a;
+  --main-bg-end: #100c22;
+
+  --surface: #0e0c18;
+  --surface-light: #181428;
+  --surface-lighter: #221c38;
+}
+
+/* Chlorophyll — the exact green of photosynthesis with UV */
+[data-theme='chlorophyll'] {
+  --primary-start: #76ff03;
+  --primary-mid: #64dd17;
+  --primary-end: #aa00ff;
+
+  --primary-text: #0a1400;
+  --primary-shadow: #76ff03;
+
+  --main-bg-start: #060c04;
+  --main-bg-mid: #0c1608;
+  --main-bg-end: #0a0c18;
+
+  --surface: #0e1408;
+  --surface-light: #161e10;
+  --surface-lighter: #202a1a;
+}
+
+/* Coral bleaching — dying reef, ghostly white over faded color */
+[data-theme='coral-bleach'] {
+  --primary-start: #f5f5f5;
+  --primary-mid: #e0a08c;
+  --primary-end: #80cbc4;
+
+  --primary-text: #1a1a1a;
+  --primary-shadow: #e0a08c;
+
+  --main-bg-start: #101210;
+  --main-bg-mid: #181c18;
+  --main-bg-end: #1e2420;
+
+  --surface: #1a201c;
+  --surface-light: #242c28;
+  --surface-lighter: #303a34;
+}
+
+/* ========== GLITCH & DIGITAL — Broken screens and data corruption ========== */
+
+/* Dead pixel — stuck colors on a black screen */
+[data-theme='dead-pixel'] {
+  --primary-start: #ff0000;
+  --primary-mid: #000000;
+  --primary-end: #00ff00;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ff0000;
+
+  --main-bg-start: #040404;
+  --main-bg-mid: #080808;
+  --main-bg-end: #0c0c0c;
+
+  --surface: #0a0a0a;
+  --surface-light: #141414;
+  --surface-lighter: #1e1e1e;
+}
+
+/* Corrupted file — data as color, random-feeling but deliberate */
+[data-theme='corrupted'] {
+  --primary-start: #00bcd4;
+  --primary-mid: #ff5252;
+  --primary-end: #69f0ae;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ff5252;
+
+  --main-bg-start: #060a0c;
+  --main-bg-mid: #0e0808;
+  --main-bg-end: #080e0a;
+
+  --surface: #0a0c0e;
+  --surface-light: #141618;
+  --surface-lighter: #1e2224;
+}
+
+/* Blue screen — the dreaded BSOD as an aesthetic */
+[data-theme='bsod'] {
+  --primary-start: #ffffff;
+  --primary-mid: #0078d7;
+  --primary-end: #001f5c;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #0078d7;
+
+  --main-bg-start: #001030;
+  --main-bg-mid: #001840;
+  --main-bg-end: #002050;
+
+  --surface: #001838;
+  --surface-light: #00224c;
+  --surface-lighter: #002c60;
+}
+
+/* Matrix rain — green code on black void */
+[data-theme='matrix'] {
+  --primary-start: #00ff41;
+  --primary-mid: #008f11;
+  --primary-end: #003b00;
+
+  --primary-text: #00ff41;
+  --primary-shadow: #00ff41;
+
+  --main-bg-start: #000400;
+  --main-bg-mid: #000a00;
+  --main-bg-end: #001000;
+
+  --surface: #000c02;
+  --surface-light: #001604;
+  --surface-lighter: #002008;
+}
+
+/* ========== CULINARY EXTREMES — Unusual food-inspired palettes ========== */
+
+/* Wasabi and ginger — sinus-clearing green with pickled pink */
+[data-theme='wasabi'] {
+  --primary-start: #c0ca33;
+  --primary-mid: #9e9d24;
+  --primary-end: #f48fb1;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #c0ca33;
+
+  --main-bg-start: #0c0e06;
+  --main-bg-mid: #14180a;
+  --main-bg-end: #181410;
+
+  --surface: #141a0c;
+  --surface-light: #1e2614;
+  --surface-lighter: #28321e;
+}
+
+/* Squid ink — deep blue-black with iridescent purple */
+[data-theme='squid-ink'] {
+  --primary-start: #311b92;
+  --primary-mid: #4527a0;
+  --primary-end: #b388ff;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #b388ff;
+
+  --main-bg-start: #06040e;
+  --main-bg-mid: #0c0818;
+  --main-bg-end: #120c22;
+
+  --surface: #0e0a1a;
+  --surface-light: #181228;
+  --surface-lighter: #221a38;
+}
+
+/* Burnt sugar — caramelized amber going to bitter black */
+[data-theme='burnt-sugar'] {
+  --primary-start: #ffcc02;
+  --primary-mid: #c67c00;
+  --primary-end: #3e1a00;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ffcc02;
+
+  --main-bg-start: #100c04;
+  --main-bg-mid: #1a1408;
+  --main-bg-end: #241c0c;
+
+  --surface: #1c1608;
+  --surface-light: #282010;
+  --surface-lighter: #362c18;
+}
+
+/* ========== ARCHITECTURAL — Built environments as color ========== */
+
+/* Brutalist — raw concrete, exposed steel, shadow */
+[data-theme='brutalist'] {
+  --primary-start: #bdbdbd;
+  --primary-mid: #757575;
+  --primary-end: #424242;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #9e9e9e;
+
+  --main-bg-start: #0a0a0a;
+  --main-bg-mid: #121212;
+  --main-bg-end: #1a1a1a;
+
+  --surface: #141414;
+  --surface-light: #1e1e1e;
+  --surface-lighter: #2a2a2a;
+}
+
+/* Art deco — gold, black, and jade green */
+[data-theme='art-deco'] {
+  --primary-start: #ffd700;
+  --primary-mid: #c9b037;
+  --primary-end: #00695c;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ffd700;
+
+  --main-bg-start: #0a0a04;
+  --main-bg-mid: #12120a;
+  --main-bg-end: #0a1410;
+
+  --surface: #101208;
+  --surface-light: #1a1c10;
+  --surface-lighter: #24281a;
+}
+
+/* Gothic cathedral — stained glass jewel tones on stone */
+[data-theme='gothic'] {
+  --primary-start: #c62828;
+  --primary-mid: #1565c0;
+  --primary-end: #f9a825;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #c62828;
+
+  --main-bg-start: #0a0808;
+  --main-bg-mid: #100e0e;
+  --main-bg-end: #161414;
+
+  --surface: #121010;
+  --surface-light: #1c1818;
+  --surface-lighter: #282222;
+}
+
+/* Solarpunk — optimistic green tech, warm copper, living walls */
+[data-theme='solarpunk'] {
+  --primary-start: #69f0ae;
+  --primary-mid: #ffb74d;
+  --primary-end: #4db6ac;
+
+  --primary-text: #0a1410;
+  --primary-shadow: #69f0ae;
+
+  --main-bg-start: #081410;
+  --main-bg-mid: #101e16;
+  --main-bg-end: #18281e;
+
+  --surface: #122018;
+  --surface-light: #1c2e22;
+  --surface-lighter: #263c2e;
+}
+
+/* ========== DREAMSCAPE — Surreal and subconscious ========== */
+
+/* Lucid dream — hyper-vivid colors that feel unreal */
+[data-theme='lucid'] {
+  --primary-start: #00e5ff;
+  --primary-mid: #ff1744;
+  --primary-end: #76ff03;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #00e5ff;
+
+  --main-bg-start: #04080e;
+  --main-bg-mid: #0e0610;
+  --main-bg-end: #060e06;
+
+  --surface: #0a0a10;
+  --surface-light: #14121e;
+  --surface-lighter: #1e1a2e;
+}
+
+/* Sleep paralysis — oppressive dark with sickly yellow-green */
+[data-theme='sleep-paralysis'] {
+  --primary-start: #e6ee9c;
+  --primary-mid: #827717;
+  --primary-end: #1a1a2e;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #e6ee9c;
+
+  --main-bg-start: #08080a;
+  --main-bg-mid: #0e0e10;
+  --main-bg-end: #141416;
+
+  --surface: #101012;
+  --surface-light: #1a1a1c;
+  --surface-lighter: #242428;
+}
+
+/* Déjà vu — doubled colors, slightly offset warm and cool */
+[data-theme='deja-vu'] {
+  --primary-start: #ef9a9a;
+  --primary-mid: #90caf9;
+  --primary-end: #ef9a9a;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #90caf9;
+
+  --main-bg-start: #100a0c;
+  --main-bg-mid: #0c0e14;
+  --main-bg-end: #100a0c;
+
+  --surface: #0e0c10;
+  --surface-light: #18141c;
+  --surface-lighter: #221e28;
+}
+
+/* Fever dream — too-warm oranges bleeding into cold purple */
+[data-theme='fever'] {
+  --primary-start: #ff8f00;
+  --primary-mid: #e65100;
+  --primary-end: #4a148c;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ff8f00;
+
+  --main-bg-start: #140a04;
+  --main-bg-mid: #1e0e08;
+  --main-bg-end: #140a1c;
+
+  --surface: #1a0e0c;
+  --surface-light: #261614;
+  --surface-lighter: #34201e;
+}
+
+/* ========== ASTRONOMICAL PHENOMENA ========== */
+
+/* Pulsar — rhythmic flash of neutron star, blue-white on void */
+[data-theme='pulsar'] {
+  --primary-start: #e3f2fd;
+  --primary-mid: #42a5f5;
+  --primary-end: #0d47a1;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #e3f2fd;
+
+  --main-bg-start: #020408;
+  --main-bg-mid: #060a14;
+  --main-bg-end: #0a1020;
+
+  --surface: #080c18;
+  --surface-light: #101828;
+  --surface-lighter: #1a2438;
+}
+
+/* Solar flare — plasma eruption, white-hot to magnetic blue */
+[data-theme='solar-flare'] {
+  --primary-start: #fff8e1;
+  --primary-mid: #ff6d00;
+  --primary-end: #304ffe;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ff6d00;
+
+  --main-bg-start: #0e0a04;
+  --main-bg-mid: #180e06;
+  --main-bg-end: #0c0a1e;
+
+  --surface: #140e08;
+  --surface-light: #201610;
+  --surface-lighter: #2e201a;
+}
+
+/* Red dwarf — dying star, deep crimson fading to nothing */
+[data-theme='red-dwarf'] {
+  --primary-start: #e53935;
+  --primary-mid: #8e1a1a;
+  --primary-end: #3c0a0a;
+
+  --primary-text: #ffcdd2;
+  --primary-shadow: #e53935;
+
+  --main-bg-start: #0c0404;
+  --main-bg-mid: #140808;
+  --main-bg-end: #1c0c0c;
+
+  --surface: #160a0a;
+  --surface-light: #221010;
+  --surface-lighter: #2e1818;
+}
+
+/* Comet tail — icy blue-white streaking through warm dust */
+[data-theme='comet'] {
+  --primary-start: #e0f7fa;
+  --primary-mid: #4dd0e1;
+  --primary-end: #d4a373;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #4dd0e1;
+
+  --main-bg-start: #040a0c;
+  --main-bg-mid: #0a1214;
+  --main-bg-end: #121410;
+
+  --surface: #0c1214;
+  --surface-light: #161c1e;
+  --surface-lighter: #20282a;
+}

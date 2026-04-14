@@ -1,0 +1,898 @@
+/* ============================================================
+   themesPlus.css — Extended theme collection
+   Each data-theme defines all 11 standard CSS variables:
+     --primary-start, --primary-mid, --primary-end
+     --primary-text, --primary-shadow
+     --main-bg-start, --main-bg-mid, --main-bg-end
+     --surface, --surface-light, --surface-lighter
+   ============================================================ */
+
+/* ---------- ELEGANT & CLASSIC ---------- */
+
+/* Muted burgundy and champagne — old-world sophistication */
+[data-theme='velvet'] {
+  --primary-start: #c9a96e;
+  --primary-mid: #8e3a59;
+  --primary-end: #4a1942;
+
+  --primary-text: #f5e6d3;
+  --primary-shadow: #c9a96e;
+
+  --main-bg-start: #1a0e14;
+  --main-bg-mid: #261420;
+  --main-bg-end: #30182a;
+
+  --surface: #2c1624;
+  --surface-light: #3e2034;
+  --surface-lighter: #502a44;
+}
+
+/* Silver and slate blue — polished chrome feel */
+[data-theme='chrome'] {
+  --primary-start: #c0c0c0;
+  --primary-mid: #7b8fa8;
+  --primary-end: #4a6580;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #a0b4c8;
+
+  --main-bg-start: #0c1018;
+  --main-bg-mid: #141c28;
+  --main-bg-end: #1c2838;
+
+  --surface: #182230;
+  --surface-light: #222e40;
+  --surface-lighter: #2e3c52;
+}
+
+/* Ivory, sage, and dusty rose — muted editorial palette */
+[data-theme='editorial'] {
+  --primary-start: #e8d5b7;
+  --primary-mid: #8a9a7b;
+  --primary-end: #c4878e;
+
+  --primary-text: #1a1812;
+  --primary-shadow: #c4878e;
+
+  --main-bg-start: #181a14;
+  --main-bg-mid: #222418;
+  --main-bg-end: #2a2620;
+
+  --surface: #242620;
+  --surface-light: #32342a;
+  --surface-lighter: #404236;
+}
+
+/* ---------- NEON & ELECTRIC ---------- */
+
+/* Electric lime and hot violet — rave energy */
+[data-theme='rave'] {
+  --primary-start: #b8ff00;
+  --primary-mid: #ff00aa;
+  --primary-end: #7700ff;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #b8ff00;
+
+  --main-bg-start: #08060e;
+  --main-bg-mid: #140a22;
+  --main-bg-end: #1e0e38;
+
+  --surface: #160c2e;
+  --surface-light: #221244;
+  --surface-lighter: #2e185a;
+}
+
+/* Neon mint, electric blue, and white — clean futurism */
+[data-theme='hologram'] {
+  --primary-start: #00ffc8;
+  --primary-mid: #00a0ff;
+  --primary-end: #e0e0ff;
+
+  --primary-text: #0a1420;
+  --primary-shadow: #00ffc8;
+
+  --main-bg-start: #060e14;
+  --main-bg-mid: #0c1a28;
+  --main-bg-end: #10223a;
+
+  --surface: #0e1c30;
+  --surface-light: #162a44;
+  --surface-lighter: #1e3858;
+}
+
+/* Acid green, warning orange, deep black — hazard aesthetic */
+[data-theme='hazard'] {
+  --primary-start: #39ff14;
+  --primary-mid: #ff6600;
+  --primary-end: #ff0040;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #39ff14;
+
+  --main-bg-start: #060a04;
+  --main-bg-mid: #101408;
+  --main-bg-end: #1a1a0c;
+
+  --surface: #121408;
+  --surface-light: #1c2010;
+  --surface-lighter: #282c18;
+}
+
+/* ---------- NATURE & EARTH ---------- */
+
+/* Terracotta, olive, and clay — Mediterranean warmth */
+[data-theme='terracotta'] {
+  --primary-start: #e07a5f;
+  --primary-mid: #81b29a;
+  --primary-end: #3d405b;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #e07a5f;
+
+  --main-bg-start: #1a120e;
+  --main-bg-mid: #221a16;
+  --main-bg-end: #1e2028;
+
+  --surface: #221c18;
+  --surface-light: #302822;
+  --surface-lighter: #3e342e;
+}
+
+/* Moss green, stone grey, and lichen — forest floor */
+[data-theme='moss'] {
+  --primary-start: #8fbc8f;
+  --primary-mid: #6b8e6b;
+  --primary-end: #4a6741;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #8fbc8f;
+
+  --main-bg-start: #0a120c;
+  --main-bg-mid: #121e14;
+  --main-bg-end: #1a281c;
+
+  --surface: #162218;
+  --surface-light: #1e3020;
+  --surface-lighter: #283e2a;
+}
+
+/* Lavender fields — soft purple and warm wheat */
+[data-theme='lavender'] {
+  --primary-start: #b39ddb;
+  --primary-mid: #9575cd;
+  --primary-end: #7e57c2;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #b39ddb;
+
+  --main-bg-start: #120e1c;
+  --main-bg-mid: #1c162a;
+  --main-bg-end: #261e38;
+
+  --surface: #201828;
+  --surface-light: #2e2240;
+  --surface-lighter: #3c2e56;
+}
+
+/* Autumn harvest — burnt orange, deep red, golden brown */
+[data-theme='harvest'] {
+  --primary-start: #e6a23c;
+  --primary-mid: #c0392b;
+  --primary-end: #6b3a2a;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #e6a23c;
+
+  --main-bg-start: #1a100a;
+  --main-bg-mid: #261610;
+  --main-bg-end: #321c16;
+
+  --surface: #281812;
+  --surface-light: #38221a;
+  --surface-lighter: #4a2e24;
+}
+
+/* ---------- EXPERIMENTAL & UNUSUAL ---------- */
+
+/* Inverted warmth — cool primaries on warm backgrounds */
+[data-theme='paradox'] {
+  --primary-start: #00e5ff;
+  --primary-mid: #76ff03;
+  --primary-end: #e040fb;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #e040fb;
+
+  --main-bg-start: #1a1408;
+  --main-bg-mid: #28200e;
+  --main-bg-end: #322a14;
+
+  --surface: #2a2210;
+  --surface-light: #3a3018;
+  --surface-lighter: #4a3e22;
+}
+
+/* Near-monochrome with a single accent pop */
+[data-theme='noir'] {
+  --primary-start: #e0e0e0;
+  --primary-mid: #ff1744;
+  --primary-end: #424242;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ff1744;
+
+  --main-bg-start: #080808;
+  --main-bg-mid: #101010;
+  --main-bg-end: #181818;
+
+  --surface: #121212;
+  --surface-light: #1c1c1c;
+  --surface-lighter: #282828;
+}
+
+/* Duochrome — two clashing hues, no middle ground */
+[data-theme='duochrome'] {
+  --primary-start: #ff6b6b;
+  --primary-mid: #845ec2;
+  --primary-end: #00c9a7;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #845ec2;
+
+  --main-bg-start: #140810;
+  --main-bg-mid: #1c0e1e;
+  --main-bg-end: #0e1a1e;
+
+  --surface: #180e1a;
+  --surface-light: #241628;
+  --surface-lighter: #301e36;
+}
+
+/* Bleached pastels — washed-out candy tones on near-white dark */
+[data-theme='bleached'] {
+  --primary-start: #ffd6e0;
+  --primary-mid: #c1e3ff;
+  --primary-end: #d4f0c0;
+
+  --primary-text: #1a1a2e;
+  --primary-shadow: #ffd6e0;
+
+  --main-bg-start: #1a1a22;
+  --main-bg-mid: #20202c;
+  --main-bg-end: #262636;
+
+  --surface: #222230;
+  --surface-light: #2e2e40;
+  --surface-lighter: #3a3a50;
+}
+
+/* Oxidized copper — verdigris green and aged bronze */
+[data-theme='patina'] {
+  --primary-start: #4ecdc4;
+  --primary-mid: #2a9d8f;
+  --primary-end: #8b6914;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #4ecdc4;
+
+  --main-bg-start: #0a1614;
+  --main-bg-mid: #12201c;
+  --main-bg-end: #1a2820;
+
+  --surface: #14221e;
+  --surface-light: #1e302a;
+  --surface-lighter: #283e36;
+}
+
+/* Bruised fruit — overripe plum, fig, and dark berry */
+[data-theme='bruise'] {
+  --primary-start: #d4a5e5;
+  --primary-mid: #8b3a8f;
+  --primary-end: #3c1361;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #d4a5e5;
+
+  --main-bg-start: #10061a;
+  --main-bg-mid: #1a0c28;
+  --main-bg-end: #241236;
+
+  --surface: #1e0e2c;
+  --surface-light: #2c163e;
+  --surface-lighter: #3a1e52;
+}
+
+/* ---------- COSMIC & SCI-FI ---------- */
+
+/* Martian landscape — rust red, dusty pink, iron grey */
+[data-theme='mars'] {
+  --primary-start: #e25822;
+  --primary-mid: #c97b63;
+  --primary-end: #6d4c41;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #e25822;
+
+  --main-bg-start: #180c08;
+  --main-bg-mid: #241410;
+  --main-bg-end: #301c18;
+
+  --surface: #281610;
+  --surface-light: #38201a;
+  --surface-lighter: #4a2c24;
+}
+
+/* Bioluminescence — deep sea glow with organic colors */
+[data-theme='bioluminescent'] {
+  --primary-start: #00ff87;
+  --primary-mid: #00b4d8;
+  --primary-end: #7400b8;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #00ff87;
+
+  --main-bg-start: #020e10;
+  --main-bg-mid: #061a22;
+  --main-bg-end: #0c1430;
+
+  --surface: #081820;
+  --surface-light: #102432;
+  --surface-lighter: #183244;
+}
+
+/* Supernova — explosive white-hot core fading to cool edges */
+[data-theme='supernova'] {
+  --primary-start: #fff8e1;
+  --primary-mid: #ff6f00;
+  --primary-end: #b71c1c;
+
+  --primary-text: #1a0800;
+  --primary-shadow: #ff6f00;
+
+  --main-bg-start: #1a0e06;
+  --main-bg-mid: #28160c;
+  --main-bg-end: #361e14;
+
+  --surface: #2c1810;
+  --surface-light: #3e2218;
+  --surface-lighter: #502e22;
+}
+
+/* Wormhole — impossible color transitions */
+[data-theme='wormhole'] {
+  --primary-start: #ff0080;
+  --primary-mid: #00ffff;
+  --primary-end: #ff8000;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #00ffff;
+
+  --main-bg-start: #0a0414;
+  --main-bg-mid: #060e1c;
+  --main-bg-end: #140a08;
+
+  --surface: #0e0818;
+  --surface-light: #18102a;
+  --surface-lighter: #24183c;
+}
+
+/* ---------- MOODY & ATMOSPHERIC ---------- */
+
+/* Thunderstorm — electric white, steel blue, charcoal */
+[data-theme='storm'] {
+  --primary-start: #e8eaf6;
+  --primary-mid: #5c6bc0;
+  --primary-end: #283593;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #7986cb;
+
+  --main-bg-start: #0a0c14;
+  --main-bg-mid: #121620;
+  --main-bg-end: #1a1e2e;
+
+  --surface: #141822;
+  --surface-light: #1e2234;
+  --surface-lighter: #2a2e46;
+}
+
+/* Fog — desaturated, ghostly, barely-there tones */
+[data-theme='fog'] {
+  --primary-start: #b0bec5;
+  --primary-mid: #78909c;
+  --primary-end: #546e7a;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #90a4ae;
+
+  --main-bg-start: #0e1214;
+  --main-bg-mid: #161c1e;
+  --main-bg-end: #1e2628;
+
+  --surface: #1a2022;
+  --surface-light: #242c30;
+  --surface-lighter: #303a3e;
+}
+
+/* Absinthe — toxic green, smoky amber, dark anise */
+[data-theme='absinthe'] {
+  --primary-start: #c6ff00;
+  --primary-mid: #aeea00;
+  --primary-end: #558b2f;
+
+  --primary-text: #0a1200;
+  --primary-shadow: #c6ff00;
+
+  --main-bg-start: #0a0e04;
+  --main-bg-mid: #141a08;
+  --main-bg-end: #1e260e;
+
+  --surface: #161e0a;
+  --surface-light: #202c12;
+  --surface-lighter: #2c3a1a;
+}
+
+/* ---------- RETRO & VINTAGE ---------- */
+
+/* Synthwave — retro 80s pink, blue, and purple */
+[data-theme='synthwave'] {
+  --primary-start: #f72585;
+  --primary-mid: #7209b7;
+  --primary-end: #3a0ca3;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #f72585;
+
+  --main-bg-start: #0c0420;
+  --main-bg-mid: #180830;
+  --main-bg-end: #240c40;
+
+  --surface: #1c0a32;
+  --surface-light: #2a1048;
+  --surface-lighter: #38165e;
+}
+
+/* Polaroid — faded warm tones, nostalgic cream and teal */
+[data-theme='polaroid'] {
+  --primary-start: #f0e6d3;
+  --primary-mid: #e8a87c;
+  --primary-end: #5f9ea0;
+
+  --primary-text: #1a1410;
+  --primary-shadow: #e8a87c;
+
+  --main-bg-start: #141210;
+  --main-bg-mid: #1e1a16;
+  --main-bg-end: #28221e;
+
+  --surface: #201c18;
+  --surface-light: #2c2620;
+  --surface-lighter: #38322a;
+}
+
+/* VHS glitch — scan-line blue, static white, error red */
+[data-theme='vhs'] {
+  --primary-start: #00b0ff;
+  --primary-mid: #e0e0e0;
+  --primary-end: #ff1744;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #00b0ff;
+
+  --main-bg-start: #06080e;
+  --main-bg-mid: #0e1018;
+  --main-bg-end: #161822;
+
+  --surface: #101420;
+  --surface-light: #1a1e30;
+  --surface-lighter: #242840;
+}
+
+/* ---------- MINERAL & GEM ---------- */
+
+/* Amethyst geode — deep purple crystal with quartz white */
+[data-theme='amethyst'] {
+  --primary-start: #ce93d8;
+  --primary-mid: #9c27b0;
+  --primary-end: #4a148c;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ce93d8;
+
+  --main-bg-start: #0e0614;
+  --main-bg-mid: #180c22;
+  --main-bg-end: #221230;
+
+  --surface: #1c0e28;
+  --surface-light: #28163a;
+  --surface-lighter: #361e4e;
+}
+
+/* Obsidian — volcanic glass with iridescent sheen */
+[data-theme='obsidian'] {
+  --primary-start: #37474f;
+  --primary-mid: #78909c;
+  --primary-end: #b0bec5;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #78909c;
+
+  --main-bg-start: #060808;
+  --main-bg-mid: #0c0e10;
+  --main-bg-end: #121618;
+
+  --surface: #0e1214;
+  --surface-light: #181c20;
+  --surface-lighter: #22282c;
+}
+
+/* Opal — shifting rainbow iridescence */
+[data-theme='opal'] {
+  --primary-start: #a8e6cf;
+  --primary-mid: #dcedc1;
+  --primary-end: #ffd3b6;
+
+  --primary-text: #1a1a1a;
+  --primary-shadow: #a8e6cf;
+
+  --main-bg-start: #0c1410;
+  --main-bg-mid: #141c14;
+  --main-bg-end: #1c2018;
+
+  --surface: #162018;
+  --surface-light: #202c20;
+  --surface-lighter: #2c3a2a;
+}
+
+/* Ruby — deep red with dark garnet undertones */
+[data-theme='ruby'] {
+  --primary-start: #ef5350;
+  --primary-mid: #c62828;
+  --primary-end: #7f0000;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ef5350;
+
+  --main-bg-start: #140606;
+  --main-bg-mid: #200c0c;
+  --main-bg-end: #2c1212;
+
+  --surface: #240e0e;
+  --surface-light: #341616;
+  --surface-lighter: #441e1e;
+}
+
+/* Sapphire — royal blue with icy highlights */
+[data-theme='sapphire'] {
+  --primary-start: #42a5f5;
+  --primary-mid: #1565c0;
+  --primary-end: #0d47a1;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #42a5f5;
+
+  --main-bg-start: #04080e;
+  --main-bg-mid: #0a1220;
+  --main-bg-end: #101c32;
+
+  --surface: #0c1628;
+  --surface-light: #14203a;
+  --surface-lighter: #1e2c4e;
+}
+
+/* Emerald — rich green with golden flecks */
+[data-theme='emerald'] {
+  --primary-start: #66bb6a;
+  --primary-mid: #2e7d32;
+  --primary-end: #1b5e20;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #66bb6a;
+
+  --main-bg-start: #060e08;
+  --main-bg-mid: #0c1a10;
+  --main-bg-end: #122618;
+
+  --surface: #0e1e12;
+  --surface-light: #162c1c;
+  --surface-lighter: #203a26;
+}
+
+/* ---------- FOOD & DRINK ---------- */
+
+/* Espresso — dark roast brown, crema foam, caramel */
+[data-theme='espresso'] {
+  --primary-start: #d7b98e;
+  --primary-mid: #8d6e4c;
+  --primary-end: #3e2723;
+
+  --primary-text: #f5e6d3;
+  --primary-shadow: #d7b98e;
+
+  --main-bg-start: #120c08;
+  --main-bg-mid: #1c1410;
+  --main-bg-end: #261c18;
+
+  --surface: #201610;
+  --surface-light: #2e201a;
+  --surface-lighter: #3c2c24;
+}
+
+/* Matcha — ceremonial green tea with cream */
+[data-theme='matcha'] {
+  --primary-start: #c5e1a5;
+  --primary-mid: #8bc34a;
+  --primary-end: #558b2f;
+
+  --primary-text: #0a1200;
+  --primary-shadow: #c5e1a5;
+
+  --main-bg-start: #0a1008;
+  --main-bg-mid: #121c0e;
+  --main-bg-end: #1a2816;
+
+  --surface: #142010;
+  --surface-light: #1e2e1a;
+  --surface-lighter: #283c24;
+}
+
+/* ---------- WEATHER & ATMOSPHERE ---------- */
+
+/* Lightning — electric yellow-white on bruised purple sky */
+[data-theme='lightning'] {
+  --primary-start: #ffee58;
+  --primary-mid: #fff9c4;
+  --primary-end: #7c4dff;
+
+  --primary-text: #1a1400;
+  --primary-shadow: #ffee58;
+
+  --main-bg-start: #0c0818;
+  --main-bg-mid: #160e28;
+  --main-bg-end: #201438;
+
+  --surface: #181024;
+  --surface-light: #241838;
+  --surface-lighter: #32204e;
+}
+
+/* Monsoon — heavy grey-green rain with warm earth */
+[data-theme='monsoon'] {
+  --primary-start: #80cbc4;
+  --primary-mid: #607d8b;
+  --primary-end: #8d6e63;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #80cbc4;
+
+  --main-bg-start: #0a100e;
+  --main-bg-mid: #121a18;
+  --main-bg-end: #1a2420;
+
+  --surface: #141e1a;
+  --surface-light: #1e2a26;
+  --surface-lighter: #283832;
+}
+
+/* ---------- ABSTRACT & ARTISTIC ---------- */
+
+/* Rothko — color field painting: deep red over maroon */
+[data-theme='rothko'] {
+  --primary-start: #d32f2f;
+  --primary-mid: #8e2424;
+  --primary-end: #4e1a1a;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #d32f2f;
+
+  --main-bg-start: #140808;
+  --main-bg-mid: #1e0e0e;
+  --main-bg-end: #281414;
+
+  --surface: #220e0e;
+  --surface-light: #301616;
+  --surface-lighter: #401e1e;
+}
+
+/* Mondrian — primary colors in bold blocks */
+[data-theme='mondrian'] {
+  --primary-start: #f44336;
+  --primary-mid: #2196f3;
+  --primary-end: #ffeb3b;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #2196f3;
+
+  --main-bg-start: #0a0a0a;
+  --main-bg-mid: #141414;
+  --main-bg-end: #1e1e1e;
+
+  --surface: #161616;
+  --surface-light: #222222;
+  --surface-lighter: #2e2e2e;
+}
+
+/* Glitch art — clashing RGB channel separation */
+[data-theme='glitch'] {
+  --primary-start: #ff0000;
+  --primary-mid: #00ff00;
+  --primary-end: #0000ff;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #00ff00;
+
+  --main-bg-start: #0a0608;
+  --main-bg-mid: #060e08;
+  --main-bg-end: #06080e;
+
+  --surface: #0c0a10;
+  --surface-light: #141218;
+  --surface-lighter: #1e1a22;
+}
+
+/* Vaporwave — pastel pink, aqua, and faded purple */
+[data-theme='vaporwave'] {
+  --primary-start: #ff71ce;
+  --primary-mid: #01cdfe;
+  --primary-end: #b967ff;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ff71ce;
+
+  --main-bg-start: #140818;
+  --main-bg-mid: #0c1220;
+  --main-bg-end: #180c28;
+
+  --surface: #140e22;
+  --surface-light: #201636;
+  --surface-lighter: #2c1e4a;
+}
+
+/* ---------- GEOGRAPHY & CULTURE ---------- */
+
+/* Tokyo neon — inspired by Shibuya at night */
+[data-theme='tokyo'] {
+  --primary-start: #ff1493;
+  --primary-mid: #00bfff;
+  --primary-end: #ffd700;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ff1493;
+
+  --main-bg-start: #0a0610;
+  --main-bg-mid: #14081e;
+  --main-bg-end: #1e0c2c;
+
+  --surface: #180a24;
+  --surface-light: #241038;
+  --surface-lighter: #32164c;
+}
+
+/* Fjord — Norwegian blue-grey with icy green */
+[data-theme='fjord'] {
+  --primary-start: #81d4fa;
+  --primary-mid: #4db6ac;
+  --primary-end: #37474f;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #81d4fa;
+
+  --main-bg-start: #060e12;
+  --main-bg-mid: #0e181e;
+  --main-bg-end: #16222a;
+
+  --surface: #101c22;
+  --surface-light: #1a2830;
+  --surface-lighter: #243640;
+}
+
+/* Sahara — sun-bleached sand, deep indigo night sky */
+[data-theme='sahara'] {
+  --primary-start: #f4d03f;
+  --primary-mid: #d4a017;
+  --primary-end: #1a237e;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #f4d03f;
+
+  --main-bg-start: #141008;
+  --main-bg-mid: #1e180e;
+  --main-bg-end: #141428;
+
+  --surface: #1a1610;
+  --surface-light: #26201a;
+  --surface-lighter: #342c24;
+}
+
+/* Tundra — frozen white, pale blue, and stone */
+[data-theme='tundra'] {
+  --primary-start: #e0f7fa;
+  --primary-mid: #80deea;
+  --primary-end: #4dd0e1;
+
+  --primary-text: #0a1820;
+  --primary-shadow: #80deea;
+
+  --main-bg-start: #060c10;
+  --main-bg-mid: #0c1418;
+  --main-bg-end: #121c22;
+
+  --surface: #0e1820;
+  --surface-light: #16222c;
+  --surface-lighter: #202e38;
+}
+
+/* Bazaar — Moroccan spice market: saffron, paprika, indigo */
+[data-theme='bazaar'] {
+  --primary-start: #ffb300;
+  --primary-mid: #e65100;
+  --primary-end: #1a237e;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ffb300;
+
+  --main-bg-start: #141006;
+  --main-bg-mid: #221408;
+  --main-bg-end: #18122a;
+
+  --surface: #1e1408;
+  --surface-light: #2c1e10;
+  --surface-lighter: #3c2a1a;
+}
+
+/* ---------- SEASONS ---------- */
+
+/* Cherry winter — icy blue with warm red berries */
+[data-theme='winter-berry'] {
+  --primary-start: #e57373;
+  --primary-mid: #90caf9;
+  --primary-end: #42a5f5;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #e57373;
+
+  --main-bg-start: #080c14;
+  --main-bg-mid: #0e1420;
+  --main-bg-end: #141c2c;
+
+  --surface: #101820;
+  --surface-light: #1a2432;
+  --surface-lighter: #243044;
+}
+
+/* Spring bloom — fresh green, soft pink, sky blue */
+[data-theme='spring'] {
+  --primary-start: #aed581;
+  --primary-mid: #f48fb1;
+  --primary-end: #81d4fa;
+
+  --primary-text: #0a1410;
+  --primary-shadow: #f48fb1;
+
+  --main-bg-start: #0a100c;
+  --main-bg-mid: #141a14;
+  --main-bg-end: #1a221c;
+
+  --surface: #142018;
+  --surface-light: #1e2c22;
+  --surface-lighter: #28382e;
+}
+
+/* Indian summer — warm amber, hazy purple, dusty gold */
+[data-theme='indian-summer'] {
+  --primary-start: #ffb74d;
+  --primary-mid: #ce93d8;
+  --primary-end: #a1887f;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ffb74d;
+
+  --main-bg-start: #14100a;
+  --main-bg-mid: #1e1812;
+  --main-bg-end: #28201a;
+
+  --surface: #201a12;
+  --surface-light: #2e261c;
+  --surface-lighter: #3e3228;
+}

@@ -1,0 +1,841 @@
+/* ============================================================
+   themesPlusPlusPlusPlus.css — The final frontier of theme experimentation
+   Maximum weirdness, maximum creativity, maximum cohesion.
+   Each data-theme defines all 11 standard CSS variables:
+     --primary-start, --primary-mid, --primary-end
+     --primary-text, --primary-shadow
+     --main-bg-start, --main-bg-mid, --main-bg-end
+     --surface, --surface-light, --surface-lighter
+   ============================================================ */
+
+/* ========== PHANTOM SENSES — Colors for things you can't see ========== */
+
+/* Infrared — heat vision, what cameras see but eyes can't */
+[data-theme='infrared'] {
+  --primary-start: #ff1744;
+  --primary-mid: #ff9100;
+  --primary-end: #ffea00;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ff1744;
+
+  --main-bg-start: #0e0204;
+  --main-bg-mid: #140406;
+  --main-bg-end: #1a0608;
+
+  --surface: #160408;
+  --surface-light: #22080e;
+  --surface-lighter: #300c14;
+}
+
+/* Ultraviolet — bee vision, flowers screaming in invisible purple */
+[data-theme='ultraviolet'] {
+  --primary-start: #e040fb;
+  --primary-mid: #7c4dff;
+  --primary-end: #1a237e;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #e040fb;
+
+  --main-bg-start: #08020e;
+  --main-bg-mid: #0e041a;
+  --main-bg-end: #140626;
+
+  --surface: #100418;
+  --surface-light: #1a0826;
+  --surface-lighter: #260c36;
+}
+
+/* Echolocation — what bats "see", sonar blue pulses in total dark */
+[data-theme='echolocation'] {
+  --primary-start: #00b0ff;
+  --primary-mid: #0091ea;
+  --primary-end: #01579b;
+
+  --primary-text: #e0f7fa;
+  --primary-shadow: #00b0ff;
+
+  --main-bg-start: #000204;
+  --main-bg-mid: #000408;
+  --main-bg-end: #00060c;
+
+  --surface: #000608;
+  --surface-light: #000c12;
+  --surface-lighter: #00121c;
+}
+
+/* Magnetoreception — birds navigating by Earth's magnetic field */
+[data-theme='magnetoreception'] {
+  --primary-start: #76ff03;
+  --primary-mid: #304ffe;
+  --primary-end: #76ff03;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #304ffe;
+
+  --main-bg-start: #020604;
+  --main-bg-mid: #020410;
+  --main-bg-end: #020604;
+
+  --surface: #040808;
+  --surface-light: #0a0e12;
+  --surface-lighter: #10161c;
+}
+
+/* Proprioception — the sense of your own body, flesh-pink on bone-white */
+[data-theme='proprioception'] {
+  --primary-start: #ffab91;
+  --primary-mid: #ef5350;
+  --primary-end: #efebe9;
+
+  --primary-text: #1a0808;
+  --primary-shadow: #ef5350;
+
+  --main-bg-start: #100808;
+  --main-bg-mid: #180c0c;
+  --main-bg-end: #1e1010;
+
+  --surface: #1a0e0e;
+  --surface-light: #241616;
+  --surface-lighter: #301e1e;
+}
+
+/* ========== MATHEMATICAL BEAUTY — Equations as color ========== */
+
+/* Golden ratio — φ proportioned amber, each color 1.618x darker */
+[data-theme='golden-ratio'] {
+  --primary-start: #ffd54f;
+  --primary-mid: #9e8430;
+  --primary-end: #61511d;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ffd54f;
+
+  --main-bg-start: #0c0a04;
+  --main-bg-mid: #141008;
+  --main-bg-end: #1c180c;
+
+  --surface: #161208;
+  --surface-light: #201c10;
+  --surface-lighter: #2c2618;
+}
+
+/* Pi — irrational, never-repeating: three unrelated colors that somehow work */
+[data-theme='pi'] {
+  --primary-start: #ff6e40;
+  --primary-mid: #69f0ae;
+  --primary-end: #b388ff;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #69f0ae;
+
+  --main-bg-start: #0c0604;
+  --main-bg-mid: #040c08;
+  --main-bg-end: #080610;
+
+  --surface: #0a0a0a;
+  --surface-light: #141414;
+  --surface-lighter: #1e1e1e;
+}
+
+/* Infinity — the color of forever: gradient that never resolves */
+[data-theme='infinity'] {
+  --primary-start: #1a237e;
+  --primary-mid: #e8eaf6;
+  --primary-end: #1a237e;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #e8eaf6;
+
+  --main-bg-start: #04040c;
+  --main-bg-mid: #0a0a16;
+  --main-bg-end: #04040c;
+
+  --surface: #08080e;
+  --surface-light: #101018;
+  --surface-lighter: #1a1a24;
+}
+
+/* Fractal — self-similar at every scale, teal nesting into itself */
+[data-theme='fractal'] {
+  --primary-start: #1de9b6;
+  --primary-mid: #00897b;
+  --primary-end: #004d40;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #1de9b6;
+
+  --main-bg-start: #020806;
+  --main-bg-mid: #04100c;
+  --main-bg-end: #061812;
+
+  --surface: #060e0c;
+  --surface-light: #0e1a16;
+  --surface-lighter: #162620;
+}
+
+/* ========== FORBIDDEN COMBINATIONS — Colors that fight each other ========== */
+
+/* Toothpaste and orange juice — the worst pairing, made beautiful */
+[data-theme='toothpaste-oj'] {
+  --primary-start: #4dd0e1;
+  --primary-mid: #b2ff59;
+  --primary-end: #ff9100;
+
+  --primary-text: #0a1418;
+  --primary-shadow: #b2ff59;
+
+  --main-bg-start: #040a0c;
+  --main-bg-mid: #080e08;
+  --main-bg-end: #0c0a04;
+
+  --surface: #080c0a;
+  --surface-light: #121814;
+  --surface-lighter: #1c2420;
+}
+
+/* Ketchup and ice cream — wrong together, strangely compelling */
+[data-theme='ketchup-icecream'] {
+  --primary-start: #d32f2f;
+  --primary-mid: #fff9c4;
+  --primary-end: #f8bbd0;
+
+  --primary-text: #1a0808;
+  --primary-shadow: #d32f2f;
+
+  --main-bg-start: #0e0404;
+  --main-bg-mid: #0e0c08;
+  --main-bg-end: #0e080a;
+
+  --surface: #100808;
+  --surface-light: #1a1010;
+  --surface-lighter: #261a1a;
+}
+
+/* Neon on neon — every color screaming at once, migraine chic */
+[data-theme='neon-overload'] {
+  --primary-start: #ff00ff;
+  --primary-mid: #00ffff;
+  --primary-end: #ffff00;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ff00ff;
+
+  --main-bg-start: #0a0010;
+  --main-bg-mid: #001010;
+  --main-bg-end: #100e00;
+
+  --surface: #080810;
+  --surface-light: #10101c;
+  --surface-lighter: #1a1a28;
+}
+
+/* Camouflage failure — colors that refuse to blend in */
+[data-theme='camo-fail'] {
+  --primary-start: #ff1744;
+  --primary-mid: #00e5ff;
+  --primary-end: #aeea00;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ff1744;
+
+  --main-bg-start: #0a0406;
+  --main-bg-mid: #040a0c;
+  --main-bg-end: #080a04;
+
+  --surface: #0a0808;
+  --surface-light: #141210;
+  --surface-lighter: #1e1c1a;
+}
+
+/* ========== LIMINAL SPACES — The uncanny in-between ========== */
+
+/* Empty mall — fluorescent buzz, dead retail, faded everything */
+[data-theme='empty-mall'] {
+  --primary-start: #e0e0e0;
+  --primary-mid: #b0bec5;
+  --primary-end: #c5e1a5;
+
+  --primary-text: #1a1a1a;
+  --primary-shadow: #c5e1a5;
+
+  --main-bg-start: #0c0c0a;
+  --main-bg-mid: #121210;
+  --main-bg-end: #181816;
+
+  --surface: #141412;
+  --surface-light: #1e1e1c;
+  --surface-lighter: #2a2a28;
+}
+
+/* Hotel hallway — infinite carpet pattern, warm-wrong lighting */
+[data-theme='hotel-hallway'] {
+  --primary-start: #ffcc80;
+  --primary-mid: #a1887f;
+  --primary-end: #c62828;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ffcc80;
+
+  --main-bg-start: #0e0a06;
+  --main-bg-mid: #141008;
+  --main-bg-end: #120808;
+
+  --surface: #12100a;
+  --surface-light: #1c1812;
+  --surface-lighter: #28221c;
+}
+
+/* Pool at 2am — chlorine blue glow, nobody should be here */
+[data-theme='pool-2am'] {
+  --primary-start: #40c4ff;
+  --primary-mid: #0091ea;
+  --primary-end: #00695c;
+
+  --primary-text: #e0f7fa;
+  --primary-shadow: #40c4ff;
+
+  --main-bg-start: #020608;
+  --main-bg-mid: #040c12;
+  --main-bg-end: #060e14;
+
+  --surface: #060c10;
+  --surface-light: #0e161c;
+  --surface-lighter: #162028;
+}
+
+/* Backrooms — yellowish fluorescent on beige, infinite and wrong */
+[data-theme='backrooms'] {
+  --primary-start: #fff9c4;
+  --primary-mid: #f0e68c;
+  --primary-end: #d4c36a;
+
+  --primary-text: #3e3a00;
+  --primary-shadow: #fff9c4;
+
+  --main-bg-start: #0e0c06;
+  --main-bg-mid: #161408;
+  --main-bg-end: #1e1c0c;
+
+  --surface: #18160a;
+  --surface-light: #222010;
+  --surface-lighter: #2e2c18;
+}
+
+/* ========== GLITCH BIOLOGY — When organic meets digital error ========== */
+
+/* DNA corruption — base pairs scrambled, ATCG as CMYK */
+[data-theme='dna-corrupt'] {
+  --primary-start: #00bcd4;
+  --primary-mid: #e91e63;
+  --primary-end: #ffc107;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #e91e63;
+
+  --main-bg-start: #040808;
+  --main-bg-mid: #0c060a;
+  --main-bg-end: #0a0806;
+
+  --surface: #0a080a;
+  --surface-light: #141014;
+  --surface-lighter: #1e181e;
+}
+
+/* Mitosis — cell division, splitting one color into two daughters */
+[data-theme='mitosis'] {
+  --primary-start: #b9f6ca;
+  --primary-mid: #ffffff;
+  --primary-end: #f8bbd0;
+
+  --primary-text: #1a1a1a;
+  --primary-shadow: #ffffff;
+
+  --main-bg-start: #060a08;
+  --main-bg-mid: #0a0e0c;
+  --main-bg-end: #0a0c0e;
+
+  --surface: #0a0e0c;
+  --surface-light: #141816;
+  --surface-lighter: #1e2420;
+}
+
+/* Virus — hostile beauty, lipid envelope gold on cell-death purple */
+[data-theme='virus'] {
+  --primary-start: #ffd740;
+  --primary-mid: #7b1fa2;
+  --primary-end: #4a148c;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ffd740;
+
+  --main-bg-start: #080408;
+  --main-bg-mid: #0e060e;
+  --main-bg-end: #140814;
+
+  --surface: #100810;
+  --surface-light: #1a0e1a;
+  --surface-lighter: #261626;
+}
+
+/* Symbiosis — two organisms merged, coral-pink fused with algae-green */
+[data-theme='symbiosis'] {
+  --primary-start: #f48fb1;
+  --primary-mid: #81c784;
+  --primary-end: #f48fb1;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #81c784;
+
+  --main-bg-start: #0c060a;
+  --main-bg-mid: #060c08;
+  --main-bg-end: #0c060a;
+
+  --surface: #0a0a0c;
+  --surface-light: #141216;
+  --surface-lighter: #1e1c22;
+}
+
+/* ========== SENSORY OVERLOAD — Too much input ========== */
+
+/* Tinnitus — the color of a sound that won't stop, piercing and flat */
+[data-theme='tinnitus'] {
+  --primary-start: #e0e0e0;
+  --primary-mid: #e0e0e0;
+  --primary-end: #ff1744;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ff1744;
+
+  --main-bg-start: #0a0a0a;
+  --main-bg-mid: #0e0e0e;
+  --main-bg-end: #0e0a0a;
+
+  --surface: #101010;
+  --surface-light: #1a1a1a;
+  --surface-lighter: #262626;
+}
+
+/* Phantom limb — feeling color where there is none, ghost-blue */
+[data-theme='phantom-limb'] {
+  --primary-start: #b3e5fc;
+  --primary-mid: #4fc3f7;
+  --primary-end: #0288d1;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #b3e5fc;
+
+  --main-bg-start: #040608;
+  --main-bg-mid: #060a10;
+  --main-bg-end: #080e18;
+
+  --surface: #080c14;
+  --surface-light: #10141e;
+  --surface-lighter: #1a1e2a;
+}
+
+/* Overstimulated — every channel maxed, warm and cool colliding */
+[data-theme='overstimulated'] {
+  --primary-start: #ff6d00;
+  --primary-mid: #aa00ff;
+  --primary-end: #00e676;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #aa00ff;
+
+  --main-bg-start: #0c0604;
+  --main-bg-mid: #080410;
+  --main-bg-end: #040c06;
+
+  --surface: #0a080c;
+  --surface-light: #141018;
+  --surface-lighter: #1e1a24;
+}
+
+/* ASMR — tingling pastel whisper, barely-there soft triggers */
+[data-theme='asmr'] {
+  --primary-start: #f3e5f5;
+  --primary-mid: #e1f5fe;
+  --primary-end: #fce4ec;
+
+  --primary-text: #2a1830;
+  --primary-shadow: #e1f5fe;
+
+  --main-bg-start: #0c0a0e;
+  --main-bg-mid: #0a0c10;
+  --main-bg-end: #0e0a0c;
+
+  --surface: #0e0c10;
+  --surface-light: #18141c;
+  --surface-lighter: #221e28;
+}
+
+/* ========== WRONG PHYSICS — Universes with different rules ========== */
+
+/* Negative gravity — everything falls up, inverted earth-tones */
+[data-theme='negative-gravity'] {
+  --primary-start: #00bfa5;
+  --primary-mid: #ff6f00;
+  --primary-end: #6200ea;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #00bfa5;
+
+  --main-bg-start: #040a08;
+  --main-bg-mid: #0c0804;
+  --main-bg-end: #060410;
+
+  --surface: #080a0a;
+  --surface-light: #121414;
+  --surface-lighter: #1c2020;
+}
+
+/* Time reversal — effect before cause, end color is the brightest */
+[data-theme='time-reversal'] {
+  --primary-start: #1a1a2e;
+  --primary-mid: #7c4dff;
+  --primary-end: #e0f7fa;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #e0f7fa;
+
+  --main-bg-start: #040406;
+  --main-bg-mid: #08060e;
+  --main-bg-end: #0c0a14;
+
+  --surface: #0a0810;
+  --surface-light: #14101c;
+  --surface-lighter: #1e1828;
+}
+
+/* Absolute zero — 0 Kelvin, all motion stopped, frozen blue-white */
+[data-theme='absolute-zero'] {
+  --primary-start: #e8eaf6;
+  --primary-mid: #c5cae9;
+  --primary-end: #9fa8da;
+
+  --primary-text: #0a0c1a;
+  --primary-shadow: #e8eaf6;
+
+  --main-bg-start: #04040a;
+  --main-bg-mid: #080810;
+  --main-bg-end: #0c0c18;
+
+  --surface: #0a0a14;
+  --surface-light: #12121e;
+  --surface-lighter: #1c1c2a;
+}
+
+/* Entropy maximum — heat death of the universe, everything the same temperature */
+[data-theme='heat-death'] {
+  --primary-start: #8d6e63;
+  --primary-mid: #8d6e63;
+  --primary-end: #8d6e63;
+
+  --primary-text: #d7ccc8;
+  --primary-shadow: #a1887f;
+
+  --main-bg-start: #0a0808;
+  --main-bg-mid: #0c0a0a;
+  --main-bg-end: #0a0808;
+
+  --surface: #0e0c0c;
+  --surface-light: #161414;
+  --surface-lighter: #201c1c;
+}
+
+/* ========== CULTURAL GLITCH — Traditions remixed wrong ========== */
+
+/* Inverted wedding — black where white should be, gold tears */
+[data-theme='inverted-wedding'] {
+  --primary-start: #212121;
+  --primary-mid: #ffd700;
+  --primary-end: #212121;
+
+  --primary-text: #ffd700;
+  --primary-shadow: #ffd700;
+
+  --main-bg-start: #060604;
+  --main-bg-mid: #0a0a06;
+  --main-bg-end: #060604;
+
+  --surface: #0c0c08;
+  --surface-light: #161610;
+  --surface-lighter: #22221a;
+}
+
+/* Broken stained glass — sacred colors shattered and rearranged */
+[data-theme='broken-glass'] {
+  --primary-start: #f44336;
+  --primary-mid: #ffc107;
+  --primary-end: #2196f3;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ffc107;
+
+  --main-bg-start: #0a0404;
+  --main-bg-mid: #0c0a04;
+  --main-bg-end: #04060c;
+
+  --surface: #0c0808;
+  --surface-light: #161210;
+  --surface-lighter: #221c1a;
+}
+
+/* Neon temple — sacred geometry lit by nightclub lighting */
+[data-theme='neon-temple'] {
+  --primary-start: #ffd700;
+  --primary-mid: #e040fb;
+  --primary-end: #00e5ff;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #e040fb;
+
+  --main-bg-start: #0a0804;
+  --main-bg-mid: #0c0410;
+  --main-bg-end: #040a10;
+
+  --surface: #0a0810;
+  --surface-light: #14101c;
+  --surface-lighter: #1e182a;
+}
+
+/* Faded propaganda — once-bold political red washed by decades of sun */
+[data-theme='faded-propaganda'] {
+  --primary-start: #ef9a9a;
+  --primary-mid: #e57373;
+  --primary-end: #c5cae9;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ef9a9a;
+
+  --main-bg-start: #0c0808;
+  --main-bg-mid: #100c0c;
+  --main-bg-end: #0c0c10;
+
+  --surface: #100c0e;
+  --surface-light: #1a1416;
+  --surface-lighter: #241e20;
+}
+
+/* ========== DREAMS WITHIN DREAMS — Nested unreality ========== */
+
+/* Dream level 1 — slightly off-reality, warm shift */
+[data-theme='dream-l1'] {
+  --primary-start: #ffcc80;
+  --primary-mid: #ce93d8;
+  --primary-end: #80cbc4;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ce93d8;
+
+  --main-bg-start: #0e0a08;
+  --main-bg-mid: #100a10;
+  --main-bg-end: #0a0e0e;
+
+  --surface: #100c0e;
+  --surface-light: #1a1618;
+  --surface-lighter: #262022;
+}
+
+/* Dream level 2 — colors melting, boundaries dissolving */
+[data-theme='dream-l2'] {
+  --primary-start: #ff80ab;
+  --primary-mid: #82b1ff;
+  --primary-end: #b9f6ca;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #82b1ff;
+
+  --main-bg-start: #0c060a;
+  --main-bg-mid: #060810;
+  --main-bg-end: #060c08;
+
+  --surface: #0a0a0e;
+  --surface-light: #141218;
+  --surface-lighter: #1e1c24;
+}
+
+/* Dream level 3 — pure abstraction, colors have no referent */
+[data-theme='dream-l3'] {
+  --primary-start: #ea80fc;
+  --primary-mid: #84ffff;
+  --primary-end: #ffff8d;
+
+  --primary-text: #1a1020;
+  --primary-shadow: #84ffff;
+
+  --main-bg-start: #08040a;
+  --main-bg-mid: #040808;
+  --main-bg-end: #080804;
+
+  --surface: #0a080c;
+  --surface-light: #141016;
+  --surface-lighter: #1e1a22;
+}
+
+/* Limbo — the deepest level, almost nothing, one faint pulse */
+[data-theme='limbo'] {
+  --primary-start: #263238;
+  --primary-mid: #37474f;
+  --primary-end: #00e5ff;
+
+  --primary-text: #b0bec5;
+  --primary-shadow: #00e5ff;
+
+  --main-bg-start: #020304;
+  --main-bg-mid: #040506;
+  --main-bg-end: #020304;
+
+  --surface: #060708;
+  --surface-light: #0c0e10;
+  --surface-lighter: #141618;
+}
+
+/* ========== SYNESTHETIC MUSIC GENRES — Genres as color ========== */
+
+/* Doom metal — glacially slow, crushing brown-black with funeral purple */
+[data-theme='doom-metal'] {
+  --primary-start: #4e342e;
+  --primary-mid: #311b92;
+  --primary-end: #1a1a1a;
+
+  --primary-text: #bcaaa4;
+  --primary-shadow: #311b92;
+
+  --main-bg-start: #060404;
+  --main-bg-mid: #080608;
+  --main-bg-end: #060606;
+
+  --surface: #0a0808;
+  --surface-light: #121010;
+  --surface-lighter: #1c1818;
+}
+
+/* Shoegaze — wall of fuzzy sound, pink noise through reverb */
+[data-theme='shoegaze'] {
+  --primary-start: #f8bbd0;
+  --primary-mid: #b39ddb;
+  --primary-end: #80cbc4;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #f8bbd0;
+
+  --main-bg-start: #0c080a;
+  --main-bg-mid: #0a080e;
+  --main-bg-end: #080a0c;
+
+  --surface: #0e0c10;
+  --surface-light: #18141c;
+  --surface-lighter: #221e28;
+}
+
+/* Harsh noise — pure aggression, red static on white pain */
+[data-theme='harsh-noise'] {
+  --primary-start: #ff1744;
+  --primary-mid: #f5f5f5;
+  --primary-end: #ff1744;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ff1744;
+
+  --main-bg-start: #0c0404;
+  --main-bg-mid: #0e0808;
+  --main-bg-end: #0c0404;
+
+  --surface: #100808;
+  --surface-light: #1a1010;
+  --surface-lighter: #261818;
+}
+
+/* Ambient — Brian Eno's airport, barely-there blue-green shimmer */
+[data-theme='ambient'] {
+  --primary-start: #b2dfdb;
+  --primary-mid: #80cbc4;
+  --primary-end: #b2ebf2;
+
+  --primary-text: #0a1818;
+  --primary-shadow: #80cbc4;
+
+  --main-bg-start: #040808;
+  --main-bg-mid: #060c0c;
+  --main-bg-end: #081010;
+
+  --surface: #080e0e;
+  --surface-light: #101818;
+  --surface-lighter: #1a2222;
+}
+
+/* ========== EXISTENTIAL — The big questions as color ========== */
+
+/* Why is there something rather than nothing — emergence from void */
+[data-theme='emergence'] {
+  --primary-start: #000000;
+  --primary-mid: #1a237e;
+  --primary-end: #e8eaf6;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #e8eaf6;
+
+  --main-bg-start: #020204;
+  --main-bg-mid: #040408;
+  --main-bg-end: #06060c;
+
+  --surface: #060608;
+  --surface-light: #0e0e12;
+  --surface-lighter: #18181e;
+}
+
+/* Ship of Theseus — is it the same color if every value changed? */
+[data-theme='theseus'] {
+  --primary-start: #ffab91;
+  --primary-mid: #80deea;
+  --primary-end: #c5e1a5;
+
+  --primary-text: #1a1414;
+  --primary-shadow: #80deea;
+
+  --main-bg-start: #0c0808;
+  --main-bg-mid: #080c0c;
+  --main-bg-end: #0a0c08;
+
+  --surface: #0c0c0c;
+  --surface-light: #161616;
+  --surface-lighter: #222222;
+}
+
+/* Sisyphus — endless repetition, the same warm amber forever */
+[data-theme='sisyphus'] {
+  --primary-start: #ff8f00;
+  --primary-mid: #ff8f00;
+  --primary-end: #ff8f00;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ff8f00;
+
+  --main-bg-start: #0c0804;
+  --main-bg-mid: #100a06;
+  --main-bg-end: #0c0804;
+
+  --surface: #100c06;
+  --surface-light: #1a140e;
+  --surface-lighter: #241e16;
+}
+
+/* Memento mori — remember you will die, bone-white and grave-earth */
+[data-theme='memento-mori'] {
+  --primary-start: #efebe9;
+  --primary-mid: #6d4c41;
+  --primary-end: #3e2723;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #efebe9;
+
+  --main-bg-start: #080604;
+  --main-bg-mid: #0e0a08;
+  --main-bg-end: #14100c;
+
+  --surface: #100c0a;
+  --surface-light: #1a1612;
+  --surface-lighter: #26201c;
+}

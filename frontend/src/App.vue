@@ -26,7 +26,8 @@
 
       <!-- Main Content -->
       <main class=" pb-12">
-        <MainPage @start-background-music="backgroundFadeIn" @stop-background-music="backgroundFadeOut" />
+        <MainPage @start-background-music="backgroundFadeIn" @stop-background-music="backgroundFadeOut"
+          @change-theme="changeTheme" />
       </main>
       <div class="fixed bottom-0 left-0 right-0">
         <!-- <Jukebox></Jukebox> -->
@@ -113,6 +114,10 @@ const backgroundFadeOut = () => {
   }, FADE_INTERVAL);
 };
 
+const changeTheme = (selectedTheme: string) => {
+  document.documentElement.setAttribute('data-theme', selectedTheme);
+  localStorage.setItem('user-theme', selectedTheme);
+}
 
 </script>
 

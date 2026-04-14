@@ -1,0 +1,897 @@
+/* ============================================================
+   themesPlusPlusPlus.css — The most experimental theme collection
+   Weird, boundary-pushing, but internally cohesive.
+   Each data-theme defines all 11 standard CSS variables:
+     --primary-start, --primary-mid, --primary-end
+     --primary-text, --primary-shadow
+     --main-bg-start, --main-bg-mid, --main-bg-end
+     --surface, --surface-light, --surface-lighter
+   ============================================================ */
+
+/* ========== OPTICAL ILLUSIONS — Colors that trick the eye ========== */
+
+/* Afterimage — stare at green, see magenta when you look away */
+[data-theme='afterimage'] {
+  --primary-start: #00e676;
+  --primary-mid: #e040fb;
+  --primary-end: #00e676;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #e040fb;
+
+  --main-bg-start: #040c06;
+  --main-bg-mid: #100818;
+  --main-bg-end: #040c06;
+
+  --surface: #0a0c10;
+  --surface-light: #14141e;
+  --surface-lighter: #1e1e2c;
+}
+
+/* Chromatic aberration — RGB fringing like a broken lens */
+[data-theme='chromatic'] {
+  --primary-start: #ff1a1a;
+  --primary-mid: #1aff1a;
+  --primary-end: #1a1aff;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ffffff;
+
+  --main-bg-start: #080404;
+  --main-bg-mid: #040804;
+  --main-bg-end: #040408;
+
+  --surface: #0a0808;
+  --surface-light: #141010;
+  --surface-lighter: #1e1a1a;
+}
+
+/* Moiré pattern — interference colors, teal and magenta vibrating */
+[data-theme='moire'] {
+  --primary-start: #00bfa5;
+  --primary-mid: #d81b60;
+  --primary-end: #00bfa5;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #d81b60;
+
+  --main-bg-start: #040e0c;
+  --main-bg-mid: #120610;
+  --main-bg-end: #040e0c;
+
+  --surface: #0a0e0e;
+  --surface-light: #141a1a;
+  --surface-lighter: #1e2828;
+}
+
+/* Blind spot — the color you can't see, near-invisible primaries */
+[data-theme='blind-spot'] {
+  --primary-start: #1a1a2e;
+  --primary-mid: #ff6d00;
+  --primary-end: #1a1a2e;
+
+  --primary-text: #ff6d00;
+  --primary-shadow: #ff6d00;
+
+  --main-bg-start: #060608;
+  --main-bg-mid: #0a0a0e;
+  --main-bg-end: #060608;
+
+  --surface: #0a0a10;
+  --surface-light: #121218;
+  --surface-lighter: #1c1c24;
+}
+
+/* ========== WRONG ON PURPOSE — Deliberately breaking color rules ========== */
+
+/* Clown — every color at maximum saturation, chaotic joy */
+[data-theme='clown'] {
+  --primary-start: #ff0000;
+  --primary-mid: #ffff00;
+  --primary-end: #0000ff;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ffff00;
+
+  --main-bg-start: #0c0404;
+  --main-bg-mid: #0c0c04;
+  --main-bg-end: #04040c;
+
+  --surface: #0e0808;
+  --surface-light: #181010;
+  --surface-lighter: #241a1a;
+}
+
+/* Sunburn — painful pink-red that shouldn't be a UI color */
+[data-theme='sunburn'] {
+  --primary-start: #ff8a80;
+  --primary-mid: #ff5252;
+  --primary-end: #ff1744;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ff8a80;
+
+  --main-bg-start: #140808;
+  --main-bg-mid: #1e0c0c;
+  --main-bg-end: #281010;
+
+  --surface: #200e0e;
+  --surface-light: #2e1616;
+  --surface-lighter: #3e2020;
+}
+
+/* Bruised banana — overripe yellow-brown nobody would choose */
+[data-theme='bruised-banana'] {
+  --primary-start: #fdd835;
+  --primary-mid: #a08020;
+  --primary-end: #5d4037;
+
+  --primary-text: #1a1400;
+  --primary-shadow: #fdd835;
+
+  --main-bg-start: #100e06;
+  --main-bg-mid: #1a160c;
+  --main-bg-end: #221c12;
+
+  --surface: #1c180e;
+  --surface-light: #282216;
+  --surface-lighter: #362e20;
+}
+
+/* Static cling — electric blue-white that feels uncomfortable */
+[data-theme='static-cling'] {
+  --primary-start: #e0f7fa;
+  --primary-mid: #00b8d4;
+  --primary-end: #e8eaf6;
+
+  --primary-text: #0a1418;
+  --primary-shadow: #00b8d4;
+
+  --main-bg-start: #040a0c;
+  --main-bg-mid: #081214;
+  --main-bg-end: #0c181c;
+
+  --surface: #0a1416;
+  --surface-light: #141e22;
+  --surface-lighter: #1e2a2e;
+}
+
+/* ========== SYNESTHETIC TASTE — Flavors as impossible colors ========== */
+
+/* Umami — the fifth taste: deep, savory, indescribable brown-gold-purple */
+[data-theme='umami'] {
+  --primary-start: #8d6e63;
+  --primary-mid: #d4a24e;
+  --primary-end: #5c3580;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #d4a24e;
+
+  --main-bg-start: #0e0a08;
+  --main-bg-mid: #161210;
+  --main-bg-end: #120c18;
+
+  --surface: #141010;
+  --surface-light: #1e1a18;
+  --surface-lighter: #2a2422;
+}
+
+/* Sour — face-puckering acid green-yellow with electric bite */
+[data-theme='sour'] {
+  --primary-start: #c6ff00;
+  --primary-mid: #ffea00;
+  --primary-end: #76ff03;
+
+  --primary-text: #0a0e00;
+  --primary-shadow: #c6ff00;
+
+  --main-bg-start: #080a02;
+  --main-bg-mid: #0e1204;
+  --main-bg-end: #141a06;
+
+  --surface: #101406;
+  --surface-light: #1a1e0c;
+  --surface-lighter: #242a14;
+}
+
+/* Bitter — dark chocolate brown meeting medicinal green */
+[data-theme='bitter'] {
+  --primary-start: #4e342e;
+  --primary-mid: #6d4c41;
+  --primary-end: #2e7d32;
+
+  --primary-text: #d7ccc8;
+  --primary-shadow: #6d4c41;
+
+  --main-bg-start: #0a0806;
+  --main-bg-mid: #12100c;
+  --main-bg-end: #0c1208;
+
+  --surface: #100e0a;
+  --surface-light: #1a1812;
+  --surface-lighter: #24221c;
+}
+
+/* Spice — capsaicin heat: searing red-orange with endorphin purple */
+[data-theme='spice'] {
+  --primary-start: #ff3d00;
+  --primary-mid: #dd2c00;
+  --primary-end: #aa00ff;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ff3d00;
+
+  --main-bg-start: #100402;
+  --main-bg-mid: #1a0804;
+  --main-bg-end: #140618;
+
+  --surface: #160806;
+  --surface-light: #22100c;
+  --surface-lighter: #301a14;
+}
+
+/* ========== IMPOSSIBLE MATERIALS — Things that don't exist ========== */
+
+/* Transparent aluminum — see-through metal, ice-blue chrome */
+[data-theme='transparent-aluminum'] {
+  --primary-start: #b3e5fc;
+  --primary-mid: #81d4fa;
+  --primary-end: #b0bec5;
+
+  --primary-text: #0a1420;
+  --primary-shadow: #81d4fa;
+
+  --main-bg-start: #060a0e;
+  --main-bg-mid: #0c1218;
+  --main-bg-end: #121a22;
+
+  --surface: #0e1418;
+  --surface-light: #181e26;
+  --surface-lighter: #222a34;
+}
+
+/* Vantablack rainbow — the darkest black with prismatic edges */
+[data-theme='vantablack-rainbow'] {
+  --primary-start: #ff1744;
+  --primary-mid: #00e676;
+  --primary-end: #2979ff;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #00e676;
+
+  --main-bg-start: #020202;
+  --main-bg-mid: #040404;
+  --main-bg-end: #060606;
+
+  --surface: #060606;
+  --surface-light: #0e0e0e;
+  --surface-lighter: #161616;
+}
+
+/* Aerogel — frozen smoke, barely-there blue on near-nothing */
+[data-theme='aerogel'] {
+  --primary-start: #bbdefb;
+  --primary-mid: #90caf9;
+  --primary-end: #e3f2fd;
+
+  --primary-text: #0a1828;
+  --primary-shadow: #90caf9;
+
+  --main-bg-start: #0a0e14;
+  --main-bg-mid: #101620;
+  --main-bg-end: #161e2c;
+
+  --surface: #121a24;
+  --surface-light: #1c2432;
+  --surface-lighter: #263040;
+}
+
+/* Liquid nitrogen — supercooled fog, white-blue with violent boil */
+[data-theme='liquid-nitrogen'] {
+  --primary-start: #e0f7fa;
+  --primary-mid: #4dd0e1;
+  --primary-end: #006064;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #e0f7fa;
+
+  --main-bg-start: #020808;
+  --main-bg-mid: #061010;
+  --main-bg-end: #0a1818;
+
+  --surface: #081212;
+  --surface-light: #101c1c;
+  --surface-lighter: #1a2828;
+}
+
+/* ========== EMOTIONAL PARADOXES — Contradictory feelings ========== */
+
+/* Bittersweet — chocolate brown and candy pink fighting */
+[data-theme='bittersweet'] {
+  --primary-start: #f48fb1;
+  --primary-mid: #5d4037;
+  --primary-end: #f06292;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #f48fb1;
+
+  --main-bg-start: #100a0c;
+  --main-bg-mid: #180e10;
+  --main-bg-end: #1c1014;
+
+  --surface: #161012;
+  --surface-light: #22181c;
+  --surface-lighter: #2e2226;
+}
+
+/* Calm panic — serene lavender with emergency red lurking */
+[data-theme='calm-panic'] {
+  --primary-start: #b39ddb;
+  --primary-mid: #d32f2f;
+  --primary-end: #ce93d8;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #d32f2f;
+
+  --main-bg-start: #0c0810;
+  --main-bg-mid: #140a0c;
+  --main-bg-end: #100a14;
+
+  --surface: #120a12;
+  --surface-light: #1c121c;
+  --surface-lighter: #281a28;
+}
+
+/* Joyful grief — bright yellow tears on deep navy */
+[data-theme='joyful-grief'] {
+  --primary-start: #ffee58;
+  --primary-mid: #0d47a1;
+  --primary-end: #fff59d;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ffee58;
+
+  --main-bg-start: #04060e;
+  --main-bg-mid: #080a18;
+  --main-bg-end: #0c0e22;
+
+  --surface: #0a0c1a;
+  --surface-light: #121428;
+  --surface-lighter: #1c1e38;
+}
+
+/* Comfortable dread — cozy amber with void-black creeping in */
+[data-theme='comfortable-dread'] {
+  --primary-start: #ffb74d;
+  --primary-mid: #121212;
+  --primary-end: #ff8a65;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ffb74d;
+
+  --main-bg-start: #0c0804;
+  --main-bg-mid: #060606;
+  --main-bg-end: #0c0806;
+
+  --surface: #0e0a06;
+  --surface-light: #18140e;
+  --surface-lighter: #241e16;
+}
+
+/* ========== CORRUPTED NATURE — Glitched organic world ========== */
+
+/* Radioactive forest — Chernobyl green, mutant amber, fallout grey */
+[data-theme='radioactive-forest'] {
+  --primary-start: #76ff03;
+  --primary-mid: #ffab00;
+  --primary-end: #78909c;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #76ff03;
+
+  --main-bg-start: #060a04;
+  --main-bg-mid: #0e1208;
+  --main-bg-end: #0c0e0e;
+
+  --surface: #0c1208;
+  --surface-light: #161c10;
+  --surface-lighter: #20281a;
+}
+
+/* Inverted ocean — the sea if water were orange and sky were green */
+[data-theme='inverted-ocean'] {
+  --primary-start: #ff6d00;
+  --primary-mid: #ff8f00;
+  --primary-end: #00c853;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ff6d00;
+
+  --main-bg-start: #0e0804;
+  --main-bg-mid: #140e06;
+  --main-bg-end: #081008;
+
+  --surface: #120e06;
+  --surface-light: #1c180e;
+  --surface-lighter: #282218;
+}
+
+/* Petrified wood — ancient organic turned mineral, amber-grey-blue */
+[data-theme='petrified'] {
+  --primary-start: #bcaaa4;
+  --primary-mid: #8d6e63;
+  --primary-end: #5c6bc0;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #bcaaa4;
+
+  --main-bg-start: #0c0a08;
+  --main-bg-mid: #14120e;
+  --main-bg-end: #0e1018;
+
+  --surface: #12100c;
+  --surface-light: #1c1a16;
+  --surface-lighter: #282620;
+}
+
+/* Toxic bloom — algae explosion, sickly green-yellow on dead water */
+[data-theme='toxic-bloom'] {
+  --primary-start: #aeea00;
+  --primary-mid: #64dd17;
+  --primary-end: #004d40;
+
+  --primary-text: #0a1200;
+  --primary-shadow: #aeea00;
+
+  --main-bg-start: #060804;
+  --main-bg-mid: #0a1006;
+  --main-bg-end: #041008;
+
+  --surface: #0a0e06;
+  --surface-light: #14180e;
+  --surface-lighter: #1e2418;
+}
+
+/* ========== DIMENSIONAL SHIFTS — Colors from other realities ========== */
+
+/* Flatland — 2D world, only two colors exist, stark contrast */
+[data-theme='flatland'] {
+  --primary-start: #ffffff;
+  --primary-mid: #000000;
+  --primary-end: #ffffff;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ffffff;
+
+  --main-bg-start: #060606;
+  --main-bg-mid: #0a0a0a;
+  --main-bg-end: #060606;
+
+  --surface: #0c0c0c;
+  --surface-light: #161616;
+  --surface-lighter: #222222;
+}
+
+/* Tesseract — 4D hypercube, colors that fold into themselves */
+[data-theme='tesseract'] {
+  --primary-start: #7c4dff;
+  --primary-mid: #18ffff;
+  --primary-end: #7c4dff;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #18ffff;
+
+  --main-bg-start: #08041a;
+  --main-bg-mid: #040e14;
+  --main-bg-end: #08041a;
+
+  --surface: #0c0816;
+  --surface-light: #161024;
+  --surface-lighter: #201832;
+}
+
+/* Mirror dimension — everything slightly wrong, warm-shifted */
+[data-theme='mirror'] {
+  --primary-start: #ffab91;
+  --primary-mid: #ce93d8;
+  --primary-end: #80cbc4;
+
+  --primary-text: #1a1010;
+  --primary-shadow: #ce93d8;
+
+  --main-bg-start: #120c0a;
+  --main-bg-mid: #140e14;
+  --main-bg-end: #0e1212;
+
+  --surface: #141010;
+  --surface-light: #1e1a1a;
+  --surface-lighter: #2a2424;
+}
+
+/* Void echo — colors bouncing off nothing, fading repetitions */
+[data-theme='void-echo'] {
+  --primary-start: #e0e0e0;
+  --primary-mid: #616161;
+  --primary-end: #212121;
+
+  --primary-text: #e0e0e0;
+  --primary-shadow: #e0e0e0;
+
+  --main-bg-start: #040404;
+  --main-bg-mid: #080808;
+  --main-bg-end: #040404;
+
+  --surface: #0a0a0a;
+  --surface-light: #121212;
+  --surface-lighter: #1c1c1c;
+}
+
+/* ========== MICRO WORLD — Microscopic phenomena ========== */
+
+/* Prism split — white light shattered into its components */
+[data-theme='prism'] {
+  --primary-start: #ff1744;
+  --primary-mid: #00e676;
+  --primary-end: #651fff;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ffffff;
+
+  --main-bg-start: #080406;
+  --main-bg-mid: #04080604;
+  --main-bg-end: #06040a;
+
+  --surface: #0a0808;
+  --surface-light: #141210;
+  --surface-lighter: #1e1c1a;
+}
+
+/* Iridescent beetle — shifting green-gold-copper chitin */
+[data-theme='beetle'] {
+  --primary-start: #00e676;
+  --primary-mid: #ffd740;
+  --primary-end: #ff6e40;
+
+  --primary-text: #0a1408;
+  --primary-shadow: #ffd740;
+
+  --main-bg-start: #060c08;
+  --main-bg-mid: #0c1208;
+  --main-bg-end: #100e08;
+
+  --surface: #0e120a;
+  --surface-light: #181c12;
+  --surface-lighter: #22281c;
+}
+
+/* Soap bubble — impossibly thin film, rainbow on transparent */
+[data-theme='soap-bubble'] {
+  --primary-start: #e1bee7;
+  --primary-mid: #80deea;
+  --primary-end: #fff9c4;
+
+  --primary-text: #1a1a2e;
+  --primary-shadow: #80deea;
+
+  --main-bg-start: #0c0a10;
+  --main-bg-mid: #0a0e12;
+  --main-bg-end: #0e0e0a;
+
+  --surface: #0e0c12;
+  --surface-light: #18141e;
+  --surface-lighter: #221e2a;
+}
+
+/* Crystal lattice — geometric mineral, sharp facets of blue-white */
+[data-theme='crystal-lattice'] {
+  --primary-start: #e8eaf6;
+  --primary-mid: #7986cb;
+  --primary-end: #283593;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #e8eaf6;
+
+  --main-bg-start: #04060c;
+  --main-bg-mid: #080a16;
+  --main-bg-end: #0c0e20;
+
+  --surface: #0a0c18;
+  --surface-light: #121426;
+  --surface-lighter: #1c1e36;
+}
+
+/* ========== TEMPORAL PARADOX — Past and future colliding ========== */
+
+/* Retro-future — 1960s space-age orange meets actual future cyan */
+[data-theme='retro-future'] {
+  --primary-start: #ff6d00;
+  --primary-mid: #00e5ff;
+  --primary-end: #ff6d00;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #00e5ff;
+
+  --main-bg-start: #0c0604;
+  --main-bg-mid: #040a0e;
+  --main-bg-end: #0c0604;
+
+  --surface: #0e0a08;
+  --surface-light: #181410;
+  --surface-lighter: #241e1a;
+}
+
+/* Ancient neon — hieroglyphic gold lit by modern neon pink */
+[data-theme='ancient-neon'] {
+  --primary-start: #ffd700;
+  --primary-mid: #ff1493;
+  --primary-end: #8d6e63;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ff1493;
+
+  --main-bg-start: #0e0a04;
+  --main-bg-mid: #140610;
+  --main-bg-end: #100c08;
+
+  --surface: #120a08;
+  --surface-light: #1e1410;
+  --surface-lighter: #2a1e1a;
+}
+
+/* Fossil fuel — prehistoric black oil with ancient amber */
+[data-theme='fossil-fuel'] {
+  --primary-start: #ffab00;
+  --primary-mid: #212121;
+  --primary-end: #ff6f00;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ffab00;
+
+  --main-bg-start: #080604;
+  --main-bg-mid: #0c0a06;
+  --main-bg-end: #100e08;
+
+  --surface: #0e0c08;
+  --surface-light: #18160e;
+  --surface-lighter: #242016;
+}
+
+/* Y2K — millennium bug aesthetic, silver-lilac-baby blue */
+[data-theme='y2k'] {
+  --primary-start: #e0e0e0;
+  --primary-mid: #ce93d8;
+  --primary-end: #81d4fa;
+
+  --primary-text: #1a1020;
+  --primary-shadow: #ce93d8;
+
+  --main-bg-start: #0c0a10;
+  --main-bg-mid: #120e18;
+  --main-bg-end: #0e1218;
+
+  --surface: #100e14;
+  --surface-light: #1a161e;
+  --surface-lighter: #24202c;
+}
+
+/* ========== WEATHER EXTREMES — Atmospheric violence ========== */
+
+/* Ball lightning — rare plasma orb, white-blue-green impossible glow */
+[data-theme='ball-lightning'] {
+  --primary-start: #e0f7fa;
+  --primary-mid: #69f0ae;
+  --primary-end: #b388ff;
+
+  --primary-text: #0a1418;
+  --primary-shadow: #69f0ae;
+
+  --main-bg-start: #040808;
+  --main-bg-mid: #080e0c;
+  --main-bg-end: #060810;
+
+  --surface: #080c0e;
+  --surface-light: #101618;
+  --surface-lighter: #1a2224;
+}
+
+/* Dust devil — spinning sand, ochre-brown with static electricity blue */
+[data-theme='dust-devil'] {
+  --primary-start: #d4a24e;
+  --primary-mid: #8d6e63;
+  --primary-end: #42a5f5;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #d4a24e;
+
+  --main-bg-start: #0e0a06;
+  --main-bg-mid: #141008;
+  --main-bg-end: #0a0e14;
+
+  --surface: #12100a;
+  --surface-light: #1c1a12;
+  --surface-lighter: #28241c;
+}
+
+/* Ice storm — freezing rain, glass-clear with bruised purple sky */
+[data-theme='ice-storm'] {
+  --primary-start: #e0f7fa;
+  --primary-mid: #b0bec5;
+  --primary-end: #4a148c;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #e0f7fa;
+
+  --main-bg-start: #060608;
+  --main-bg-mid: #0a0a10;
+  --main-bg-end: #0c0818;
+
+  --surface: #0a0a12;
+  --surface-light: #14121e;
+  --surface-lighter: #1e1a2a;
+}
+
+/* Volcanic lightning — eruption flash, ash grey with lava orange */
+[data-theme='volcanic-lightning'] {
+  --primary-start: #ffd54f;
+  --primary-mid: #78909c;
+  --primary-end: #ff3d00;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ffd54f;
+
+  --main-bg-start: #0a0808;
+  --main-bg-mid: #100e0c;
+  --main-bg-end: #0e0806;
+
+  --surface: #0e0c0a;
+  --surface-light: #181614;
+  --surface-lighter: #24201e;
+}
+
+/* ========== ALIEN WORLDS — Non-Earth color logic ========== */
+
+/* Methane sunset — orange sky on a gas giant, teal clouds */
+[data-theme='methane-sunset'] {
+  --primary-start: #ff8f00;
+  --primary-mid: #00897b;
+  --primary-end: #ff6f00;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #00897b;
+
+  --main-bg-start: #0c0804;
+  --main-bg-mid: #061010;
+  --main-bg-end: #0c0804;
+
+  --surface: #0e0c08;
+  --surface-light: #181610;
+  --surface-lighter: #24201a;
+}
+
+/* Titan lake — liquid methane, dark mirror reflecting orange haze */
+[data-theme='titan-lake'] {
+  --primary-start: #ff6d00;
+  --primary-mid: #37474f;
+  --primary-end: #ffab00;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ff6d00;
+
+  --main-bg-start: #080606;
+  --main-bg-mid: #0e0c0a;
+  --main-bg-end: #0c0a06;
+
+  --surface: #0c0a08;
+  --surface-light: #161410;
+  --surface-lighter: #221e18;
+}
+
+/* Europa ice — cracked ice shell over dark subsurface ocean */
+[data-theme='europa'] {
+  --primary-start: #e0f7fa;
+  --primary-mid: #4fc3f7;
+  --primary-end: #01579b;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #e0f7fa;
+
+  --main-bg-start: #020608;
+  --main-bg-mid: #060c12;
+  --main-bg-end: #0a121c;
+
+  --surface: #080e14;
+  --surface-light: #10181e;
+  --surface-lighter: #1a222c;
+}
+
+/* Io sulfur — volcanic moon, impossible yellow-green on red */
+[data-theme='io-sulfur'] {
+  --primary-start: #ffff00;
+  --primary-mid: #aeea00;
+  --primary-end: #dd2c00;
+
+  --primary-text: #1a1200;
+  --primary-shadow: #ffff00;
+
+  --main-bg-start: #0a0a02;
+  --main-bg-mid: #0e0c04;
+  --main-bg-end: #120806;
+
+  --surface: #100c04;
+  --surface-light: #1a1608;
+  --surface-lighter: #262010;
+}
+
+/* ========== PSYCHOLOGICAL — Mental states as color ========== */
+
+/* Hyperfocus — tunnel vision, one color impossibly vivid, rest gone */
+[data-theme='hyperfocus'] {
+  --primary-start: #00e5ff;
+  --primary-mid: #00e5ff;
+  --primary-end: #00e5ff;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #00e5ff;
+
+  --main-bg-start: #020808;
+  --main-bg-mid: #040e0e;
+  --main-bg-end: #061414;
+
+  --surface: #061010;
+  --surface-light: #0e1a1a;
+  --surface-lighter: #162424;
+}
+
+/* Dissociation — colors drifting apart, nothing quite connects */
+[data-theme='dissociation'] {
+  --primary-start: #b0bec5;
+  --primary-mid: #e1bee7;
+  --primary-end: #c8e6c9;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #e1bee7;
+
+  --main-bg-start: #0a0a0c;
+  --main-bg-mid: #0e0c10;
+  --main-bg-end: #0c0e0c;
+
+  --surface: #0e0e10;
+  --surface-light: #18161a;
+  --surface-lighter: #222024;
+}
+
+/* Flow state — everything in harmony, warm gold meeting cool blue */
+[data-theme='flow-state'] {
+  --primary-start: #ffd54f;
+  --primary-mid: #4fc3f7;
+  --primary-end: #ffd54f;
+
+  --primary-text: #0a1420;
+  --primary-shadow: #4fc3f7;
+
+  --main-bg-start: #0c0a04;
+  --main-bg-mid: #060c10;
+  --main-bg-end: #0c0a04;
+
+  --surface: #0a0c0c;
+  --surface-light: #141618;
+  --surface-lighter: #1e2224;
+}
+
+/* Déréalisation — the world looks fake, oversaturated and flat */
+[data-theme='derealization'] {
+  --primary-start: #ff80ab;
+  --primary-mid: #80d8ff;
+  --primary-end: #ccff90;
+
+  --primary-text: #1a1a1a;
+  --primary-shadow: #80d8ff;
+
+  --main-bg-start: #100a0e;
+  --main-bg-mid: #0a0e14;
+  --main-bg-end: #0e100a;
+
+  --surface: #0e0c10;
+  --surface-light: #18141c;
+  --surface-lighter: #221e28;
+}

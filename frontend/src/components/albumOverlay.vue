@@ -118,7 +118,7 @@ const props = defineProps<{
     albumInfo: DiscogsAlbumInfoResponse | null
 }>()
 
-const emit = defineEmits(['closeOverlay']);
+const emit = defineEmits(['closeAlbumOverlay']);
 
 const openAudio = new Audio('sounds/openOverlay.wav');
 openAudio.volume = 0.5;
@@ -130,7 +130,7 @@ const displayedImage = ref<string>(props!.albumInfo!.images[0]?.uri);
 
 const closeOverlay = () => {
     closeAudio.play();
-    emit('closeOverlay');
+    emit('closeAlbumOverlay');
 }
 
 const changeImage = (uri: string) => {

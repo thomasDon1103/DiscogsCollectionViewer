@@ -8,7 +8,7 @@
         <!-- Format Filter Buttons -->
         <div class="h-5/6 flex flex-col">
           <h3 class="text-xl font-bold pb-4">Format Filtering</h3>
-          <div class="flex">
+          <div class="flex pb-4 justify-center items-center">
             <button class="styleButton mr-3 w-18 h-10 flex items-center justify-center "
               :class="{ 'gradientButton': vinylFilterOn }" @click="vinylFilterToggle">
               <minimalistVinyl></minimalistVinyl>
@@ -17,6 +17,13 @@
               :class="{ 'gradientButton': cassetteFilterOn }" @click="cassetteFilterToggle">
               <minimalistCassette></minimalistCassette>
             </button>
+          </div>
+          <!-- Theme Selector -->
+          <h3 class="text-xl font-bold pb-4">Theme Selection</h3>
+          <div class="flex pb-4 justify-center items-center">
+            <div class="w-1/4">
+              <ColorPaletteSwatch class="hover:cursor-pointer" @click="showThemeOverlay = true"></ColorPaletteSwatch>
+            </div>
           </div>
         </div>
         <!-- Sign Out Button -->
@@ -33,12 +40,20 @@
       </div>
     </SideBar>
   </div>
-  <!-- Album Info Overlay -->
   <div class="relative w-full">
+    <!-- Album Info Overlay -->
     <Transition enter-active-class="transition-all duration-300 ease-out" enter-from-class="opacity-0 -translate-y-4"
       enter-to-class="opacity-100 translate-y-0" leave-active-class="transition-all duration-300 ease-in"
       leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 -translate-y-4">
-      <albumOverlay v-if="showAlbumOverlay" :album-info="albumInfo" @close-overlay="closeOverlay"></albumOverlay>
+      <albumOverlay v-if="showAlbumOverlay" :album-info="albumInfo" @close-album-overlay="closeAlbumOverlay">
+      </albumOverlay>
+    </Transition>
+
+    <!-- Theme Selector Overlay -->
+    <Transition enter-active-class="transition-all duration-300 ease-out" enter-from-class="opacity-0 -translate-y-4"
+      enter-to-class="opacity-100 translate-y-0" leave-active-class="transition-all duration-300 ease-in"
+      leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 -translate-y-4">
+      <ThemePicker v-if="showThemeOverlay" @close-theme-overlay="closeThemeOverlay"></ThemePicker>
     </Transition>
 
     <!-- Vinyl Filter Transition Overlay -->
@@ -181,9 +196,6 @@
               :current-index="currentIndex" @next-release="nextRelease" @prev-release="previousRelease"
               @album-selected="handleAlbumSelected" @go-to-release="goToRelease">
             </NewCarousel>
-
-
-
           </Transition>
         </div>
 
@@ -244,7 +256,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 import type { DiscogsCollectionResponse, DiscogsRelease } from '../types/DiscogsCollectionInfo';
 import { discogsService } from '../services/api';
 import loginForm, { LoginFormData } from './loginForm.vue'
@@ -257,9 +269,11 @@ import minimalistCassette from './minimalistCassette.vue';
 import CassetteSVG from './cassetteSVG.vue';
 import VinylSVG from './vinylSVG.vue';
 import SideBar from './sideBar.vue';
+import ColorPaletteSwatch from './ColorPaletteSwatch.vue';
+import ThemePicker from './ThemePicker.vue';
 import { DiscogsAlbumInfoResponse } from '../types/DiscogsAlbumInfo';
 
-const emit = defineEmits(["startBackgroundMusic", "stopBackgroundMusic"]);
+const emit = defineEmits(["startBackgroundMusic", "stopBackgroundMusic", "changeTheme"]);
 
 const formData = ref<LoginFormData>({
   username: '',
@@ -326,6 +340,9 @@ const showCollection = ref(false);
 const showForm = ref(true);
 const showCarousel = ref(true);
 const showAlbumOverlay = ref(false);
+const showThemeOverlay = ref(false);
+
+const selectedTheme = ref('');
 
 // Used to cancel background fetching when the user resets
 let abortController: AbortController | null = null;
@@ -473,9 +490,19 @@ const handleAlbumSelected = async (
   }
 };
 
-const closeOverlay = () => {
+const closeAlbumOverlay = () => {
   showAlbumOverlay.value = false;
 }
+
+const closeThemeOverlay = (newTheme: string) => {
+  showThemeOverlay.value = false;
+  selectedTheme.value = newTheme;
+}
+
+watch(selectedTheme, (newTheme) => {
+  document.documentElement.setAttribute('data-theme', newTheme);
+  localStorage.setItem('user-theme', newTheme);
+});
 
 // Carousel navigation
 const nextRelease = () => {
