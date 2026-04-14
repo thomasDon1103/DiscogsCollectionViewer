@@ -30,7 +30,7 @@
                         <div class="relative">
                             <img :src="release.basic_information.cover_image" :alt="release.basic_information.title"
                                 class="w-full aspect-square object-cover" draggable="false"
-                                @dblclick="index === currentIndex && handleAlbumDoubleClick(props.collectionData!.releases[index].id)" />
+                                @dblclick="handleAlbumDoubleClick(props.collectionData!.releases[index].id)" />
                             <!-- Subtle gradient overlay at bottom of image -->
                             <div v-if="index === currentIndex"
                                 class="absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-black/30 to-transparent w-full">
