@@ -1,8 +1,8 @@
 <template>
     <div class="flex">
         <!-- Sidebar Container -->
-        <aside :class="isOpen ? 'translate-x-0' : '-translate-x-full'"
-            class="fixed top-0 left-0 z-40 w-fit pl-6 pr-6 h-screen transition-transform duration-300 bg-white/5 backdrop-blur-xl border border-white/10  p-10 shadow-2xl shadow-black/20">
+        <aside :class="isOpen ? 'translate-x-0 z-40' : '-translate-x-full z-0'"
+            class="fixed top-0 left-0 w-fit pl-6 pr-6 h-screen transition-transform duration-300 bg-white/5 backdrop-blur-xl border border-white/10  p-10 shadow-2xl shadow-black/20">
             <div class="">
                 <h2 class="text-3xl font-bold">Menu</h2>
                 <div class="bg-primary-end/70 rounded-lg shadow-lg  w-full mt-1 mb-2 h-1"></div>

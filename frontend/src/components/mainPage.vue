@@ -1,7 +1,7 @@
 <template>
   <!-- Overlays Start -->
   <!-- Sidebar -->
-  <div class="max-w-1/8 w-1/4 absolute z-50 h-screen">
+  <div class="max-w-1/8 w-1/4 absolute h-screen">
     <SideBar>
       <!-- All Sidebar Elements -->
       <div class="flex flex-col h-screen">
@@ -34,7 +34,7 @@
     </SideBar>
   </div>
   <!-- Album Info Overlay -->
-  <div class="relative">
+  <div class="relative w-full">
     <Transition enter-active-class="transition-all duration-300 ease-out" enter-from-class="opacity-0 -translate-y-4"
       enter-to-class="opacity-100 translate-y-0" leave-active-class="transition-all duration-300 ease-in"
       leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 -translate-y-4">
@@ -146,7 +146,7 @@
       enter-from-class="opacity-0 scale-95" enter-to-class="opacity-100 scale-100"
       leave-active-class="transition-all duration-400 ease-in" leave-from-class="opacity-100 scale-100"
       leave-to-class="opacity-0 scale-95" @after-leave="handleCollectionGone">
-      <div v-if="showCollection" class="max-w-7xl mx-auto">
+      <div v-if="showCollection" class="w-full mx-auto">
         <!-- Collection Header -->
         <div>
           <h3 class="text-center text-xl sm:text-3xl font-bold sm:mb-4">
@@ -167,15 +167,23 @@
         </div>
 
         <!-- Carousel -->
-        <div class="px-4 py-1 sm:py-6  sm:min-h-100">
+        <div class="py-1 sm:py-6  sm:min-h-100 w-full">
           <Transition enter-active-class="transition-all duration-300 ease-out delay-300"
             enter-from-class="opacity-0 -translate-y-4" enter-to-class="opacity-100 translate-y-0"
             leave-active-class="transition-all duration-300 ease-in" leave-from-class="opacity-100 translate-y-0"
             leave-to-class="opacity-0 -translate-y-4" @after-leave="handleCarouselGone">
-            <albumCarousel :collection-data="filteredCollectionData" v-if="showCarousel" :current-index="currentIndex"
+            <!-- <albumCarousel :collection-data="filteredCollectionData" v-if="showCarousel" :current-index="currentIndex"
               @next-release="nextRelease" @prev-release="previousRelease" @album-selected="handleAlbumSelected"
               @go-to-release="goToRelease">
-            </albumCarousel>
+            </albumCarousel> -->
+
+            <NewCarousel class="w-full" :collection-data="filteredCollectionData" v-if="showCarousel"
+              :current-index="currentIndex" @next-release="nextRelease" @prev-release="previousRelease"
+              @album-selected="handleAlbumSelected" @go-to-release="goToRelease">
+            </NewCarousel>
+
+
+
           </Transition>
         </div>
 
@@ -242,6 +250,7 @@ import { discogsService } from '../services/api';
 import loginForm, { LoginFormData } from './loginForm.vue'
 import Select from 'primevue/select';
 import albumCarousel from "./albumCarousel.vue"
+import NewCarousel from './newCarousel.vue';
 import albumOverlay from "./albumOverlay.vue"
 import minimalistVinyl from './minimalistVinyl.vue';
 import minimalistCassette from './minimalistCassette.vue';
@@ -506,6 +515,7 @@ const handleFilter = () => {
 
 const vinylFilterToggle = () => {
   playingVinylFilter.value = true;
+  showCarousel.value = false;
   setTimeout(() => {
     currentIndex.value = 0;
     vinylFilterOn.value = !vinylFilterOn.value;
@@ -514,6 +524,7 @@ const vinylFilterToggle = () => {
 
 const cassetteFilterToggle = () => {
   playingCassetteFilter.value = true;
+  showCarousel.value = false;
   setTimeout(() => {
     currentIndex.value = 0;
     cassetteFilterOn.value = !cassetteFilterOn.value;

@@ -24,7 +24,7 @@
       </header>
 
       <!-- Main Content -->
-      <main class="px-6 pb-12">
+      <main class=" pb-12">
         <MainPage @start-background-music="backgroundFadeIn" @stop-background-music="backgroundFadeOut" />
       </main>
       <div class="fixed bottom-0 left-0 right-0">
