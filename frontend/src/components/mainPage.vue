@@ -249,7 +249,7 @@ import type { DiscogsCollectionResponse, DiscogsRelease } from '../types/Discogs
 import { discogsService } from '../services/api';
 import loginForm, { LoginFormData } from './loginForm.vue'
 import Select from 'primevue/select';
-import albumCarousel from "./albumCarousel.vue"
+// import albumCarousel from "./albumCarousel.vue"
 import NewCarousel from './newCarousel.vue';
 import albumOverlay from "./albumOverlay.vue"
 import minimalistVinyl from './minimalistVinyl.vue';
