@@ -42,7 +42,7 @@
                 </div>
                 <div class="pt-3">
                     <button type="submit" :disabled="props.loading"
-                        class="w-full py-4 bg-primary-gradient rounded-xl text-base font-semibold shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/40 hover:-translate-y-0.5 active:translate-y-0 active:shadow-md transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-lg">
+                        class="w-full py-4 bg-primary-gradient rounded-xl text-base font-semibold shadow-lg shadow-primary-shadow/25 hover:shadow-xl hover:shadow-primary-shadow-500/40 hover:-translate-y-0.5 active:translate-y-0 active:shadow-md transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-lg">
                         <span v-if="props.loading" class="flex items-center justify-center gap-3">
                             <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none"
                                 viewBox="0 0 24 24">

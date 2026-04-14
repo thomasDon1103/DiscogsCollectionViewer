@@ -13,7 +13,7 @@
 
             <!-- Toggle Button (Moves with Sidebar) -->
             <div
-                class="absolute top-5 -right-20 flex items-center justify-center bg-primary-gradient shadow-lg shadow-purple-500/30 gradientButton rounded focus:outline-none">
+                class="absolute top-5 -right-20 flex items-center justify-center bg-primary-gradient shadow-lg shadow-primary-shadow/30 gradientButton rounded focus:outline-none">
                 <button @click="handleOpenToggle" class="">
                     <!-- Icon (Hamburger or Arrow) -->
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -99,7 +99,7 @@
                 overlay: { class: 'flex justify-center ' },
                 option: { class: 'text-xs sm:text-base hover:cursor-pointer flex items-center justify-center gap-2.5 px-5 py-2.5 w-full hover:bg-white/20 rounded-full text-center active:scale-95 transition-all duration-500 my-1' },
                 list: { class: 'text-center' },
-                listContainer: { class: 'bg-primary-gradient rounded-lg gap-5 px-5 py-2.5 w-3/4 m-3 border border-white/10 shadow shadow-purple-500/30 shadow-xl' }
+                listContainer: { class: 'bg-primary-gradient rounded-lg gap-5 px-5 py-2.5 w-3/4 m-3 border border-white/10 shadow shadow-primary-shadow/30 shadow-xl' }
               }"
               class="hover:cursor-pointer w-50 sm:w-80 flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-white/10 hover:bg-white/20 hover:border-white/20 active:scale-95 transition-all duration-500 bg-white/10 "></Select>
           </div>

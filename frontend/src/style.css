@@ -10,6 +10,7 @@
   --color-main-bg-end: var(--main-bg-end);
 
   --color-primary-text: var(--primary-text);
+  --color-primary-shadow: var(--primary-shadow);
 
   --color-surface: var(--surface);
   --color-surface-light: var(--surface-light);
@@ -121,6 +122,7 @@
     --primary-mid: #8b339a;
 
     --primary-text: #FFFFFF;
+    --primary-shadow: #A855F7;
 
     --main-bg-start: #0f0c29;
     --main-bg-mid: #1e1e2e;
@@ -131,9 +133,38 @@
     --surface-lighter: #363650;
   }
 
-  [data-theme='emerald'] {
-    --primary-start: #10b981;
-    --primary-end: #f0fdf4;
+  [data-theme='forest'] {
+    --primary-start: #43a515;
+    --primary-mid: #338600;
+    --primary-end: #00641e;
+
+    --primary-text: #FFFFFF;
+    --primary-shadow: #00d93a;
+
+    --main-bg-start: #041800;
+    --main-bg-mid: #003f24;
+    --main-bg-end: #00641e;
+
+    --surface: #1e2e24;
+    --surface-light: #2a3e31;
+    --surface-lighter: #365040;
+  }
+
+  [data-theme='ocean'] {
+    --primary-start: #1680f8;
+    --primary-mid: #1352b8;
+    --primary-end: #0c316e;
+
+    --primary-text: #FFFFFF;
+    --primary-shadow: #0f38be;
+
+    --main-bg-start: #060E2A;
+    --main-bg-mid: #0C1735;
+    --main-bg-end: #121F28;
+
+    --surface: #2e335c;
+    --surface-light: #27324d;
+    --surface-lighter: #363b50;
   }
 
   * {
@@ -181,7 +212,7 @@
   }
 
   .gradientButton {
-    @apply bg-primary-gradient shadow-lg shadow-purple-500/30;
+    @apply bg-primary-gradient shadow-lg shadow-primary-shadow/30;
     background-size: 350% 100%;
     Transition: all .4s ease-in-out;
   }

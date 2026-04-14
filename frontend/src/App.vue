@@ -5,7 +5,7 @@
       <header class="pt-5 sm:pt-10 pb-6 px-6">
         <div class="flex items-center justify-center gap-4 mb-2">
           <div
-            class="w-12 h-12 rounded-2xl bg-primary-gradient flex items-center justify-center shadow-lg shadow-purple-500/30">
+            class="w-12 h-12 rounded-2xl bg-primary-gradient flex items-center justify-center shadow-lg shadow-primary-shadow/30">
             <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none"
               stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10"></circle>
@@ -16,7 +16,8 @@
               <line x1="19" y1="12" x2="22" y2="12"></line>
             </svg>
           </div>
-          <h1 class="text-3xl font-extrabold tracking-tight bg-primary-gradient bg-clip-text text-transparent">
+          <h1 data-theme='forest'
+            class="text-3xl font-extrabold tracking-tight bg-primary-gradient bg-clip-text text-transparent">
             Discogs Explorer
           </h1>
         </div>
@@ -37,8 +38,19 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, watchEffect } from 'vue';
 import MainPage from './components/mainPage.vue';
+
+
+// LEFT HERE FOR FUTURE ME DOESNT HAVE TO FIGURE OUT HOW TO DO THIS
+// document.documentElement.setAttribute('data-theme', 'ocean');
+// localStorage.setItem('user-theme', 'forest');
+
+// watchEffect(() => {
+//   document.documentElement.setAttribute('data-theme', theme.value);
+//   localStorage.setItem('user-theme', theme.value);
+// });
+
 // import Jukebox from './components/jukebox.vue';
 import BallsBackground from './components/floatingBallsBackground.vue';
 // import WavesBackground from './components/wavesBackground.vue';
