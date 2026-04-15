@@ -309,7 +309,7 @@
   button {
     padding: 0.6em 1.2em;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
   }
 
   button:focus-visible {
@@ -340,12 +340,21 @@
   .gradientButton {
     @apply bg-primary-gradient shadow-lg shadow-primary-shadow/30;
     background-size: 350% 100%;
-    Transition: all .4s ease-in-out;
+    transition: background-position .4s ease-in-out, box-shadow .4s ease-in-out;
   }
 
   .gradientButton:hover {
     background-position: 100% 0;
   }
+}
+
+/* Disable transitions during theme switch to prevent lag */
+.theme-switching,
+.theme-switching *,
+.theme-switching *::before,
+.theme-switching *::after {
+  transition-duration: 0s !important;
+  animation-duration: 0s !important;
 }
 
 /* Scrollbar styling */

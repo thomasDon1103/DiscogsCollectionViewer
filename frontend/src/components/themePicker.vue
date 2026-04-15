@@ -1,10 +1,11 @@
 <template>
-  <div class="w-full h-full fixed inset-0 z-50 flex items-center justify-center bg-black/50 overflow-auto">
-    <div class="w-full max-w-[95vw] max-h-screen flex flex-col gap-4 p-6">
+  <div class="w-full h-full fixed inset-0 z-50 flex items-center justify-center bg-black/50 overflow-hidden">
+    <div class="w-full max-w-[95vw] max-h-screen flex flex-col gap-4 p-6 overflow-hidden">
       <div
         v-for="(section, index) in themeSections"
         :key="section.label"
-        class="rounded-2xl bg-surface/60 backdrop-blur-sm border border-white/10 overflow-hidden"
+        class="rounded-2xl bg-surface/60 backdrop-blur-sm border border-white/10 overflow-hidden flex flex-col"
+        :class="{ 'flex-1 min-h-0': expandedSections[index] }"
       >
         <!-- Section Header -->
         <button
@@ -23,12 +24,12 @@
 
         <!-- Collapsible Content -->
         <div
-          class="grid-wrapper"
+          class="grid-wrapper min-h-0 flex-1"
           :style="{
             gridTemplateRows: expandedSections[index] ? '1fr' : '0fr',
           }"
         >
-          <div class="overflow-hidden max-h-[60vh] overflow-y-auto">
+          <div class="overflow-hidden overflow-y-auto min-h-0 flex-1">
             <div class="flex flex-wrap items-start justify-center gap-6 px-5 pb-5 pt-2">
               <div
                 v-for="[displayName, themeValue] in section.themes"
@@ -55,7 +56,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
+import { ref, reactive, onMounted, nextTick } from 'vue'
 import {
   styleThemeMap,
   themesMap,
@@ -65,6 +66,10 @@ import {
   themesPlusPlusPlusPlusMap,
 } from '../../public/themeMap.ts'
 import { renderColorPaletteSwatchHTML } from './colorPaletteSwatch';
+
+// // Cache the swatch HTML since it's the same structure for every theme
+// // (the theme-specific colors come from the data-theme attribute on the parent)
+// const cachedSwatchHTML = renderColorPaletteSwatchHTML();
 
 const emit = defineEmits(['closeThemeOverlay']);
 
@@ -84,11 +89,24 @@ function toggleSection(index: number) {
 }
 
 const selectedTheme = ref<string>('')
-const openAudio = new Audio('sounds/openOverlay.wav');
-openAudio.volume = 0.5;
-openAudio.play();
-const closeAudio = new Audio('sounds/closeOverlay.wav');
-closeAudio.volume = 0.5;
+
+// Lazy-load audio to avoid blocking component mount
+let closeAudio: HTMLAudioElement | null = null;
+const getCloseAudio = () => {
+    if (!closeAudio) {
+        closeAudio = new Audio('sounds/closeOverlay.wav');
+        closeAudio.volume = 0.5;
+    }
+    return closeAudio;
+};
+
+// Play open sound on mount without blocking
+const playOpenSound = () => {
+    const openAudio = new Audio('sounds/openOverlay.wav');
+    openAudio.volume = 0.5;
+    openAudio.play();
+};
+playOpenSound();
 
 function selectTheme(themeValue: string) {
   selectedTheme.value = themeValue
@@ -97,7 +115,7 @@ function selectTheme(themeValue: string) {
 
 const closeOverlay = () => {
   emit('closeThemeOverlay', selectedTheme.value);
-  closeAudio.play();
+  getCloseAudio().play();
 }
 </script>
 

@@ -37,6 +37,8 @@
     backface-visibility: hidden;
     animation: move linear infinite;
     z-index: -1;
+    will-change: transform;
+    contain: strict;
 }
 
 .ball:nth-child(odd) {

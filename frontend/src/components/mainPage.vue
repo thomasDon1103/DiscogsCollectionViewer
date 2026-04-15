@@ -9,11 +9,11 @@
         <div class="h-5/6 flex flex-col">
           <h3 class="text-xl font-bold pb-4">Format Filtering</h3>
           <div class="flex pb-4 justify-center items-center">
-            <button class="styleButton mr-3 w-18 h-10 flex items-center justify-center "
+            <button class="styleButton mr-3 w-18 h-10 flex items-center justify-center transition-[background-color,box-shadow,transform] duration-300"
               :class="{ 'gradientButton': vinylFilterOn }" @click="vinylFilterToggle">
               <minimalistVinyl></minimalistVinyl>
             </button>
-            <button class="styleButton ml-3 w-18 h-10 flex items-center justify-center"
+            <button class="styleButton ml-3 w-18 h-10 flex items-center justify-center transition-[background-color,box-shadow,transform] duration-300"
               :class="{ 'gradientButton': cassetteFilterOn }" @click="cassetteFilterToggle">
               <minimalistCassette></minimalistCassette>
             </button>
@@ -29,7 +29,7 @@
         <!-- Sign Out Button -->
         <div class="h-1/6">
           <button @click="resetForm" :disabled="!showCollection"
-            class="styleButton flex items-center gap-2.5 px-5 py-2.5 font-bold text-sm sm:text-md active:scale-95 transition-all duration-500">
+          class="styleButton flex items-center gap-2.5 px-5 py-2.5 font-bold text-sm sm:text-md active:scale-95 transition-[background-color,transform,opacity] duration-500">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="15 18 9 12 15 6"></polyline>
@@ -116,7 +116,7 @@
                 list: { class: 'text-center' },
                 listContainer: { class: 'bg-primary-gradient rounded-lg gap-5 px-5 py-2.5 w-3/4 m-3 border border-white/10 shadow shadow-primary-shadow/30 shadow-xl' }
               }"
-              class="hover:cursor-pointer w-50 sm:w-80 flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-white/10 hover:bg-white/20 hover:border-white/20 active:scale-95 transition-all duration-500 bg-white/10 "></Select>
+              class="hover:cursor-pointer w-50 sm:w-80 flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-white/10 hover:bg-white/20 hover:border-white/20 active:scale-95 transition-[background-color,border-color,transform] duration-500 bg-white/10 "></Select>
           </div>
         </div>
       </div>
@@ -234,7 +234,7 @@
             <!-- Random Albun Button -->
             <div class="flex items-center justify-center gap-4 mb-4 mt-4">
               <button @click="randomAlbum"
-                class="group w-60 sm:w-72 sm:h-12 rounded-2xl flex items-center justify-center gradientButton text-sm sm:text-lg font-bold ">
+                class="group w-60 sm:w-72 sm:h-12 rounded-2xl flex items-center justify-center gradientButton text-sm sm:text-lg font-bold transition-[background-position,box-shadow,transform] duration-300">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                   stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                   class="group-hover:animate-spin">
@@ -288,46 +288,54 @@ const totalItems = computed(() => {
 const error = ref<string | null>(null);
 const collectionData = ref<DiscogsCollectionResponse | null>(null);
 const filteredCollectionData = computed(() => {
-  const filteredCollection: DiscogsCollectionResponse = {
-    pagination: collectionData.value?.pagination!,
-    releases: []
+  if (!collectionData.value) return null;
+
+  const hasGenreFilter = selectedGenre.value !== '' && selectedGenre.value !== anyGenreStr;
+  const hasFormatFilter = vinylFilterOn.value || cassetteFilterOn.value;
+
+  // Fast path: no filters active
+  if (!hasGenreFilter && !hasFormatFilter) {
+    return collectionData.value;
+  }
+
+  // Build allowed formats set for O(1) lookup
+  const allowedFormats: Set<string> | null = hasFormatFilter
+    ? new Set([
+        ...(vinylFilterOn.value ? ['Vinyl'] : []),
+        ...(cassetteFilterOn.value ? ['Cassette'] : []),
+      ])
+    : null;
+
+  // Single pass filter instead of multiple array spreads
+  const releases = collectionData.value.releases.filter(release => {
+    if (hasGenreFilter && !release.basic_information.genres.includes(selectedGenre.value)) {
+      return false;
+    }
+    if (allowedFormats && !allowedFormats.has(release.basic_information.formats[0].name)) {
+      return false;
+    }
+    return true;
+  });
+
+  return {
+    pagination: collectionData.value.pagination,
+    releases
   };
-  if (selectedGenre.value === '' || selectedGenre.value === anyGenreStr) {
-    if (!vinylFilterOn.value && !cassetteFilterOn.value) {
-      return collectionData.value;
-    }
-    if (vinylFilterOn.value) {
-      filteredCollection.releases = [...filteredCollection.releases, ...collectionData.value!.releases.filter(release => release.basic_information.formats[0].name === 'Vinyl')];
-    }
-
-    if (cassetteFilterOn.value) {
-      filteredCollection.releases = [...filteredCollection.releases, ...collectionData.value!.releases.filter(release => release.basic_information.formats[0].name === 'Cassette')];
-    }
-
-    return filteredCollection;
-  }
-
-  const collectionGenreFilter = collectionData.value?.releases.filter(release => release.basic_information.genres.includes(selectedGenre.value)) as DiscogsRelease[];
-
-  if (!vinylFilterOn.value && !cassetteFilterOn.value) {
-    filteredCollection.releases = collectionGenreFilter;
-    return filteredCollection;
-  }
-
-  if (vinylFilterOn.value) {
-    filteredCollection.releases = [...filteredCollection.releases, ...collectionGenreFilter.filter(release => release.basic_information.formats[0].name === 'Vinyl')];
-  }
-
-  if (cassetteFilterOn.value) {
-    filteredCollection.releases = [...filteredCollection.releases, ...collectionGenreFilter.filter(release => release.basic_information.formats[0].name === 'Cassette')];
-  }
-  return filteredCollection;
 });
 
 const albumInfo = ref<DiscogsAlbumInfoResponse | null>(null);
 
 const anyGenreStr = "Anything's Fine";
-const collectionGenres = computed(() => { return [anyGenreStr, ... new Set(collectionData.value?.releases.map(release => release.basic_information.genres.flat()).flat())] });
+const collectionGenres = computed(() => {
+  if (!collectionData.value) return [anyGenreStr];
+  const genreSet = new Set<string>();
+  for (const release of collectionData.value.releases) {
+    for (const genre of release.basic_information.genres) {
+      genreSet.add(genre);
+    }
+  }
+  return [anyGenreStr, ...genreSet];
+});
 const selectedGenre = ref('')
 
 const cassetteFilterOn = ref(false);
@@ -347,9 +355,20 @@ const selectedTheme = ref('');
 // Used to cancel background fetching when the user resets
 let abortController: AbortController | null = null;
 
-const swipeAudio = new Audio('sounds/swipe.wav');
-swipeAudio.volume = 0.3;
-const startAudio = new Audio('sounds/startup.mp3');
+let swipeAudio: HTMLAudioElement | null = null;
+let startAudio: HTMLAudioElement | null = null;
+
+const getSwipeAudio = () => {
+    if (!swipeAudio) {
+        swipeAudio = new Audio('sounds/swipe.wav');
+        swipeAudio.volume = 0.3;
+    }
+    return swipeAudio;
+};
+const getStartAudio = () => {
+    if (!startAudio) startAudio = new Audio('sounds/startup.mp3');
+    return startAudio;
+};
 
 
 const resetForm = () => {
@@ -416,9 +435,10 @@ const handleSubmit = async () => {
   } finally {
     loading.value = false;
     if (playAudio) {
-      startAudio.currentTime = 0; // Rewind if played quickly
-      startAudio.play();
-      startAudio.onended = () => {
+      const audio = getStartAudio();
+      audio.currentTime = 0;
+      audio.play();
+      audio.onended = () => {
         setTimeout(() => {
           // Code to run after 50ms
         }, 50);
@@ -500,8 +520,16 @@ const closeThemeOverlay = (newTheme: string) => {
 }
 
 watch(selectedTheme, (newTheme) => {
+  // Temporarily disable all transitions/animations to prevent lag during theme swap
+  document.documentElement.classList.add('theme-switching');
   document.documentElement.setAttribute('data-theme', newTheme);
   localStorage.setItem('user-theme', newTheme);
+  // Re-enable transitions after the browser has applied the new theme
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('theme-switching');
+    });
+  });
 });
 
 // Carousel navigation

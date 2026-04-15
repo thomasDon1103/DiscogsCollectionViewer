@@ -103,7 +103,7 @@
                         class="bg-white/10 rounded-lg  mt-3 h-full w-full flex overflow-x-hidden select-none">
                         <img v-for="image in props.albumInfo?.images" :src="image?.uri"
                             class="aspect-square object-cover rounded-lg ml-3 m-3 hover:cursor-pointer select-none border-3 border-white/0 hover:border-primary-end transition-colors duration-300"
-                            draggable="false" @click="changeImage(image.uri)" />
+                            draggable="false" loading="lazy" decoding="async" @click="changeImage(image.uri)" />
                     </div>
                 </div>
             </div>
@@ -120,16 +120,25 @@ const props = defineProps<{
 
 const emit = defineEmits(['closeAlbumOverlay']);
 
+// Lazy-load audio to avoid blocking component mount
+let closeAudio: HTMLAudioElement | null = null;
+const getCloseAudio = () => {
+    if (!closeAudio) {
+        closeAudio = new Audio('sounds/closeOverlay.wav');
+        closeAudio.volume = 0.5;
+    }
+    return closeAudio;
+};
+
+// Play open sound without blocking
 const openAudio = new Audio('sounds/openOverlay.wav');
 openAudio.volume = 0.5;
 openAudio.play();
-const closeAudio = new Audio('sounds/closeOverlay.wav');
-closeAudio.volume = 0.5;
 
 const displayedImage = ref<string>(props!.albumInfo!.images[0]?.uri);
 
 const closeOverlay = () => {
-    closeAudio.play();
+    getCloseAudio().play();
     emit('closeAlbumOverlay');
 }
 

@@ -22,27 +22,28 @@
             }" :modules="modules" class="mySwiper w-full">
             <swiper-slide v-for="(release, index) in props.collectionData!.releases" :key="index" class="w-full">
                 <div id="albumCard w-full"
-                    class="transition-all duration-500 ease-in-out flex flex-col items-center justify-center mb-2 w-full">
-                    <div class="rounded-2xl overflow-hidden w-3/5 sm:w-100 h-80 sm:h-full" :class="{
+                    class="transition-[opacity,transform] duration-500 ease-in-out flex flex-col items-center justify-center mb-2 w-full">
+                    <div class="rounded-2xl overflow-hidden w-3/5 sm:w-100 h-80 sm:h-full transition-[transform,box-shadow] duration-300" :class="{
                         'cursor-pointer hover:scale-[1.02]': index !== currentIndex,
                         'ring-2 ring-white/20': index === currentIndex
                     }" @click="index !== currentIndex && goToRelease(index)">
                         <div class="relative">
                             <img :src="release.basic_information.cover_image" :alt="release.basic_information.title"
-                                class="w-full aspect-square object-cover" draggable="false"
+                                class="w-full aspect-square object-cover" draggable="false" loading="lazy"
+                                decoding="async"
                                 @dblclick="handleAlbumDoubleClick(props.collectionData!.releases[index].id)" />
                             <!-- Subtle gradient overlay at bottom of image -->
-                            <div v-if="index === currentIndex"
+                            <div v-show="index === currentIndex"
                                 class="absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-black/30 to-transparent w-full">
                             </div>
                             <!-- Format badge -->
-                            <div v-if="index === currentIndex && release.basic_information.formats.length > 0"
+                            <div v-show="index === currentIndex && release.basic_information.formats.length > 0"
                                 class="absolute top-3 right-3 px-3 py-1 bg-black/50 backdrop-blur-md rounded-full text-xs font-medium border border-white/10">
                                 {{ release.basic_information.formats[0].name }}
                             </div>
                         </div>
                         <Transition>
-                            <div v-if="index === currentIndex" class="p-2 sm:p-6 bg-surface-light/95 backdrop-blur-sm">
+                            <div v-if="index === currentIndex" class="p-2 sm:p-6 bg-surface-light/95">
                                 <p class="font-bold text-md sm:text-xl mb-1 leading-tight truncate">{{
                                     release.basic_information.title }}</p>
                                 <p class="text-primary-text/60 text-base mb-1 sm:mb-4 truncate">
@@ -90,8 +91,17 @@ const props = defineProps<{
 }>();
 
 const swiperInstance = ref<SwiperType | null>(null);
-const swipeAudio = new Audio('sounds/swipe.wav');
-const bigSwipeAudio = new Audio('sounds/bigSwipe.wav');
+let swipeAudio: HTMLAudioElement | null = null;
+let bigSwipeAudio: HTMLAudioElement | null = null;
+
+const getSwipeAudio = () => {
+    if (!swipeAudio) swipeAudio = new Audio('sounds/swipe.wav');
+    return swipeAudio;
+};
+const getBigSwipeAudio = () => {
+    if (!bigSwipeAudio) bigSwipeAudio = new Audio('sounds/bigSwipe.wav');
+    return bigSwipeAudio;
+};
 
 const onSwiper = (swiper: SwiperType) => {
     swiperInstance.value = swiper;
@@ -100,11 +110,13 @@ const onSwiper = (swiper: SwiperType) => {
 const onSlideChange = (swiper: SwiperType) => {
     emit('goToRelease', swiper.activeIndex);
     if (swiper.previousIndex === swiper.activeIndex - 1 || swiper.previousIndex === swiper.activeIndex + 1) {
-        swipeAudio.currentTime = 0; // Rewind if played quickly
-        swipeAudio.play();
+        const audio = getSwipeAudio();
+        audio.currentTime = 0;
+        audio.play();
     } else {
-        bigSwipeAudio.currentTime = 0;
-        bigSwipeAudio.play();
+        const audio = getBigSwipeAudio();
+        audio.currentTime = 0;
+        audio.play();
     }
 };
 
@@ -127,6 +139,8 @@ const handleAlbumDoubleClick = (albumID: number) => {
     background-color: #eee;
     /* Smoothly transition opacity */
     transition: opacity 0.3s;
+    will-change: transform, opacity;
+    contain: layout style;
 }
 
 .swiper-slide:not(.swiper-slide-active) {

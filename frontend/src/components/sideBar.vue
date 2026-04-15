@@ -2,7 +2,7 @@
     <div class="flex">
         <!-- Sidebar Container -->
         <aside :class="isOpen ? 'translate-x-0 z-40' : '-translate-x-full z-0'"
-            class="fixed top-0 left-0 w-fit pl-6 pr-6 h-screen transition-transform duration-300 bg-white/5 backdrop-blur-xl border border-white/10  p-10 shadow-2xl shadow-black/20">
+            class="fixed top-0 left-0 w-fit pl-6 pr-6 h-screen transition-transform duration-300 bg-white/5 backdrop-blur-md border border-white/10  p-10 shadow-2xl shadow-black/20">
             <div class="">
                 <h2 class="text-3xl font-bold">Menu</h2>
                 <div class="bg-primary-end/70 rounded-lg shadow-lg  w-full mt-1 mb-2 h-1"></div>
@@ -30,16 +30,25 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const openAudio = new Audio('sounds/openMenu.wav');
-const closeAudio = new Audio('sounds/closeMenu.wav');
+let openAudio: HTMLAudioElement | null = null;
+let closeAudio: HTMLAudioElement | null = null;
+
+const getOpenAudio = () => {
+    if (!openAudio) openAudio = new Audio('sounds/openMenu.wav');
+    return openAudio;
+};
+const getCloseAudio = () => {
+    if (!closeAudio) closeAudio = new Audio('sounds/closeMenu.wav');
+    return closeAudio;
+};
 
 const isOpen = ref(false);
 
 const handleOpenToggle = () => {
     if (!isOpen.value) {
-        openAudio.play();
+        getOpenAudio().play();
     } else {
-        closeAudio.play();
+        getCloseAudio().play();
     }
     isOpen.value = !isOpen.value;
 }
