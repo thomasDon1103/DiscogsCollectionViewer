@@ -257,7 +257,7 @@
 
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue';
-import type { DiscogsCollectionResponse, DiscogsRelease } from '../types/DiscogsCollectionInfo';
+import type { DiscogsCollectionResponse } from '../types/DiscogsCollectionInfo';
 import { discogsService } from '../services/api';
 import loginForm, { LoginFormData } from './loginForm.vue'
 import Select from 'primevue/select';
@@ -355,16 +355,16 @@ const selectedTheme = ref('');
 // Used to cancel background fetching when the user resets
 let abortController: AbortController | null = null;
 
-let swipeAudio: HTMLAudioElement | null = null;
+// let swipeAudio: HTMLAudioElement | null = null;
 let startAudio: HTMLAudioElement | null = null;
 
-const getSwipeAudio = () => {
-    if (!swipeAudio) {
-        swipeAudio = new Audio('sounds/swipe.wav');
-        swipeAudio.volume = 0.3;
-    }
-    return swipeAudio;
-};
+// const getSwipeAudio = () => {
+//     if (!swipeAudio) {
+//         swipeAudio = new Audio('sounds/swipe.wav');
+//         swipeAudio.volume = 0.3;
+//     }
+//     return swipeAudio;
+// };
 const getStartAudio = () => {
     if (!startAudio) startAudio = new Audio('sounds/startup.mp3');
     return startAudio;
