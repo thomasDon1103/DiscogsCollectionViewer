@@ -24,7 +24,7 @@
   --main-bg-end: #040c06;
 
   --surface: #0a0c10;
-  --surface-light: #14141e;
+  --surface-light: #1e1e2c;
   --surface-lighter: #1e1e2c;
 }
 
@@ -42,8 +42,8 @@
   --main-bg-end: #040408;
 
   --surface: #0a0808;
-  --surface-light: #141010;
-  --surface-lighter: #1e1a1a;
+  --surface-light: #1e1a1a;
+  --surface-lighter: #2a2424;
 }
 
 /* Moiré pattern — interference colors, teal and magenta vibrating */
@@ -60,7 +60,7 @@
   --main-bg-end: #003e3a;
 
   --surface: #0a0e0e;
-  --surface-light: #141a1a;
+  --surface-light: #1e2828;
   --surface-lighter: #1e2828;
 }
 
@@ -78,7 +78,7 @@
   --main-bg-end: #171304;
 
   --surface: #0a0a10;
-  --surface-light: #121218;
+  --surface-light: #1c1c24;
   --surface-lighter: #1c1c24;
 }
 
@@ -98,8 +98,8 @@
   --main-bg-end: #8181aa;
 
   --surface: #0e0808;
-  --surface-light: #181010;
-  --surface-lighter: #241a1a;
+  --surface-light: #adafb6;
+  --surface-lighter: #302424;
 }
 
 /* Sunburn — painful pink-red that shouldn't be a UI color */
@@ -116,7 +116,7 @@
   --main-bg-end: #20170a;
 
   --surface: #200e0e;
-  --surface-light: #2e1616;
+  --surface-light: #3a2020;
   --surface-lighter: #3e2020;
 }
 
@@ -134,7 +134,7 @@
   --main-bg-end: #373516;
 
   --surface: #1c180e;
-  --surface-light: #282216;
+  --surface-light: #342e20;
   --surface-lighter: #362e20;
 }
 
@@ -152,7 +152,7 @@
   --main-bg-end: #375c68;
 
   --surface: #0a1416;
-  --surface-light: #141e22;
+  --surface-light: #1e2a2e;
   --surface-lighter: #1e2a2e;
 }
 
@@ -172,8 +172,8 @@
   --main-bg-end: #23182f;
 
   --surface: #141010;
-  --surface-light: #1e1a18;
-  --surface-lighter: #2a2422;
+  --surface-light: #2a2422;
+  --surface-lighter: #36302e;
 }
 
 /* Sour — face-puckering acid green-yellow with electric bite */
@@ -190,7 +190,7 @@
   --main-bg-end: #3e5508;
 
   --surface: #101406;
-  --surface-light: #1a1e0c;
+  --surface-light: #242a14;
   --surface-lighter: #242a14;
 }
 
@@ -208,7 +208,7 @@
   --main-bg-end: #243d14;
 
   --surface: #100e0a;
-  --surface-light: #1a1812;
+  --surface-light: #24221c;
   --surface-lighter: #24221c;
 }
 
@@ -226,7 +226,7 @@
   --main-bg-end: #351e3b;
 
   --surface: #160806;
-  --surface-light: #22100c;
+  --surface-light: #2e1a14;
   --surface-lighter: #301a14;
 }
 
@@ -246,7 +246,7 @@
   --main-bg-end: #121a22;
 
   --surface: #0e1418;
-  --surface-light: #181e26;
+  --surface-light: #222a34;
   --surface-lighter: #222a34;
 }
 
@@ -264,8 +264,8 @@
   --main-bg-end: #060606;
 
   --surface: #060606;
-  --surface-light: #0e0e0e;
-  --surface-lighter: #161616;
+  --surface-light: #181818;
+  --surface-lighter: #222222;
 }
 
 /* Aerogel — frozen smoke, barely-there blue on near-nothing */
@@ -282,8 +282,8 @@
   --main-bg-end: #273f67;
 
   --surface: #121a24;
-  --surface-light: #1c2432;
-  --surface-lighter: #263040;
+  --surface-light: #263040;
+  --surface-lighter: #303c4e;
 }
 
 /* Liquid nitrogen — supercooled fog, white-blue with violent boil */
@@ -300,7 +300,7 @@
   --main-bg-end: #688787;
 
   --surface: #081212;
-  --surface-light: #101c1c;
+  --surface-light: #1a2828;
   --surface-lighter: #1a2828;
 }
 
@@ -320,8 +320,8 @@
   --main-bg-end: #1f170e;
 
   --surface: #161012;
-  --surface-light: #22181c;
-  --surface-lighter: #2e2226;
+  --surface-light: #2e2226;
+  --surface-lighter: #3a2e32;
 }
 
 /* Calm panic — serene lavender with emergency red lurking */
@@ -338,7 +338,7 @@
   --main-bg-end: #1c1223;
 
   --surface: #120a12;
-  --surface-light: #1c121c;
+  --surface-light: #281a28;
   --surface-lighter: #281a28;
 }
 
@@ -356,8 +356,8 @@
   --main-bg-end: #171935;
 
   --surface: #0a0c1a;
-  --surface-light: #121428;
-  --surface-lighter: #1c1e38;
+  --surface-light: #1c1e38;
+  --surface-lighter: #282a48;
 }
 
 /* Comfortable dread — cozy amber with void-black creeping in */
@@ -374,7 +374,7 @@
   --main-bg-end: #2a1f19;
 
   --surface: #0e0a06;
-  --surface-light: #18140e;
+  --surface-light: #241e16;
   --surface-lighter: #241e16;
 }
 
@@ -394,7 +394,7 @@
   --main-bg-end: #000000;
 
   --surface: #0c1208;
-  --surface-light: #161c10;
+  --surface-light: #20281a;
   --surface-lighter: #20281a;
 }
 
@@ -412,7 +412,7 @@
   --main-bg-end: #2d2703;
 
   --surface: #120e06;
-  --surface-light: #1c180e;
+  --surface-light: #28221a;
   --surface-lighter: #282218;
 }
 
@@ -430,7 +430,7 @@
   --main-bg-end: #20222a;
 
   --surface: #12100c;
-  --surface-light: #1c1a16;
+  --surface-light: #282620;
   --surface-lighter: #282620;
 }
 
@@ -448,7 +448,7 @@
   --main-bg-end: #00511b;
 
   --surface: #0a0e06;
-  --surface-light: #14180e;
+  --surface-light: #1e2418;
   --surface-lighter: #1e2418;
 }
 
@@ -468,8 +468,8 @@
   --main-bg-end: #060606;
 
   --surface: #0c0c0c;
-  --surface-light: #161616;
-  --surface-lighter: #222222;
+  --surface-light: #202020;
+  --surface-lighter: #2c2c2c;
 }
 
 /* Tesseract — 4D hypercube, colors that fold into themselves */
@@ -486,7 +486,7 @@
   --main-bg-end: #1a0d52;
 
   --surface: #0c0816;
-  --surface-light: #161024;
+  --surface-light: #201832;
   --surface-lighter: #201832;
 }
 
@@ -504,8 +504,8 @@
   --main-bg-end: #354a4a;
 
   --surface: #141010;
-  --surface-light: #1e1a1a;
-  --surface-lighter: #2a2424;
+  --surface-light: #2a2424;
+  --surface-lighter: #363030;
 }
 
 /* Void echo — colors bouncing off nothing, fading repetitions */
@@ -522,8 +522,8 @@
   --main-bg-end: #040404;
 
   --surface: #0a0a0a;
-  --surface-light: #121212;
-  --surface-lighter: #1c1c1c;
+  --surface-light: #1c1c1c;
+  --surface-lighter: #282828;
 }
 
 /* ========== MICRO WORLD — Microscopic phenomena ========== */
@@ -542,8 +542,8 @@
   --main-bg-end: #1f1534;
 
   --surface: #0a0808;
-  --surface-light: #141210;
-  --surface-lighter: #1e1c1a;
+  --surface-light: #1e1c1a;
+  --surface-lighter: #2a2826;
 }
 
 /* Iridescent beetle — shifting green-gold-copper chitin */
@@ -560,7 +560,7 @@
   --main-bg-end: #473c1b;
 
   --surface: #0e120a;
-  --surface-light: #181c12;
+  --surface-light: #22281c;
   --surface-lighter: #22281c;
 }
 
@@ -578,8 +578,8 @@
   --main-bg-end: #69694a;
 
   --surface: #0e0c12;
-  --surface-light: #18141e;
-  --surface-lighter: #221e2a;
+  --surface-light: #221e2a;
+  --surface-lighter: #2e2a38;
 }
 
 /* Crystal lattice — geometric mineral, sharp facets of blue-white */
@@ -596,7 +596,7 @@
   --main-bg-end: #0c0e20;
 
   --surface: #0a0c18;
-  --surface-light: #121426;
+  --surface-light: #1c1e36;
   --surface-lighter: #1c1e36;
 }
 
@@ -616,7 +616,7 @@
   --main-bg-end: #351408;
 
   --surface: #0e0a08;
-  --surface-light: #181410;
+  --surface-light: #241e1a;
   --surface-lighter: #241e1a;
 }
 
@@ -634,7 +634,7 @@
   --main-bg-end: #4d3b29;
 
   --surface: #120a08;
-  --surface-light: #1e1410;
+  --surface-light: #2a1e1a;
   --surface-lighter: #2a1e1a;
 }
 
@@ -652,7 +652,7 @@
   --main-bg-end: #382f13;
 
   --surface: #0e0c08;
-  --surface-light: #18160e;
+  --surface-light: #242018;
   --surface-lighter: #242016;
 }
 
@@ -670,7 +670,7 @@
   --main-bg-end: #183b6f;
 
   --surface: #100e14;
-  --surface-light: #1a161e;
+  --surface-light: #24202c;
   --surface-lighter: #24202c;
 }
 
@@ -690,7 +690,7 @@
   --main-bg-end: #364ca8;
 
   --surface: #080c0e;
-  --surface-light: #101618;
+  --surface-light: #1a2224;
   --surface-lighter: #1a2224;
 }
 
@@ -708,7 +708,7 @@
   --main-bg-end: #1c3050;
 
   --surface: #12100a;
-  --surface-light: #1c1a12;
+  --surface-light: #28241c;
   --surface-lighter: #28241c;
 }
 
@@ -726,8 +726,8 @@
   --main-bg-end: #2b1f51;
 
   --surface: #0a0a12;
-  --surface-light: #14121e;
-  --surface-lighter: #1e1a2a;
+  --surface-light: #1e1a2a;
+  --surface-lighter: #2a2438;
 }
 
 /* Volcanic lightning — eruption flash, ash grey with lava orange */
@@ -744,7 +744,7 @@
   --main-bg-end: #4f2112;
 
   --surface: #0e0c0a;
-  --surface-light: #181614;
+  --surface-light: #24201e;
   --surface-lighter: #24201e;
 }
 
@@ -764,7 +764,7 @@
   --main-bg-end: #64492d;
 
   --surface: #0e0c08;
-  --surface-light: #181610;
+  --surface-light: #24201a;
   --surface-lighter: #24201a;
 }
 
@@ -782,7 +782,7 @@
   --main-bg-end: #60440b;
 
   --surface: #0c0a08;
-  --surface-light: #161410;
+  --surface-light: #221e18;
   --surface-lighter: #221e18;
 }
 
@@ -800,7 +800,7 @@
   --main-bg-end: #405a79;
 
   --surface: #080e14;
-  --surface-light: #10181e;
+  --surface-light: #1a222c;
   --surface-lighter: #1a222c;
 }
 
@@ -818,7 +818,7 @@
   --main-bg-end: #512016;
 
   --surface: #100c04;
-  --surface-light: #1a1608;
+  --surface-light: #262010;
   --surface-lighter: #262010;
 }
 
@@ -838,7 +838,7 @@
   --main-bg-end: #053a3a;
 
   --surface: #061010;
-  --surface-light: #0e1a1a;
+  --surface-light: #182424;
   --surface-lighter: #162424;
 }
 
@@ -856,7 +856,7 @@
   --main-bg-end: #003753;
 
   --surface: #0e0e10;
-  --surface-light: #18161a;
+  --surface-light: #222024;
   --surface-lighter: #222024;
 }
 
@@ -874,8 +874,8 @@
   --main-bg-end: #0c0a04;
 
   --surface: #0a0c0c;
-  --surface-light: #141618;
-  --surface-lighter: #1e2224;
+  --surface-light: #1e2224;
+  --surface-lighter: #2a2e30;
 }
 
 /* Déréalisation — the world looks fake, oversaturated and flat */
@@ -892,6 +892,6 @@
   --main-bg-end: #22241d;
 
   --surface: #0e0c10;
-  --surface-light: #18141c;
-  --surface-lighter: #221e28;
+  --surface-light: #221e28;
+  --surface-lighter: #2e2a34;
 }

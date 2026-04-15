@@ -1,8 +1,10 @@
 /**
- * Maps human-readable theme names to their corresponding data-theme attribute values.
+ * Theme maps organized by source CSS file.
+ * Each map contains human-readable theme names mapped to their data-theme attribute values.
  */
-export const themeMap: ReadonlyMap<string, string> = new Map([
-  // Default (style.css)
+
+/** Themes from style.css — Base/default themes */
+export const styleThemeMap: ReadonlyMap<string, string> = new Map([
   ["Default", "default"],
   ["Forest", "forest"],
   ["Ocean", "ocean"],
@@ -12,6 +14,10 @@ export const themeMap: ReadonlyMap<string, string> = new Map([
   ["Ember", "ember"],
   ["Midnight", "midnight"],
   ["Gold", "gold"],
+]);
+
+/** Themes from themes.css — Basic theme collection */
+export const themesMap: ReadonlyMap<string, string> = new Map([
   ["Aurora", "aurora"],
   ["Nebula", "nebula"],
   ["Tropical", "tropical"],
@@ -23,8 +29,11 @@ export const themeMap: ReadonlyMap<string, string> = new Map([
   ["Desert Dusk", "desert-dusk"],
   ["Deep Space", "deep-space"],
   ["Jungle", "jungle"],
+]);
 
-  // Elegant & Classic (themesPlus.css)
+/** Themes from themesPlus.css — Extended theme collection */
+export const themesPlusMap: ReadonlyMap<string, string> = new Map([
+  // Elegant & Classic
   ["Velvet", "velvet"],
   ["Chrome", "chrome"],
   ["Editorial", "editorial"],
@@ -97,8 +106,11 @@ export const themeMap: ReadonlyMap<string, string> = new Map([
   ["Winter Berry", "winter-berry"],
   ["Spring", "spring"],
   ["Indian Summer", "indian-summer"],
+]);
 
-  // Synesthesia (themesPlusPlus.css)
+/** Themes from themesPlusPlus.css — Experimental & avant-garde collection */
+export const themesPlusPlusMap: ReadonlyMap<string, string> = new Map([
+  // Synesthesia
   ["Cello", "cello"],
   ["White Noise", "white-noise"],
   ["Bass Drop", "bass-drop"],
@@ -175,8 +187,11 @@ export const themeMap: ReadonlyMap<string, string> = new Map([
   ["Solar Flare", "solar-flare"],
   ["Red Dwarf", "red-dwarf"],
   ["Comet", "comet"],
+]);
 
-  // Optical Illusions (themesPlusPlusPlus.css)
+/** Themes from themesPlusPlusPlus.css — Most experimental collection */
+export const themesPlusPlusPlusMap: ReadonlyMap<string, string> = new Map([
+  // Optical Illusions
   ["Afterimage", "afterimage"],
   ["Chromatic", "chromatic"],
   ["Moiré", "moire"],
@@ -247,8 +262,11 @@ export const themeMap: ReadonlyMap<string, string> = new Map([
   ["Dissociation", "dissociation"],
   ["Flow State", "flow-state"],
   ["Déréalisation", "derealization"],
+]);
 
-  // Phantom Senses (themesPlusPlusPlusPlus.css)
+/** Themes from themesPlusPlusPlusPlus.css — The final frontier */
+export const themesPlusPlusPlusPlusMap: ReadonlyMap<string, string> = new Map([
+  // Phantom Senses
   ["Infrared", "infrared"],
   ["Ultraviolet", "ultraviolet"],
   ["Echolocation", "echolocation"],
@@ -314,4 +332,17 @@ export const themeMap: ReadonlyMap<string, string> = new Map([
   ["Theseus", "theseus"],
   ["Sisyphus", "sisyphus"],
   ["Memento Mori", "memento-mori"],
+]);
+
+/**
+ * Combined map of all themes across all CSS files.
+ * This is a convenience export that merges all individual maps.
+ */
+export const themeMap: ReadonlyMap<string, string> = new Map([
+  ...styleThemeMap,
+  ...themesMap,
+  ...themesPlusMap,
+  ...themesPlusPlusMap,
+  ...themesPlusPlusPlusMap,
+  ...themesPlusPlusPlusPlusMap,
 ]);

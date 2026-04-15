@@ -23,7 +23,7 @@
   --main-bg-end: #1a1028;
 
   --surface: #1e1420;
-  --surface-light: #2c1e32;
+  --surface-light: #382a42;
   --surface-lighter: #3c2844;
 }
 
@@ -41,7 +41,7 @@
   --main-bg-end: #1e1e1e;
 
   --surface: #181818;
-  --surface-light: #242424;
+  --surface-light: #2e2e2e;
   --surface-lighter: #303030;
 }
 
@@ -59,7 +59,7 @@
   --main-bg-end: #040e18;
 
   --surface: #0c0424;
-  --surface-light: #160838;
+  --surface-light: #1e104a;
   --surface-lighter: #220c4e;
 }
 
@@ -79,7 +79,7 @@
   --main-bg-end: #0a1418;
 
   --surface: #121614;
-  --surface-light: #1c2220;
+  --surface-light: #262e2c;
   --surface-lighter: #282e2c;
 }
 
@@ -97,7 +97,7 @@
   --main-bg-end: #0e0e14;
 
   --surface: #0c0c12;
-  --surface-light: #14141c;
+  --surface-light: #1e1e28;
   --surface-lighter: #1c1c28;
 }
 
@@ -115,7 +115,7 @@
   --main-bg-end: #08041a;
 
   --surface: #0a0812;
-  --surface-light: #141020;
+  --surface-light: #1e1830;
   --surface-lighter: #1e1830;
 }
 
@@ -133,7 +133,7 @@
   --main-bg-end: #060402;
 
   --surface: #0a0804;
-  --surface-light: #161008;
+  --surface-light: #221a10;
   --surface-lighter: #221a0e;
 }
 
@@ -153,7 +153,7 @@
   --main-bg-end: #2e2614;
 
   --surface: #262010;
-  --surface-light: #342c18;
+  --surface-light: #403822;
   --surface-lighter: #443a22;
 }
 
@@ -171,7 +171,7 @@
   --main-bg-end: #161c1e;
 
   --surface: #121a1c;
-  --surface-light: #1c2628;
+  --surface-light: #283436;
   --surface-lighter: #263236;
 }
 
@@ -189,7 +189,7 @@
   --main-bg-end: #140e06;
 
   --surface: #0e0a10;
-  --surface-light: #18121e;
+  --surface-light: #241a2e;
   --surface-lighter: #241a2e;
 }
 
@@ -207,7 +207,7 @@
   --main-bg-end: #261e1c;
 
   --surface: #1e1816;
-  --surface-light: #2a2220;
+  --surface-light: #362e2c;
   --surface-lighter: #382e2c;
 }
 
@@ -225,8 +225,8 @@
   --main-bg-end: #101820;
 
   --surface: #0c1218;
-  --surface-light: #141c26;
-  --surface-lighter: #1e2834;
+  --surface-light: #1e2834;
+  --surface-lighter: #283444;
 }
 
 /* ========== DECAY & TRANSFORMATION — Beauty in entropy ========== */
@@ -245,7 +245,7 @@
   --main-bg-end: #24140c;
 
   --surface: #1e100a;
-  --surface-light: #2c1a12;
+  --surface-light: #38241c;
   --surface-lighter: #3a241c;
 }
 
@@ -263,8 +263,8 @@
   --main-bg-end: #060c18;
 
   --surface: #0a1410;
-  --surface-light: #121e18;
-  --surface-lighter: #1c2a22;
+  --surface-light: #1c2a22;
+  --surface-lighter: #263630;
 }
 
 /* Ash — post-fire grey with ember remnants */
@@ -281,8 +281,8 @@
   --main-bg-end: #1c1816;
 
   --surface: #161412;
-  --surface-light: #201e1a;
-  --surface-lighter: #2c2a26;
+  --surface-light: #2c2a24;
+  --surface-lighter: #383630;
 }
 
 /* Petrichor — the smell of rain on dry earth as color */
@@ -299,7 +299,7 @@
   --main-bg-end: #10141e;
 
   --surface: #121a18;
-  --surface-light: #1c2624;
+  --surface-light: #283430;
   --surface-lighter: #263230;
 }
 
@@ -319,7 +319,7 @@
   --main-bg-end: #140a08;
 
   --surface: #100c08;
-  --surface-light: #1a1410;
+  --surface-light: #261e18;
   --surface-lighter: #261e18;
 }
 
@@ -337,7 +337,7 @@
   --main-bg-end: #1e1218;
 
   --surface: #1a1210;
-  --surface-light: #261c1a;
+  --surface-light: #322824;
   --surface-lighter: #342824;
 }
 
@@ -355,7 +355,7 @@
   --main-bg-end: #1c0e10;
 
   --surface: #160c14;
-  --surface-light: #221420;
+  --surface-light: #2e1c2e;
   --surface-lighter: #301c2e;
 }
 
@@ -373,7 +373,7 @@
   --main-bg-end: #0a0e1c;
 
   --surface: #12100c;
-  --surface-light: #1c1814;
+  --surface-light: #28221e;
   --surface-lighter: #28221e;
 }
 
@@ -393,7 +393,7 @@
   --main-bg-end: #0c0e22;
 
   --surface: #0a0c1a;
-  --surface-light: #121428;
+  --surface-light: #1c1e38;
   --surface-lighter: #1a1c36;
 }
 
@@ -411,7 +411,7 @@
   --main-bg-end: #362e16;
 
   --surface: #2a2410;
-  --surface-light: #3a3218;
+  --surface-light: #464024;
   --surface-lighter: #4a4222;
 }
 
@@ -429,7 +429,7 @@
   --main-bg-end: #141832;
 
   --surface: #101420;
-  --surface-light: #1a1e32;
+  --surface-light: #242844;
   --surface-lighter: #242844;
 }
 
@@ -447,7 +447,7 @@
   --main-bg-end: #080a14;
 
   --surface: #0a0e0a;
-  --surface-light: #121812;
+  --surface-light: #1c241c;
   --surface-lighter: #1c241c;
 }
 
@@ -467,7 +467,7 @@
   --main-bg-end: #1a1c20;
 
   --surface: #161a1c;
-  --surface-light: #202428;
+  --surface-light: #2c3034;
   --surface-lighter: #2c3034;
 }
 
@@ -485,7 +485,7 @@
   --main-bg-end: #281620;
 
   --surface: #201214;
-  --surface-light: #2e1c22;
+  --surface-light: #3a2630;
   --surface-lighter: #3e2630;
 }
 
@@ -503,8 +503,8 @@
   --main-bg-end: #1a1a1a;
 
   --surface: #141414;
-  --surface-light: #1e1e1e;
-  --surface-lighter: #2a2a2a;
+  --surface-light: #282828;
+  --surface-lighter: #343434;
 }
 
 /* Mercury — liquid metal, shifting silver-blue */
@@ -521,7 +521,7 @@
   --main-bg-end: #141a1e;
 
   --surface: #101618;
-  --surface-light: #1a2024;
+  --surface-light: #242c32;
   --surface-lighter: #242c30;
 }
 
@@ -539,7 +539,7 @@
   --main-bg-end: #241214;
 
   --surface: #1e0e10;
-  --surface-light: #2c161a;
+  --surface-light: #38202a;
   --surface-lighter: #3c2024;
 }
 
@@ -559,8 +559,8 @@
   --main-bg-end: #1c1a16;
 
   --surface: #161412;
-  --surface-light: #201e1a;
-  --surface-lighter: #2c2a24;
+  --surface-light: #2c2a24;
+  --surface-lighter: #383630;
 }
 
 /* Bioluminescent jellyfish — translucent blue-pink pulse */
@@ -577,8 +577,8 @@
   --main-bg-end: #100c22;
 
   --surface: #0e0c18;
-  --surface-light: #181428;
-  --surface-lighter: #221c38;
+  --surface-light: #221c38;
+  --surface-lighter: #2e2648;
 }
 
 /* Chlorophyll — the exact green of photosynthesis with UV */
@@ -595,7 +595,7 @@
   --main-bg-end: #0a0c18;
 
   --surface: #0e1408;
-  --surface-light: #161e10;
+  --surface-light: #202a1a;
   --surface-lighter: #202a1a;
 }
 
@@ -613,7 +613,7 @@
   --main-bg-end: #1e2420;
 
   --surface: #1a201c;
-  --surface-light: #242c28;
+  --surface-light: #303a34;
   --surface-lighter: #303a34;
 }
 
@@ -633,8 +633,8 @@
   --main-bg-end: #0c0c0c;
 
   --surface: #0a0a0a;
-  --surface-light: #141414;
-  --surface-lighter: #1e1e1e;
+  --surface-light: #1e1e1e;
+  --surface-lighter: #2a2a2a;
 }
 
 /* Corrupted file — data as color, random-feeling but deliberate */
@@ -651,8 +651,8 @@
   --main-bg-end: #080e0a;
 
   --surface: #0a0c0e;
-  --surface-light: #141618;
-  --surface-lighter: #1e2224;
+  --surface-light: #1e2024;
+  --surface-lighter: #2a2c30;
 }
 
 /* Blue screen — the dreaded BSOD as an aesthetic */
@@ -669,8 +669,8 @@
   --main-bg-end: #002050;
 
   --surface: #001838;
-  --surface-light: #00224c;
-  --surface-lighter: #002c60;
+  --surface-light: #002c60;
+  --surface-lighter: #003876;
 }
 
 /* Matrix rain — green code on black void */
@@ -687,8 +687,8 @@
   --main-bg-end: #001000;
 
   --surface: #000c02;
-  --surface-light: #001604;
-  --surface-lighter: #002008;
+  --surface-light: #002008;
+  --surface-lighter: #002c10;
 }
 
 /* ========== CULINARY EXTREMES — Unusual food-inspired palettes ========== */
@@ -707,7 +707,7 @@
   --main-bg-end: #2e2318;
 
   --surface: #141a0c;
-  --surface-light: #1e2614;
+  --surface-light: #283220;
   --surface-lighter: #28321e;
 }
 
@@ -725,7 +725,7 @@
   --main-bg-end: #0e0b15;
 
   --surface: #0e0a1a;
-  --surface-light: #181228;
+  --surface-light: #221a38;
   --surface-lighter: #221a38;
 }
 
@@ -743,7 +743,7 @@
   --main-bg-end: #241c0c;
 
   --surface: #1c1608;
-  --surface-light: #282010;
+  --surface-light: #342c1a;
   --surface-lighter: #362c18;
 }
 
@@ -763,8 +763,8 @@
   --main-bg-end: #1a1a1a;
 
   --surface: #141414;
-  --surface-light: #1e1e1e;
-  --surface-lighter: #2a2a2a;
+  --surface-light: #282828;
+  --surface-lighter: #343434;
 }
 
 /* Art deco — gold, black, and jade green */
@@ -781,7 +781,7 @@
   --main-bg-end: #11221b;
 
   --surface: #101208;
-  --surface-light: #1a1c10;
+  --surface-light: #262818;
   --surface-lighter: #24281a;
 }
 
@@ -799,8 +799,8 @@
   --main-bg-end: #161414;
 
   --surface: #121010;
-  --surface-light: #1c1818;
-  --surface-lighter: #282222;
+  --surface-light: #282222;
+  --surface-lighter: #342e2e;
 }
 
 /* Solarpunk — optimistic green tech, warm copper, living walls */
@@ -817,7 +817,7 @@
   --main-bg-end: #18281e;
 
   --surface: #122018;
-  --surface-light: #1c2e22;
+  --surface-light: #263a2e;
   --surface-lighter: #263c2e;
 }
 
@@ -837,8 +837,8 @@
   --main-bg-end: #060e06;
 
   --surface: #0a0a10;
-  --surface-light: #14121e;
-  --surface-lighter: #1e1a2e;
+  --surface-light: #1e1a2e;
+  --surface-lighter: #2a243e;
 }
 
 /* Sleep paralysis — oppressive dark with sickly yellow-green */
@@ -855,7 +855,7 @@
   --main-bg-end: #141416;
 
   --surface: #101012;
-  --surface-light: #1a1a1c;
+  --surface-light: #242428;
   --surface-lighter: #242428;
 }
 
@@ -873,8 +873,8 @@
   --main-bg-end: #271017;
 
   --surface: #0e0c10;
-  --surface-light: #18141c;
-  --surface-lighter: #221e28;
+  --surface-light: #221e28;
+  --surface-lighter: #2e2834;
 }
 
 /* Fever dream — too-warm oranges bleeding into cold purple */
@@ -891,7 +891,7 @@
   --main-bg-end: #140a1c;
 
   --surface: #1a0e0c;
-  --surface-light: #261614;
+  --surface-light: #32201e;
   --surface-lighter: #34201e;
 }
 
@@ -911,8 +911,8 @@
   --main-bg-end: #0a1020;
 
   --surface: #080c18;
-  --surface-light: #101828;
-  --surface-lighter: #1a2438;
+  --surface-light: #1a2438;
+  --surface-lighter: #243048;
 }
 
 /* Solar flare — plasma eruption, white-hot to magnetic blue */
@@ -929,7 +929,7 @@
   --main-bg-end: #0c0a1e;
 
   --surface: #140e08;
-  --surface-light: #201610;
+  --surface-light: #2c201a;
   --surface-lighter: #2e201a;
 }
 
@@ -947,7 +947,7 @@
   --main-bg-end: #1c0c0c;
 
   --surface: #160a0a;
-  --surface-light: #221010;
+  --surface-light: #2e1818;
   --surface-lighter: #2e1818;
 }
 
@@ -965,6 +965,6 @@
   --main-bg-end: #070f00;
 
   --surface: #0c1214;
-  --surface-light: #161c1e;
+  --surface-light: #20282c;
   --surface-lighter: #20282a;
 }

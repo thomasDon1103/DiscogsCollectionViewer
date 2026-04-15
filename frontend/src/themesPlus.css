@@ -23,7 +23,7 @@
   --main-bg-end: #30182a;
 
   --surface: #2c1624;
-  --surface-light: #3e2034;
+  --surface-light: #4e2c44;
   --surface-lighter: #502a44;
 }
 
@@ -36,12 +36,12 @@
   --primary-text: #FFFFFF;
   --primary-shadow: #a0b4c8;
 
-  --main-bg-start: #0c1018;
-  --main-bg-mid: #141c28;
-  --main-bg-end: #1c2838;
+  --main-bg-start: #1f283a;
+  --main-bg-mid: #253347;
+  --main-bg-end: #263446;
 
   --surface: #182230;
-  --surface-light: #222e40;
+  --surface-light: #354661;
   --surface-lighter: #2e3c52;
 }
 
@@ -54,12 +54,12 @@
   --primary-text: #d2cfc9;
   --primary-shadow: #c4878e;
 
-  --main-bg-start: #181a14;
-  --main-bg-mid: #222418;
-  --main-bg-end: #2a2620;
+  --main-bg-start: #2c2e27;
+  --main-bg-mid: #383a2e;
+  --main-bg-end: #38352f;
 
   --surface: #242620;
-  --surface-light: #32342a;
+  --surface-light: #535347;
   --surface-lighter: #404236;
 }
 
@@ -79,7 +79,7 @@
   --main-bg-end: #1e0e38;
 
   --surface: #160c2e;
-  --surface-light: #221244;
+  --surface-light: #2c1a56;
   --surface-lighter: #2e185a;
 }
 
@@ -97,7 +97,7 @@
   --main-bg-end: #10223a;
 
   --surface: #0e1c30;
-  --surface-light: #162a44;
+  --surface-light: #1e3658;
   --surface-lighter: #1e3858;
 }
 
@@ -115,7 +115,7 @@
   --main-bg-end: #1a1a0c;
 
   --surface: #121408;
-  --surface-light: #1c2010;
+  --surface-light: #262c18;
   --surface-lighter: #282c18;
 }
 
@@ -135,7 +135,7 @@
   --main-bg-end: #1e2028;
 
   --surface: #221c18;
-  --surface-light: #302822;
+  --surface-light: #3c342e;
   --surface-lighter: #3e342e;
 }
 
@@ -153,8 +153,8 @@
   --main-bg-end: #1a281c;
 
   --surface: #162218;
-  --surface-light: #1e3020;
-  --surface-lighter: #283e2a;
+  --surface-light: #283c2a;
+  --surface-lighter: #324a34;
 }
 
 /* Lavender fields — soft purple and warm wheat */
@@ -171,7 +171,7 @@
   --main-bg-end: #261e38;
 
   --surface: #201828;
-  --surface-light: #2e2240;
+  --surface-light: #3a2e52;
   --surface-lighter: #3c2e56;
 }
 
@@ -189,7 +189,7 @@
   --main-bg-end: #321c16;
 
   --surface: #281812;
-  --surface-light: #38221a;
+  --surface-light: #462e24;
   --surface-lighter: #4a2e24;
 }
 
@@ -209,7 +209,7 @@
   --main-bg-end: #322a14;
 
   --surface: #2a2210;
-  --surface-light: #3a3018;
+  --surface-light: #483e24;
   --surface-lighter: #4a3e22;
 }
 
@@ -227,8 +227,8 @@
   --main-bg-end: #181818;
 
   --surface: #121212;
-  --surface-light: #1c1c1c;
-  --surface-lighter: #282828;
+  --surface-light: #262626;
+  --surface-lighter: #323232;
 }
 
 /* Duochrome — two clashing hues, no middle ground */
@@ -245,8 +245,8 @@
   --main-bg-end: #0e1a1e;
 
   --surface: #180e1a;
-  --surface-light: #241628;
-  --surface-lighter: #301e36;
+  --surface-light: #301e36;
+  --surface-lighter: #3e2846;
 }
 
 /* Bleached pastels — washed-out candy tones on near-white dark */
@@ -263,8 +263,8 @@
   --main-bg-end: #262636;
 
   --surface: #222230;
-  --surface-light: #2e2e40;
-  --surface-lighter: #3a3a50;
+  --surface-light: #3a3a50;
+  --surface-lighter: #464660;
 }
 
 /* Oxidized copper — verdigris green and aged bronze */
@@ -281,7 +281,7 @@
   --main-bg-end: #1a2820;
 
   --surface: #14221e;
-  --surface-light: #1e302a;
+  --surface-light: #283c36;
   --surface-lighter: #283e36;
 }
 
@@ -299,7 +299,7 @@
   --main-bg-end: #ba9367;
 
   --surface: #1e0e2c;
-  --surface-light: #2c163e;
+  --surface-light: #381e50;
   --surface-lighter: #3a1e52;
 }
 
@@ -319,7 +319,7 @@
   --main-bg-end: #301c18;
 
   --surface: #281610;
-  --surface-light: #38201a;
+  --surface-light: #462c24;
   --surface-lighter: #4a2c24;
 }
 
@@ -337,7 +337,7 @@
   --main-bg-end: #0c1430;
 
   --surface: #081820;
-  --surface-light: #102432;
+  --surface-light: #183044;
   --surface-lighter: #183244;
 }
 
@@ -355,7 +355,7 @@
   --main-bg-end: #361e14;
 
   --surface: #2c1810;
-  --surface-light: #3e2218;
+  --surface-light: #4c2e22;
   --surface-lighter: #502e22;
 }
 
@@ -373,7 +373,7 @@
   --main-bg-end: #140a08;
 
   --surface: #0e0818;
-  --surface-light: #18102a;
+  --surface-light: #22183c;
   --surface-lighter: #24183c;
 }
 
@@ -393,7 +393,7 @@
   --main-bg-end: #1a1e2e;
 
   --surface: #141822;
-  --surface-light: #1e2234;
+  --surface-light: #282e44;
   --surface-lighter: #2a2e46;
 }
 
@@ -411,7 +411,7 @@
   --main-bg-end: #1e2628;
 
   --surface: #1a2022;
-  --surface-light: #242c30;
+  --surface-light: #30383e;
   --surface-lighter: #303a3e;
 }
 
@@ -429,7 +429,7 @@
   --main-bg-end: #1e260e;
 
   --surface: #161e0a;
-  --surface-light: #202c12;
+  --surface-light: #2c381c;
   --surface-lighter: #2c3a1a;
 }
 
@@ -449,7 +449,7 @@
   --main-bg-end: #240c40;
 
   --surface: #1c0a32;
-  --surface-light: #2a1048;
+  --surface-light: #36185c;
   --surface-lighter: #38165e;
 }
 
@@ -467,7 +467,7 @@
   --main-bg-end: #28221e;
 
   --surface: #201c18;
-  --surface-light: #2c2620;
+  --surface-light: #38322c;
   --surface-lighter: #38322a;
 }
 
@@ -485,7 +485,7 @@
   --main-bg-end: #161822;
 
   --surface: #101420;
-  --surface-light: #1a1e30;
+  --surface-light: #242840;
   --surface-lighter: #242840;
 }
 
@@ -505,7 +505,7 @@
   --main-bg-end: #221230;
 
   --surface: #1c0e28;
-  --surface-light: #28163a;
+  --surface-light: #341e4c;
   --surface-lighter: #361e4e;
 }
 
@@ -523,7 +523,7 @@
   --main-bg-end: #121618;
 
   --surface: #0e1214;
-  --surface-light: #181c20;
+  --surface-light: #222830;
   --surface-lighter: #22282c;
 }
 
@@ -541,7 +541,7 @@
   --main-bg-end: #1c2018;
 
   --surface: #162018;
-  --surface-light: #202c20;
+  --surface-light: #2c382c;
   --surface-lighter: #2c3a2a;
 }
 
@@ -559,7 +559,7 @@
   --main-bg-end: #2c1212;
 
   --surface: #240e0e;
-  --surface-light: #341616;
+  --surface-light: #421e1e;
   --surface-lighter: #441e1e;
 }
 
@@ -577,7 +577,7 @@
   --main-bg-end: #101c32;
 
   --surface: #0c1628;
-  --surface-light: #14203a;
+  --surface-light: #1e2c4c;
   --surface-lighter: #1e2c4e;
 }
 
@@ -595,7 +595,7 @@
   --main-bg-end: #122618;
 
   --surface: #0e1e12;
-  --surface-light: #162c1c;
+  --surface-light: #203828;
   --surface-lighter: #203a26;
 }
 
@@ -615,7 +615,7 @@
   --main-bg-end: #261c18;
 
   --surface: #201610;
-  --surface-light: #2e201a;
+  --surface-light: #3a2c24;
   --surface-lighter: #3c2c24;
 }
 
@@ -633,7 +633,7 @@
   --main-bg-end: #1a2816;
 
   --surface: #142010;
-  --surface-light: #1e2e1a;
+  --surface-light: #283a24;
   --surface-lighter: #283c24;
 }
 
@@ -653,7 +653,7 @@
   --main-bg-end: #201438;
 
   --surface: #181024;
-  --surface-light: #241838;
+  --surface-light: #30204c;
   --surface-lighter: #32204e;
 }
 
@@ -671,7 +671,7 @@
   --main-bg-end: #1a2420;
 
   --surface: #141e1a;
-  --surface-light: #1e2a26;
+  --surface-light: #283632;
   --surface-lighter: #283832;
 }
 
@@ -691,7 +691,7 @@
   --main-bg-end: #281414;
 
   --surface: #220e0e;
-  --surface-light: #301616;
+  --surface-light: #3e1e1e;
   --surface-lighter: #401e1e;
 }
 
@@ -709,8 +709,8 @@
   --main-bg-end: #1e1e1e;
 
   --surface: #161616;
-  --surface-light: #222222;
-  --surface-lighter: #2e2e2e;
+  --surface-light: #2c2c2c;
+      --surface-lighter: #383838;
 }
 
 /* Glitch art — clashing RGB channel separation */
@@ -727,7 +727,7 @@
   --main-bg-end: #06080e;
 
   --surface: #0c0a10;
-  --surface-light: #141218;
+  --surface-light: #1e1a24;
   --surface-lighter: #1e1a22;
 }
 
@@ -745,7 +745,7 @@
   --main-bg-end: #180c28;
 
   --surface: #140e22;
-  --surface-light: #201636;
+  --surface-light: #2c1e48;
   --surface-lighter: #2c1e4a;
 }
 
@@ -765,7 +765,7 @@
   --main-bg-end: #1e0c2c;
 
   --surface: #180a24;
-  --surface-light: #241038;
+  --surface-light: #30184c;
   --surface-lighter: #32164c;
 }
 
@@ -783,7 +783,7 @@
   --main-bg-end: #16222a;
 
   --surface: #101c22;
-  --surface-light: #1a2830;
+  --surface-light: #243440;
   --surface-lighter: #243640;
 }
 
@@ -801,7 +801,7 @@
   --main-bg-end: #141428;
 
   --surface: #1a1610;
-  --surface-light: #26201a;
+  --surface-light: #342c24;
   --surface-lighter: #342c24;
 }
 
@@ -819,7 +819,7 @@
   --main-bg-end: #121c22;
 
   --surface: #0e1820;
-  --surface-light: #16222c;
+  --surface-light: #202e3a;
   --surface-lighter: #202e38;
 }
 
@@ -837,7 +837,7 @@
   --main-bg-end: #18122a;
 
   --surface: #1e1408;
-  --surface-light: #2c1e10;
+  --surface-light: #3a2a1a;
   --surface-lighter: #3c2a1a;
 }
 
@@ -857,7 +857,7 @@
   --main-bg-end: #141c2c;
 
   --surface: #101820;
-  --surface-light: #1a2432;
+  --surface-light: #243044;
   --surface-lighter: #243044;
 }
 
@@ -875,8 +875,8 @@
   --main-bg-end: #1a221c;
 
   --surface: #142018;
-  --surface-light: #1e2c22;
-  --surface-lighter: #28382e;
+  --surface-light: #28382e;
+  --surface-lighter: #34443a;
 }
 
 /* Indian summer — warm amber, hazy purple, dusty gold */
@@ -893,6 +893,6 @@
   --main-bg-end: #28201a;
 
   --surface: #201a12;
-  --surface-light: #2e261c;
+  --surface-light: #3a3228;
   --surface-lighter: #3e3228;
 }

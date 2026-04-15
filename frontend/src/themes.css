@@ -7,144 +7,6 @@
      --surface, --surface-light, --surface-lighter
    ============================================================ */
 
-/* ---------- BASE THEMES ---------- */
-
-  [data-theme='forest'] {
-    --primary-start: #56ab2f;
-    --primary-mid: #2d8a4e;
-    --primary-end: #1a5c2e;
-
-    --primary-text: #FFFFFF;
-    --primary-shadow: #2ecc71;
-
-    --main-bg-start: #0a1f0d;
-    --main-bg-mid: #0f2b16;
-    --main-bg-end: #163520;
-
-    --surface: #1a2e1f;
-    --surface-light: #243d2b;
-    --surface-lighter: #2f4d38;
-  }
-
-  [data-theme='ocean'] {
-    --primary-start: #00b4d8;
-    --primary-mid: #0077b6;
-    --primary-end: #023e8a;
-
-    --primary-text: #FFFFFF;
-    --primary-shadow: #0096c7;
-
-    --main-bg-start: #001219;
-    --main-bg-mid: #002a32;
-    --main-bg-end: #003a4a;
-
-    --surface: #0a3d4f;
-    --surface-light: #145369;
-    --surface-lighter: #1e6a82;
-  }
-
-  [data-theme='sunset'] {
-    --primary-start: #f7971e;
-    --primary-mid: #e8533a;
-    --primary-end: #c0392b;
-
-    --primary-text: #FFFFFF;
-    --primary-shadow: #f7971e;
-
-    --main-bg-start: #1a0a00;
-    --main-bg-mid: #2b1200;
-    --main-bg-end: #3d1a00;
-
-    --surface: #2e1505;
-    --surface-light: #3f1f08;
-    --surface-lighter: #542a0e;
-  }
-
-  [data-theme='rose'] {
-    --primary-start: #f953c6;
-    --primary-mid: #d63aa0;
-    --primary-end: #b91d73;
-
-    --primary-text: #FFFFFF;
-    --primary-shadow: #f953c6;
-
-    --main-bg-start: #1a0010;
-    --main-bg-mid: #26001a;
-    --main-bg-end: #330022;
-
-    --surface: #2e0520;
-    --surface-light: #3f0a2e;
-    --surface-lighter: #54103d;
-  }
-
-  [data-theme='arctic'] {
-    --primary-start: #a8edea;
-    --primary-mid: #6ec6c3;
-    --primary-end: #3a9e9b;
-
-    --primary-text: #FFFFFF;
-    --primary-shadow: #a8edea;
-
-    --main-bg-start: #020d12;
-    --main-bg-mid: #071a22;
-    --main-bg-end: #0d2633;
-
-    --surface: #0d2530;
-    --surface-light: #163545;
-    --surface-lighter: #1f4559;
-  }
-
-  [data-theme='ember'] {
-    --primary-start: #ff6a00;
-    --primary-mid: #cc3f00;
-    --primary-end: #8b1a00;
-
-    --primary-text: #FFFFFF;
-    --primary-shadow: #ff6a00;
-
-    --main-bg-start: #0f0500;
-    --main-bg-mid: #1c0a00;
-    --main-bg-end: #2a0f00;
-
-    --surface: #1f0a00;
-    --surface-light: #2e1000;
-    --surface-lighter: #3d1600;
-  }
-
-  [data-theme='midnight'] {
-    --primary-start: #4a00e0;
-    --primary-mid: #2d00b3;
-    --primary-end: #10007a;
-
-    --primary-text: #FFFFFF;
-    --primary-shadow: #7b2fff;
-
-    --main-bg-start: #05020f;
-    --main-bg-mid: #0a0520;
-    --main-bg-end: #0f0830;
-
-    --surface: #0d0825;
-    --surface-light: #160f38;
-    --surface-lighter: #1e164a;
-  }
-
-  [data-theme='gold'] {
-    --primary-start: #f6d365;
-    --primary-mid: #d4a017;
-    --primary-end: #a67c00;
-
-    --primary-text: #ffdc82;
-    --primary-shadow: #f6d365;
-
-    --main-bg-start: #0f0c00;
-    --main-bg-mid: #1c1600;
-    --main-bg-end: #2a2000;
-
-    --surface: #1f1a00;
-    --surface-light: #2e2600;
-    --surface-lighter: #3d3200;
-  }
-
   /* ---------- FANCY THEMES ---------- */
 
   [data-theme='aurora'] {
@@ -160,7 +22,7 @@
     --main-bg-end: #221a4e;
 
     --surface: #183448;
-    --surface-light: #22425c;
+    --surface-light: #2a5270;
     --surface-lighter: #2c5474;
   }
 
@@ -176,8 +38,8 @@
     --main-bg-mid: #20164e;
     --main-bg-end: #122a45;
 
-    --surface: #261a50;
-    --surface-light: #322665;
+    --surface: #2b1e57;
+    --surface-light: #3c3078;
     --surface-lighter: #3e327a;
   }
 
@@ -189,12 +51,12 @@
     --primary-text: #ffefdd;
     --primary-shadow: #ff8c00;
 
-    --main-bg-start: #261608;
-    --main-bg-mid: #352716;
-    --main-bg-end: #421a28;
+    --main-bg-start: #3a210a;
+    --main-bg-mid: #4e3619;
+    --main-bg-end: #581f33;
 
     --surface: #393a20;
-    --surface-light: #4c2a30;
+    --surface-light: #613340;
     --surface-lighter: #60343e;
   }
 
@@ -206,12 +68,12 @@
     --primary-text: #FFFFFF;
     --primary-shadow: #ff00e5;
 
-    --main-bg-start: #0e1824;
-    --main-bg-mid: #200e34;
-    --main-bg-end: #2c1645;
+    --main-bg-start: #162538;
+    --main-bg-mid: #2f144d;
+    --main-bg-end: #371b57;
 
-    --surface: #220e3c;
-    --surface-light: #321452;
+    --surface: #2c144b;
+    --surface-light: #471f75;
     --surface-lighter: #421a68;
   }
 
@@ -223,12 +85,12 @@
     --primary-text: #FFFFFF;
     --primary-shadow: #ff2975;
 
-    --main-bg-start: #22140e;
-    --main-bg-mid: #321020;
-    --main-bg-end: #341234;
+    --main-bg-start: #4e2a1a;
+    --main-bg-mid: #521632;
+    --main-bg-end: #441044;
 
     --surface: #301228;
-    --surface-light: #441838;
+    --surface-light: #5c234f;
     --surface-lighter: #581e48;
   }
 
@@ -245,7 +107,7 @@
     --main-bg-end: #2e2820;
 
     --surface: #1e3832;
-    --surface-light: #2c4840;
+    --surface-light: #385a50;
     --surface-lighter: #3a5a50;
   }
 
@@ -262,7 +124,7 @@
     --main-bg-end: #1e2050;
 
     --surface: #162e48;
-    --surface-light: #203a5c;
+    --surface-light: #2a4870;
     --surface-lighter: #2a4872;
   }
 
@@ -279,7 +141,7 @@
     --main-bg-end: #362050;
 
     --surface: #321e40;
-    --surface-light: #442a58;
+    --surface-light: #54366c;
     --surface-lighter: #563670;
   }
 
@@ -296,7 +158,7 @@
     --main-bg-end: #361a32;
 
     --surface: #301c28;
-    --surface-light: #442638;
+    --surface-light: #543248;
     --surface-lighter: #583048;
   }
 
@@ -313,23 +175,23 @@
     --main-bg-end: #281434;
 
     --surface: #1e1634;
-    --surface-light: #2c2048;
+    --surface-light: #3f2f64;
     --surface-lighter: #3a285e;
   }
 
   [data-theme='jungle'] {
-    --primary-start: #11998e;
+    --primary-start: #11996c;
     --primary-mid: #a8c83a;
     --primary-end: #f2c94c;
 
     --primary-text: #dcfe86;
-    --primary-shadow: #11998e;
+    --primary-shadow: #119970;
 
     --main-bg-start: #10281e;
     --main-bg-mid: #1c3220;
     --main-bg-end: #24381a;
 
     --surface: #1c3424;
-    --surface-light: #264632;
+    --surface-light: #305840;
     --surface-lighter: #325a40;
   }

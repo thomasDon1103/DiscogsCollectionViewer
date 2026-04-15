@@ -24,8 +24,8 @@
   --main-bg-end: #1a0608;
 
   --surface: #160408;
-  --surface-light: #22080e;
-  --surface-lighter: #300c14;
+  --surface-light: #300c14;
+  --surface-lighter: #3e1420;
 }
 
 /* Ultraviolet — bee vision, flowers screaming in invisible purple */
@@ -42,8 +42,8 @@
   --main-bg-end: #140626;
 
   --surface: #100418;
-  --surface-light: #1a0826;
-  --surface-lighter: #260c36;
+  --surface-light: #260c36;
+  --surface-lighter: #341248;
 }
 
 /* Echolocation — what bats "see", sonar blue pulses in total dark */
@@ -60,8 +60,8 @@
   --main-bg-end: #00060c;
 
   --surface: #000608;
-  --surface-light: #000c12;
-  --surface-lighter: #00121c;
+  --surface-light: #00121c;
+  --surface-lighter: #001a28;
 }
 
 /* Magnetoreception — birds navigating by Earth's magnetic field */
@@ -78,7 +78,7 @@
   --main-bg-end: #020604;
 
   --surface: #040808;
-  --surface-light: #0a0e12;
+  --surface-light: #10161c;
   --surface-lighter: #10161c;
 }
 
@@ -96,8 +96,8 @@
   --main-bg-end: #1e1010;
 
   --surface: #1a0e0e;
-  --surface-light: #241616;
-  --surface-lighter: #301e1e;
+  --surface-light: #301e1e;
+  --surface-lighter: #3e2828;
 }
 
 /* ========== MATHEMATICAL BEAUTY — Equations as color ========== */
@@ -116,8 +116,8 @@
   --main-bg-end: #5f4c13;
 
   --surface: #161208;
-  --surface-light: #201c10;
-  --surface-lighter: #2c2618;
+  --surface-light: #2c2618;
+  --surface-lighter: #383220;
 }
 
 /* Pi — irrational, never-repeating: three unrelated colors that somehow work */
@@ -134,8 +134,8 @@
   --main-bg-end: #16006e;
 
   --surface: #0a0a0a;
-  --surface-light: #141414;
-  --surface-lighter: #1e1e1e;
+  --surface-light: #1e1e1e;
+  --surface-lighter: #2a2a2a;
 }
 
 /* Infinity — the color of forever: gradient that never resolves */
@@ -152,8 +152,8 @@
   --main-bg-end: #04040c;
 
   --surface: #08080e;
-  --surface-light: #101018;
-  --surface-lighter: #1a1a24;
+  --surface-light: #1a1a24;
+  --surface-lighter: #262630;
 }
 
 /* Fractal — self-similar at every scale, teal nesting into itself */
@@ -170,7 +170,7 @@
   --main-bg-end: #061812;
 
   --surface: #060e0c;
-  --surface-light: #0e1a16;
+  --surface-light: #162620;
   --surface-lighter: #162620;
 }
 
@@ -190,7 +190,7 @@
   --main-bg-end: #3d2f16;
 
   --surface: #080c0a;
-  --surface-light: #121814;
+  --surface-light: #1c2420;
   --surface-lighter: #1c2420;
 }
 
@@ -208,8 +208,8 @@
   --main-bg-end: #a3917c;
 
   --surface: #100808;
-  --surface-light: #1a1010;
-  --surface-lighter: #261a1a;
+  --surface-light: #261a1a;
+  --surface-lighter: #322424;
 }
 
 /* Neon on neon — every color screaming at once, migraine chic */
@@ -226,7 +226,7 @@
   --main-bg-end: #806600;
 
   --surface: #080810;
-  --surface-light: #10101c;
+  --surface-light: #1a1a28;
   --surface-lighter: #1a1a28;
 }
 
@@ -244,8 +244,8 @@
   --main-bg-end: #3e5d00;
 
   --surface: #0a0808;
-  --surface-light: #141210;
-  --surface-lighter: #1e1c1a;
+  --surface-light: #1e1c1a;
+  --surface-lighter: #2a2826;
 }
 
 /* ========== LIMINAL SPACES — The uncanny in-between ========== */
@@ -264,8 +264,8 @@
   --main-bg-end: #3e657e;
 
   --surface: #141412;
-  --surface-light: #1e1e1c;
-  --surface-lighter: #2a2a28;
+  --surface-light: #2a2a28;
+  --surface-lighter: #363634;
 }
 
 /* Hotel hallway — infinite carpet pattern, warm-wrong lighting */
@@ -282,8 +282,8 @@
   --main-bg-end: #2c0505;
 
   --surface: #12100a;
-  --surface-light: #1c1812;
-  --surface-lighter: #28221c;
+  --surface-light: #28221c;
+  --surface-lighter: #342e26;
 }
 
 /* Pool at 2am — chlorine blue glow, nobody should be here */
@@ -300,7 +300,7 @@
   --main-bg-end: #0b161f;
 
   --surface: #060c10;
-  --surface-light: #0e161c;
+  --surface-light: #162028;
   --surface-lighter: #162028;
 }
 
@@ -318,8 +318,8 @@
   --main-bg-end: #121006;
 
   --surface: #18160a;
-  --surface-light: #222010;
-  --surface-lighter: #2e2c18;
+  --surface-light: #2e2c18;
+  --surface-lighter: #3a3822;
 }
 
 /* ========== GLITCH BIOLOGY — When organic meets digital error ========== */
@@ -338,8 +338,8 @@
   --main-bg-end: #0a0806;
 
   --surface: #0a080a;
-  --surface-light: #141014;
-  --surface-lighter: #1e181e;
+  --surface-light: #1e181e;
+  --surface-lighter: #2a222a;
 }
 
 /* Mitosis — cell division, splitting one color into two daughters */
@@ -356,8 +356,8 @@
   --main-bg-end: #16304a;
 
   --surface: #0a0e0c;
-  --surface-light: #141816;
-  --surface-lighter: #1e2420;
+  --surface-light: #1e2420;
+  --surface-lighter: #2a302c;
 }
 
 /* Virus — hostile beauty, lipid envelope gold on cell-death purple */
@@ -374,8 +374,8 @@
   --main-bg-end: #0e060e;
 
   --surface: #100810;
-  --surface-light: #1a0e1a;
-  --surface-lighter: #261626;
+  --surface-light: #261626;
+  --surface-lighter: #322032;
 }
 
 /* Symbiosis — two organisms merged, coral-pink fused with algae-green */
@@ -392,8 +392,8 @@
   --main-bg-end: #0c060a;
 
   --surface: #0a0a0c;
-  --surface-light: #141216;
-  --surface-lighter: #1e1c22;
+  --surface-light: #1e1c22;
+  --surface-lighter: #2a282e;
 }
 
 /* ========== SENSORY OVERLOAD — Too much input ========== */
@@ -412,8 +412,8 @@
   --main-bg-end: #0e0a0a;
 
   --surface: #101010;
-  --surface-light: #1a1a1a;
-  --surface-lighter: #262626;
+  --surface-light: #242424;
+  --surface-lighter: #303030;
 }
 
 /* Phantom limb — feeling color where there is none, ghost-blue */
@@ -430,8 +430,8 @@
   --main-bg-end: #080e18;
 
   --surface: #080c14;
-  --surface-light: #10141e;
-  --surface-lighter: #1a1e2a;
+  --surface-light: #1a1e2a;
+  --surface-lighter: #262a36;
 }
 
 /* Overstimulated — every channel maxed, warm and cool colliding */
@@ -448,8 +448,8 @@
   --main-bg-end: #b8af00;
 
   --surface: #0a080c;
-  --surface-light: #141018;
-  --surface-lighter: #1e1a24;
+  --surface-light: #1e1a24;
+  --surface-lighter: #2a2430;
 }
 
 /* ASMR — tingling pastel whisper, barely-there soft triggers */
@@ -466,8 +466,8 @@
   --main-bg-end: #0e0a0c;
 
   --surface: #0e0c10;
-  --surface-light: #18141c;
-  --surface-lighter: #221e28;
+  --surface-light: #221e28;
+  --surface-lighter: #2e2a34;
 }
 
 /* ========== WRONG PHYSICS — Universes with different rules ========== */
@@ -486,8 +486,8 @@
   --main-bg-end: #31295b;
 
   --surface: #080a0a;
-  --surface-light: #121414;
-  --surface-lighter: #1c2020;
+  --surface-light: #1c2020;
+  --surface-lighter: #282c2c;
 }
 
 /* Time reversal — effect before cause, end color is the brightest */
@@ -504,8 +504,8 @@
   --main-bg-end: #39383f;
 
   --surface: #0a0810;
-  --surface-light: #14101c;
-  --surface-lighter: #1e1828;
+  --surface-light: #1e1828;
+  --surface-lighter: #2a2234;
 }
 
 /* Absolute zero — 0 Kelvin, all motion stopped, frozen blue-white */
@@ -522,8 +522,8 @@
   --main-bg-end: #0c0c18;
 
   --surface: #0a0a14;
-  --surface-light: #12121e;
-  --surface-lighter: #1c1c2a;
+  --surface-light: #1c1c2a;
+  --surface-lighter: #282836;
 }
 
 /* Entropy maximum — heat death of the universe, everything the same temperature */
@@ -540,8 +540,8 @@
   --main-bg-end: #0a0808;
 
   --surface: #0e0c0c;
-  --surface-light: #161414;
-  --surface-lighter: #201c1c;
+  --surface-light: #201c1c;
+  --surface-lighter: #2c2828;
 }
 
 /* ========== CULTURAL GLITCH — Traditions remixed wrong ========== */
@@ -560,8 +560,8 @@
   --main-bg-end: #060604;
 
   --surface: #0c0c08;
-  --surface-light: #161610;
-  --surface-lighter: #22221a;
+  --surface-light: #22221a;
+  --surface-lighter: #2e2e24;
 }
 
 /* Broken stained glass — sacred colors shattered and rearranged */
@@ -578,8 +578,8 @@
   --main-bg-end: #595c66;
 
   --surface: #0c0808;
-  --surface-light: #161210;
-  --surface-lighter: #221c1a;
+  --surface-light: #221c1a;
+  --surface-lighter: #2e2826;
 }
 
 /* Neon temple — sacred geometry lit by nightclub lighting */
@@ -596,8 +596,8 @@
   --main-bg-end: #717171;
 
   --surface: #0a0810;
-  --surface-light: #14101c;
-  --surface-lighter: #1e182a;
+  --surface-light: #1e182a;
+  --surface-lighter: #2a2238;
 }
 
 /* Faded propaganda — once-bold political red washed by decades of sun */
@@ -614,8 +614,8 @@
   --main-bg-end: #0c0c10;
 
   --surface: #100c0e;
-  --surface-light: #1a1416;
-  --surface-lighter: #241e20;
+  --surface-light: #241e20;
+  --surface-lighter: #30282c;
 }
 
 /* ========== DREAMS WITHIN DREAMS — Nested unreality ========== */
@@ -634,8 +634,8 @@
   --main-bg-end: #75c6c6;
 
   --surface: #100c0e;
-  --surface-light: #1a1618;
-  --surface-lighter: #262022;
+  --surface-light: #262022;
+  --surface-lighter: #322c2e;
 }
 
 /* Dream level 2 — colors melting, boundaries dissolving */
@@ -652,8 +652,8 @@
   --main-bg-end: #315b3f;
 
   --surface: #0a0a0e;
-  --surface-light: #141218;
-  --surface-lighter: #1e1c24;
+  --surface-light: #1e1c24;
+  --surface-lighter: #2a2830;
 }
 
 /* Dream level 3 — pure abstraction, colors have no referent */
@@ -670,8 +670,8 @@
   --main-bg-end: #1e1e0d;
 
   --surface: #0a080c;
-  --surface-light: #141016;
-  --surface-lighter: #1e1a22;
+  --surface-light: #1e1a22;
+  --surface-lighter: #2a242e;
 }
 
 /* Limbo — the deepest level, almost nothing, one faint pulse */
@@ -688,8 +688,8 @@
   --main-bg-end: #020304;
 
   --surface: #060708;
-  --surface-light: #0c0e10;
-  --surface-lighter: #141618;
+  --surface-light: #141618;
+  --surface-lighter: #1e2022;
 }
 
 /* ========== SYNESTHETIC MUSIC GENRES — Genres as color ========== */
@@ -708,8 +708,8 @@
   --main-bg-end: #060606;
 
   --surface: #0a0808;
-  --surface-light: #121010;
-  --surface-lighter: #1c1818;
+  --surface-light: #1c1818;
+  --surface-lighter: #282222;
 }
 
 /* Shoegaze — wall of fuzzy sound, pink noise through reverb */
@@ -726,8 +726,8 @@
   --main-bg-end: #5d7084;
 
   --surface: #0e0c10;
-  --surface-light: #18141c;
-  --surface-lighter: #221e28;
+  --surface-light: #221e28;
+  --surface-lighter: #2e2a34;
 }
 
 /* Harsh noise — pure aggression, red static on white pain */
@@ -744,8 +744,8 @@
   --main-bg-end: #910000;
 
   --surface: #100808;
-  --surface-light: #1a1010;
-  --surface-lighter: #261818;
+  --surface-light: #261818;
+  --surface-lighter: #322222;
 }
 
 /* Ambient — Brian Eno's airport, barely-there blue-green shimmer */
@@ -762,8 +762,8 @@
   --main-bg-end: #013030;
 
   --surface: #080e0e;
-  --surface-light: #101818;
-  --surface-lighter: #1a2222;
+  --surface-light: #1a2222;
+  --surface-lighter: #262e2e;
 }
 
 /* ========== EXISTENTIAL — The big questions as color ========== */
@@ -782,8 +782,8 @@
   --main-bg-end: #06060c;
 
   --surface: #060608;
-  --surface-light: #0e0e12;
-  --surface-lighter: #18181e;
+  --surface-light: #18181e;
+  --surface-lighter: #24242c;
 }
 
 /* Ship of Theseus — is it the same color if every value changed? */
@@ -800,8 +800,8 @@
   --main-bg-end: #003d7b;
 
   --surface: #0c0c0c;
-  --surface-light: #161616;
-  --surface-lighter: #222222;
+  --surface-light: #222222;
+  --surface-lighter: #2e2e2e;
 }
 
 /* Sisyphus — endless repetition, the same warm amber forever */
@@ -818,8 +818,8 @@
   --main-bg-end: #b35a00;
 
   --surface: #100c06;
-  --surface-light: #1a140e;
-  --surface-lighter: #241e16;
+  --surface-light: #241e16;
+  --surface-lighter: #302a20;
 }
 
 /* Memento mori — remember you will die, bone-white and grave-earth */
@@ -836,6 +836,6 @@
   --main-bg-end: #14100c;
 
   --surface: #100c0a;
-  --surface-light: #1a1612;
-  --surface-lighter: #26201c;
+  --surface-light: #26201c;
+  --surface-lighter: #322c28;
 }
