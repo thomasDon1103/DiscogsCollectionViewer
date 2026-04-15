@@ -269,8 +269,8 @@ import minimalistCassette from './minimalistCassette.vue';
 import CassetteSVG from './cassetteSVG.vue';
 import VinylSVG from './vinylSVG.vue';
 import SideBar from './sideBar.vue';
-import ColorPaletteSwatch from './ColorPaletteSwatch.vue';
-import ThemePicker from './ThemePicker.vue';
+import ColorPaletteSwatch from './colorPaletteSwatch.vue';
+import ThemePicker from './themePicker.vue';
 import { DiscogsAlbumInfoResponse } from '../types/DiscogsAlbumInfo';
 
 const emit = defineEmits(["startBackgroundMusic", "stopBackgroundMusic", "changeTheme"]);

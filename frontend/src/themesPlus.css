@@ -51,7 +51,7 @@
   --primary-mid: #8a9a7b;
   --primary-end: #c4878e;
 
-  --primary-text: #1a1812;
+  --primary-text: #d2cfc9;
   --primary-shadow: #c4878e;
 
   --main-bg-start: #181a14;
@@ -89,7 +89,7 @@
   --primary-mid: #00a0ff;
   --primary-end: #e0e0ff;
 
-  --primary-text: #0a1420;
+  --primary-text: #FFFFFF;
   --primary-shadow: #00ffc8;
 
   --main-bg-start: #060e14;
@@ -255,7 +255,7 @@
   --primary-mid: #c1e3ff;
   --primary-end: #d4f0c0;
 
-  --primary-text: #1a1a2e;
+  --primary-text: #e4a1a1;
   --primary-shadow: #ffd6e0;
 
   --main-bg-start: #1a1a22;
@@ -287,7 +287,7 @@
 
 /* Bruised fruit — overripe plum, fig, and dark berry */
 [data-theme='bruise'] {
-  --primary-start: #d4a5e5;
+  --primary-start: #e7be8e;
   --primary-mid: #8b3a8f;
   --primary-end: #3c1361;
 
@@ -296,7 +296,7 @@
 
   --main-bg-start: #10061a;
   --main-bg-mid: #1a0c28;
-  --main-bg-end: #241236;
+  --main-bg-end: #ba9367;
 
   --surface: #1e0e2c;
   --surface-light: #2c163e;
@@ -347,7 +347,7 @@
   --primary-mid: #ff6f00;
   --primary-end: #b71c1c;
 
-  --primary-text: #1a0800;
+  --primary-text: #e09265;
   --primary-shadow: #ff6f00;
 
   --main-bg-start: #1a0e06;
@@ -421,7 +421,7 @@
   --primary-mid: #aeea00;
   --primary-end: #558b2f;
 
-  --primary-text: #0a1200;
+  --primary-text: #c1c1c1;
   --primary-shadow: #c6ff00;
 
   --main-bg-start: #0a0e04;
@@ -459,7 +459,7 @@
   --primary-mid: #e8a87c;
   --primary-end: #5f9ea0;
 
-  --primary-text: #1a1410;
+  --primary-text: #FFFFFF;
   --primary-shadow: #e8a87c;
 
   --main-bg-start: #141210;
@@ -533,7 +533,7 @@
   --primary-mid: #dcedc1;
   --primary-end: #ffd3b6;
 
-  --primary-text: #1a1a1a;
+  --primary-text: #ffbd91;
   --primary-shadow: #a8e6cf;
 
   --main-bg-start: #0c1410;
@@ -625,7 +625,7 @@
   --primary-mid: #8bc34a;
   --primary-end: #558b2f;
 
-  --primary-text: #0a1200;
+  --primary-text: #FFFFFF;
   --primary-shadow: #c5e1a5;
 
   --main-bg-start: #0a1008;
@@ -645,7 +645,7 @@
   --primary-mid: #fff9c4;
   --primary-end: #7c4dff;
 
-  --primary-text: #1a1400;
+  --primary-text: #FFFFFF;
   --primary-shadow: #ffee58;
 
   --main-bg-start: #0c0818;
@@ -811,7 +811,7 @@
   --primary-mid: #80deea;
   --primary-end: #4dd0e1;
 
-  --primary-text: #0a1820;
+  --primary-text: #FFFFFF;
   --primary-shadow: #80deea;
 
   --main-bg-start: #060c10;
@@ -867,7 +867,7 @@
   --primary-mid: #f48fb1;
   --primary-end: #81d4fa;
 
-  --primary-text: #0a1410;
+  --primary-text: #FFFFFF;
   --primary-shadow: #f48fb1;
 
   --main-bg-start: #0a100c;

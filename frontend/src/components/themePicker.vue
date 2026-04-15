@@ -10,7 +10,7 @@
         <div :data-theme="themeValue">
           <ColorPaletteSwatch :width="120" :height="120" />
         </div>
-        <span class="text-sm text-center max-w-30 leading-tight">
+        <span class="text-sm text-center text-white max-w-30 leading-tight">
           {{ displayName }}
         </span>
       </div>
@@ -21,7 +21,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { themeMap } from '../../public/themeMap.ts'
-import ColorPaletteSwatch from './ColorPaletteSwatch.vue'
+import ColorPaletteSwatch from './colorPaletteSwatch.vue';
 
 const emit = defineEmits(['closeThemeOverlay']);
 
