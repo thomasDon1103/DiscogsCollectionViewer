@@ -2,7 +2,7 @@
   <div class="w-full h-full flex bg-window-gradient overflow-hidden">
     <div id="app" class="h-screen flex flex-col">
       <!-- Header -->
-      <header class="pt-5 sm:pt-10 pb-6 px-6">
+      <header class="pt-5 2xl:pt-10 pb-2 2xl:pb-6 px-6">
         <div class="flex items-center justify-center gap-4 mb-2">
           <div
             class="w-12 h-12 rounded-2xl bg-primary-gradient flex items-center justify-center shadow-lg shadow-primary-shadow/30">
