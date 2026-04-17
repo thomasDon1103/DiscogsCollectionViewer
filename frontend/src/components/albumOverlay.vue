@@ -9,8 +9,9 @@
                 <div class="flex flex-col h-full w-full">
                     <!-- Title Box -->
                     <div class="flex flex-col bg-white/10 rounded-lg p-3 mb-3">
-                        <h1 class="text-6xl -skew-x-6 font-bold text-shadow-lg text-shadow-primary-end">{{
-                            props.albumInfo?.artists[0].name }} - {{
+                        <h1 class="xl:text-4xl 2xl:text-6xl -skew-x-6 font-bold text-shadow-lg text-shadow-primary-end">
+                            {{
+                                props.albumInfo?.artists[0].name }} - {{
                                 props.albumInfo?.title }}</h1>
                         <div class="bg-primary-end/70 rounded-lg shadow-lg w-full mt-2 h-2"></div>
                     </div>
@@ -46,7 +47,7 @@
                                             <div class="flex" v-for="(format, index) in props.albumInfo?.formats">
                                                 <p class="text-left text-lg">&nbsp;{{ format.name }}</p>
                                                 <p v-if="format.text" class="text-left text-lg">&nbsp;- {{ format.text
-                                                    }}
+                                                }}
                                                 </p>
                                                 <p v-if="index != props.albumInfo?.formats?.length as number - 1">,</p>
                                             </div>

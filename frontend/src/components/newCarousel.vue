@@ -32,7 +32,8 @@
                             <img :src="release.basic_information.cover_image" :alt="release.basic_information.title"
                                 class="w-full aspect-square object-cover" draggable="false" loading="lazy"
                                 decoding="async"
-                                @dblclick="handleAlbumDoubleClick(props.collectionData!.releases[index].id)" />
+                                @dblclick="handleAlbumDoubleClick(props.collectionData!.releases[index].id)"
+                                @touchstart="handleTouchDoubleTap($event, props.collectionData!.releases[index].id)" />
                             <!-- Subtle gradient overlay at bottom of image -->
                             <div v-show="index === currentIndex"
                                 class="absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-black/30 to-transparent w-full">
@@ -130,6 +131,20 @@ const goToRelease = (index: number) => {
 const handleAlbumDoubleClick = (albumID: number) => {
     emit("albumSelected", albumID);
 }
+
+
+// Touch screen is annoying
+const lastTouch = ref(0);
+const handleTouchDoubleTap = (event: TouchEvent, id: number) => {
+    const now = Date.now();
+    const DOUBLE_TAP_DELAY = 300; // ms
+
+    if (now - lastTouch.value < DOUBLE_TAP_DELAY) {
+        handleAlbumDoubleClick(id);
+        event.preventDefault(); // Prevent zoom
+    }
+    lastTouch.value = now;
+};
 </script>
 
 <style scoped>
