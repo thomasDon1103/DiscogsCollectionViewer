@@ -9,24 +9,6 @@
 
 /* ---------- ELEGANT & CLASSIC ---------- */
 
-/* Muted burgundy and champagne — old-world sophistication */
-[data-theme='velvet'] {
-  --primary-start: #c9a96e;
-  --primary-mid: #8e3a59;
-  --primary-end: #4a1942;
-
-  --primary-text: #f5e6d3;
-  --primary-shadow: #c9a96e;
-
-  --main-bg-start: #1a0e14;
-  --main-bg-mid: #261420;
-  --main-bg-end: #30182a;
-
-  --surface: #2c1624;
-  --surface-light: #4e2c44;
-  --surface-lighter: #502a44;
-}
-
 /* Silver and slate blue — polished chrome feel */
 [data-theme='chrome'] {
   --primary-start: #c0c0c0;
@@ -102,7 +84,7 @@
 }
 
 /* Acid green, warning orange, deep black — hazard aesthetic */
-[data-theme='hazard'] {
+/* [data-theme='hazard'] {
   --primary-start: #39ff14;
   --primary-mid: #ff6600;
   --primary-end: #ff0040;
@@ -117,7 +99,7 @@
   --surface: #121408;
   --surface-light: #262c18;
   --surface-lighter: #282c18;
-}
+} */
 
 /* ---------- NATURE & EARTH ---------- */
 
@@ -176,27 +158,27 @@
 }
 
 /* Autumn harvest — burnt orange, deep red, golden brown */
-[data-theme='harvest'] {
-  --primary-start: #e6a23c;
-  --primary-mid: #c0392b;
-  --primary-end: #6b3a2a;
+/* [data-theme='harvest'] {
+  --primary-start: #ff6a00;
+  --primary-mid: #cc3f00;
+  --primary-end: #8b1a00;
 
   --primary-text: #FFFFFF;
-  --primary-shadow: #e6a23c;
+  --primary-shadow: #ff6a00;
 
-  --main-bg-start: #1a100a;
-  --main-bg-mid: #261610;
-  --main-bg-end: #321c16;
+  --main-bg-start: #0f0500;
+  --main-bg-mid: #1c0a00;
+  --main-bg-end: #2a0f00;
 
-  --surface: #281812;
-  --surface-light: #462e24;
-  --surface-lighter: #4a2e24;
-}
+  --surface: #1f0a00;
+  --surface-light: #3d1a06;
+  --surface-lighter: #3d1600;
+} */
 
 /* ---------- EXPERIMENTAL & UNUSUAL ---------- */
 
 /* Inverted warmth — cool primaries on warm backgrounds */
-[data-theme='paradox'] {
+/* [data-theme='paradox'] {
   --primary-start: #00e5ff;
   --primary-mid: #76ff03;
   --primary-end: #e040fb;
@@ -211,7 +193,7 @@
   --surface: #2a2210;
   --surface-light: #483e24;
   --surface-lighter: #4a3e22;
-}
+} */
 
 /* Near-monochrome with a single accent pop */
 [data-theme='noir'] {
@@ -232,7 +214,7 @@
 }
 
 /* Duochrome — two clashing hues, no middle ground */
-[data-theme='duochrome'] {
+/* [data-theme='duochrome'] {
   --primary-start: #ff6b6b;
   --primary-mid: #845ec2;
   --primary-end: #00c9a7;
@@ -247,7 +229,7 @@
   --surface: #180e1a;
   --surface-light: #301e36;
   --surface-lighter: #3e2846;
-}
+} */
 
 /* Bleached pastels — washed-out candy tones on near-white dark */
 [data-theme='bleached'] {
@@ -268,7 +250,7 @@
 }
 
 /* Oxidized copper — verdigris green and aged bronze */
-[data-theme='patina'] {
+/* [data-theme='patina'] {
   --primary-start: #4ecdc4;
   --primary-mid: #2a9d8f;
   --primary-end: #8b6914;
@@ -283,7 +265,7 @@
   --surface: #14221e;
   --surface-light: #283c36;
   --surface-lighter: #283e36;
-}
+} */
 
 /* Bruised fruit — overripe plum, fig, and dark berry */
 [data-theme='bruise'] {
@@ -306,7 +288,7 @@
 /* ---------- COSMIC & SCI-FI ---------- */
 
 /* Martian landscape — rust red, dusty pink, iron grey */
-[data-theme='mars'] {
+/* [data-theme='mars'] {
   --primary-start: #e25822;
   --primary-mid: #c97b63;
   --primary-end: #6d4c41;
@@ -321,10 +303,10 @@
   --surface: #281610;
   --surface-light: #462c24;
   --surface-lighter: #4a2c24;
-}
+} */
 
 /* Bioluminescence — deep sea glow with organic colors */
-[data-theme='bioluminescent'] {
+/* [data-theme='bioluminescent'] {
   --primary-start: #00ff87;
   --primary-mid: #00b4d8;
   --primary-end: #7400b8;
@@ -339,10 +321,10 @@
   --surface: #081820;
   --surface-light: #183044;
   --surface-lighter: #183244;
-}
+} */
 
 /* Supernova — explosive white-hot core fading to cool edges */
-[data-theme='supernova'] {
+/* [data-theme='supernova'] {
   --primary-start: #fff8e1;
   --primary-mid: #ff6f00;
   --primary-end: #b71c1c;
@@ -357,10 +339,10 @@
   --surface: #2c1810;
   --surface-light: #4c2e22;
   --surface-lighter: #502e22;
-}
+} */
 
 /* Wormhole — impossible color transitions */
-[data-theme='wormhole'] {
+/* [data-theme='wormhole'] {
   --primary-start: #ff0080;
   --primary-mid: #00ffff;
   --primary-end: #ff8000;
@@ -375,7 +357,7 @@
   --surface: #0e0818;
   --surface-light: #22183c;
   --surface-lighter: #24183c;
-}
+} */
 
 /* ---------- MOODY & ATMOSPHERIC ---------- */
 
@@ -492,7 +474,7 @@
 /* ---------- MINERAL & GEM ---------- */
 
 /* Amethyst geode — deep purple crystal with quartz white */
-[data-theme='amethyst'] {
+/* [data-theme='amethyst'] {
   --primary-start: #ce93d8;
   --primary-mid: #9c27b0;
   --primary-end: #4a148c;
@@ -507,7 +489,7 @@
   --surface: #1c0e28;
   --surface-light: #341e4c;
   --surface-lighter: #361e4e;
-}
+} */
 
 /* Obsidian — volcanic glass with iridescent sheen */
 [data-theme='obsidian'] {
@@ -546,7 +528,7 @@
 }
 
 /* Ruby — deep red with dark garnet undertones */
-[data-theme='ruby'] {
+/* [data-theme='ruby'] {
   --primary-start: #ef5350;
   --primary-mid: #c62828;
   --primary-end: #7f0000;
@@ -561,10 +543,10 @@
   --surface: #240e0e;
   --surface-light: #421e1e;
   --surface-lighter: #441e1e;
-}
+} */
 
 /* Sapphire — royal blue with icy highlights */
-[data-theme='sapphire'] {
+/* [data-theme='sapphire'] {
   --primary-start: #42a5f5;
   --primary-mid: #1565c0;
   --primary-end: #0d47a1;
@@ -579,10 +561,10 @@
   --surface: #0c1628;
   --surface-light: #1e2c4c;
   --surface-lighter: #1e2c4e;
-}
+} */
 
 /* Emerald — rich green with golden flecks */
-[data-theme='emerald'] {
+/* [data-theme='emerald'] {
   --primary-start: #66bb6a;
   --primary-mid: #2e7d32;
   --primary-end: #1b5e20;
@@ -597,27 +579,9 @@
   --surface: #0e1e12;
   --surface-light: #203828;
   --surface-lighter: #203a26;
-}
+} */
 
 /* ---------- FOOD & DRINK ---------- */
-
-/* Espresso — dark roast brown, crema foam, caramel */
-[data-theme='espresso'] {
-  --primary-start: #d7b98e;
-  --primary-mid: #8d6e4c;
-  --primary-end: #3e2723;
-
-  --primary-text: #f5e6d3;
-  --primary-shadow: #d7b98e;
-
-  --main-bg-start: #120c08;
-  --main-bg-mid: #1c1410;
-  --main-bg-end: #261c18;
-
-  --surface: #201610;
-  --surface-light: #3a2c24;
-  --surface-lighter: #3c2c24;
-}
 
 /* Matcha — ceremonial green tea with cream */
 [data-theme='matcha'] {
@@ -678,7 +642,7 @@
 /* ---------- ABSTRACT & ARTISTIC ---------- */
 
 /* Rothko — color field painting: deep red over maroon */
-[data-theme='rothko'] {
+/* [data-theme='rothko'] {
   --primary-start: #d32f2f;
   --primary-mid: #8e2424;
   --primary-end: #4e1a1a;
@@ -693,10 +657,10 @@
   --surface: #220e0e;
   --surface-light: #3e1e1e;
   --surface-lighter: #401e1e;
-}
+} */
 
 /* Mondrian — primary colors in bold blocks */
-[data-theme='mondrian'] {
+/* [data-theme='mondrian'] {
   --primary-start: #f44336;
   --primary-mid: #2196f3;
   --primary-end: #ffeb3b;
@@ -710,8 +674,8 @@
 
   --surface: #161616;
   --surface-light: #2c2c2c;
-      --surface-lighter: #383838;
-}
+  --surface-lighter: #383838;
+} */
 
 /* Glitch art — clashing RGB channel separation */
 [data-theme='glitch'] {
@@ -727,7 +691,7 @@
   --main-bg-end: #06080e;
 
   --surface: #0c0a10;
-  --surface-light: #1e1a24;
+  --surface-light: #525252;
   --surface-lighter: #1e1a22;
 }
 
@@ -760,9 +724,9 @@
   --primary-text: #FFFFFF;
   --primary-shadow: #ff1493;
 
-  --main-bg-start: #0a0610;
-  --main-bg-mid: #14081e;
-  --main-bg-end: #1e0c2c;
+  --main-bg-start: #1d0e34;
+  --main-bg-mid: #311a43;
+  --main-bg-end: #33164a;
 
   --surface: #180a24;
   --surface-light: #30184c;
@@ -778,9 +742,9 @@
   --primary-text: #FFFFFF;
   --primary-shadow: #81d4fa;
 
-  --main-bg-start: #060e12;
-  --main-bg-mid: #0e181e;
-  --main-bg-end: #16222a;
+  --main-bg-start: #0c222e;
+  --main-bg-mid: #1a2b35;
+  --main-bg-end: #27353e;
 
   --surface: #101c22;
   --surface-light: #243440;
@@ -788,7 +752,7 @@
 }
 
 /* Sahara — sun-bleached sand, deep indigo night sky */
-[data-theme='sahara'] {
+/* [data-theme='sahara'] {
   --primary-start: #f4d03f;
   --primary-mid: #d4a017;
   --primary-end: #1a237e;
@@ -803,10 +767,10 @@
   --surface: #1a1610;
   --surface-light: #342c24;
   --surface-lighter: #342c24;
-}
+} */
 
 /* Tundra — frozen white, pale blue, and stone */
-[data-theme='tundra'] {
+/* [data-theme='tundra'] {
   --primary-start: #e0f7fa;
   --primary-mid: #80deea;
   --primary-end: #4dd0e1;
@@ -821,10 +785,10 @@
   --surface: #0e1820;
   --surface-light: #202e3a;
   --surface-lighter: #202e38;
-}
+} */
 
 /* Bazaar — Moroccan spice market: saffron, paprika, indigo */
-[data-theme='bazaar'] {
+/* [data-theme='bazaar'] {
   --primary-start: #ffb300;
   --primary-mid: #e65100;
   --primary-end: #1a237e;
@@ -839,7 +803,7 @@
   --surface: #1e1408;
   --surface-light: #3a2a1a;
   --surface-lighter: #3c2a1a;
-}
+} */
 
 /* ---------- SEASONS ---------- */
 
@@ -852,9 +816,9 @@
   --primary-text: #FFFFFF;
   --primary-shadow: #e57373;
 
-  --main-bg-start: #080c14;
-  --main-bg-mid: #0e1420;
-  --main-bg-end: #141c2c;
+  --main-bg-start: #122346;
+  --main-bg-mid: #243452;
+  --main-bg-end: #4f3652;
 
   --surface: #101820;
   --surface-light: #243044;
@@ -895,4 +859,22 @@
   --surface: #201a12;
   --surface-light: #3a3228;
   --surface-lighter: #3e3228;
+}
+
+/* Fractal — self-similar at every scale, teal nesting into itself */
+[data-theme='fractal'] {
+  --primary-start: #1de9b6;
+  --primary-mid: #00897b;
+  --primary-end: #004d40;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #1de9b6;
+
+  --main-bg-start: #020806;
+  --main-bg-mid: #04100c;
+  --main-bg-end: #061812;
+
+  --surface: #060e0c;
+  --surface-light: #162620;
+  --surface-lighter: #162620;
 }

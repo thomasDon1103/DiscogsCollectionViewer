@@ -7,191 +7,496 @@
      --surface, --surface-light, --surface-lighter
    ============================================================ */
 
-  /* ---------- FANCY THEMES ---------- */
+/* ---------- FANCY THEMES ---------- */
+/* Muted burgundy and champagne — old-world sophistication */
+[data-theme='velvet'] {
+  --primary-start: #c9a96e;
+  --primary-mid: #8e3a59;
+  --primary-end: #4a1942;
 
-  [data-theme='aurora'] {
-    --primary-start: #43e97b;
-    --primary-mid: #38a0db;
-    --primary-end: #8e2de2;
+  --primary-text: #f5e6d3;
+  --primary-shadow: #c9a96e;
 
-    --primary-text: #FFFFFF;
-    --primary-shadow: #43e97b;
+  --main-bg-start: #1a0e14;
+  --main-bg-mid: #261420;
+  --main-bg-end: #30182a;
 
-    --main-bg-start: #102820;
-    --main-bg-mid: #142a45;
-    --main-bg-end: #221a4e;
+  --surface: #2c1624;
+  --surface-light: #4e2c44;
+  --surface-lighter: #502a44;
+}
 
-    --surface: #183448;
-    --surface-light: #2a5270;
-    --surface-lighter: #2c5474;
-  }
+[data-theme='aurora'] {
+  --primary-start: #43e97b;
+  --primary-mid: #38a0db;
+  --primary-end: #8e2de2;
 
-  [data-theme='nebula'] {
-    --primary-start: #ff6ec4;
-    --primary-mid: #7873f5;
-    --primary-end: #42e695;
+  --primary-text: #FFFFFF;
+  --primary-shadow: #43e97b;
 
-    --primary-text: #FFFFFF;
-    --primary-shadow: #b06aff;
+  --main-bg-start: #102820;
+  --main-bg-mid: #142a45;
+  --main-bg-end: #221a4e;
 
-    --main-bg-start: #221032;
-    --main-bg-mid: #20164e;
-    --main-bg-end: #122a45;
+  --surface: #183448;
+  --surface-light: #2a5270;
+  --surface-lighter: #2c5474;
+}
 
-    --surface: #2b1e57;
-    --surface-light: #3c3078;
-    --surface-lighter: #3e327a;
-  }
+[data-theme='nebula'] {
+  --primary-start: #ff6ec4;
+  --primary-mid: #7873f5;
+  --primary-end: #42e695;
 
-  [data-theme='tropical'] {
-    --primary-start: #66ff00;
-    --primary-mid: #ff8c00;
-    --primary-end: #db3069;
+  --primary-text: #FFFFFF;
+  --primary-shadow: #b06aff;
 
-    --primary-text: #ffefdd;
-    --primary-shadow: #ff8c00;
+  --main-bg-start: #221032;
+  --main-bg-mid: #20164e;
+  --main-bg-end: #122a45;
 
-    --main-bg-start: #3a210a;
-    --main-bg-mid: #4e3619;
-    --main-bg-end: #581f33;
+  --surface: #2b1e57;
+  --surface-light: #3c3078;
+  --surface-lighter: #3e327a;
+}
 
-    --surface: #393a20;
-    --surface-light: #613340;
-    --surface-lighter: #60343e;
-  }
+[data-theme='tropical'] {
+  --primary-start: #66ff00;
+  --primary-mid: #ff8c00;
+  --primary-end: #db3069;
 
-  [data-theme='cyberpunk'] {
-    --primary-start: #00f0ff;
-    --primary-mid: #ff00e5;
-    --primary-end: #ffe600;
+  --primary-text: #ffefdd;
+  --primary-shadow: #ff8c00;
 
-    --primary-text: #FFFFFF;
-    --primary-shadow: #ff00e5;
+  --main-bg-start: #3a210a;
+  --main-bg-mid: #4e3619;
+  --main-bg-end: #581f33;
 
-    --main-bg-start: #162538;
-    --main-bg-mid: #2f144d;
-    --main-bg-end: #371b57;
+  --surface: #393a20;
+  --surface-light: #613340;
+  --surface-lighter: #60343e;
+}
 
-    --surface: #2c144b;
-    --surface-light: #471f75;
-    --surface-lighter: #421a68;
-  }
+[data-theme='cyberpunk'] {
+  --primary-start: #00f0ff;
+  --primary-mid: #ff00e5;
+  --primary-end: #ffe600;
 
-  [data-theme='volcano'] {
-    --primary-start: #ffd319;
-    --primary-mid: #ff2975;
-    --primary-end: #8c1eff;
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ff00e5;
 
-    --primary-text: #FFFFFF;
-    --primary-shadow: #ff2975;
+  --main-bg-start: #162538;
+  --main-bg-mid: #2f144d;
+  --main-bg-end: #371b57;
 
-    --main-bg-start: #4e2a1a;
-    --main-bg-mid: #521632;
-    --main-bg-end: #441044;
+  --surface: #2c144b;
+  --surface-light: #471f75;
+  --surface-lighter: #421a68;
+}
 
-    --surface: #301228;
-    --surface-light: #5c234f;
-    --surface-lighter: #581e48;
-  }
+[data-theme='volcano'] {
+  --primary-start: #ffd319;
+  --primary-mid: #ff2975;
+  --primary-end: #8c1eff;
 
-  [data-theme='coral-reef'] {
-    --primary-start: #00b09b;
-    --primary-mid: #e0567a;
-    --primary-end: #f5af19;
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ff2975;
 
-    --primary-text: #fff1d2;
-    --primary-shadow: #e0567a;
+  --main-bg-start: #4e2a1a;
+  --main-bg-mid: #521632;
+  --main-bg-end: #441044;
 
-    --main-bg-start: #0e2e26;
-    --main-bg-mid: #28202a;
-    --main-bg-end: #2e2820;
+  --surface: #301228;
+  --surface-light: #5c234f;
+  --surface-lighter: #581e48;
+}
 
-    --surface: #1e3832;
-    --surface-light: #385a50;
-    --surface-lighter: #3a5a50;
-  }
+[data-theme='coral-reef'] {
+  --primary-start: #00b09b;
+  --primary-mid: #e0567a;
+  --primary-end: #f5af19;
 
-  [data-theme='northern-lights'] {
-    --primary-start: #a1ffce;
-    --primary-mid: #6eb5ff;
-    --primary-end: #c471ed;
+  --primary-text: #fff1d2;
+  --primary-shadow: #e0567a;
 
-    --primary-text: #FFFFFF;
-    --primary-shadow: #6eb5ff;
+  --main-bg-start: #0e2e26;
+  --main-bg-mid: #28202a;
+  --main-bg-end: #2e2820;
 
-    --main-bg-start: #0e2820;
-    --main-bg-mid: #14263e;
-    --main-bg-end: #1e2050;
+  --surface: #1e3832;
+  --surface-light: #385a50;
+  --surface-lighter: #3a5a50;
+}
 
-    --surface: #162e48;
-    --surface-light: #2a4870;
-    --surface-lighter: #2a4872;
-  }
+[data-theme='northern-lights'] {
+  --primary-start: #a1ffce;
+  --primary-mid: #6eb5ff;
+  --primary-end: #c471ed;
 
-  [data-theme='sakura'] {
-    --primary-start: #fbc2eb;
-    --primary-mid: #c77dba;
-    --primary-end: #6a5acd;
+  --primary-text: #FFFFFF;
+  --primary-shadow: #6eb5ff;
 
-    --primary-text: #fdd1d1;
-    --primary-shadow: #fbc2eb;
+  --main-bg-start: #0e2820;
+  --main-bg-mid: #14263e;
+  --main-bg-end: #1e2050;
 
-    --main-bg-start: #28142a;
-    --main-bg-mid: #321a40;
-    --main-bg-end: #362050;
+  --surface: #162e48;
+  --surface-light: #2a4870;
+  --surface-lighter: #2a4872;
+}
 
-    --surface: #321e40;
-    --surface-light: #54366c;
-    --surface-lighter: #563670;
-  }
+[data-theme='sakura'] {
+  --primary-start: #fbc2eb;
+  --primary-mid: #c77dba;
+  --primary-end: #6a5acd;
 
-  [data-theme='desert-dusk'] {
-    --primary-start: #fceabb;
-    --primary-mid: #e8825c;
-    --primary-end: #7b4397;
+  --primary-text: #fdd1d1;
+  --primary-shadow: #fbc2eb;
 
-    --primary-text: #FFFFFF;
-    --primary-shadow: #e8825c;
+  --main-bg-start: #28142a;
+  --main-bg-mid: #321a40;
+  --main-bg-end: #362050;
 
-    --main-bg-start: #24180e;
-    --main-bg-mid: #321c22;
-    --main-bg-end: #361a32;
+  --surface: #321e40;
+  --surface-light: #54366c;
+  --surface-lighter: #563670;
+}
 
-    --surface: #301c28;
-    --surface-light: #543248;
-    --surface-lighter: #583048;
-  }
+[data-theme='desert-dusk'] {
+  --primary-start: #fceabb;
+  --primary-mid: #e8825c;
+  --primary-end: #7b4397;
 
-  [data-theme='deep-space'] {
-    --primary-start: #4facfe;
-    --primary-mid: #a855f7;
-    --primary-end: #f43f5e;
+  --primary-text: #FFFFFF;
+  --primary-shadow: #e8825c;
 
-    --primary-text: #FFFFFF;
-    --primary-shadow: #a855f7;
+  --main-bg-start: #24180e;
+  --main-bg-mid: #321c22;
+  --main-bg-end: #361a32;
 
-    --main-bg-start: #101628;
-    --main-bg-mid: #1c1438;
-    --main-bg-end: #281434;
+  --surface: #301c28;
+  --surface-light: #543248;
+  --surface-lighter: #583048;
+}
 
-    --surface: #1e1634;
-    --surface-light: #3f2f64;
-    --surface-lighter: #3a285e;
-  }
+[data-theme='deep-space'] {
+  --primary-start: #4facfe;
+  --primary-mid: #a855f7;
+  --primary-end: #f43f5e;
 
-  [data-theme='jungle'] {
-    --primary-start: #11996c;
-    --primary-mid: #a8c83a;
-    --primary-end: #f2c94c;
+  --primary-text: #FFFFFF;
+  --primary-shadow: #a855f7;
 
-    --primary-text: #dcfe86;
-    --primary-shadow: #119970;
+  --main-bg-start: #101628;
+  --main-bg-mid: #1c1438;
+  --main-bg-end: #281434;
 
-    --main-bg-start: #10281e;
-    --main-bg-mid: #1c3220;
-    --main-bg-end: #24381a;
+  --surface: #1e1634;
+  --surface-light: #3f2f64;
+  --surface-lighter: #3a285e;
+}
 
-    --surface: #1c3424;
-    --surface-light: #305840;
-    --surface-lighter: #325a40;
-  }
+[data-theme='jungle'] {
+  --primary-start: #11996c;
+  --primary-mid: #a8c83a;
+  --primary-end: #f2c94c;
+
+  --primary-text: #dcfe86;
+  --primary-shadow: #119970;
+
+  --main-bg-start: #10281e;
+  --main-bg-mid: #1c3220;
+  --main-bg-end: #24381a;
+
+  --surface: #1c3424;
+  --surface-light: #305840;
+  --surface-lighter: #325a40;
+}
+
+
+/* ========== SYNESTHETIC TASTE — Flavors as impossible colors ========== */
+
+/* Umami — the fifth taste: deep, savory, indescribable brown-gold-purple */
+[data-theme='umami'] {
+  --primary-start: #8d6e63;
+  --primary-mid: #d4a24e;
+  --primary-end: #5c3580;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #d4a24e;
+
+  --main-bg-start: #352016;
+  --main-bg-mid: #352822;
+  --main-bg-end: #23182f;
+
+  --surface: #141010;
+  --surface-light: #443a37;
+  --surface-lighter: #36302e;
+}
+
+/* Sour — face-puckering acid green-yellow with electric bite */
+[data-theme='sour'] {
+  --primary-start: #c6ff00;
+  --primary-mid: #ffea00;
+  --primary-end: #76ff03;
+
+  --primary-text: #79a900;
+  --primary-shadow: #c6ff00;
+
+  --main-bg-start: #394120;
+  --main-bg-mid: #5b673f;
+  --main-bg-end: #3e5508;
+
+  --surface: #101406;
+  --surface-light: #343d1b;
+  --surface-lighter: #242a14;
+}
+
+/* Bitter — dark chocolate brown meeting medicinal green */
+[data-theme='bitter'] {
+  --primary-start: #4e342e;
+  --primary-mid: #6d4c41;
+  --primary-end: #2e7d32;
+
+  --primary-text: #d7ccc8;
+  --primary-shadow: #6d4c41;
+
+  --main-bg-start: #4c3c25;
+  --main-bg-mid: #12100c;
+  --main-bg-end: #243d14;
+
+  --surface: #100e0a;
+  --surface-light: #24221c;
+  --surface-lighter: #24221c;
+}
+
+/* Spice — capsaicin heat: searing red-orange with endorphin purple */
+[data-theme='spice'] {
+  --primary-start: #ff3d00;
+  --primary-mid: #dd2c00;
+  --primary-end: #aa00ff;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ff3d00;
+
+  --main-bg-start: #2c130f;
+  --main-bg-mid: #331703;
+  --main-bg-end: #351e3b;
+
+  --surface: #160806;
+  --surface-light: #43251b;
+  --surface-lighter: #301a14;
+}
+
+/* Silk — liquid smooth gradient, pearl to deep wine */
+[data-theme='silk'] {
+  --primary-start: #f8e8f0;
+  --primary-mid: #c77dba;
+  --primary-end: #6a1b4d;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #f8e8f0;
+
+  --main-bg-start: #140a10;
+  --main-bg-mid: #1e1018;
+  --main-bg-end: #281620;
+
+  --surface: #201214;
+  --surface-light: #3a2630;
+  --surface-lighter: #3e2630;
+}
+
+/* Brown and pink — ugly-beautiful, deliberately uncool */
+[data-theme='ugly-beautiful'] {
+  --primary-start: #f48fb1;
+  --primary-mid: #653b2e;
+  --primary-end: #f06292;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #f48fb1;
+
+  --main-bg-start: #1c1216;
+  --main-bg-mid: #2d210c;
+  --main-bg-end: #1f170e;
+
+  --surface: #161012;
+  --surface-light: #3f3119;
+  --surface-lighter: #3a2e32;
+}
+
+/* ========== LIMINAL SPACES — The uncanny in-between ========== */
+
+/* Empty mall — fluorescent buzz, dead retail, faded everything */
+[data-theme='empty-mall'] {
+  --primary-start: #e0e0e0;
+  --primary-mid: #b0bec5;
+  --primary-end: #c5e1a5;
+
+  --primary-text: #f3d2a7;
+  --primary-shadow: #ccf49f;
+
+  --main-bg-start: #568382;
+  --main-bg-mid: #9c9c9c;
+  --main-bg-end: #3e657e;
+
+  --surface: #141412;
+  --surface-light: #9d9d9d;
+  --surface-lighter: #7f7f7f;
+}
+
+/* Hotel hallway — infinite carpet pattern, warm+-wrong lighting */
+[data-theme='hotel-hallway'] {
+  --primary-start: #ffcc80;
+  --primary-mid: #a1887f;
+  --primary-end: #c62828;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #ffcc80;
+
+  --main-bg-start: #351e08;
+  --main-bg-mid: #271c06;
+  --main-bg-end: #2c0505;
+
+  --surface: #12100a;
+  --surface-light: #4a1212;
+  --surface-lighter: #342e26;
+}
+
+/* Pool at 2am — chlorine blue glow, nobody should be here */
+[data-theme='pool-2am'] {
+  --primary-start: #40c4ff;
+  --primary-mid: #0091ea;
+  --primary-end: #00695c;
+
+  --primary-text: #e0f7fa;
+  --primary-shadow: #40c4ff;
+
+  --main-bg-start: #08161d;
+  --main-bg-mid: #08141d;
+  --main-bg-end: #0b161f;
+
+  --surface: #060c10;
+  --surface-light: #162028;
+  --surface-lighter: #162028;
+}
+
+/* Backrooms — yellowish fluorescent on beige, infinite and wrong */
+[data-theme='backrooms'] {
+  --primary-start: #fff7b3;
+  --primary-mid: #f4eb9d;
+  --primary-end: #edda7e;
+
+  --primary-text: #968c00;
+  --primary-shadow: #fff9c4;
+
+  --main-bg-start: #211d11;
+  --main-bg-mid: #302b10;
+  --main-bg-end: #121006;
+
+  --surface: #18160a;
+  --surface-light: #2e2c18;
+  --surface-lighter: #3a3822;
+}
+
+/* Memento mori — remember you will die, bone-white and grave-earth */
+[data-theme='memento-mori'] {
+  --primary-start: #efebe9;
+  --primary-mid: #6d4c41;
+  --primary-end: #3e2723;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #efebe9;
+
+  --main-bg-start: #080604;
+  --main-bg-mid: #0e0a08;
+  --main-bg-end: #14100c;
+
+  --surface: #100c0a;
+  --surface-light: #26201c;
+  --surface-lighter: #322c28;
+}
+
+[data-theme='bubble-gum-floss'] {
+  --primary-start: #f88fff;
+  --primary-mid: #00c2b8;
+  --primary-end: #ff438e;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #efebe9;
+
+  --main-bg-start: #005a63;
+  --main-bg-mid: #826f91;
+  --main-bg-end: #502149;
+
+  --surface: #100c0a;
+  --surface-light: #6a2943;
+  --surface-lighter: #322c28;
+}
+
+[data-theme='forest-fire'] {
+  --primary-start: #ff6060;
+  --primary-mid: #008d2c;
+  --primary-end: #4e3801;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #efebe9;
+
+  --main-bg-start: #6c6c6c;
+  --main-bg-mid: #781800;
+  --main-bg-end: #005320;
+
+  --surface: #100c0a;
+  --surface-light: #542d14;
+  --surface-lighter: #322c28;
+}
+
+[data-theme='afternoon-sand'] {
+  --primary-start: #13beaa;
+  --primary-mid: #e76f51;
+  --primary-end: #e97c61;
+
+  --primary-text: #FFFFFF;
+  --primary-shadow: #efebe9;
+
+  --main-bg-start: #f48b61;
+  --main-bg-mid: #1b685f;
+  --main-bg-end: #e9c46a;
+
+  --surface: #100c0a;
+  --surface-light: #ae8d38;
+  --surface-lighter: #322c28;
+}
+
+[data-theme='vapor-pastel'] {
+  --primary-start: #fdf49c;
+  --primary-mid: #ffbcac;
+  --primary-end: #fea5ca;
+
+  --primary-text: #d3d6d9;
+  --primary-shadow: #efebe9;
+
+  --main-bg-start: #fe8e72;
+  --main-bg-mid: #ff7cb2;
+  --main-bg-end: #d779ff;
+
+  --surface: #100c0a;
+  --surface-light: #ba482c;
+  --surface-lighter: #322c28;
+}
+
+[data-theme='clay-deposit'] {
+  --primary-start: #ce7d5d;
+  --primary-mid: #a3543d;
+  --primary-end: #d49a89;
+
+  --primary-text: #c5c5c5;
+  --primary-shadow: #efebe9;
+
+  --main-bg-start: #f7d1ba;
+  --main-bg-mid: #c07b5b;
+  --main-bg-end: #815b3e;
+
+  --surface: #100c0a;
+  --surface-light: #70352b;
+  --surface-lighter: #322c28;
+}
