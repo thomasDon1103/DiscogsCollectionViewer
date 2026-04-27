@@ -14,7 +14,7 @@
             </div>
 
             <!-- Audio Element -->
-            <audio ref="audioPlayer" :src="currentAudio.url" @ended="onTrackEnded" @play="isPlaying = true" @pause="isPlaying = false"></audio>
+            <audio ref="audioPlayer" :src="currentAudio.url" @ended="onTrackEnded" @timeupdate="onTimeUpdate" @play="isPlaying = true" @pause="isPlaying = false"></audio>
 
             <!-- Playback Controls (Right Side) -->
             <div class="flex items-center gap-2 shrink-0">
@@ -56,7 +56,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, nextTick } from 'vue';
+import { computed, ref, nextTick, onBeforeUnmount } from 'vue';
 
 // Playlist
 const playlist = ref([
@@ -68,6 +68,13 @@ const currentAudioIndex = ref(0);
 const audioPlayer = ref<HTMLAudioElement | null>(null);
 const isPlaying = ref(false);
 const isLooping = ref(false);
+const isFading = ref(false);
+
+const FADE_DURATION = 1500; // ms
+const FADE_STEPS = 40;
+const FADE_OUT_BEFORE_END = FADE_DURATION / 1000; // seconds before end to start fading out
+let fadeInterval: ReturnType<typeof setInterval> | null = null;
+let endFadeStarted = false;
 
 // Current song
 const currentAudio = computed(() => playlist.value[currentAudioIndex.value]);
@@ -87,36 +94,126 @@ const toggleLoop = () => {
     isLooping.value = !isLooping.value;
 };
 
-// Handle track end — loop or advance
-const onTrackEnded = () => {
-    if (isLooping.value && audioPlayer.value) {
-        audioPlayer.value.currentTime = 0;
-        audioPlayer.value.play();
-    } else {
-        playNext();
+// Clear any running fade interval
+const clearFade = () => {
+    if (fadeInterval) {
+        clearInterval(fadeInterval);
+        fadeInterval = null;
     }
 };
 
-// Change track and auto-play
-const changeTrack = (newIndex: number) => {
-    currentAudioIndex.value = newIndex;
-    nextTick(() => {
-        if (audioPlayer.value) {
-            audioPlayer.value.load();
-            audioPlayer.value.play();
-        }
+// Generic volume fade: resolves when complete
+const fadeVolume = (from: number, to: number): Promise<void> => {
+    return new Promise((resolve) => {
+        if (!audioPlayer.value) { resolve(); return; }
+        clearFade();
+
+        const stepTime = FADE_DURATION / FADE_STEPS;
+        const stepSize = (to - from) / FADE_STEPS;
+        let step = 0;
+
+        audioPlayer.value.volume = from;
+
+        fadeInterval = setInterval(() => {
+            step++;
+            if (!audioPlayer.value || step >= FADE_STEPS) {
+                clearFade();
+                if (audioPlayer.value) audioPlayer.value.volume = to;
+                resolve();
+                return;
+            }
+            audioPlayer.value.volume = Math.min(1, Math.max(0, from + stepSize * step));
+        }, stepTime);
     });
 };
 
-// Next track
-const playNext = () => {
-    changeTrack((currentAudioIndex.value + 1) % playlist.value.length);
+// Fade in a new track from volume 0 → 1
+const fadeInNewTrack = async (newIndex: number) => {
+    currentAudioIndex.value = newIndex;
+    endFadeStarted = false;
+    await nextTick();
+
+    if (audioPlayer.value) {
+        audioPlayer.value.volume = 0;
+        audioPlayer.value.load();
+        await audioPlayer.value.play();
+        await fadeVolume(0, 1);
+    }
+
+    isFading.value = false;
 };
 
-// Previous track
-const playPrevious = () => {
-    changeTrack((currentAudioIndex.value - 1 + playlist.value.length) % playlist.value.length);
+// Fade out current track, then switch and fade in
+const crossfadeTo = async (newIndex: number) => {
+    if (isFading.value) return;
+    isFading.value = true;
+
+    // Fade out current track (even if paused/ended, just ensure volume is 0)
+    if (audioPlayer.value) {
+        const currentVol = audioPlayer.value.paused ? 0 : audioPlayer.value.volume;
+        if (currentVol > 0) {
+            await fadeVolume(currentVol, 0);
+        }
+        audioPlayer.value.pause();
+    }
+
+    await fadeInNewTrack(newIndex);
 };
+
+// Monitor playback time to start fading out near end of track
+const onTimeUpdate = () => {
+    if (!audioPlayer.value || isLooping.value || isFading.value || endFadeStarted) return;
+
+    const timeLeft = audioPlayer.value.duration - audioPlayer.value.currentTime;
+
+    if (timeLeft <= FADE_OUT_BEFORE_END && timeLeft > 0) {
+        endFadeStarted = true;
+        isFading.value = true;
+
+        const nextIndex = (currentAudioIndex.value + 1) % playlist.value.length;
+
+        // Fade out the remaining audio, then switch
+        fadeVolume(audioPlayer.value.volume, 0).then(() => {
+            if (audioPlayer.value) audioPlayer.value.pause();
+            fadeInNewTrack(nextIndex);
+        });
+    }
+};
+
+// Handle track end — fallback in case timeupdate fade didn't trigger
+const onTrackEnded = () => {
+    if (isLooping.value && audioPlayer.value) {
+        audioPlayer.value.currentTime = 0;
+        audioPlayer.value.volume = 1;
+        audioPlayer.value.play();
+        return;
+    }
+
+    // If the end-fade already handled the transition, skip
+    if (endFadeStarted) return;
+
+    // Fallback: just fade in the next track
+    isFading.value = true;
+    const nextIndex = (currentAudioIndex.value + 1) % playlist.value.length;
+    fadeInNewTrack(nextIndex);
+};
+
+// Next track (manual skip)
+const playNext = () => {
+    endFadeStarted = false;
+    crossfadeTo((currentAudioIndex.value + 1) % playlist.value.length);
+};
+
+// Previous track (manual skip)
+const playPrevious = () => {
+    endFadeStarted = false;
+    crossfadeTo((currentAudioIndex.value - 1 + playlist.value.length) % playlist.value.length);
+};
+
+// Cleanup on unmount
+onBeforeUnmount(() => {
+    clearFade();
+});
 </script>
 
 <style scoped>
