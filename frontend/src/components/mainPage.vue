@@ -5,7 +5,6 @@
     <SideBar>
       <!-- All Sidebar Elements -->
       <div class="flex flex-col h-full">
-      <div class="flex flex-col h-full">
         <!-- Format Filter Buttons -->
         <div class="h-5/6 flex flex-col">
           <h3 class="text-xl font-bold pb-4">Format Filtering</h3>
