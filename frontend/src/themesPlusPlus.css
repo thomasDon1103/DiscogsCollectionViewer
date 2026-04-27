@@ -10,7 +10,7 @@
 /* ========== SYNESTHESIA — Colors inspired by sound ========== */
 
 /* The hum of a cello — deep amber resonance with violet overtones */
-[data-theme='cello'] {
+/* [data-theme='cello'] {
   --primary-start: #d4a24e;
   --primary-mid: #7b4a8a;
   --primary-end: #2c1654;
@@ -25,7 +25,7 @@
   --surface: #1e1420;
   --surface-light: #382a42;
   --surface-lighter: #3c2844;
-}
+} */
 
 /* White noise — static grain, all frequencies at once */
 [data-theme='white-noise'] {
@@ -46,7 +46,7 @@
 }
 
 /* Bass drop — subsonic purple-black with neon impact */
-[data-theme='bass-drop'] {
+/* [data-theme='bass-drop'] {
   --primary-start: #ea00ff;
   --primary-mid: #1b0030;
   --primary-end: #00ff9f;
@@ -61,12 +61,12 @@
   --surface: #0c0424;
   --surface-light: #1e104a;
   --surface-lighter: #220c4e;
-}
+} */
 
 /* ========== IMPOSSIBLE PHYSICS — Colors that shouldn't coexist ========== */
 
 /* Antimatter — inverted expectations, warm where cold should be */
-[data-theme='antimatter'] {
+/* [data-theme='antimatter'] {
   --primary-start: #ff6e40;
   --primary-mid: #00e5ff;
   --primary-end: #ff6e40;
@@ -81,7 +81,7 @@
   --surface: #121614;
   --surface-light: #262e2c;
   --surface-lighter: #282e2c;
-}
+} */
 
 /* Dark matter — nearly invisible, ultra-subtle shifts */
 [data-theme='dark-matter'] {
@@ -102,7 +102,7 @@
 }
 
 /* Quantum — superposition of complementary colors */
-[data-theme='quantum'] {
+/* [data-theme='quantum'] {
   --primary-start: #ff0055;
   --primary-mid: #00ffa5;
   --primary-end: #5500ff;
@@ -117,7 +117,7 @@
   --surface: #0a0812;
   --surface-light: #1e1830;
   --surface-lighter: #1e1830;
-}
+} */
 
 /* Event horizon — light bending at the edge of a black hole */
 [data-theme='event-horizon'] {
@@ -140,7 +140,7 @@
 /* ========== EMOTIONAL STATES — Abstract feelings as color ========== */
 
 /* Euphoria — overwhelming joy, golden light flooding everything */
-[data-theme='euphoria'] {
+/* [data-theme='euphoria'] {
   --primary-start: #fff176;
   --primary-mid: #ffb74d;
   --primary-end: #ff8a65;
@@ -155,7 +155,7 @@
   --surface: #262010;
   --surface-light: #403822;
   --surface-lighter: #443a22;
-}
+} */
 
 /* Melancholy — blue-grey sadness with a warm memory underneath */
 [data-theme='melancholy'] {
@@ -176,7 +176,7 @@
 }
 
 /* Vertigo — disorienting spiral of clashing tones */
-[data-theme='vertigo'] {
+/* [data-theme='vertigo'] {
   --primary-start: #76ff03;
   --primary-mid: #d500f9;
   --primary-end: #ff9100;
@@ -191,7 +191,7 @@
   --surface: #0e0a10;
   --surface-light: #241a2e;
   --surface-lighter: #241a2e;
-}
+} */
 
 /* Nostalgia — sepia-tinted warmth fading at the edges */
 [data-theme='nostalgia'] {
@@ -319,26 +319,8 @@
   --main-bg-end: #140a08;
 
   --surface: #100c08;
-  --surface-light: #261e18;
+  --surface-light: #3b231e;
   --surface-lighter: #261e18;
-}
-
-/* Brown and pink — ugly-beautiful, deliberately uncool */
-[data-theme='ugly-beautiful'] {
-  --primary-start: #f48fb1;
-  --primary-mid: #8d6e63;
-  --primary-end: #f06292;
-
-  --primary-text: #FFFFFF;
-  --primary-shadow: #f48fb1;
-
-  --main-bg-start: #120c0a;
-  --main-bg-mid: #1c1412;
-  --main-bg-end: #1e1218;
-
-  --surface: #1a1210;
-  --surface-light: #322824;
-  --surface-lighter: #342824;
 }
 
 /* Orange and purple — Halloween energy, year-round */
@@ -360,7 +342,7 @@
 }
 
 /* Mustard and navy — retro-ugly turned trendy */
-[data-theme='mustard-navy'] {
+/* [data-theme='mustard-navy'] {
   --primary-start: #f9a825;
   --primary-mid: #f57f17;
   --primary-end: #0d47a1;
@@ -375,12 +357,12 @@
   --surface: #12100c;
   --surface-light: #28221e;
   --surface-lighter: #28221e;
-}
+} */
 
 /* ========== TEMPORAL — Times of day as extreme palettes ========== */
 
 /* 4:44 AM — the loneliest hour, deep indigo with first light */
-[data-theme='4am'] {
+/* [data-theme='4am'] {
   --primary-start: #1a237e;
   --primary-mid: #283593;
   --primary-end: #ffcc80;
@@ -395,10 +377,10 @@
   --surface: #0a0c1a;
   --surface-light: #1c1e38;
   --surface-lighter: #1a1c36;
-}
+} */
 
 /* Solar noon — blinding white-yellow, everything overexposed */
-[data-theme='solar-noon'] {
+/* [data-theme='solar-noon'] {
   --primary-start: #ffffff;
   --primary-mid: #fff9c4;
   --primary-end: #f57f17;
@@ -413,10 +395,10 @@
   --surface: #2a2410;
   --surface-light: #464024;
   --surface-lighter: #4a4222;
-}
+} */
 
 /* Blue hour — the 20 minutes between sunset and darkness */
-[data-theme='blue-hour'] {
+/* [data-theme='blue-hour'] {
   --primary-start: #5c6bc0;
   --primary-mid: #3949ab;
   --primary-end: #e8967a;
@@ -431,10 +413,10 @@
   --surface: #101420;
   --surface-light: #242844;
   --surface-lighter: #242844;
-}
+} */
 
 /* Witching hour — 3am supernatural, sickly green on black */
-[data-theme='witching-hour'] {
+/* [data-theme='witching-hour'] {
   --primary-start: #b9f6ca;
   --primary-mid: #1b5e20;
   --primary-end: #311b92;
@@ -449,7 +431,7 @@
   --surface: #0a0e0a;
   --surface-light: #1c241c;
   --surface-lighter: #1c241c;
-}
+} */
 
 /* ========== TEXTURE AS COLOR — Materials translated to palette ========== */
 
@@ -471,26 +453,8 @@
   --surface-lighter: #2c3034;
 }
 
-/* Silk — liquid smooth gradient, pearl to deep wine */
-[data-theme='silk'] {
-  --primary-start: #f8e8f0;
-  --primary-mid: #c77dba;
-  --primary-end: #6a1b4d;
-
-  --primary-text: #FFFFFF;
-  --primary-shadow: #f8e8f0;
-
-  --main-bg-start: #140a10;
-  --main-bg-mid: #1e1018;
-  --main-bg-end: #281620;
-
-  --surface: #201214;
-  --surface-light: #3a2630;
-  --surface-lighter: #3e2630;
-}
-
 /* Charcoal sketch — graphite grey with paper-white highlights */
-[data-theme='charcoal'] {
+/* [data-theme='charcoal'] {
   --primary-start: #fafafa;
   --primary-mid: #757575;
   --primary-end: #212121;
@@ -505,10 +469,10 @@
   --surface: #141414;
   --surface-light: #282828;
   --surface-lighter: #343434;
-}
+} */
 
 /* Mercury — liquid metal, shifting silver-blue */
-[data-theme='mercury'] {
+/* [data-theme='mercury'] {
   --primary-start: #cfd8dc;
   --primary-mid: #90a4ae;
   --primary-end: #546e7a;
@@ -523,10 +487,10 @@
   --surface: #101618;
   --surface-light: #242c32;
   --surface-lighter: #242c30;
-}
+} */
 
 /* Neon sign — buzzing tube light on brick, pink-orange glow */
-[data-theme='neon-sign'] {
+/* [data-theme='neon-sign'] {
   --primary-start: #ff4081;
   --primary-mid: #ff6e40;
   --primary-end: #ffab40;
@@ -541,12 +505,12 @@
   --surface: #1e0e10;
   --surface-light: #38202a;
   --surface-lighter: #3c2024;
-}
+} */
 
 /* ========== BIOLOGICAL — Living systems as color ========== */
 
 /* Mycelium — fungal network, ghostly white on deep earth */
-[data-theme='mycelium'] {
+/* [data-theme='mycelium'] {
   --primary-start: #e8e0d8;
   --primary-mid: #a8978a;
   --primary-end: #5d4e37;
@@ -561,7 +525,7 @@
   --surface: #161412;
   --surface-light: #2c2a24;
   --surface-lighter: #383630;
-}
+} */
 
 /* Bioluminescent jellyfish — translucent blue-pink pulse */
 [data-theme='jellyfish'] {
@@ -582,7 +546,7 @@
 }
 
 /* Chlorophyll — the exact green of photosynthesis with UV */
-[data-theme='chlorophyll'] {
+/* [data-theme='chlorophyll'] {
   --primary-start: #76ff03;
   --primary-mid: #64dd17;
   --primary-end: #aa00ff;
@@ -597,7 +561,7 @@
   --surface: #0e1408;
   --surface-light: #202a1a;
   --surface-lighter: #202a1a;
-}
+} */
 
 /* Coral bleaching — dying reef, ghostly white over faded color */
 [data-theme='coral-bleach'] {
@@ -674,7 +638,7 @@
 }
 
 /* Matrix rain — green code on black void */
-[data-theme='matrix'] {
+[data-theme='monster'] {
   --primary-start: #00ff41;
   --primary-mid: #008f11;
   --primary-end: #003b00;
@@ -750,7 +714,7 @@
 /* ========== ARCHITECTURAL — Built environments as color ========== */
 
 /* Brutalist — raw concrete, exposed steel, shadow */
-[data-theme='brutalist'] {
+/* [data-theme='brutalist'] {
   --primary-start: #bdbdbd;
   --primary-mid: #757575;
   --primary-end: #424242;
@@ -765,10 +729,10 @@
   --surface: #141414;
   --surface-light: #282828;
   --surface-lighter: #343434;
-}
+} */
 
 /* Art deco — gold, black, and jade green */
-[data-theme='art-deco'] {
+/* [data-theme='art-deco'] {
   --primary-start: #ffd700;
   --primary-mid: #c9b037;
   --primary-end: #00695c;
@@ -783,10 +747,10 @@
   --surface: #101208;
   --surface-light: #262818;
   --surface-lighter: #24281a;
-}
+} */
 
 /* Gothic cathedral — stained glass jewel tones on stone */
-[data-theme='gothic'] {
+/* [data-theme='gothic'] {
   --primary-start: #c62828;
   --primary-mid: #1565c0;
   --primary-end: #f9a825;
@@ -801,7 +765,7 @@
   --surface: #121010;
   --surface-light: #282222;
   --surface-lighter: #342e2e;
-}
+} */
 
 /* Solarpunk — optimistic green tech, warm copper, living walls */
 [data-theme='solarpunk'] {
@@ -824,7 +788,7 @@
 /* ========== DREAMSCAPE — Surreal and subconscious ========== */
 
 /* Lucid dream — hyper-vivid colors that feel unreal */
-[data-theme='lucid'] {
+/* [data-theme='lucid'] {
   --primary-start: #00e5ff;
   --primary-mid: #ff1744;
   --primary-end: #76ff03;
@@ -839,7 +803,7 @@
   --surface: #0a0a10;
   --surface-light: #1e1a2e;
   --surface-lighter: #2a243e;
-}
+} */
 
 /* Sleep paralysis — oppressive dark with sickly yellow-green */
 [data-theme='sleep-paralysis'] {
@@ -898,7 +862,7 @@
 /* ========== ASTRONOMICAL PHENOMENA ========== */
 
 /* Pulsar — rhythmic flash of neutron star, blue-white on void */
-[data-theme='pulsar'] {
+/* [data-theme='pulsar'] {
   --primary-start: #e3f2fd;
   --primary-mid: #42a5f5;
   --primary-end: #0d47a1;
@@ -913,7 +877,7 @@
   --surface: #080c18;
   --surface-light: #1a2438;
   --surface-lighter: #243048;
-}
+} */
 
 /* Solar flare — plasma eruption, white-hot to magnetic blue */
 [data-theme='solar-flare'] {
@@ -934,7 +898,7 @@
 }
 
 /* Red dwarf — dying star, deep crimson fading to nothing */
-[data-theme='red-dwarf'] {
+/* [data-theme='red-dwarf'] {
   --primary-start: #e53935;
   --primary-mid: #8e1a1a;
   --primary-end: #3c0a0a;
@@ -949,7 +913,7 @@
   --surface: #160a0a;
   --surface-light: #2e1818;
   --surface-lighter: #2e1818;
-}
+} */
 
 /* Comet tail — icy blue-white streaking through warm dust */
 [data-theme='comet'] {

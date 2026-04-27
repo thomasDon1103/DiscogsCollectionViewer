@@ -14,10 +14,12 @@ export const styleThemeMap: ReadonlyMap<string, string> = new Map([
   ["Ember", "ember"],
   ["Midnight", "midnight"],
   ["Gold", "gold"],
+  ["Espresso", "espresso"],
 ]);
 
 /** Themes from themes.css — Basic theme collection */
 export const themesMap: ReadonlyMap<string, string> = new Map([
+  ["Velvet", "velvet"],
   ["Aurora", "aurora"],
   ["Nebula", "nebula"],
   ["Tropical", "tropical"],
@@ -29,39 +31,56 @@ export const themesMap: ReadonlyMap<string, string> = new Map([
   ["Desert Dusk", "desert-dusk"],
   ["Deep Space", "deep-space"],
   ["Jungle", "jungle"],
+  // Synesthetic Taste
+  ["Umami", "umami"],
+  ["Sour", "sour"],
+  ["Bitter", "bitter"],
+  ["Spice", "spice"],
+  ["Silk", "silk"],
+  ["Ugly Beautiful", "ugly-beautiful"],
+  // Liminal Spaces
+  ["Empty Mall", "empty-mall"],
+  ["Hotel Hallway", "hotel-hallway"],
+  ["Pool 2AM", "pool-2am"],
+  ["Backrooms", "backrooms"],
+  ["Memento Mori", "memento-mori"],
+  ["Bubble Gum Floss", "bubble-gum-floss"],
+  ["Forest Fire", "forest-fire"],
+  ["Afternoon Sand", "afternoon-sand"],
+  ["Vapor Pastel", "vapor-pastel"],
+  ["Clay Deposit", "clay-deposit"]
 ]);
 
 /** Themes from themesPlus.css — Extended theme collection */
 export const themesPlusMap: ReadonlyMap<string, string> = new Map([
   // Elegant & Classic
-  ["Velvet", "velvet"],
   ["Chrome", "chrome"],
   ["Editorial", "editorial"],
 
   // Neon & Electric
   ["Rave", "rave"],
   ["Hologram", "hologram"],
-  ["Hazard", "hazard"],
+  // ["Hazard", "hazard"],
 
   // Nature & Earth
   ["Terracotta", "terracotta"],
   ["Moss", "moss"],
-  ["Lavender", "lavender"],
-  ["Harvest", "harvest"],
+  // ["Lavender", "lavender"],
+  // ["Harvest", "harvest"],
 
   // Experimental & Unusual
-  ["Paradox", "paradox"],
+  // ["Paradox", "paradox"],
   ["Noir", "noir"],
-  ["Duochrome", "duochrome"],
+  // ["Duochrome", "duochrome"],
   ["Bleached", "bleached"],
-  ["Patina", "patina"],
+  // ["Patina", "patina"],
   ["Bruise", "bruise"],
 
   // Cosmic & Sci-Fi
-  ["Mars", "mars"],
-  ["Bioluminescent", "bioluminescent"],
-  ["Supernova", "supernova"],
-  ["Wormhole", "wormhole"],
+  // ["Mars", "mars"],
+  // ["Bioluminescent", "bioluminescent"],
+  // ["Supernova", "supernova"],
+  // ["Wormhole", "wormhole"],
 
   // Moody & Atmospheric
   ["Storm", "storm"],
@@ -74,15 +93,14 @@ export const themesPlusMap: ReadonlyMap<string, string> = new Map([
   ["VHS", "vhs"],
 
   // Mineral & Gem
-  ["Amethyst", "amethyst"],
+  // ["Amethyst", "amethyst"],
   ["Obsidian", "obsidian"],
   ["Opal", "opal"],
-  ["Ruby", "ruby"],
-  ["Sapphire", "sapphire"],
-  ["Emerald", "emerald"],
+  // ["Ruby", "ruby"],
+  // ["Sapphire", "sapphire"],
+  // ["Emerald", "emerald"],
 
   // Food & Drink
-  ["Espresso", "espresso"],
   ["Matcha", "matcha"],
 
   // Weather & Atmosphere
@@ -90,41 +108,42 @@ export const themesPlusMap: ReadonlyMap<string, string> = new Map([
   ["Monsoon", "monsoon"],
 
   // Abstract & Artistic
-  ["Rothko", "rothko"],
-  ["Mondrian", "mondrian"],
+  // ["Rothko", "rothko"],
+  // ["Mondrian", "mondrian"],
   ["Glitch", "glitch"],
   ["Vaporwave", "vaporwave"],
 
   // Geography & Culture
   ["Tokyo", "tokyo"],
   ["Fjord", "fjord"],
-  ["Sahara", "sahara"],
-  ["Tundra", "tundra"],
-  ["Bazaar", "bazaar"],
+  // ["Sahara", "sahara"],
+  // ["Tundra", "tundra"],
+  // ["Bazaar", "bazaar"],
 
   // Seasons
   ["Winter Berry", "winter-berry"],
   ["Spring", "spring"],
   ["Indian Summer", "indian-summer"],
+  ["Fractal", "fractal"],
 ]);
 
 /** Themes from themesPlusPlus.css — Experimental & avant-garde collection */
 export const themesPlusPlusMap: ReadonlyMap<string, string> = new Map([
   // Synesthesia
-  ["Cello", "cello"],
+  // ["Cello", "cello"],
   ["White Noise", "white-noise"],
-  ["Bass Drop", "bass-drop"],
+  // ["Bass Drop", "bass-drop"],
 
   // Impossible Physics
-  ["Antimatter", "antimatter"],
+  // ["Antimatter", "antimatter"],
   ["Dark Matter", "dark-matter"],
-  ["Quantum", "quantum"],
+  // ["Quantum", "quantum"],
   ["Event Horizon", "event-horizon"],
 
   // Emotional States
-  ["Euphoria", "euphoria"],
+  // ["Euphoria", "euphoria"],
   ["Melancholy", "melancholy"],
-  ["Vertigo", "vertigo"],
+  // ["Vertigo", "vertigo"],
   ["Nostalgia", "nostalgia"],
   ["Insomnia", "insomnia"],
 
@@ -136,34 +155,32 @@ export const themesPlusPlusMap: ReadonlyMap<string, string> = new Map([
 
   // Forbidden Palettes
   ["Forbidden Xmas", "forbidden-xmas"],
-  ["Ugly Beautiful", "ugly-beautiful"],
   ["Pumpkin Witch", "pumpkin-witch"],
-  ["Mustard Navy", "mustard-navy"],
+  // ["Mustard Navy", "mustard-navy"],
 
   // Temporal
-  ["4AM", "4am"],
-  ["Solar Noon", "solar-noon"],
-  ["Blue Hour", "blue-hour"],
-  ["Witching Hour", "witching-hour"],
+  // ["4AM", "4am"],
+  // ["Solar Noon", "solar-noon"],
+  // ["Blue Hour", "blue-hour"],
+  // ["Witching Hour", "witching-hour"],
 
   // Texture as Color
   ["Wet Concrete", "wet-concrete"],
-  ["Silk", "silk"],
-  ["Charcoal", "charcoal"],
-  ["Mercury", "mercury"],
-  ["Neon Sign", "neon-sign"],
+  // ["Charcoal", "charcoal"],
+  // ["Mercury", "mercury"],
+  // ["Neon Sign", "neon-sign"],
 
   // Biological
-  ["Mycelium", "mycelium"],
+  // ["Mycelium", "mycelium"],
   ["Jellyfish", "jellyfish"],
-  ["Chlorophyll", "chlorophyll"],
+  // ["Chlorophyll", "chlorophyll"],
   ["Coral Bleach", "coral-bleach"],
 
   // Glitch & Digital
   ["Dead Pixel", "dead-pixel"],
   ["Corrupted", "corrupted"],
   ["BSOD", "bsod"],
-  ["Matrix", "matrix"],
+  ["Monster", "monster"],
 
   // Culinary Extremes
   ["Wasabi", "wasabi"],
@@ -171,91 +188,86 @@ export const themesPlusPlusMap: ReadonlyMap<string, string> = new Map([
   ["Burnt Sugar", "burnt-sugar"],
 
   // Architectural
-  ["Brutalist", "brutalist"],
-  ["Art Deco", "art-deco"],
-  ["Gothic", "gothic"],
+  // ["Brutalist", "brutalist"],
+  // ["Art Deco", "art-deco"],
+  // ["Gothic", "gothic"],
   ["Solarpunk", "solarpunk"],
 
   // Dreamscape
-  ["Lucid", "lucid"],
+  // ["Lucid", "lucid"],
   ["Sleep Paralysis", "sleep-paralysis"],
   ["Déjà Vu", "deja-vu"],
   ["Fever", "fever"],
 
   // Astronomical Phenomena
-  ["Pulsar", "pulsar"],
+  // ["Pulsar", "pulsar"],
   ["Solar Flare", "solar-flare"],
-  ["Red Dwarf", "red-dwarf"],
+  // ["Red Dwarf", "red-dwarf"],
   ["Comet", "comet"],
 ]);
 
 /** Themes from themesPlusPlusPlus.css — Most experimental collection */
 export const themesPlusPlusPlusMap: ReadonlyMap<string, string> = new Map([
   // Optical Illusions
-  ["Afterimage", "afterimage"],
-  ["Chromatic", "chromatic"],
+  // ["Afterimage", "afterimage"],
+  // ["Chromatic", "chromatic"],
   ["Moiré", "moire"],
   ["Blind Spot", "blind-spot"],
 
   // Wrong on Purpose
   ["Clown", "clown"],
-  ["Sunburn", "sunburn"],
+  // ["Sunburn", "sunburn"],
   ["Bruised Banana", "bruised-banana"],
   ["Static Cling", "static-cling"],
 
-  // Synesthetic Taste
-  ["Umami", "umami"],
-  ["Sour", "sour"],
-  ["Bitter", "bitter"],
-  ["Spice", "spice"],
-
   // Impossible Materials
-  ["Transparent Aluminum", "transparent-aluminum"],
-  ["Vantablack Rainbow", "vantablack-rainbow"],
+  // ["Transparent Aluminum", "transparent-aluminum"],
+  // ["Vantablack Rainbow", "vantablack-rainbow"],
   ["Aerogel", "aerogel"],
   ["Liquid Nitrogen", "liquid-nitrogen"],
+  ["Shoegaze", "shoegaze"],
 
   // Emotional Paradoxes
-  ["Bittersweet", "bittersweet"],
+  // ["Bittersweet", "bittersweet"],
   ["Calm Panic", "calm-panic"],
-  ["Joyful Grief", "joyful-grief"],
+  // ["Joyful Grief", "joyful-grief"],
   ["Comfortable Dread", "comfortable-dread"],
 
   // Corrupted Nature
-  ["Radioactive Forest", "radioactive-forest"],
+  // ["Radioactive Forest", "radioactive-forest"],
   ["Inverted Ocean", "inverted-ocean"],
   ["Petrified", "petrified"],
-  ["Toxic Bloom", "toxic-bloom"],
+  // ["Toxic Bloom", "toxic-bloom"],
 
   // Dimensional Shifts
   ["Flatland", "flatland"],
   ["Tesseract", "tesseract"],
   ["Mirror", "mirror"],
-  ["Void Echo", "void-echo"],
+  // ["Void Echo", "void-echo"],
 
   // Micro World
   ["Prism", "prism"],
-  ["Beetle", "beetle"],
+  // ["Beetle", "beetle"],
   ["Soap Bubble", "soap-bubble"],
   ["Crystal Lattice", "crystal-lattice"],
 
   // Temporal Paradox
-  ["Retro Future", "retro-future"],
+  // ["Retro Future", "retro-future"],
   ["Ancient Neon", "ancient-neon"],
-  ["Fossil Fuel", "fossil-fuel"],
+  // ["Fossil Fuel", "fossil-fuel"],
   ["Y2K", "y2k"],
 
   // Weather Extremes
   ["Ball Lightning", "ball-lightning"],
-  ["Dust Devil", "dust-devil"],
+  // ["Dust Devil", "dust-devil"],
   ["Ice Storm", "ice-storm"],
   ["Volcanic Lightning", "volcanic-lightning"],
 
   // Alien Worlds
   ["Methane Sunset", "methane-sunset"],
-  ["Titan Lake", "titan-lake"],
-  ["Europa", "europa"],
-  ["Io Sulfur", "io-sulfur"],
+  // ["Titan Lake", "titan-lake"],
+  // ["Europa", "europa"],
+  // ["Io Sulfur", "io-sulfur"],
 
   // Psychological
   ["Hyperfocus", "hyperfocus"],
@@ -267,35 +279,28 @@ export const themesPlusPlusPlusMap: ReadonlyMap<string, string> = new Map([
 /** Themes from themesPlusPlusPlusPlus.css — The final frontier */
 export const themesPlusPlusPlusPlusMap: ReadonlyMap<string, string> = new Map([
   // Phantom Senses
-  ["Infrared", "infrared"],
-  ["Ultraviolet", "ultraviolet"],
+  // ["Infrared", "infrared"],
+  // ["Ultraviolet", "ultraviolet"],
   ["Echolocation", "echolocation"],
-  ["Magnetoreception", "magnetoreception"],
+  // ["Magnetoreception", "magnetoreception"],
   ["Proprioception", "proprioception"],
 
   // Mathematical Beauty
-  ["Golden Ratio", "golden-ratio"],
+  // ["Golden Ratio", "golden-ratio"],
   ["Pi", "pi"],
   ["Infinity", "infinity"],
-  ["Fractal", "fractal"],
 
   // Forbidden Combinations
   ["Toothpaste OJ", "toothpaste-oj"],
   ["Ketchup Ice Cream", "ketchup-icecream"],
   ["Neon Overload", "neon-overload"],
-  ["Camo Fail", "camo-fail"],
-
-  // Liminal Spaces
-  ["Empty Mall", "empty-mall"],
-  ["Hotel Hallway", "hotel-hallway"],
-  ["Pool 2AM", "pool-2am"],
-  ["Backrooms", "backrooms"],
+  // ["Camo Fail", "camo-fail"],
 
   // Glitch Biology
-  ["DNA Corrupt", "dna-corrupt"],
+  // ["DNA Corrupt", "dna-corrupt"],
   ["Mitosis", "mitosis"],
-  ["Virus", "virus"],
-  ["Symbiosis", "symbiosis"],
+  // ["Virus", "virus"],
+  // ["Symbiosis", "symbiosis"],
 
   // Sensory Overload
   ["Tinnitus", "tinnitus"],
@@ -304,13 +309,13 @@ export const themesPlusPlusPlusPlusMap: ReadonlyMap<string, string> = new Map([
   ["ASMR", "asmr"],
 
   // Wrong Physics
-  ["Negative Gravity", "negative-gravity"],
+  // ["Negative Gravity", "negative-gravity"],
   ["Time Reversal", "time-reversal"],
   ["Absolute Zero", "absolute-zero"],
   ["Heat Death", "heat-death"],
 
   // Cultural Glitch
-  ["Inverted Wedding", "inverted-wedding"],
+  // ["Inverted Wedding", "inverted-wedding"],
   ["Broken Glass", "broken-glass"],
   ["Neon Temple", "neon-temple"],
   ["Faded Propaganda", "faded-propaganda"],
@@ -323,7 +328,6 @@ export const themesPlusPlusPlusPlusMap: ReadonlyMap<string, string> = new Map([
 
   // Synesthetic Music Genres
   ["Doom Metal", "doom-metal"],
-  ["Shoegaze", "shoegaze"],
   ["Harsh Noise", "harsh-noise"],
   ["Ambient", "ambient"],
 
@@ -331,7 +335,6 @@ export const themesPlusPlusPlusPlusMap: ReadonlyMap<string, string> = new Map([
   ["Emergence", "emergence"],
   ["Theseus", "theseus"],
   ["Sisyphus", "sisyphus"],
-  ["Memento Mori", "memento-mori"],
 ]);
 
 /**

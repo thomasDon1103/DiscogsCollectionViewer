@@ -47,7 +47,7 @@
                                             <div class="flex" v-for="(format, index) in props.albumInfo?.formats">
                                                 <p class="text-left text-lg">&nbsp;{{ format.name }}</p>
                                                 <p v-if="format.text" class="text-left text-lg">&nbsp;- {{ format.text
-                                                    }}
+                                                }}
                                                 </p>
                                                 <p v-if="index != props.albumInfo?.formats?.length as number - 1">,</p>
                                             </div>

@@ -1,5 +1,5 @@
 <template>
-    <div class="w-150 h-150 mt-5">
+    <div class="w-full 2xl:h-150 2xl:mt-5">
         <swiper :effect="'coverflow'" :grabCursor="true" :centeredSlides="true" :slidesPerView="'auto'" :keyboard="true"
             :navigation="true" :initial-slide="props.currentIndex" @swiper="onSwiper" @slideChange="onSlideChange"
             :virtual="{
@@ -18,20 +18,22 @@
                 stretch: 0,
                 depth: 125,
                 modifier: 1,
-                slideShadows: true,
-            }" :modules="modules" class="mySwiper w-full">
+                slideShadows: false,
+            }" :modules="modules" class="mySwiper w-full h-115 2xl:h-full">
             <swiper-slide v-for="(release, index) in props.collectionData!.releases" :key="index" class="w-full">
                 <div id="albumCard w-full"
                     class="transition-[opacity,transform] duration-500 ease-in-out flex flex-col items-center justify-center mb-2 w-full">
-                    <div class="rounded-2xl overflow-hidden w-3/5 sm:w-100 h-80 sm:h-full transition-[transform,box-shadow] duration-300" :class="{
-                        'cursor-pointer hover:scale-[1.02]': index !== currentIndex,
-                        'ring-2 ring-white/20': index === currentIndex
-                    }" @click="index !== currentIndex && goToRelease(index)">
+                    <div class="rounded-2xl overflow-hidden w-70 lg:w-50 xl:w-75 2xl:w-100 h-fit transition-[transform,box-shadow] duration-300"
+                        :class="{
+                            'cursor-pointer hover:scale-[1.02]': index !== currentIndex,
+                            'ring-2 ring-white/20': index === currentIndex
+                        }" @click="index !== currentIndex && goToRelease(index)">
                         <div class="relative">
                             <img :src="release.basic_information.cover_image" :alt="release.basic_information.title"
                                 class="w-full aspect-square object-cover" draggable="false" loading="lazy"
                                 decoding="async"
-                                @dblclick="handleAlbumDoubleClick(props.collectionData!.releases[index].id)" />
+                                @dblclick="handleAlbumDoubleClick(props.collectionData!.releases[index].id)"
+                                @touchstart="handleTouchDoubleTap($event, props.collectionData!.releases[index].id)" />
                             <!-- Subtle gradient overlay at bottom of image -->
                             <div v-show="index === currentIndex"
                                 class="absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-black/30 to-transparent w-full">
@@ -43,7 +45,7 @@
                             </div>
                         </div>
                         <Transition>
-                            <div v-if="index === currentIndex" class="p-2 sm:p-6 bg-surface-light/95">
+                            <div v-if="index === currentIndex" class="p-2 2xl:p-6 bg-surface-light/95">
                                 <p class="font-bold text-md sm:text-xl mb-1 leading-tight truncate">{{
                                     release.basic_information.title }}</p>
                                 <p class="text-primary-text/60 text-base mb-1 sm:mb-4 truncate">
@@ -130,6 +132,19 @@ const handleAlbumDoubleClick = (albumID: number) => {
     emit("albumSelected", albumID);
 }
 
+
+// Touch screen is annoying
+const lastTouch = ref(0);
+const handleTouchDoubleTap = (event: TouchEvent, id: number) => {
+    const now = Date.now();
+    const DOUBLE_TAP_DELAY = 300; // ms
+
+    if (now - lastTouch.value < DOUBLE_TAP_DELAY) {
+        handleAlbumDoubleClick(id);
+        event.preventDefault(); // Prevent zoom
+    }
+    lastTouch.value = now;
+};
 </script>
 
 <style scoped>
