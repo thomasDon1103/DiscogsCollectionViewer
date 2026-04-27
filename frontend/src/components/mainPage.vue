@@ -4,16 +4,18 @@
   <div class="max-w-1/8 w-1/4 absolute h-screen">
     <SideBar>
       <!-- All Sidebar Elements -->
-      <div class="flex flex-col h-screen">
+      <div class="flex flex-col h-full">
         <!-- Format Filter Buttons -->
         <div class="h-5/6 flex flex-col">
           <h3 class="text-xl font-bold pb-4">Format Filtering</h3>
           <div class="flex pb-4 justify-center items-center">
-            <button class="styleButton mr-3 w-18 h-10 flex items-center justify-center transition-[background-color,box-shadow,transform] duration-300"
+            <button
+              class="styleButton mr-3 w-18 h-10 flex items-center justify-center transition-[background-color,box-shadow,transform] duration-300"
               :class="{ 'gradientButton': vinylFilterOn }" @click="vinylFilterToggle">
               <minimalistVinyl></minimalistVinyl>
             </button>
-            <button class="styleButton ml-3 w-18 h-10 flex items-center justify-center transition-[background-color,box-shadow,transform] duration-300"
+            <button
+              class="styleButton ml-3 w-18 h-10 flex items-center justify-center transition-[background-color,box-shadow,transform] duration-300"
               :class="{ 'gradientButton': cassetteFilterOn }" @click="cassetteFilterToggle">
               <minimalistCassette></minimalistCassette>
             </button>
@@ -27,9 +29,10 @@
           </div>
         </div>
         <!-- Sign Out Button -->
-        <div class="h-1/6">
+        <div class="h-1/6 flex flex-col items-center">
+          <h3 class="text-xl font-bold pb-4">Log In Options</h3>
           <button @click="resetForm" :disabled="!showCollection"
-          class="styleButton flex items-center gap-2.5 px-5 py-2.5 font-bold text-sm sm:text-md active:scale-95 transition-[background-color,transform,opacity] duration-500">
+            class="styleButton flex items-center gap-2.5 px-5 py-2.5 font-bold text-sm 2xl:text-md active:scale-95 transition-[background-color,transform,opacity] duration-500">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="15 18 9 12 15 6"></polyline>
@@ -95,7 +98,7 @@
       enter-from-class="opacity-0 -translate-y-4" enter-to-class="opacity-100 translate-y-0"
       leave-active-class="transition-all duration-300 ease-in" leave-from-class="opacity-100 translate-y-0"
       leave-to-class="opacity-0 -translate-y-4">
-      <div v-if="showCollection" class="flex flex-col items-center justify-center gap-4 mb-5 sm:mb-10">
+      <div v-if="showCollection" class="flex flex-col items-center justify-center gap-4 mb-5 2xl:mb-10">
         <div class="flex h-10">
           <div class="px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full border border-white/10">
             <span class="text-sm">Viewing</span>
@@ -109,14 +112,14 @@
             <Select v-model="selectedGenre" :options="collectionGenres" placeholder="What are you in the mood for?"
               @change="handleFilter" :virtualScrollerOptions="{ itemSize: 38, showLoader: false }" :pt="{
                 root: { class: 'bg-white/10 !border border-white/10 flex justify-center ' },
-                label: { class: 'text-sm sm:text-md font-bold' },
+                label: { class: 'text-sm 2xl:text-md font-bold' },
                 panel: { class: 'bg-transparent' },
                 overlay: { class: 'flex justify-center ' },
-                option: { class: 'text-xs sm:text-base hover:cursor-pointer flex items-center justify-center gap-2.5 px-5 py-2.5 w-full hover:bg-white/20 rounded-full text-center active:scale-95 transition-all duration-500 my-1' },
+                option: { class: 'text-xs 2xl:text-base hover:cursor-pointer flex items-center justify-center gap-2.5 px-5 py-2.5 w-full hover:bg-white/20 rounded-full text-center active:scale-95 transition-all duration-500 my-1' },
                 list: { class: 'text-center' },
                 listContainer: { class: 'bg-primary-gradient rounded-lg gap-5 px-5 py-2.5 w-3/4 m-3 border border-white/10 shadow shadow-primary-shadow/30 shadow-xl' }
               }"
-              class="hover:cursor-pointer w-50 sm:w-80 flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-white/10 hover:bg-white/20 hover:border-white/20 active:scale-95 transition-[background-color,border-color,transform] duration-500 bg-white/10 "></Select>
+              class="hover:cursor-pointer w-80 flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-white/10 hover:bg-white/20 hover:border-white/20 active:scale-95 transition-[background-color,border-color,transform] duration-500 bg-white/10 "></Select>
           </div>
         </div>
       </div>
@@ -164,7 +167,7 @@
       <div v-if="showCollection" class="w-full mx-auto">
         <!-- Collection Header -->
         <div>
-          <h3 class="text-center text-xl sm:text-3xl font-bold sm:mb-4">
+          <h3 class="text-center text-2xl 2xl:text-3xl font-bold mb-2 2xl:mb-0">
             {{ totalItems }} Albums
           </h3>
           <p class="text-primary-text/40 text-sm">
@@ -182,7 +185,7 @@
         </div>
 
         <!-- Carousel -->
-        <div class="py-1 sm:py-6  sm:min-h-100 w-full">
+        <div class="py-1 2xl:py-6  2xl:min-h-100 w-full">
           <Transition enter-active-class="transition-all duration-300 ease-out delay-300"
             enter-from-class="opacity-0 -translate-y-4" enter-to-class="opacity-100 translate-y-0"
             leave-active-class="transition-all duration-300 ease-in" leave-from-class="opacity-100 translate-y-0"
@@ -206,7 +209,7 @@
           leave-to-class="opacity-0 -translate-y-4">
           <div v-if="totalItems != 0">
             <!-- Progress indicator -->
-            <div class="flex items-center justify-center gap-3 sm:mt-4">
+            <div class="flex items-center justify-center gap-3 2xl:mt-4">
               <span class="text-primary-text/30 text-sm font-medium tabular-nums">{{ currentIndex + 1 }}</span>
               <div class="w-48 h-1 bg-white/10 rounded-full overflow-hidden relative">
                 <!-- Loaded portion background (shows how much of the collection is fetched) -->
@@ -220,7 +223,7 @@
               <span class="text-primary-text/30 text-sm font-medium tabular-nums">{{ totalItems }}</span>
             </div>
             <!-- Keyboard hint -->
-            <div class="hidden mt-6 sm:flex sm:flex-col items-center justify-center gap-4 text-xs">
+            <div class="hidden mt-6 2xl:flex 2xl:flex-col items-center justify-center gap-4 text-xs">
               <div class="flex items-center gap-1.5">
                 <kbd class="px-2 py-0.5 bg-white/5 border border-white/10 rounded text-[10px] font-mono">&larr;</kbd>
                 <kbd class="px-2 py-0.5 bg-white/5 border border-white/10 rounded text-[10px] font-mono">&rarr;</kbd>
@@ -234,7 +237,7 @@
             <!-- Random Albun Button -->
             <div class="flex items-center justify-center gap-4 mb-4 mt-4">
               <button @click="randomAlbum"
-                class="group w-60 sm:w-72 sm:h-12 rounded-2xl flex items-center justify-center gradientButton text-sm sm:text-lg font-bold transition-[background-position,box-shadow,transform] duration-300">
+                class="group w-60 2xl:w-72 2xl:h-12 rounded-2xl flex items-center justify-center gradientButton text-sm 2xl:text-lg font-bold transition-[background-position,box-shadow,transform] duration-300">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                   stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                   class="group-hover:animate-spin">
@@ -301,9 +304,9 @@ const filteredCollectionData = computed(() => {
   // Build allowed formats set for O(1) lookup
   const allowedFormats: Set<string> | null = hasFormatFilter
     ? new Set([
-        ...(vinylFilterOn.value ? ['Vinyl'] : []),
-        ...(cassetteFilterOn.value ? ['Cassette'] : []),
-      ])
+      ...(vinylFilterOn.value ? ['Vinyl'] : []),
+      ...(cassetteFilterOn.value ? ['Cassette'] : []),
+    ])
     : null;
 
   // Single pass filter instead of multiple array spreads
@@ -366,8 +369,8 @@ let startAudio: HTMLAudioElement | null = null;
 //     return swipeAudio;
 // };
 const getStartAudio = () => {
-    if (!startAudio) startAudio = new Audio('sounds/startup.mp3');
-    return startAudio;
+  if (!startAudio) startAudio = new Audio('sounds/startup.mp3');
+  return startAudio;
 };
 
 
