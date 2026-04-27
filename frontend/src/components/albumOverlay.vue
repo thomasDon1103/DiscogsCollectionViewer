@@ -9,15 +9,16 @@
                 <div class="flex flex-col h-full w-full">
                     <!-- Title Box -->
                     <div class="flex flex-col bg-white/10 rounded-lg p-3 mb-3">
-                        <h1 class="text-6xl -skew-x-6 font-bold text-shadow-lg text-shadow-primary-end">{{
-                            props.albumInfo?.artists[0].name }} - {{
+                        <h1 class="xl:text-4xl 2xl:text-6xl -skew-x-6 font-bold text-shadow-lg text-shadow-primary-end">
+                            {{
+                                props.albumInfo?.artists[0].name }} - {{
                                 props.albumInfo?.title }}</h1>
                         <div class="bg-primary-end/70 rounded-lg shadow-lg w-full mt-2 h-2"></div>
                     </div>
 
                     <!-- Album Image and Info -->
                     <div class="flex flex-row ">
-                        <div class="bg-white/10 rounded-lg p-3 w-1/2">
+                        <div class="bg-white/10 rounded-lg p-3 w-1/2 mr-3">
                             <img :src="displayedImage" :alt="albumInfo?.title"
                                 class="aspect-square object-cover rounded-lg w-full" draggable="false" />
                         </div>
@@ -26,7 +27,7 @@
                             <div class="w-full flex flex-row">
                                 <!-- Release Info -->
                                 <div
-                                    class="bg-white/10 rounded-lg p-3 ml-3 w-2/3 sm:h-100 overflow-scroll overflow-x-hidden">
+                                    class="bg-white/10 rounded-lg p-3 w-2/3 sm:h-100 overflow-scroll overflow-x-hidden">
                                     <h1 class="font-bold text-2xl -skew-x-6">Release Information</h1>
                                     <div class="bg-primary-end/70 rounded-lg shadow-lg w-full mt-1 mb-2 h-1"></div>
                                     <div class="flex flex-col items-start w-full">
@@ -88,7 +89,7 @@
                                 </div>
                             </div>
 
-                            <div class="bg-white/10 rounded-lg p-3 mt-3 ml-3 w-full h-full flex flex-col">
+                            <div class="bg-white/10 rounded-lg p-3 mt-3  w-full h-full flex flex-col">
                                 <p class="font-bold text-2xl -skew-x-6">Your Notes:</p>
                                 <div class="bg-primary-end/70 rounded-lg shadow-lg w-full mt-1 mb-2 h-1"></div>
 
