@@ -131,7 +131,8 @@
       leave-active-class="transition-all duration-400 ease-in" leave-from-class="opacity-100 translate-y-0 scale-100"
       leave-to-class="opacity-0 -translate-y-8 scale-95" @after-leave="handleFormGone">
       <div v-if="showForm" class="max-w-md mx-auto">
-        <loginForm :loading="loading" :form-data="formData" @submit="handleSubmit"></loginForm>
+        <loginForm :loading="loading" :form-data="formData" @submit="handleSubmit"
+          @oauth-authenticated="handleOAuthAuthenticated" @backend-error="handleBackendError"></loginForm>
       </div>
     </Transition>
 
@@ -261,7 +262,7 @@
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue';
 import type { DiscogsCollectionResponse } from '../types/DiscogsCollectionInfo';
-import { discogsService } from '../services/api';
+import { discogsService, BackendUnreachableError } from '../services/api';
 import loginForm, { LoginFormData } from './loginForm.vue'
 import Select from 'primevue/select';
 // import albumCarousel from "./albumCarousel.vue"
@@ -406,6 +407,21 @@ const handleCarouselGone = () => {
   }
 }
 
+const handleOAuthAuthenticated = (username: string) => {
+  // After a successful OAuth handshake the form pre-fills the username for us.
+  // Kick off the collection fetch automatically so the user lands directly in
+  // their collection.
+  formData.value.username = username;
+  handleSubmit();
+};
+
+// Surface backend connectivity errors raised from inside the login form
+// (status check on mount, OAuth login, logout, etc.) in the same red error
+// panel used for collection-fetch failures.
+const handleBackendError = (message: string) => {
+  error.value = `Backend unreachable: ${message}`;
+};
+
 const handleSubmit = async () => {
   loading.value = true;
   error.value = null;
@@ -433,7 +449,11 @@ const handleSubmit = async () => {
       fetchRemainingPages(data.pagination.pages);
     }
   } catch (err) {
-    error.value = (err as Error).message;
+    if (err instanceof BackendUnreachableError) {
+      error.value = `Backend unreachable: ${(err as Error).message}`;
+    } else {
+      error.value = (err as Error).message;
+    }
     playAudio = false;
   } finally {
     loading.value = false;
@@ -509,7 +529,11 @@ const handleAlbumSelected = async (
 
     showAlbumOverlay.value = true;
   } catch (err) {
-    error.value = (err as Error).message;
+    if (err instanceof BackendUnreachableError) {
+      error.value = `Backend unreachable: ${(err as Error).message}`;
+    } else {
+      error.value = (err as Error).message;
+    }
   }
 };
 
